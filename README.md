@@ -7,7 +7,7 @@ The API is implemented as a native Node.js module, utilizing [Node-API](https://
 ## Supported Formats
 
 ### Read and Write Formats
-- **Microsoft Word┬о:** DOC, DOT, DOCX, DOTX, DOTM, FlatOpc, FlatOpcMacroEnabled, FlatOpcTemplate, FlatOpcTemplateMacroEnabled, RTF, Microsoft Word 2003 WordprocessingML
+- **Microsoft Word:** DOC, DOT, DOCX, DOTX, DOTM, FlatOpc, FlatOpcMacroEnabled, FlatOpcTemplate, FlatOpcTemplateMacroEnabled, RTF, Microsoft Word 2003 WordprocessingML
 - **OpenDocument:** ODT, OTT
 - **Web:** HTML, MHTML
 - **Markdown:** MD
@@ -15,7 +15,7 @@ The API is implemented as a native Node.js module, utilizing [Node-API](https://
 - **eBook:** AZW3, EPUB, MOBI, CHM
 
 ### Read-Only Formats
-- **Microsoft Word┬о:** DocPreWord60
+- **Microsoft Word:** DocPreWord60
 - **Other:** XML (XML Document)
 
 ### Write-Only Formats
@@ -106,6 +106,6 @@ license.setLicense(data);
 ```
 
 ## Supported Platforms
-The first release only supports Microsoft Windows┬о x64 platform and Node.js 14.17.0 or higher.
+The first release only supports Microsoft Windows x64 platform and Node.js 14.17.0 or higher.
 
-[Product Page](https://products.aspose.com/words/nodejs-net/) | [Demos](https://products.aspose.app/words/family) | [Examples](https://github.com/alexey-butalov-aspose/Aspose.Words-for-Node.js-via-.NET/tree/main/ApiExamples) | [Blog](https://blog.aspose.com/category/words/) | [Search](https://search.aspose.com/) | [Free Support](https://forum.aspose.com/c/words) | [Temporary License](https://purchase.aspose.com/temporary-license)
+[Product Page](https://products.aspose.com/words/nodejs-net/) | [Demos](https://products.aspose.app/words/family) | [Examples](https://github.com/aspose-words/Aspose.Words-for-Node.js-via-.NET/tree/main/ApiExamples) | [Blog](https://blog.aspose.com/category/words/) | [Search](https://search.aspose.com/) | [Free Support](https://forum.aspose.com/c/words) | [Temporary License](https://purchase.aspose.com/temporary-license)
