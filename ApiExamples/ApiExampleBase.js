@@ -27,7 +27,7 @@ class ApiExampleBase {
     static setUnlimitedLicense()
     {
         // This is where the test license is on my development machine.
-        const testLicenseFileName = path.join(this.licenseDir, "Aspose.Total.Product.Family.lic");
+        const testLicenseFileName = path.join(this.licenseDir, "Aspose.Words.NodeJs.NET.lic");
     
         // This shows how to use an Aspose.Words license when you have purchased one.
         // You don't have to specify full path as shown here. You can specify just the 
