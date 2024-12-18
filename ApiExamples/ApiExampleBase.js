@@ -27,7 +27,7 @@ class ApiExampleBase {
     static setUnlimitedLicense()
     {
         // This is where the test license is on my development machine.
-        const testLicenseFileName = path.join(this.licenseDir, "Aspose.Words.NodeJs.NET.lic");
+        const testLicenseFileName = path.join(this.licenseDir, "Aspose.Total.Product.Family.lic");
     
         // This shows how to use an Aspose.Words license when you have purchased one.
         // You don't have to specify full path as shown here. You can specify just the 
@@ -60,8 +60,7 @@ class ApiExampleBase {
     /// <summary>
     /// Gets the path to the documents used by the code examples. Ends with a back slash.
     /// </summary>
-     static artifactsDir;
-    
+    static artifactsDir;
     /// <summary>
     /// Gets the path to the documents used by the code examples. Ends with a back slash.
     /// </summary>
@@ -93,7 +92,7 @@ class ApiExampleBase {
         this.codeBaseDir = __dirname;
         const dataDir =  path.join(this.codeBaseDir, "..", "Data");
         this.artifactsDir = path.join(dataDir, "Artifacts") + path.sep;
-        this.licenseDir = path.join(this.codeBaseDir, "..", "..") + path.sep;
+        this.licenseDir = path.join(dataDir, "License") + path.sep;
         this.goldsDir = path.join(dataDir, "Golds") + path.sep;
         this.myDir = dataDir + path.sep;
         this.imageDir = path.join(dataDir, "Images") + path.sep;
