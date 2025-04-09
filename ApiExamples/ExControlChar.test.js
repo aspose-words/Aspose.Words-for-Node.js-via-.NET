@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -8,6 +8,7 @@
 const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
+
 
 
 describe("ExControlChar", () => {
@@ -23,8 +24,8 @@ describe("ExControlChar", () => {
   test('CarriageReturn', () => {
     //ExStart
     //ExFor:ControlChar
-    //ExFor:aw.ControlChar.cr
-    //ExFor:aw.Node.getText
+    //ExFor:ControlChar.cr
+    //ExFor:Node.getText
     //ExSummary:Shows how to use control characters.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -49,31 +50,31 @@ describe("ExControlChar", () => {
 
   test('InsertControlChars', () => {
     //ExStart
-    //ExFor:aw.ControlChar.cell
-    //ExFor:aw.ControlChar.columnBreak
-    //ExFor:aw.ControlChar.crLf
-    //ExFor:aw.ControlChar.lf
-    //ExFor:aw.ControlChar.lineBreak
-    //ExFor:aw.ControlChar.lineFeed
-    //ExFor:aw.ControlChar.nonBreakingSpace
-    //ExFor:aw.ControlChar.pageBreak
-    //ExFor:aw.ControlChar.paragraphBreak
-    //ExFor:aw.ControlChar.sectionBreak
-    //ExFor:aw.ControlChar.cellChar
-    //ExFor:aw.ControlChar.columnBreakChar
-    //ExFor:aw.ControlChar.defaultTextInputChar
-    //ExFor:aw.ControlChar.fieldEndChar
-    //ExFor:aw.ControlChar.fieldStartChar
-    //ExFor:aw.ControlChar.fieldSeparatorChar
-    //ExFor:aw.ControlChar.lineBreakChar
-    //ExFor:aw.ControlChar.lineFeedChar
-    //ExFor:aw.ControlChar.nonBreakingHyphenChar
-    //ExFor:aw.ControlChar.nonBreakingSpaceChar
-    //ExFor:aw.ControlChar.optionalHyphenChar
-    //ExFor:aw.ControlChar.pageBreakChar
-    //ExFor:aw.ControlChar.paragraphBreakChar
-    //ExFor:aw.ControlChar.sectionBreakChar
-    //ExFor:aw.ControlChar.spaceChar
+    //ExFor:ControlChar.cell
+    //ExFor:ControlChar.columnBreak
+    //ExFor:ControlChar.crLf
+    //ExFor:ControlChar.lf
+    //ExFor:ControlChar.lineBreak
+    //ExFor:ControlChar.lineFeed
+    //ExFor:ControlChar.nonBreakingSpace
+    //ExFor:ControlChar.pageBreak
+    //ExFor:ControlChar.paragraphBreak
+    //ExFor:ControlChar.sectionBreak
+    //ExFor:ControlChar.cellChar
+    //ExFor:ControlChar.columnBreakChar
+    //ExFor:ControlChar.defaultTextInputChar
+    //ExFor:ControlChar.fieldEndChar
+    //ExFor:ControlChar.fieldStartChar
+    //ExFor:ControlChar.fieldSeparatorChar
+    //ExFor:ControlChar.lineBreakChar
+    //ExFor:ControlChar.lineFeedChar
+    //ExFor:ControlChar.nonBreakingHyphenChar
+    //ExFor:ControlChar.nonBreakingSpaceChar
+    //ExFor:ControlChar.optionalHyphenChar
+    //ExFor:ControlChar.pageBreakChar
+    //ExFor:ControlChar.paragraphBreakChar
+    //ExFor:ControlChar.sectionBreakChar
+    //ExFor:ControlChar.spaceChar
     //ExSummary:Shows how to add various control characters to a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

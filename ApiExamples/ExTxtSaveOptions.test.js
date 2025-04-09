@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -34,7 +34,7 @@ describe("ExTxtSaveOptions", () => {
   test.each([false,
     true])('PageBreaks', (forcePageBreaks) => {
     //ExStart
-    //ExFor:aw.Saving.TxtSaveOptionsBase.forcePageBreaks
+    //ExFor:TxtSaveOptionsBase.forcePageBreaks
     //ExSummary:Shows how to specify whether to preserve page breaks when exporting a document to plaintext.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -73,7 +73,7 @@ describe("ExTxtSaveOptions", () => {
   test.each([false,
     true])('AddBidiMarks', (addBidiMarks) => {
     //ExStart
-    //ExFor:aw.Saving.TxtSaveOptions.addBidiMarks
+    //ExFor:TxtSaveOptions.addBidiMarks
     //ExSummary:Shows how to insert Unicode Character 'RIGHT-TO-LEFT MARK' (U+200F) before each bi-directional Run in text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -116,7 +116,7 @@ describe("ExTxtSaveOptions", () => {
     aw.Saving.TxtExportHeadersFootersMode.PrimaryOnly,
     aw.Saving.TxtExportHeadersFootersMode.None])('ExportHeadersFooters', (txtExportHeadersFootersMode) => {
     //ExStart
-    //ExFor:aw.Saving.TxtSaveOptionsBase.exportHeadersFootersMode
+    //ExFor:TxtSaveOptionsBase.exportHeadersFootersMode
     //ExFor:TxtExportHeadersFootersMode
     //ExSummary:Shows how to specify how to export headers and footers to plain text format.
     let doc = new aw.Document();
@@ -187,9 +187,9 @@ describe("ExTxtSaveOptions", () => {
   test('TxtListIndentation', () => {
     //ExStart
     //ExFor:TxtListIndentation
-    //ExFor:aw.Saving.TxtListIndentation.count
-    //ExFor:aw.Saving.TxtListIndentation.character
-    //ExFor:aw.Saving.TxtSaveOptions.listIndentation
+    //ExFor:TxtListIndentation.count
+    //ExFor:TxtListIndentation.character
+    //ExFor:TxtSaveOptions.listIndentation
     //ExSummary:Shows how to configure list indenting when saving a document to plaintext.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -217,10 +217,11 @@ describe("ExTxtSaveOptions", () => {
     doc.save(base.artifactsDir + "TxtSaveOptions.TxtListIndentation.txt", txtSaveOptions);
 
     let docText = readTextFile(base.artifactsDir + "TxtSaveOptions.TxtListIndentation.txt");
+    const newLine = "\r\n";
 
-    expect(docText).toEqual("1. Item 1\r\n" +
-                            "   a. Item 2\r\n" +
-                            "      i. Item 3\r\n");
+    expect(docText).toEqual(`1. Item 1${newLine}` +
+                            `   a. Item 2${newLine}` +
+                            `      i. Item 3${newLine}`);
     //ExEnd
   });
 
@@ -228,7 +229,7 @@ describe("ExTxtSaveOptions", () => {
   test.each([false,
     true])('SimplifyListLabels', (simplifyListLabels) => {
     //ExStart
-    //ExFor:aw.Saving.TxtSaveOptions.simplifyListLabels
+    //ExFor:TxtSaveOptions.simplifyListLabels
     //ExSummary:Shows how to change the appearance of lists when saving a document to plaintext.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -277,9 +278,9 @@ describe("ExTxtSaveOptions", () => {
   test('ParagraphBreak', () => {
     //ExStart
     //ExFor:TxtSaveOptions
-    //ExFor:aw.Saving.TxtSaveOptions.saveFormat
+    //ExFor:TxtSaveOptions.saveFormat
     //ExFor:TxtSaveOptionsBase
-    //ExFor:aw.Saving.TxtSaveOptionsBase.paragraphBreak
+    //ExFor:TxtSaveOptionsBase.paragraphBreak
     //ExSummary:Shows how to save a .txt document with a custom paragraph break.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -310,7 +311,7 @@ describe("ExTxtSaveOptions", () => {
 
   test('Encoding', () => {
     //ExStart
-    //ExFor:aw.Saving.TxtSaveOptionsBase.encoding
+    //ExFor:TxtSaveOptionsBase.encoding
     //ExSummary:Shows how to set encoding for a .txt output document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -344,7 +345,7 @@ describe("ExTxtSaveOptions", () => {
   test.each([false,
     true])('PreserveTableLayout(%o)', (preserveTableLayout) => {
     //ExStart
-    //ExFor:aw.Saving.TxtSaveOptions.preserveTableLayout
+    //ExFor:TxtSaveOptions.preserveTableLayout
     //ExSummary:Shows how to preserve the layout of tables when converting to plaintext.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -390,7 +391,7 @@ describe("ExTxtSaveOptions", () => {
 
   test('MaxCharactersPerLine', () => {
     //ExStart
-    //ExFor:aw.Saving.TxtSaveOptions.maxCharactersPerLine
+    //ExFor:TxtSaveOptions.maxCharactersPerLine
     //ExSummary:Shows how to set maximum number of characters per line.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

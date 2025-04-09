@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,8 +21,8 @@ describe("ExPsSaveOptions", () => {
   test.each([false, true])('UseBookFoldPrintingSettings(%o)', (renderTextAsBookFold) => {
     //ExStart
     //ExFor:PsSaveOptions
-    //ExFor:aw.Saving.PsSaveOptions.saveFormat
-    //ExFor:aw.Saving.PsSaveOptions.useBookFoldPrintingSettings
+    //ExFor:PsSaveOptions.saveFormat
+    //ExFor:PsSaveOptions.useBookFoldPrintingSettings
     //ExSummary:Shows how to save a document to the Postscript format in the form of a book fold.
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
 

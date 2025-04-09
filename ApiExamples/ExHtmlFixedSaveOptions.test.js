@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,7 +23,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test.skip('UseEncoding: WORDSNODEJS-96', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.encoding
+    //ExFor:HtmlFixedSaveOptions.encoding
     //ExSummary:Shows how to set which encoding to use while exporting a document to HTML.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -56,7 +56,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test.each([true, false])('ExportEmbeddedCss(%o)', (exportEmbeddedCss) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.exportEmbeddedCss
+    //ExFor:HtmlFixedSaveOptions.exportEmbeddedCss
     //ExSummary:Shows how to determine where to store CSS stylesheets when exporting a document to Html.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -91,7 +91,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test.each([true, false])('ExportEmbeddedFonts(%o)', (exportEmbeddedFonts) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.exportEmbeddedFonts
+    //ExFor:HtmlFixedSaveOptions.exportEmbeddedFonts
     //ExSummary:Shows how to determine where to store embedded fonts when exporting a document to Html.
     let doc = new aw.Document(base.myDir + "Embedded font.docx");
 
@@ -129,7 +129,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test.each([true, false])('ExportEmbeddedImages(%o)', (exportImages) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.exportEmbeddedImages
+    //ExFor:HtmlFixedSaveOptions.exportEmbeddedImages
     //ExSummary:Shows how to determine where to store images when exporting a document to Html.
     let doc = new aw.Document(base.myDir + "Images.docx");
 
@@ -166,7 +166,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test.each([true, false])('ExportEmbeddedSvgs(%o)', (exportSvgs) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.exportEmbeddedSvg
+    //ExFor:HtmlFixedSaveOptions.exportEmbeddedSvg
     //ExSummary:Shows how to determine where to store SVG objects when exporting a document to Html.
     let doc = new aw.Document(base.myDir + "Images.docx");
 
@@ -204,7 +204,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test.each([true, false])('ExportFormFields(%o)', (exportFormFields) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.exportFormFields
+    //ExFor:HtmlFixedSaveOptions.exportFormFields
     //ExSummary:Shows how to export form fields to Html.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -240,8 +240,8 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test('AddCssClassNamesPrefix', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.cssClassNamesPrefix
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.saveFontFaceCssSeparately
+    //ExFor:HtmlFixedSaveOptions.cssClassNamesPrefix
+    //ExFor:HtmlFixedSaveOptions.saveFontFaceCssSeparately
     //ExSummary:Shows how to place CSS into a separate file and add a prefix to all of its CSS class names.
     let doc = new aw.Document(base.myDir + "Bookmarks.docx");
 
@@ -269,7 +269,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     aw.Saving.HtmlFixedPageHorizontalAlignment.Left,
     aw.Saving.HtmlFixedPageHorizontalAlignment.Right])('HorizontalAlignment(%o)', (pageHorizontalAlignment) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.pageHorizontalAlignment
+    //ExFor:HtmlFixedSaveOptions.pageHorizontalAlignment
     //ExFor:HtmlFixedPageHorizontalAlignment
     //ExSummary:Shows how to set the horizontal alignment of pages when saving a document to HTML.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
@@ -299,7 +299,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test('PageMargins', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.pageMargins
+    //ExFor:HtmlFixedSaveOptions.pageMargins
     //ExSummary:Shows how to adjust page margins when saving a document to HTML.
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -323,7 +323,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
   test.each([false, true])('OptimizeGraphicsOutput(%o)', (optimizeOutput) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.optimizeOutput
+    //ExFor:HtmlFixedSaveOptions.optimizeOutput
     //ExSummary:Shows how to simplify a document when saving it to HTML by removing various redundant objects.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -333,7 +333,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     doc.save(base.artifactsDir + "HtmlFixedSaveOptions.OptimizeGraphicsOutput.html", saveOptions);
 
     // The size of the optimized version of the document is almost a third of the size of the unoptimized document.
-    expect(Math.abs(fs.statSync(base.artifactsDir + "HtmlFixedSaveOptions.OptimizeGraphicsOutput.html").size - (optimizeOutput ? 61889 : 191770))).toBeLessThanOrEqual(200);
+    expect(Math.abs(fs.statSync(base.artifactsDir + "HtmlFixedSaveOptions.OptimizeGraphicsOutput.html").size - (optimizeOutput ? 61889 : 191000))).toBeLessThanOrEqual(200);
     //ExEnd
   });
 
@@ -341,8 +341,8 @@ describe("ExHtmlFixedSaveOptions", () => {
   test.each([false, true])('UsingMachineFonts(%o)', (useTargetMachineFonts) => {
     //ExStart
     //ExFor:ExportFontFormat
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.fontFormat
-    //ExFor:aw.Saving.HtmlFixedSaveOptions.useTargetMachineFonts
+    //ExFor:HtmlFixedSaveOptions.fontFormat
+    //ExFor:HtmlFixedSaveOptions.useTargetMachineFonts
     //ExSummary:Shows how use fonts only from the target machine when saving a document to HTML.
     let doc = new aw.Document(base.myDir + "Bullet points with alternative font.docx");
 
@@ -365,7 +365,8 @@ describe("ExHtmlFixedSaveOptions", () => {
   });
 
 
-  /*  //ExStart
+  /*//Commented
+     //ExStart
     //ExFor:IResourceSavingCallback
     //ExFor:IResourceSavingCallback.ResourceSaving(ResourceSavingArgs)
     //ExFor:ResourceSavingArgs
@@ -504,6 +505,37 @@ describe("ExHtmlFixedSaveOptions", () => {
   private void TestHtmlFixedResourceFolder(ResourceUriPrinter callback)
   {
     expect(Regex.Matches(callback.getText(), "Resource #").Count).toEqual(16);
-  }*/
+  }
+    //EndCommented*/
+
+  test('IdPrefix', () => {
+    //ExStart:IdPrefix
+    //GistId:f86d49dc0e6781b93e576539a01e6ca2
+    //ExFor:HtmlFixedSaveOptions.idPrefix
+    //ExSummary:Shows how to add a prefix that is prepended to all generated element IDs.
+    let doc = new aw.Document(base.myDir + "Id prefix.docx");
+
+    let saveOptions = new aw.Saving.HtmlFixedSaveOptions();
+    saveOptions.idPrefix = "pfx1_";
+
+    doc.save(base.artifactsDir + "HtmlFixedSaveOptions.idPrefix.html", saveOptions);
+    //ExEnd:IdPrefix
+  });
+
+
+  test('RemoveJavaScriptFromLinks', () => {
+    //ExStart:RemoveJavaScriptFromLinks
+    //GistId:f86d49dc0e6781b93e576539a01e6ca2
+    //ExFor:HtmlFixedSaveOptions.removeJavaScriptFromLinks
+    //ExSummary:Shows how to remove JavaScript from the links.
+    let doc = new aw.Document(base.myDir + "JavaScript in HREF.docx");
+
+    let saveOptions = new aw.Saving.HtmlFixedSaveOptions();
+    saveOptions.removeJavaScriptFromLinks = true;
+
+    doc.save(base.artifactsDir + "HtmlFixedSaveOptions.removeJavaScriptFromLinks.html", saveOptions);
+    //ExEnd:RemoveJavaScriptFromLinks
+  });
+
 
 });

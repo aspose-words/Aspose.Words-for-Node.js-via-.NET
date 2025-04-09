@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -8,6 +8,7 @@
 const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
+
 
 describe("ExCellFormat", () => {
   beforeAll(() => {
@@ -20,9 +21,9 @@ describe("ExCellFormat", () => {
 
   test('VerticalMerge', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.endRow
+    //ExFor:DocumentBuilder.endRow
     //ExFor:CellMerge
-    //ExFor:aw.Tables.CellFormat.verticalMerge
+    //ExFor:CellFormat.verticalMerge
     //ExSummary:Shows how to merge table cells vertically.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -67,7 +68,7 @@ describe("ExCellFormat", () => {
   test('HorizontalMerge', () => {
     //ExStart
     //ExFor:CellMerge
-    //ExFor:aw.Tables.CellFormat.horizontalMerge
+    //ExFor:CellFormat.horizontalMerge
     //ExSummary:Shows how to merge table cells horizontally.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -106,7 +107,7 @@ describe("ExCellFormat", () => {
 
   test('Padding', () => {
     //ExStart
-    //ExFor:aw.Tables.CellFormat.setPaddings
+    //ExFor:CellFormat.setPaddings
     //ExSummary:Shows how to pad the contents of a cell with whitespace.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

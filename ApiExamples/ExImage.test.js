@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -33,7 +33,7 @@ describe("ExImage", () => {
     // The "Shape" class's public constructor will create a shape with "ShapeMarkupLanguage.Vml" markup type.
     // If you need to create a shape of a non-primitive type, such as SingleCornerSnipped, TopCornersSnipped, DiagonalCornersSnipped,
     // TopCornersOneRoundedOneSnipped, SingleCornerRounded, TopCornersRounded, or DiagonalCornersRounded,
-    // please use aw.DocumentBuilder.insertShape.
+    // please use DocumentBuilder.insertShape.
     let shape = new aw.Drawing.Shape(doc, aw.Drawing.ShapeType.Image);
     shape.imageData.setImage(base.imageDir + "Windows MetaFile.wmf");
     shape.width = 100;
@@ -55,7 +55,7 @@ describe("ExImage", () => {
 
   test('FromUrl', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(String)
+    //ExFor:DocumentBuilder.insertImage(String)
     //ExSummary:Shows how to insert a shape with an image into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -86,7 +86,7 @@ describe("ExImage", () => {
 
   test.skip('FromStream: WORDSNODEJS-99', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(Stream)
+    //ExFor:DocumentBuilder.insertImage(Stream)
     //ExSummary:Shows how to insert a shape with an image from a stream into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -106,15 +106,15 @@ describe("ExImage", () => {
 
   test('CreateFloatingPageCenter', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(String)
+    //ExFor:DocumentBuilder.insertImage(String)
     //ExFor:Shape
     //ExFor:ShapeBase
-    //ExFor:aw.Drawing.ShapeBase.wrapType
-    //ExFor:aw.Drawing.ShapeBase.behindText
-    //ExFor:aw.Drawing.ShapeBase.relativeHorizontalPosition
-    //ExFor:aw.Drawing.ShapeBase.relativeVerticalPosition
-    //ExFor:aw.Drawing.ShapeBase.horizontalAlignment
-    //ExFor:aw.Drawing.ShapeBase.verticalAlignment
+    //ExFor:ShapeBase.wrapType
+    //ExFor:ShapeBase.behindText
+    //ExFor:ShapeBase.relativeHorizontalPosition
+    //ExFor:ShapeBase.relativeVerticalPosition
+    //ExFor:ShapeBase.horizontalAlignment
+    //ExFor:ShapeBase.verticalAlignment
     //ExFor:WrapType
     //ExFor:RelativeHorizontalPosition
     //ExFor:RelativeVerticalPosition
@@ -151,14 +151,14 @@ describe("ExImage", () => {
 
   test('CreateFloatingPositionSize', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.left
-    //ExFor:aw.Drawing.ShapeBase.right
-    //ExFor:aw.Drawing.ShapeBase.top
-    //ExFor:aw.Drawing.ShapeBase.bottom
-    //ExFor:aw.Drawing.ShapeBase.width
-    //ExFor:aw.Drawing.ShapeBase.height
-    //ExFor:aw.DocumentBuilder.currentSection
-    //ExFor:aw.PageSetup.pageWidth
+    //ExFor:ShapeBase.left
+    //ExFor:ShapeBase.right
+    //ExFor:ShapeBase.top
+    //ExFor:ShapeBase.bottom
+    //ExFor:ShapeBase.width
+    //ExFor:ShapeBase.height
+    //ExFor:DocumentBuilder.currentSection
+    //ExFor:PageSetup.pageWidth
     //ExSummary:Shows how to insert a floating image, and specify its position and size.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -207,9 +207,9 @@ describe("ExImage", () => {
 
   test('InsertImageWithHyperlink', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.hRef
-    //ExFor:aw.Drawing.ShapeBase.screenTip
-    //ExFor:aw.Drawing.ShapeBase.target
+    //ExFor:ShapeBase.hRef
+    //ExFor:ShapeBase.screenTip
+    //ExFor:ShapeBase.target
     //ExSummary:Shows how to insert a shape which contains an image, and is also a hyperlink.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -236,11 +236,11 @@ describe("ExImage", () => {
 
   test('CreateLinkedImage', () => {
     //ExStart
-    //ExFor:aw.Drawing.Shape.imageData
+    //ExFor:Shape.imageData
     //ExFor:ImageData
-    //ExFor:aw.Drawing.ImageData.sourceFullName
-    //ExFor:aw.Drawing.ImageData.setImage(String)
-    //ExFor:aw.DocumentBuilder.insertNode
+    //ExFor:ImageData.sourceFullName
+    //ExFor:ImageData.setImage(String)
+    //ExFor:DocumentBuilder.insertNode
     //ExSummary:Shows how to insert a linked image into a document. 
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -296,8 +296,8 @@ describe("ExImage", () => {
 
   test('DeleteAllImages', () => {
     //ExStart
-    //ExFor:aw.Drawing.Shape.hasImage
-    //ExFor:aw.Node.remove
+    //ExFor:Shape.hasImage
+    //ExFor:Node.remove
     //ExSummary:Shows how to delete all shapes with images from a document.
     let doc = new aw.Document(base.myDir + "Images.docx");
     let shapes = doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape());
@@ -316,8 +316,8 @@ describe("ExImage", () => {
 
   test('DeleteAllImagesPreOrder', () => {
     //ExStart
-    //ExFor:aw.Node.nextPreOrder(Node)
-    //ExFor:aw.Node.previousPreOrder(Node)
+    //ExFor:Node.nextPreOrder(Node)
+    //ExFor:Node.previousPreOrder(Node)
     //ExSummary:Shows how to traverse the document's node tree using the pre-order traversal algorithm, and delete any encountered shape with an image.
     let doc = new aw.Document(base.myDir + "Images.docx");
 
@@ -343,12 +343,12 @@ describe("ExImage", () => {
 
   test('ScaleImage', () => {
     //ExStart
-    //ExFor:aw.Drawing.ImageData.imageSize
+    //ExFor:ImageData.imageSize
     //ExFor:ImageSize
-    //ExFor:aw.Drawing.ImageSize.widthPoints
-    //ExFor:aw.Drawing.ImageSize.heightPoints
-    //ExFor:aw.Drawing.ShapeBase.width
-    //ExFor:aw.Drawing.ShapeBase.height
+    //ExFor:ImageSize.widthPoints
+    //ExFor:ImageSize.heightPoints
+    //ExFor:ShapeBase.width
+    //ExFor:ShapeBase.height
     //ExSummary:Shows how to resize a shape with an image.
     // When we insert an image using the "InsertImage" method, the builder scales the shape that displays the image so that,
     // when we view the document using 100% zoom in Microsoft Word, the shape displays the image in its actual size.
@@ -403,7 +403,7 @@ describe("ExImage", () => {
   test('InsertWebpImage', () => {
     //ExStart:InsertWebpImage
     //GistId:e386727403c2341ce4018bca370a5b41
-    //ExFor:aw.DocumentBuilder.insertImage(String)
+    //ExFor:DocumentBuilder.insertImage(String)
     //ExSummary:Shows how to insert WebP image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

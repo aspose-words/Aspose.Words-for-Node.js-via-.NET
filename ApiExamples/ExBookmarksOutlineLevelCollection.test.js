@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,16 +21,16 @@ describe("ExBookmarksOutlineLevelCollection", () => {
   test('BookmarkLevels', () => {
     //ExStart
     //ExFor:BookmarksOutlineLevelCollection
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.add(String, Int32)
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.clear
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.contains(String)
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.count
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.indexOfKey(String)
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.item(Int32)
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.item(String)
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.remove(String)
-    //ExFor:aw.Saving.BookmarksOutlineLevelCollection.removeAt(Int32)
-    //ExFor:aw.Saving.OutlineOptions.bookmarksOutlineLevels
+    //ExFor:BookmarksOutlineLevelCollection.add(String, Int32)
+    //ExFor:BookmarksOutlineLevelCollection.clear
+    //ExFor:BookmarksOutlineLevelCollection.contains(String)
+    //ExFor:BookmarksOutlineLevelCollection.count
+    //ExFor:BookmarksOutlineLevelCollection.indexOfKey(String)
+    //ExFor:BookmarksOutlineLevelCollection.item(Int32)
+    //ExFor:BookmarksOutlineLevelCollection.item(String)
+    //ExFor:BookmarksOutlineLevelCollection.remove(String)
+    //ExFor:BookmarksOutlineLevelCollection.removeAt(Int32)
+    //ExFor:OutlineOptions.bookmarksOutlineLevels
     //ExSummary:Shows how to set outline levels for bookmarks.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

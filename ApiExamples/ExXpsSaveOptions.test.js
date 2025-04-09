@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -26,8 +26,8 @@ describe("ExXpsSaveOptions", () => {
     //ExStart
     //ExFor:XpsSaveOptions
     //ExFor:XpsSaveOptions.#ctor
-    //ExFor:aw.Saving.XpsSaveOptions.outlineOptions
-    //ExFor:aw.Saving.XpsSaveOptions.saveFormat
+    //ExFor:XpsSaveOptions.outlineOptions
+    //ExFor:XpsSaveOptions.saveFormat
     //ExSummary:Shows how to limit the headings' level that will appear in the outline of a saved XPS document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -70,7 +70,7 @@ describe("ExXpsSaveOptions", () => {
     true])('BookFold', (renderTextAsBookFold) => {
     //ExStart
     //ExFor:XpsSaveOptions.#ctor(SaveFormat)
-    //ExFor:aw.Saving.XpsSaveOptions.useBookFoldPrintingSettings
+    //ExFor:XpsSaveOptions.useBookFoldPrintingSettings
     //ExSummary:Shows how to save a document to the XPS format in the form of a book fold.
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
 
@@ -101,7 +101,7 @@ describe("ExXpsSaveOptions", () => {
   test.each([false,
     true])('OptimizeOutput', (optimizeOutput) => {
     //ExStart
-    //ExFor:aw.Saving.FixedPageSaveOptions.optimizeOutput
+    //ExFor:FixedPageSaveOptions.optimizeOutput
     //ExSummary:Shows how to optimize document objects while saving to xps.
     let doc = new aw.Document(base.myDir + "Unoptimized document.docx");
 
@@ -134,7 +134,7 @@ describe("ExXpsSaveOptions", () => {
 
   test('ExportExactPages', () => {
     //ExStart
-    //ExFor:aw.Saving.FixedPageSaveOptions.pageSet
+    //ExFor:FixedPageSaveOptions.pageSet
     //ExFor:PageSet.#ctor(int[])
     //ExSummary:Shows how to extract pages based on exact page indices.
     let doc = new aw.Document();
@@ -158,4 +158,31 @@ describe("ExXpsSaveOptions", () => {
     doc.save(base.artifactsDir + "XpsSaveOptions.ExportExactPages.xps", xpsOptions);
     //ExEnd
   });
+
+
+  test('XpsDigitalSignature', () => {
+    //ExStart:XpsDigitalSignature
+    //GistId:708ce40a68fac5003d46f6b4acfd5ff1
+    //ExFor:XpsSaveOptions.digitalSignatureDetails
+    //ExSummary:Shows how to sign XPS document.
+    let doc = new aw.Document(base.myDir + "Document.docx");
+
+    let certificateHolder = aw.DigitalSignatures.CertificateHolder.create(base.myDir + "morzal.pfx", "aw");
+    let options = new aw.DigitalSignatures.SignOptions();
+    options.signTime = Date.now();
+    options.comments = "Some comments";
+
+    let digitalSignatureDetails = new aw.Saving.DigitalSignatureDetails(certificateHolder, options);
+
+    let saveOptions = new aw.Saving.XpsSaveOptions();
+    saveOptions.digitalSignatureDetails = digitalSignatureDetails;
+
+    expect(digitalSignatureDetails.certificateHolder).toEqual(certificateHolder);
+    expect(digitalSignatureDetails.signOptions.comments).toEqual("Some comments");
+
+    doc.save(base.artifactsDir + "XpsSaveOptions.XpsDigitalSignature.docx", saveOptions);
+    //ExEnd:XpsDigitalSignature
+  });
+
+
 });

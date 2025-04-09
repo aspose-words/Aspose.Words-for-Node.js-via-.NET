@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,9 +23,9 @@ describe("ExSvgSaveOptions", () => {
 
   test('SaveLikeImage', () => {
     //ExStart
-    //ExFor:aw.Saving.SvgSaveOptions.fitToViewPort
-    //ExFor:aw.Saving.SvgSaveOptions.showPageBorder
-    //ExFor:aw.Saving.SvgSaveOptions.textOutputMode
+    //ExFor:SvgSaveOptions.fitToViewPort
+    //ExFor:SvgSaveOptions.showPageBorder
+    //ExFor:SvgSaveOptions.textOutputMode
     //ExFor:SvgTextOutputMode
     //ExSummary:Shows how to mimic the properties of images when converting a .docx document to .svg.
     let doc = new aw.Document(base.myDir + "Document.docx");
@@ -89,7 +89,8 @@ describe("ExSvgSaveOptions", () => {
   test('SaveOfficeMath', () => {
     //ExStart:SaveOfficeMath
     //GistId:a775441ecb396eea917a2717cb9e8f8f
-    //ExFor:aw.Rendering.NodeRendererBase.save(String, SvgSaveOptions)
+    //ExFor:NodeRendererBase.save(String, SvgSaveOptions)
+    //ExFor:NodeRendererBase.save(Stream, SvgSaveOptions)
     //ExSummary:Shows how to pass save options when rendering office math.
     let doc = new aw.Document(base.myDir + "Office math.docx");
 
@@ -106,9 +107,10 @@ describe("ExSvgSaveOptions", () => {
   test('MaxImageResolution', () => {
     //ExStart:MaxImageResolution
     //GistId:6e4482e7434754c31c6f2f6e4bf48bb1
-    //ExFor:aw.Drawing.ShapeBase.softEdge
-    //ExFor:aw.Drawing.SoftEdgeFormat.radius
-    //ExFor:aw.Drawing.SoftEdgeFormat.remove
+    //ExFor:ShapeBase.softEdge
+    //ExFor:SoftEdgeFormat.radius
+    //ExFor:SoftEdgeFormat.remove
+    //ExFor:SvgSaveOptions.maxImageResolution
     //ExSummary:Shows how to set limit for image resolution.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -118,5 +120,36 @@ describe("ExSvgSaveOptions", () => {
     doc.save(base.artifactsDir + "SvgSaveOptions.maxImageResolution.svg", saveOptions);
     //ExEnd:MaxImageResolution
   });
+
+
+  test('IdPrefixSvg', () => {
+    //ExStart:IdPrefixSvg
+    //GistId:f86d49dc0e6781b93e576539a01e6ca2
+    //ExFor:SvgSaveOptions.idPrefix
+    //ExSummary:Shows how to add a prefix that is prepended to all generated element IDs (svg).
+    let doc = new aw.Document(base.myDir + "Id prefix.docx");
+
+    let saveOptions = new aw.Saving.SvgSaveOptions();
+    saveOptions.idPrefix = "pfx1_";
+
+    doc.save(base.artifactsDir + "SvgSaveOptions.IdPrefixSvg.html", saveOptions);
+    //ExEnd:IdPrefixSvg
+  });
+
+
+  test('RemoveJavaScriptFromLinksSvg', () => {
+    //ExStart:RemoveJavaScriptFromLinksSvg
+    //GistId:f86d49dc0e6781b93e576539a01e6ca2
+    //ExFor:SvgSaveOptions.removeJavaScriptFromLinks
+    //ExSummary:Shows how to remove JavaScript from the links (svg).
+    let doc = new aw.Document(base.myDir + "JavaScript in HREF.docx");
+
+    let saveOptions = new aw.Saving.SvgSaveOptions();
+    saveOptions.removeJavaScriptFromLinks = true;
+
+    doc.save(base.artifactsDir + "SvgSaveOptions.RemoveJavaScriptFromLinksSvg.html", saveOptions);
+    //ExEnd:RemoveJavaScriptFromLinksSvg
+  });
+
 
 });

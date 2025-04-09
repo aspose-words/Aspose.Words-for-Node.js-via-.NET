@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -8,6 +8,7 @@
 const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
+
 
 describe("ExComHelper", () => {
   beforeAll(() => {
@@ -22,8 +23,8 @@ describe("ExComHelper", () => {
     //ExStart
     //ExFor:ComHelper
     //ExFor:ComHelper.#ctor
-    //ExFor:aw.ComHelper.open(Stream)
-    //ExFor:aw.ComHelper.open(String)
+    //ExFor:ComHelper.open(Stream)
+    //ExFor:ComHelper.open(String)
     //ExSummary:Shows how to open documents using the ComHelper class.
     // The ComHelper class allows us to load documents from within COM clients.
     let comHelper = new aw.ComHelper();

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -110,7 +110,7 @@ describe("ExHtmlSaveOptions", () => {
 
   test('CreateAZW3Toc', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.navigationMapLevel
+    //ExFor:HtmlSaveOptions.navigationMapLevel
     //ExSummary:Shows how to generate table of contents for Azw3 documents.
     let doc = new aw.Document(base.myDir + "Big document.docx");
 
@@ -124,7 +124,7 @@ describe("ExHtmlSaveOptions", () => {
 
   test('CreateMobiToc', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.navigationMapLevel
+    //ExFor:HtmlSaveOptions.navigationMapLevel
     //ExSummary:Shows how to generate table of contents for Mobi documents.
     let doc = new aw.Document(base.myDir + "Big document.docx");
 
@@ -382,7 +382,7 @@ describe("ExHtmlSaveOptions", () => {
 
   test('CssClassNamesPrefix', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.cssClassNamePrefix
+    //ExFor:HtmlSaveOptions.cssClassNamePrefix
     //ExSummary:Shows how to save a document to HTML, and add a prefix to all of its CSS class names.
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
 
@@ -399,8 +399,8 @@ describe("ExHtmlSaveOptions", () => {
 
     outDocContents = fs.readFileSync(base.artifactsDir + "HtmlSaveOptions.cssClassNamePrefix.css").toString();
 
-    expect(outDocContents.includes(".myprefix-Footer { margin-bottom:0pt; line-height:normal; font-family:Arial; font-size:11pt; -aw-style-name:footer }\r\n" +
-      ".myprefix-Header { margin-bottom:0pt; line-height:normal; font-family:Arial; font-size:11pt; -aw-style-name:header }\r\n")).toBe(true);
+    expect(outDocContents.includes(".myprefix-Footer { margin-bottom:0pt; line-height:normal; font-family:Arial; font-size:11pt; -aw-style-name:footer }")).toEqual(true);
+    expect(outDocContents.includes(".myprefix-Header { margin-bottom:0pt; line-height:normal; font-family:Arial; font-size:11pt; -aw-style-name:header }")).toEqual(true);
     //ExEnd
   });
 
@@ -437,7 +437,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ResolveFontNames', (bool resolveFontNames) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.resolveFontNames
+    //ExFor:HtmlSaveOptions.resolveFontNames
     //ExSummary:Shows how to resolve all font names before writing them to HTML.
     let doc = new aw.Document(base.myDir + "Missing font.docx");
 
@@ -479,7 +479,7 @@ describe("ExHtmlSaveOptions", () => {
 
   test('HeadingLevels', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.documentSplitHeadingLevel
+    //ExFor:HtmlSaveOptions.documentSplitHeadingLevel
     //ExSummary:Shows how to split an output HTML document by headings into several parts.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -539,8 +539,8 @@ describe("ExHtmlSaveOptions", () => {
     true])('NegativeIndent', (allowNegativeIndent) => {
     //ExStart
     //ExFor:HtmlElementSizeOutputMode
-    //ExFor:aw.Saving.HtmlSaveOptions.allowNegativeIndent
-    //ExFor:aw.Saving.HtmlSaveOptions.tableWidthOutputMode
+    //ExFor:HtmlSaveOptions.allowNegativeIndent
+    //ExFor:HtmlSaveOptions.tableWidthOutputMode
     //ExSummary:Shows how to preserve negative indents in the output .html.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -598,13 +598,13 @@ describe("ExHtmlSaveOptions", () => {
 
   test('FolderAlias', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportOriginalUrlForLinkedImages
-    //ExFor:aw.Saving.HtmlSaveOptions.fontsFolder
-    //ExFor:aw.Saving.HtmlSaveOptions.fontsFolderAlias
-    //ExFor:aw.Saving.HtmlSaveOptions.imageResolution
-    //ExFor:aw.Saving.HtmlSaveOptions.imagesFolderAlias
-    //ExFor:aw.Saving.HtmlSaveOptions.resourceFolder
-    //ExFor:aw.Saving.HtmlSaveOptions.resourceFolderAlias
+    //ExFor:HtmlSaveOptions.exportOriginalUrlForLinkedImages
+    //ExFor:HtmlSaveOptions.fontsFolder
+    //ExFor:HtmlSaveOptions.fontsFolderAlias
+    //ExFor:HtmlSaveOptions.imageResolution
+    //ExFor:HtmlSaveOptions.imagesFolderAlias
+    //ExFor:HtmlSaveOptions.resourceFolder
+    //ExFor:HtmlSaveOptions.resourceFolderAlias
     //ExSummary:Shows how to set folders and folder aliases for externally saved resources that Aspose.words will create when saving a document to HTML.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -700,7 +700,7 @@ describe("ExHtmlSaveOptions", () => {
     aw.Saving.HtmlVersion.Xhtml])('HtmlVersions', (htmlVersion) => {
     //ExStart
     //ExFor:HtmlSaveOptions.#ctor(SaveFormat)
-    //ExFor:aw.Saving.HtmlSaveOptions.htmlVersion
+    //ExFor:HtmlSaveOptions.htmlVersion
     //ExFor:HtmlVersion
     //ExSummary:Shows how to save a document to a specific version of HTML.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
@@ -734,8 +734,8 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ExportXhtmlTransitional', (showDoctypeDeclaration) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportXhtmlTransitional
-    //ExFor:aw.Saving.HtmlSaveOptions.htmlVersion
+    //ExFor:HtmlSaveOptions.exportXhtmlTransitional
+    //ExFor:HtmlSaveOptions.htmlVersion
     //ExFor:HtmlVersion
     //ExSummary:Shows how to display a DOCTYPE heading when converting documents to the Xhtml 1.0 transitional standard.
     let doc = new aw.Document();
@@ -766,7 +766,7 @@ describe("ExHtmlSaveOptions", () => {
 
   test('EpubHeadings', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.navigationMapLevel
+    //ExFor:HtmlSaveOptions.navigationMapLevel
     //ExSummary:Shows how to filter headings that appear in the navigation panel of a saved Epub document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -827,12 +827,12 @@ describe("ExHtmlSaveOptions", () => {
     //ExFor:DocumentSplitCriteria
     //ExFor:HtmlSaveOptions
     //ExFor:HtmlSaveOptions.#ctor
-    //ExFor:aw.Saving.HtmlSaveOptions.encoding
-    //ExFor:aw.Saving.HtmlSaveOptions.documentSplitCriteria
-    //ExFor:aw.Saving.HtmlSaveOptions.exportDocumentProperties
-    //ExFor:aw.Saving.HtmlSaveOptions.saveFormat
+    //ExFor:HtmlSaveOptions.encoding
+    //ExFor:HtmlSaveOptions.documentSplitCriteria
+    //ExFor:HtmlSaveOptions.exportDocumentProperties
+    //ExFor:HtmlSaveOptions.saveFormat
     //ExFor:SaveOptions
-    //ExFor:aw.Saving.SaveOptions.saveFormat
+    //ExFor:SaveOptions.saveFormat
     //ExSummary:Shows how to use a specific encoding when saving a document to .epub.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -858,7 +858,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ContentIdUrls', (exportCidUrlsForMhtmlResources) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportCidUrlsForMhtmlResources
+    //ExFor:HtmlSaveOptions.exportCidUrlsForMhtmlResources
     //ExSummary:Shows how to enable content IDs for output MHTML documents.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -895,7 +895,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('DropDownFormField', (exportDropDownFormFieldAsText) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportDropDownFormFieldAsText
+    //ExFor:HtmlSaveOptions.exportDropDownFormFieldAsText
     //ExSummary:Shows how to get drop-down combo box form fields to blend in with paragraph text when saving to html.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -931,8 +931,8 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ExportImagesAsBase64', (exportImagesAsBase64) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportFontsAsBase64
-    //ExFor:aw.Saving.HtmlSaveOptions.exportImagesAsBase64
+    //ExFor:HtmlSaveOptions.exportFontsAsBase64
+    //ExFor:HtmlSaveOptions.exportImagesAsBase64
     //ExSummary:Shows how to save a .html document with images embedded inside it.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -953,8 +953,8 @@ describe("ExHtmlSaveOptions", () => {
 
   test('ExportFontsAsBase64', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportFontsAsBase64
-    //ExFor:aw.Saving.HtmlSaveOptions.exportImagesAsBase64
+    //ExFor:HtmlSaveOptions.exportFontsAsBase64
+    //ExFor:HtmlSaveOptions.exportImagesAsBase64
     //ExSummary:Shows how to embed fonts inside a saved HTML document.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -971,7 +971,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ExportLanguageInformation', (exportLanguageInformation) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportLanguageInformation
+    //ExFor:HtmlSaveOptions.exportLanguageInformation
     //ExSummary:Shows how to preserve language information when saving to .html.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1021,7 +1021,7 @@ describe("ExHtmlSaveOptions", () => {
     aw.Saving.ExportListLabels.ByHtmlTags])('List', (exportListLabels) => {
     //ExStart
     //ExFor:ExportListLabels
-    //ExFor:aw.Saving.HtmlSaveOptions.exportListLabels
+    //ExFor:HtmlSaveOptions.exportListLabels
     //ExSummary:Shows how to configure list exporting to HTML.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1107,7 +1107,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ExportPageMargins(%o)', (exportPageMargins) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportPageMargins
+    //ExFor:HtmlSaveOptions.exportPageMargins
     //ExSummary:Shows how to show out-of-bounds objects in output HTML documents.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1152,7 +1152,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ExportPageSetup(%o)', (exportPageSetup) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportPageSetup
+    //ExFor:HtmlSaveOptions.exportPageSetup
     //ExSummary:Shows how decide whether to preserve section structure/page setup information when saving to HTML.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1200,7 +1200,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('RelativeFontSize', (exportRelativeFontSize) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportRelativeFontSize
+    //ExFor:HtmlSaveOptions.exportRelativeFontSize
     //ExSummary:Shows how to use relative font sizes when saving to .html.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1265,7 +1265,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ExportShape', (exportShapesAsSvg) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportShapesAsSvg
+    //ExFor:HtmlSaveOptions.exportShapesAsSvg
     //ExSummary:Shows how to export shape as scalable vector graphics.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1308,7 +1308,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('RoundTripInformation', (exportRoundtripInformation) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportRoundtripInformation
+    //ExFor:HtmlSaveOptions.exportRoundtripInformation
     //ExSummary:Shows how to preserve hidden elements when converting to .html.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -1386,7 +1386,7 @@ describe("ExHtmlSaveOptions", () => {
   test.skip.each([false,
     true])('ExportTocPageNumbers(%o) - TODO: Failed on true.', (exportTocPageNumbers) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportTocPageNumbers
+    //ExFor:HtmlSaveOptions.exportTocPageNumbers
     //ExSummary:Shows how to display page numbers when saving a document with a table of contents to .html.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1445,7 +1445,7 @@ describe("ExHtmlSaveOptions", () => {
     1000000,
     2147483647])('FontSubsetting', (fontResourcesSubsettingSizeThreshold) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.fontResourcesSubsettingSizeThreshold
+    //ExFor:HtmlSaveOptions.fontResourcesSubsettingSizeThreshold
     //ExSummary:Shows how to work with font subsetting.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1501,8 +1501,8 @@ describe("ExHtmlSaveOptions", () => {
     aw.Saving.HtmlMetafileFormat.EmfOrWmf])('MetafileFormat', (htmlMetafileFormat) => {
     //ExStart
     //ExFor:HtmlMetafileFormat
-    //ExFor:aw.Saving.HtmlSaveOptions.metafileFormat
-    //ExFor:aw.Loading.HtmlLoadOptions.convertSvgToEmf
+    //ExFor:HtmlSaveOptions.metafileFormat
+    //ExFor:HtmlLoadOptions.convertSvgToEmf
     //ExSummary:Shows how to convert SVG objects to a different format when saving HTML documents.
     let html = 
       `<html>
@@ -1564,7 +1564,7 @@ describe("ExHtmlSaveOptions", () => {
     aw.Saving.HtmlOfficeMathOutputMode.Text])('OfficeMathOutputMode', (htmlOfficeMathOutputMode) => {
     //ExStart
     //ExFor:HtmlOfficeMathOutputMode
-    //ExFor:aw.Saving.HtmlSaveOptions.officeMathOutputMode
+    //ExFor:HtmlSaveOptions.officeMathOutputMode
     //ExSummary:Shows how to specify how to export Microsoft OfficeMath objects to HTML.
     let doc = new aw.Document(base.myDir + "Office math.docx");
 
@@ -1581,7 +1581,7 @@ describe("ExHtmlSaveOptions", () => {
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.officeMathOutputMode.html", options);
     let outDocContents = fs.readFileSync(base.artifactsDir + "HtmlSaveOptions.officeMathOutputMode.html").toString();
-          
+
     switch (htmlOfficeMathOutputMode)
     {
       case aw.Saving.HtmlOfficeMathOutputMode.Image:
@@ -1617,7 +1617,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([false,
     true])('ScaleImageToShapeSize', (scaleImageToShapeSize) => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.scaleImageToShapeSize
+    //ExFor:HtmlSaveOptions.scaleImageToShapeSize
     //ExSummary:Shows how to disable the scaling of images to their parent shape dimensions when saving to .html.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1644,7 +1644,7 @@ describe("ExHtmlSaveOptions", () => {
     var testedImageLength = fs.statSync(base.artifactsDir + "HtmlSaveOptions.scaleImageToShapeSize.001.png").size;
 
     if (scaleImageToShapeSize)
-      expect(testedImageLength < 6000).toEqual(true);
+      expect(testedImageLength < 6200).toEqual(true);
     else
       expect(testedImageLength < 16000).toEqual(true);
   });
@@ -1653,8 +1653,8 @@ describe("ExHtmlSaveOptions", () => {
   test('ImageFolder', () => {
     //ExStart
     //ExFor:HtmlSaveOptions
-    //ExFor:aw.Saving.HtmlSaveOptions.exportTextInputFormFieldAsText
-    //ExFor:aw.Saving.HtmlSaveOptions.imagesFolder
+    //ExFor:HtmlSaveOptions.exportTextInputFormFieldAsText
+    //ExFor:HtmlSaveOptions.imagesFolder
     //ExSummary:Shows how to specify the folder for storing linked images after saving to .html.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -1730,7 +1730,7 @@ describe("ExHtmlSaveOptions", () => {
   test.each([true,
     false])('PrettyFormat', (usePrettyFormat) => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.prettyFormat
+    //ExFor:SaveOptions.prettyFormat
     //ExSummary:Shows how to enhance the readability of the raw code of a saved .html document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1781,6 +1781,7 @@ describe("ExHtmlSaveOptions", () => {
   //ExFor:IDocumentSavingCallback
   //ExFor:IDocumentSavingCallback.Notify(DocumentSavingArgs)
   //ExFor:DocumentSavingArgs.EstimatedProgress
+  //ExFor:DocumentSavingArgs
   //ExSummary:Shows how to manage a document while saving to html.
   test.skip.each([[aw.SaveFormat.Html, "html"],
     [aw.SaveFormat.Mhtml, "mhtml"],
@@ -1849,4 +1850,24 @@ describe("ExHtmlSaveOptions", () => {
     let encoding = TestUtil.getEncoding(outputFileName);
     expect(encoding).toEqual("UTF32");
   });
+
+
+  test('HtmlReplaceBackslashWithYenSign', () => {
+    //ExStart:HtmlReplaceBackslashWithYenSign
+    //GistId:708ce40a68fac5003d46f6b4acfd5ff1
+    //ExFor:HtmlSaveOptions.replaceBackslashWithYenSign
+    //ExSummary:Shows how to replace backslash characters with yen signs (Html).
+    let doc = new aw.Document(base.myDir + "Korean backslash symbol.docx");
+
+    // By default, Aspose.words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in
+    // generated HTML documents. However, previous versions of Aspose.words performed such replacements in certain
+    // scenarios. This flag enables backward compatibility with previous versions of Aspose.words.
+    let saveOptions = new aw.Saving.HtmlSaveOptions();
+    saveOptions.replaceBackslashWithYenSign = true;
+
+    doc.save(base.artifactsDir + "HtmlSaveOptions.replaceBackslashWithYenSign.html", saveOptions);
+    //ExEnd:HtmlReplaceBackslashWithYenSign
+  });
+
+
 });

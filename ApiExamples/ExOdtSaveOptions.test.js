@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,7 +23,9 @@ describe("ExOdtSaveOptions", () => {
     //ExStart
     //ExFor:OdtSaveOptions
     //ExFor:OdtSaveOptions.#ctor
-    //ExFor:aw.Saving.OdtSaveOptions.isStrictSchema11
+    //ExFor:OdtSaveOptions.isStrictSchema11
+    //ExFor:RevisionOptions.measurementUnit
+    //ExFor:MeasurementUnits
     //ExSummary:Shows how to make a saved document conform to an older ODT schema.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -58,7 +60,7 @@ describe("ExOdtSaveOptions", () => {
     aw.Saving.OdtSaveMeasureUnit.Inches])('MeasurementUnits(%o)', (odtSaveMeasureUnit) => {
     //ExStart
     //ExFor:OdtSaveOptions
-    //ExFor:aw.Saving.OdtSaveOptions.measureUnit
+    //ExFor:OdtSaveOptions.measureUnit
     //ExFor:OdtSaveMeasureUnit
     //ExSummary:Shows how to use different measurement units to define style parameters of a saved ODT document.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
@@ -91,14 +93,14 @@ describe("ExOdtSaveOptions", () => {
   test.each([aw.SaveFormat.Odt, aw.SaveFormat.Ott])('Encrypt(%o)', (saveFormat) => {
     //ExStart
     //ExFor:OdtSaveOptions.#ctor(SaveFormat)
-    //ExFor:aw.Saving.OdtSaveOptions.password
-    //ExFor:aw.Saving.OdtSaveOptions.saveFormat
+    //ExFor:OdtSaveOptions.password
+    //ExFor:OdtSaveOptions.saveFormat
     //ExSummary:Shows how to encrypt a saved ODT/OTT document with a password, and then load it using Aspose.words.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
     builder.writeln("Hello world!");
 
-    // Create a new aw.Saving.OdtSaveOptions, and pass either "SaveFormat.Odt",
+    // Create a new OdtSaveOptions, and pass either "SaveFormat.Odt",
     // or "SaveFormat.Ott" as the format to save the document in. 
     let saveOptions = new aw.Saving.OdtSaveOptions(saveFormat);
     saveOptions.password = "@sposeEncrypted_1145";

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,7 +21,7 @@ describe("ExDigitalSignatureCollection", () => {
 
   test('GetEnumerator', () => {
     //ExStart
-    //ExFor:aw.DigitalSignatures.DigitalSignatureCollection.getEnumerator
+    //ExFor:DigitalSignatureCollection.getEnumerator
     //ExSummary:Shows how to print all the digital signatures of a signed document.
     let digitalSignatures =
       aw.DigitalSignatures.DigitalSignatureUtil.loadSignatures(base.myDir + "Digitally signed.docx");

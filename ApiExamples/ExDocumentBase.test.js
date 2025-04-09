@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -36,7 +36,7 @@ describe("ExDocumentBase", () => {
 
   test('SetPageColor', () => {
     //ExStart
-    //ExFor:aw.DocumentBase.pageColor
+    //ExFor:DocumentBase.pageColor
     //ExSummary:Shows how to set the background color for all pages of a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -55,7 +55,7 @@ describe("ExDocumentBase", () => {
 
   test('ImportNode', () => {
     //ExStart
-    //ExFor:aw.DocumentBase.importNode(Node, Boolean)
+    //ExFor:DocumentBase.importNode(Node, Boolean)
     //ExSummary:Shows how to import a node from one document to another.
     let srcDoc = new aw.Document();
     let dstDoc = new aw.Document();
@@ -90,7 +90,7 @@ describe("ExDocumentBase", () => {
 
   test('ImportNodeCustom', () => {
     //ExStart
-    //ExFor:aw.DocumentBase.importNode(Node, Boolean, ImportFormatMode)
+    //ExFor:DocumentBase.importNode(Node, Boolean, ImportFormatMode)
     //ExSummary:Shows how to import node from source document to destination document with specific options.
     // Create two documents and add a character style to each document.
     // Configure the styles to have the same name, but different text formatting.
@@ -117,7 +117,7 @@ describe("ExDocumentBase", () => {
     expect(importedSection.body.firstParagraph.runs.at(0).font.name).toEqual(dstStyle.font.name);
     expect(importedSection.body.firstParagraph.runs.at(0).font.styleName).toEqual(dstStyle.name);
 
-    // If we use aw.ImportFormatMode.KeepDifferentStyles, the source style is preserved,
+    // If we use ImportFormatMode.KeepDifferentStyles, the source style is preserved,
     // and the naming clash resolves by adding a suffix.
     dstDoc.importNode(srcDoc.firstSection, true, aw.ImportFormatMode.KeepDifferentStyles);
     expect(dstDoc.styles.at("My style").font.name).toEqual(dstStyle.font.name);
@@ -128,7 +128,7 @@ describe("ExDocumentBase", () => {
 
   test('BackgroundShape', () => {
     //ExStart
-    //ExFor:aw.DocumentBase.backgroundShape
+    //ExFor:DocumentBase.backgroundShape
     //ExSummary:Shows how to set a background shape for every page of a document.
     let doc = new aw.Document();
 
@@ -171,7 +171,8 @@ describe("ExDocumentBase", () => {
   });
 
 
-  /*//ExStart
+  /*//Commented
+  //ExStart
   //ExFor:DocumentBase.ResourceLoadingCallback
   //ExFor:IResourceLoadingCallback
   //ExFor:IResourceLoadingCallback.ResourceLoading(ResourceLoadingArgs)
@@ -215,6 +216,8 @@ describe("ExDocumentBase", () => {
         switch (args.originalUri)
         {
           case "Google logo":
+#pragma warning disable SYSLIB0014
+#pragma warning restore SYSLIB0014
             {
               args.setData(webClient.DownloadData("http://www.google.com/images/logos/ps_logo2.png"));
             }
@@ -244,6 +247,7 @@ describe("ExDocumentBase", () => {
       expect(shape.hasImage).toEqual(true);
       Assert.IsNotEmpty(shape.imageData.imageBytes);
     }
-  }*/
+  }
+  //EndCommented*/
 
 });

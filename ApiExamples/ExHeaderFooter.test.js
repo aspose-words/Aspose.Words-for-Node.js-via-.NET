@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,13 +22,13 @@ describe("ExHeaderFooter", () => {
     //ExStart
     //ExFor:HeaderFooter
     //ExFor:HeaderFooter.#ctor(DocumentBase, HeaderFooterType)
-    //ExFor:aw.HeaderFooter.headerFooterType
-    //ExFor:aw.HeaderFooter.isHeader
+    //ExFor:HeaderFooter.headerFooterType
+    //ExFor:HeaderFooter.isHeader
     //ExFor:HeaderFooterCollection
-    //ExFor:aw.Paragraph.isEndOfHeaderFooter
-    //ExFor:aw.Paragraph.parentSection
-    //ExFor:aw.Paragraph.parentStory
-    //ExFor:aw.Story.appendParagraph
+    //ExFor:Paragraph.isEndOfHeaderFooter
+    //ExFor:Paragraph.parentSection
+    //ExFor:Paragraph.parentStory
+    //ExFor:Story.appendParagraph
     //ExSummary:Shows how to create a header and a footer.
     let doc = new aw.Document();
 
@@ -70,11 +70,11 @@ describe("ExHeaderFooter", () => {
 
   test('Link', () => {
     //ExStart
-    //ExFor:aw.HeaderFooter.isLinkedToPrevious
-    //ExFor:aw.HeaderFooterCollection.item(Int32)
-    //ExFor:aw.HeaderFooterCollection.linkToPrevious(HeaderFooterType,Boolean)
-    //ExFor:aw.HeaderFooterCollection.linkToPrevious(Boolean)
-    //ExFor:aw.HeaderFooter.parentSection
+    //ExFor:HeaderFooter.isLinkedToPrevious
+    //ExFor:HeaderFooterCollection.item(Int32)
+    //ExFor:HeaderFooterCollection.linkToPrevious(HeaderFooterType,Boolean)
+    //ExFor:HeaderFooterCollection.linkToPrevious(Boolean)
+    //ExFor:HeaderFooter.parentSection
     //ExSummary:Shows how to link headers and footers between sections.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -140,24 +140,17 @@ describe("ExHeaderFooter", () => {
 
     doc = new aw.Document(base.artifactsDir + "HeaderFooter.link.docx");
 
-    /* TODO
     expect(doc.sections.at(0).headersFooters.count).toEqual(2);
-    expect(doc.sections.at(0).headersFooters.count(hf => !((HeaderFooter)hf).IsLinkedToPrevious)).toEqual(2);
-
     expect(doc.sections.at(1).headersFooters.count).toEqual(0);
-    expect(doc.sections.at(1).headersFooters.count(hf => ((HeaderFooter)hf).IsLinkedToPrevious)).toEqual(0);
-
     expect(doc.sections.at(2).headersFooters.count).toEqual(5);
-    expect(doc.sections.at(2).headersFooters.count(hf => !((HeaderFooter)hf).IsLinkedToPrevious)).toEqual(5);
-    */
   });
 
 
   test('RemoveFooters', () => {
     //ExStart
-    //ExFor:aw.Section.headersFooters
+    //ExFor:Section.headersFooters
     //ExFor:HeaderFooterCollection
-    //ExFor:aw.HeaderFooterCollection.item(HeaderFooterType)
+    //ExFor:HeaderFooterCollection.item(HeaderFooterType)
     //ExFor:HeaderFooter
     //ExSummary:Shows how to delete all footers from a document.
     let doc = new aw.Document(base.myDir + "Header and footer types.docx");
@@ -195,7 +188,7 @@ describe("ExHeaderFooter", () => {
 
   test('ExportMode', () => {
     //ExStart
-    //ExFor:aw.Saving.HtmlSaveOptions.exportHeadersFootersMode
+    //ExFor:HtmlSaveOptions.exportHeadersFootersMode
     //ExFor:ExportHeadersFootersMode
     //ExSummary:Shows how to omit headers/footers when saving a document to HTML.
     let doc = new aw.Document(base.myDir + "Header and footer types.docx");
@@ -222,11 +215,11 @@ describe("ExHeaderFooter", () => {
 
   test('ReplaceText', () => {
     //ExStart
-    //ExFor:aw.Document.firstSection
-    //ExFor:aw.Section.headersFooters
-    //ExFor:aw.HeaderFooterCollection.item(HeaderFooterType)
+    //ExFor:Document.firstSection
+    //ExFor:Section.headersFooters
+    //ExFor:HeaderFooterCollection.item(HeaderFooterType)
     //ExFor:HeaderFooter
-    //ExFor:aw.Range.replace(String, String, FindReplaceOptions)
+    //ExFor:Range.replace(String, String, FindReplaceOptions)
     //ExSummary:Shows how to replace text in a document's footer.
     let doc = new aw.Document(base.myDir + "Footer.docx");
 
@@ -248,10 +241,12 @@ describe("ExHeaderFooter", () => {
     expect(doc.range.text.includes(`Copyright (C) ${currentYear} by Aspose Pty Ltd.`)).toEqual(true);
   });
 
-/* TODO IReplacingCallback not supported
+
+/* TODO IReplacingCallback not supported    
   //ExStart
   //ExFor:IReplacingCallback
   //ExFor:PageSetup.DifferentFirstPageHeaderFooter
+  //ExFor:FindReplaceOptions.#ctor(IReplacingCallback)
   //ExSummary:Shows how to track the order in which a text replacement operation traverses nodes.
   test.each([false,
     true])('Order', (differentFirstPageHeaderFooter) => {
@@ -260,8 +255,7 @@ describe("ExHeaderFooter", () => {
     let firstPageSection = doc.firstSection;
 
     let logger = new ReplaceLog();
-    let options = new aw.Replacing.FindReplaceOptions();
-    options.replacingCallback = logger;
+    let options = new aw.Replacing.FindReplaceOptions(logger);
 
     // Using a different header/footer for the first page will affect the search order.
     firstPageSection.pageSetup.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;

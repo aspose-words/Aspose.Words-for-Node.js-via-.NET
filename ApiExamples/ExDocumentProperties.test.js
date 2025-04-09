@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -84,12 +84,12 @@ describe("ExDocumentProperties", () => {
   test('BuiltIn', () => {
     //ExStart
     //ExFor:BuiltInDocumentProperties
-    //ExFor:aw.Document.builtInDocumentProperties
-    //ExFor:aw.Document.customDocumentProperties
+    //ExFor:Document.builtInDocumentProperties
+    //ExFor:Document.customDocumentProperties
     //ExFor:DocumentProperty
-    //ExFor:aw.Properties.DocumentProperty.name
-    //ExFor:aw.Properties.DocumentProperty.value
-    //ExFor:aw.Properties.DocumentProperty.type
+    //ExFor:DocumentProperty.name
+    //ExFor:DocumentProperty.value
+    //ExFor:DocumentProperty.type
     //ExSummary:Shows how to work with built-in document properties.
     let doc = new aw.Document(base.myDir + "Properties.docx");
 
@@ -113,11 +113,11 @@ describe("ExDocumentProperties", () => {
 
   test('Custom', () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.item(String)
+    //ExFor:BuiltInDocumentProperties.item(String)
     //ExFor:CustomDocumentProperties
-    //ExFor:aw.Properties.DocumentProperty.toString
-    //ExFor:aw.Properties.DocumentPropertyCollection.count
-    //ExFor:aw.Properties.DocumentPropertyCollection.item(int)
+    //ExFor:DocumentProperty.toString
+    //ExFor:DocumentPropertyCollection.count
+    //ExFor:DocumentPropertyCollection.item(int)
     //ExSummary:Shows how to work with custom document properties.
     let doc = new aw.Document(base.myDir + "Properties.docx");
 
@@ -142,12 +142,12 @@ describe("ExDocumentProperties", () => {
 
   test('Description', () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.author
-    //ExFor:aw.Properties.BuiltInDocumentProperties.category
-    //ExFor:aw.Properties.BuiltInDocumentProperties.comments
-    //ExFor:aw.Properties.BuiltInDocumentProperties.keywords
-    //ExFor:aw.Properties.BuiltInDocumentProperties.subject
-    //ExFor:aw.Properties.BuiltInDocumentProperties.title
+    //ExFor:BuiltInDocumentProperties.author
+    //ExFor:BuiltInDocumentProperties.category
+    //ExFor:BuiltInDocumentProperties.comments
+    //ExFor:BuiltInDocumentProperties.keywords
+    //ExFor:BuiltInDocumentProperties.subject
+    //ExFor:BuiltInDocumentProperties.title
     //ExSummary:Shows how to work with built-in document properties in the "Description" category.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -205,17 +205,17 @@ describe("ExDocumentProperties", () => {
 
   test('Origin', () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.company
-    //ExFor:aw.Properties.BuiltInDocumentProperties.createdTime
-    //ExFor:aw.Properties.BuiltInDocumentProperties.lastPrinted
-    //ExFor:aw.Properties.BuiltInDocumentProperties.lastSavedBy
-    //ExFor:aw.Properties.BuiltInDocumentProperties.lastSavedTime
-    //ExFor:aw.Properties.BuiltInDocumentProperties.manager
-    //ExFor:aw.Properties.BuiltInDocumentProperties.nameOfApplication
-    //ExFor:aw.Properties.BuiltInDocumentProperties.revisionNumber
-    //ExFor:aw.Properties.BuiltInDocumentProperties.template
-    //ExFor:aw.Properties.BuiltInDocumentProperties.totalEditingTime
-    //ExFor:aw.Properties.BuiltInDocumentProperties.version
+    //ExFor:BuiltInDocumentProperties.company
+    //ExFor:BuiltInDocumentProperties.createdTime
+    //ExFor:BuiltInDocumentProperties.lastPrinted
+    //ExFor:BuiltInDocumentProperties.lastSavedBy
+    //ExFor:BuiltInDocumentProperties.lastSavedTime
+    //ExFor:BuiltInDocumentProperties.manager
+    //ExFor:BuiltInDocumentProperties.nameOfApplication
+    //ExFor:BuiltInDocumentProperties.revisionNumber
+    //ExFor:BuiltInDocumentProperties.template
+    //ExFor:BuiltInDocumentProperties.totalEditingTime
+    //ExFor:BuiltInDocumentProperties.version
     //ExSummary:Shows how to work with document properties in the "Origin" category.
     // Open a document that we have created and edited using Microsoft Word.
     let doc = new aw.Document(base.myDir + "Properties.docx");
@@ -336,8 +336,8 @@ describe("ExDocumentProperties", () => {
 
   test('Thumbnail', async () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.thumbnail
-    //ExFor:aw.Properties.DocumentProperty.toByteArray
+    //ExFor:BuiltInDocumentProperties.thumbnail
+    //ExFor:DocumentProperty.toByteArray
     //ExSummary:Shows how to add a thumbnail to a document that we save as an Epub.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -363,7 +363,7 @@ describe("ExDocumentProperties", () => {
 
   test('HyperlinkBase', () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.hyperlinkBase
+    //ExFor:BuiltInDocumentProperties.hyperlinkBase
     //ExSummary:Shows how to store the base part of a hyperlink in the document's properties.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -404,8 +404,8 @@ describe("ExDocumentProperties", () => {
 
   test.skip('HeadingPairs - TODO: object[] HeadingPairs not supported.', () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.headingPairs
-    //ExFor:aw.Properties.BuiltInDocumentProperties.titlesOfParts
+    //ExFor:BuiltInDocumentProperties.headingPairs
+    //ExFor:BuiltInDocumentProperties.titlesOfParts
     //ExSummary:Shows the relationship between "HeadingPairs" and "TitlesOfParts" properties.
     let doc = new aw.Document(base.myDir + "Heading pairs and titles of parts.docx");
 
@@ -456,7 +456,7 @@ describe("ExDocumentProperties", () => {
 
   test('Security', () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.security
+    //ExFor:BuiltInDocumentProperties.security
     //ExFor:DocumentSecurity
     //ExSummary:Shows how to use document properties to display the security level of a document.
     let doc = new aw.Document();
@@ -500,9 +500,9 @@ describe("ExDocumentProperties", () => {
 
   test('CustomNamedAccess', () => {
     //ExStart
-    //ExFor:aw.Properties.DocumentPropertyCollection.item(String)
-    //ExFor:aw.Properties.CustomDocumentProperties.add(String,DateTime)
-    //ExFor:aw.Properties.DocumentProperty.toDateTime
+    //ExFor:DocumentPropertyCollection.item(String)
+    //ExFor:CustomDocumentProperties.add(String,DateTime)
+    //ExFor:DocumentProperty.toDateTime
     //ExSummary:Shows how to create a custom document property which contains a date and time.
     let doc = new aw.Document();
 
@@ -520,9 +520,9 @@ describe("ExDocumentProperties", () => {
 
   test('LinkCustomDocumentPropertiesToBookmark', () => {
     //ExStart
-    //ExFor:aw.Properties.CustomDocumentProperties.addLinkToContent(String, String)
-    //ExFor:aw.Properties.DocumentProperty.isLinkToContent
-    //ExFor:aw.Properties.DocumentProperty.linkSource
+    //ExFor:CustomDocumentProperties.addLinkToContent(String, String)
+    //ExFor:DocumentProperty.isLinkToContent
+    //ExFor:DocumentProperty.linkSource
     //ExSummary:Shows how to link a custom document property to a bookmark.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -554,19 +554,19 @@ describe("ExDocumentProperties", () => {
 
   test('DocumentPropertyCollection', () => {
     //ExStart
-    //ExFor:aw.Properties.CustomDocumentProperties.add(String,String)
-    //ExFor:aw.Properties.CustomDocumentProperties.add(String,Boolean)
-    //ExFor:aw.Properties.CustomDocumentProperties.add(String,int)
-    //ExFor:aw.Properties.CustomDocumentProperties.add(String,DateTime)
-    //ExFor:aw.Properties.CustomDocumentProperties.add(String,Double)
-    //ExFor:aw.Properties.DocumentProperty.type
+    //ExFor:CustomDocumentProperties.add(String,String)
+    //ExFor:CustomDocumentProperties.add(String,Boolean)
+    //ExFor:CustomDocumentProperties.add(String,int)
+    //ExFor:CustomDocumentProperties.add(String,DateTime)
+    //ExFor:CustomDocumentProperties.add(String,Double)
+    //ExFor:DocumentProperty.type
     //ExFor:DocumentPropertyCollection
-    //ExFor:aw.Properties.DocumentPropertyCollection.clear
-    //ExFor:aw.Properties.DocumentPropertyCollection.contains(String)
-    //ExFor:aw.Properties.DocumentPropertyCollection.getEnumerator
-    //ExFor:aw.Properties.DocumentPropertyCollection.indexOf(String)
-    //ExFor:aw.Properties.DocumentPropertyCollection.removeAt(Int32)
-    //ExFor:aw.Properties.DocumentPropertyCollection.remove
+    //ExFor:DocumentPropertyCollection.clear
+    //ExFor:DocumentPropertyCollection.contains(String)
+    //ExFor:DocumentPropertyCollection.getEnumerator
+    //ExFor:DocumentPropertyCollection.indexOf(String)
+    //ExFor:DocumentPropertyCollection.removeAt(Int32)
+    //ExFor:DocumentPropertyCollection.remove
     //ExFor:PropertyType
     //ExSummary:Shows how to work with a document's custom properties.
     let doc = new aw.Document();
@@ -623,11 +623,11 @@ describe("ExDocumentProperties", () => {
 
   test('PropertyTypes', () => {
     //ExStart
-    //ExFor:aw.Properties.DocumentProperty.toBool
-    //ExFor:aw.Properties.DocumentProperty.toInt
-    //ExFor:aw.Properties.DocumentProperty.toDouble
-    //ExFor:aw.Properties.DocumentProperty.toString
-    //ExFor:aw.Properties.DocumentProperty.toDateTime
+    //ExFor:DocumentProperty.toBool
+    //ExFor:DocumentProperty.toInt
+    //ExFor:DocumentProperty.toDouble
+    //ExFor:DocumentProperty.toString
+    //ExFor:DocumentProperty.toDateTime
     //ExSummary:Shows various type conversion methods of custom document properties.
     let doc = new aw.Document();
     let properties = doc.customDocumentProperties;
@@ -647,4 +647,21 @@ describe("ExDocumentProperties", () => {
     expect(properties.at("Authorized Amount").toDouble()).toEqual(123.45);
     //ExEnd
   });
+
+
+  test('ExtendedProperties', () => {
+    //ExStart:ExtendedProperties
+    //GistId:366eb64fd56dec3c2eaa40410e594182
+    //ExFor:BuiltInDocumentProperties.scaleCrop
+    //ExFor:BuiltInDocumentProperties.sharedDocument
+    //ExFor:BuiltInDocumentProperties.hyperlinksChanged
+    //ExSummary:Shows how to get extended properties.
+    let doc = new aw.Document(base.myDir + "Extended properties.docx");
+    expect(doc.builtInDocumentProperties.scaleCrop).toEqual(true);
+    expect(doc.builtInDocumentProperties.sharedDocument).toEqual(true);
+    expect(doc.builtInDocumentProperties.hyperlinksChanged).toEqual(true);
+    //ExEnd:ExtendedProperties
+  });
+
+
 });

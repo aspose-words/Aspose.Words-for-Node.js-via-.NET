@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -25,12 +25,12 @@ describe("ExFont", () => {
     //ExStart
     //ExFor:Document.#ctor
     //ExFor:Font
-    //ExFor:aw.Font.name
-    //ExFor:aw.Font.size
-    //ExFor:aw.Font.highlightColor
+    //ExFor:Font.name
+    //ExFor:Font.size
+    //ExFor:Font.highlightColor
     //ExFor:Run
     //ExFor:Run.#ctor(DocumentBase,String)
-    //ExFor:aw.Story.firstParagraph
+    //ExFor:Story.firstParagraph
     //ExSummary:Shows how to format a run of text using its font property.
     let doc = new aw.Document();
     let run = new aw.Run(doc, "Hello world!");
@@ -56,8 +56,8 @@ describe("ExFont", () => {
 
   test('Caps', () => {
     //ExStart
-    //ExFor:aw.Font.allCaps
-    //ExFor:aw.Font.smallCaps
+    //ExFor:Font.allCaps
+    //ExFor:Font.smallCaps
     //ExSummary:Shows how to format a run to display its contents in capitals.
     let doc = new aw.Document();
     let para = doc.getParagraph(0, true);
@@ -97,10 +97,10 @@ describe("ExFont", () => {
   test('GetDocumentFonts', () => {
     //ExStart
     //ExFor:FontInfoCollection
-    //ExFor:aw.DocumentBase.fontInfos
+    //ExFor:DocumentBase.fontInfos
     //ExFor:FontInfo
-    //ExFor:aw.Fonts.FontInfo.name
-    //ExFor:aw.Fonts.FontInfo.isTrueType
+    //ExFor:FontInfo.name
+    //ExFor:FontInfo.isTrueType
     //ExSummary:Shows how to print the details of what fonts are present in a document.
     let doc = new aw.Document(base.myDir + "Embedded font.docx");
 
@@ -129,10 +129,10 @@ describe("ExFont", () => {
   test.each([false, true])('FontInfoCollection(embedAllFonts = %o)', (embedAllFonts) => {
     //ExStart
     //ExFor:FontInfoCollection
-    //ExFor:aw.DocumentBase.fontInfos
-    //ExFor:aw.Fonts.FontInfoCollection.embedTrueTypeFonts
-    //ExFor:aw.Fonts.FontInfoCollection.embedSystemFonts
-    //ExFor:aw.Fonts.FontInfoCollection.saveSubsetFonts
+    //ExFor:DocumentBase.fontInfos
+    //ExFor:FontInfoCollection.embedTrueTypeFonts
+    //ExFor:FontInfoCollection.embedSystemFonts
+    //ExFor:FontInfoCollection.saveSubsetFonts
     //ExSummary:Shows how to save a document with embedded TrueType fonts.
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -173,8 +173,8 @@ describe("ExFont", () => {
 
   test('StrikeThrough', () => {
     //ExStart
-    //ExFor:aw.Font.strikeThrough
-    //ExFor:aw.Font.doubleStrikeThrough
+    //ExFor:Font.strikeThrough
+    //ExFor:Font.doubleStrikeThrough
     //ExSummary:Shows how to add a line strikethrough to text.
     let doc = new aw.Document();
     let para = doc.getParagraph(0, true);
@@ -208,9 +208,9 @@ describe("ExFont", () => {
 
   test('PositionSubscript', () => {
     //ExStart
-    //ExFor:aw.Font.position
-    //ExFor:aw.Font.subscript
-    //ExFor:aw.Font.superscript
+    //ExFor:Font.position
+    //ExFor:Font.subscript
+    //ExFor:Font.superscript
     //ExSummary:Shows how to format text to offset its position.
     let doc = new aw.Document();
     let para = doc.getParagraph(0, true);
@@ -268,8 +268,8 @@ describe("ExFont", () => {
 
   test('ScalingSpacing', () => {
     //ExStart
-    //ExFor:aw.Font.scaling
-    //ExFor:aw.Font.spacing
+    //ExFor:Font.scaling
+    //ExFor:Font.spacing
     //ExSummary:Shows how to set horizontal scaling and spacing for characters.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -309,7 +309,7 @@ describe("ExFont", () => {
 
   test('Italic', () => {
     //ExStart
-    //ExFor:aw.Font.italic
+    //ExFor:Font.italic
     //ExSummary:Shows how to write italicized text using a document builder.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -331,8 +331,8 @@ describe("ExFont", () => {
 
   test('EngraveEmboss', () => {
     //ExStart
-    //ExFor:aw.Font.emboss
-    //ExFor:aw.Font.engrave
+    //ExFor:Font.emboss
+    //ExFor:Font.engrave
     //ExSummary:Shows how to apply engraving/embossing effects to text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -372,7 +372,7 @@ describe("ExFont", () => {
 
   test('Shadow', () => {
     //ExStart
-    //ExFor:aw.Font.shadow
+    //ExFor:Font.shadow
     //ExSummary:Shows how to create a run of text formatted with a shadow.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -397,7 +397,7 @@ describe("ExFont", () => {
 
   test('Outline', () => {
     //ExStart
-    //ExFor:aw.Font.outline
+    //ExFor:Font.outline
     //ExSummary:Shows how to create a run of text formatted as outline.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -423,7 +423,7 @@ describe("ExFont", () => {
 
   test('Hidden', () => {
     //ExStart
-    //ExFor:aw.Font.hidden
+    //ExFor:Font.hidden
     //ExSummary:Shows how to create a run of hidden text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -451,7 +451,7 @@ describe("ExFont", () => {
 
   test('Kerning', () => {
     //ExStart
-    //ExFor:aw.Font.kerning
+    //ExFor:Font.kerning
     //ExSummary:Shows how to specify the font size at which kerning begins to take effect.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -491,7 +491,7 @@ describe("ExFont", () => {
 
   test('NoProofing', () => {
     //ExStart
-    //ExFor:aw.Font.noProofing
+    //ExFor:Font.noProofing
     //ExSummary:Shows how to prevent text from being spell checked by Microsoft Word.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -516,7 +516,7 @@ describe("ExFont", () => {
 
   test.skip('LocaleId: CultureInfo', () => {
     //ExStart
-    //ExFor:aw.Font.localeId
+    //ExFor:Font.localeId
     //ExSummary:Shows how to set the locale of the text that we are adding with a document builder.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -548,8 +548,8 @@ describe("ExFont", () => {
 
   test('Underlines', () => {
     //ExStart
-    //ExFor:aw.Font.underline
-    //ExFor:aw.Font.underlineColor
+    //ExFor:Font.underline
+    //ExFor:Font.underlineColor
     //ExSummary:Shows how to configure the style and color of a text underline.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -573,7 +573,7 @@ describe("ExFont", () => {
 
   test('ComplexScript', () => {
     //ExStart
-    //ExFor:aw.Font.complexScript
+    //ExFor:Font.complexScript
     //ExSummary:Shows how to add text that is always treated as complex script.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -595,7 +595,8 @@ describe("ExFont", () => {
 
   test('SparklingText', () => {
     //ExStart
-    //ExFor:aw.Font.textEffect
+    //ExFor:TextEffect
+    //ExFor:Font.textEffect
     //ExSummary:Shows how to apply a visual effect to a run.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -619,10 +620,10 @@ describe("ExFont", () => {
 
   test('ForegroundAndBackground', () => {
     //ExStart
-    //ExFor:aw.Shading.foregroundPatternThemeColor
-    //ExFor:aw.Shading.backgroundPatternThemeColor
-    //ExFor:aw.Shading.foregroundTintAndShade
-    //ExFor:aw.Shading.backgroundTintAndShade
+    //ExFor:Shading.foregroundPatternThemeColor
+    //ExFor:Shading.backgroundPatternThemeColor
+    //ExFor:Shading.foregroundTintAndShade
+    //ExFor:Shading.backgroundTintAndShade
     //ExSummary:Shows how to set foreground and background colors for shading texture.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -658,7 +659,7 @@ describe("ExFont", () => {
 
   test('Shading', () => {
     //ExStart
-    //ExFor:aw.Font.shading
+    //ExFor:Font.shading
     //ExSummary:Shows how to apply shading to text created by a document builder.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -691,12 +692,12 @@ describe("ExFont", () => {
 
   test.skip('Bidi: CultureInfo', () => {
     //ExStart
-    //ExFor:aw.Font.bidi
-    //ExFor:aw.Font.nameBi
-    //ExFor:aw.Font.sizeBi
-    //ExFor:aw.Font.italicBi
-    //ExFor:aw.Font.boldBi
-    //ExFor:aw.Font.localeIdBi
+    //ExFor:Font.bidi
+    //ExFor:Font.nameBi
+    //ExFor:Font.sizeBi
+    //ExFor:Font.italicBi
+    //ExFor:Font.boldBi
+    //ExFor:Font.localeIdBi
     //ExSummary:Shows how to define separate sets of font settings for right-to-left, and right-to-left text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -760,8 +761,8 @@ describe("ExFont", () => {
 
   test.skip('FarEast: CultureInfo', () => {
     //ExStart
-    //ExFor:aw.Font.nameFarEast
-    //ExFor:aw.Font.localeIdFarEast
+    //ExFor:Font.nameFarEast
+    //ExFor:Font.localeIdFarEast
     //ExSummary:Shows how to insert and format text in a Far East language.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -807,8 +808,8 @@ describe("ExFont", () => {
 
   test('NameAscii', () => {
     //ExStart
-    //ExFor:aw.Font.nameAscii
-    //ExFor:aw.Font.nameOther
+    //ExFor:Font.nameAscii
+    //ExFor:Font.nameOther
     //ExSummary:Shows how Microsoft Word can combine two different fonts in one run.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -844,8 +845,8 @@ describe("ExFont", () => {
 
   test('ChangeStyle', () => {
     //ExStart
-    //ExFor:aw.Font.styleName
-    //ExFor:aw.Font.styleIdentifier
+    //ExFor:Font.styleName
+    //ExFor:Font.styleIdentifier
     //ExFor:StyleIdentifier
     //ExSummary:Shows how to change the style of existing text.
     let doc = new aw.Document();
@@ -891,7 +892,7 @@ describe("ExFont", () => {
 
   test('BuiltIn', () => {
     //ExStart
-    //ExFor:aw.Style.builtIn
+    //ExFor:Style.builtIn
     //ExSummary:Shows how to differentiate custom styles from built-in styles.
     let doc = new aw.Document();
 
@@ -916,7 +917,7 @@ describe("ExFont", () => {
 
   test('Style', () => {
     //ExStart
-    //ExFor:aw.Font.style
+    //ExFor:Font.style
     //ExSummary:Applies a double underline to all runs in a document that are formatted with custom character styles.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -954,11 +955,11 @@ describe("ExFont", () => {
   test.skip('GetAvailableFonts: Aspose.Words.Fonts.FontSourceBase.GetAvailableFonts() skipped', () => {
     //ExStart
     //ExFor:PhysicalFontInfo
-    //ExFor:aw.Fonts.FontSourceBase.getAvailableFonts
-    //ExFor:aw.Fonts.PhysicalFontInfo.fontFamilyName
-    //ExFor:aw.Fonts.PhysicalFontInfo.fullFontName
-    //ExFor:aw.Fonts.PhysicalFontInfo.version
-    //ExFor:aw.Fonts.PhysicalFontInfo.filePath
+    //ExFor:FontSourceBase.getAvailableFonts
+    //ExFor:PhysicalFontInfo.fontFamilyName
+    //ExFor:PhysicalFontInfo.fullFontName
+    //ExFor:PhysicalFontInfo.version
+    //ExFor:PhysicalFontInfo.filePath
     //ExSummary:Shows how to list available fonts.
     // Configure Aspose.words to source fonts from a custom folder, and then print every available font.
     let folderFontSource = [new aw.Fonts.FolderFontSource(base.fontsDir, true)];
@@ -978,14 +979,14 @@ describe("ExFont", () => {
 
   test.skip('SetFontAutoColor: WORDSNODEJS-123', () => {
     //ExStart
-    //ExFor:aw.Font.autoColor
+    //ExFor:Font.autoColor
     //ExSummary:Shows how to improve readability by automatically selecting text color based on the brightness of its background.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
 
     // If a run's Font object does not specify text color, it will automatically
     // select either black or white depending on the background color's color.
-    expect(builder.font.color).toEqual("#000000");
+    expect(builder.font.color).toEqual(base.emptyColor);
 
     // The default color for text is black. If the color of the background is dark, black text will be difficult to see.
     // To solve this problem, the AutoColor property will display this text in white.
@@ -1010,20 +1011,23 @@ describe("ExFont", () => {
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(run.getText().trim()).toEqual("The text color automatically chosen for this run is white.");
-    expect(run.font.color).toEqual("#000000");
+    expect(run.font.color).toEqual(base.emptyColor);
     expect(run.font.shading.backgroundPatternColor).toEqual("#00008B");
 
     run = doc.firstSection.body.paragraphs.at(1).runs.at(0);
 
     expect(run.getText().trim()).toEqual("The text color automatically chosen for this run is black.");
-    expect(run.font.color).toEqual("#000000");
+    expect(run.font.color).toEqual(base.emptyColor);
     expect(run.font.shading.backgroundPatternColor).toEqual("#ADD8E6");
   });
 
 
-  /*  //ExStart
+  /*//Commented
+     //ExStart
     //ExFor:Font.Hidden
-    //ExFor:Paragraph.Accept
+    //ExFor:Paragraph.Accept(DocumentVisitor)
+    //ExFor:Paragraph.AcceptStart(DocumentVisitor)
+    //ExFor:Paragraph.AcceptEnd(DocumentVisitor)
     //ExFor:DocumentVisitor.VisitParagraphStart(Paragraph)
     //ExFor:DocumentVisitor.VisitFormField(FormField)
     //ExFor:DocumentVisitor.VisitTableEnd(Table)
@@ -1035,9 +1039,13 @@ describe("ExFont", () => {
     //ExFor:DocumentVisitor.VisitCommentStart(Comment)
     //ExFor:DocumentVisitor.VisitFootnoteStart(Footnote)
     //ExFor:SpecialChar
-    //ExFor:Node.Accept
+    //ExFor:SpecialChar.Accept(DocumentVisitor)
+    //ExFor:SpecialChar.GetText
+    //ExFor:Node.Accept(DocumentVisitor)
     //ExFor:Paragraph.ParagraphBreakFont
-    //ExFor:Table.Accept
+    //ExFor:Table.Accept(DocumentVisitor)
+    //ExFor:Table.AcceptStart(DocumentVisitor)
+    //ExFor:Table.AcceptEnd(DocumentVisitor)
     //ExSummary:Shows how to use a DocumentVisitor implementation to remove all hidden content from a document.
   test('RemoveHiddenContentFromDocument', () => {
     let doc = new aw.Document(base.myDir + "Hidden content.docx");
@@ -1184,6 +1192,8 @@ describe("ExFont", () => {
       /// </summary>
     public override VisitorAction VisitSpecialChar(SpecialChar specialChar)
     {
+      console.log(specialChar.getText());
+
       if (specialChar.font.hidden)
         specialChar.remove();
 
@@ -1275,12 +1285,13 @@ describe("ExFont", () => {
           break;
       }
     }
-  }*/
+  }
+  //EndCommented*/
 
   test('DefaultFonts', () => {
     //ExStart
-    //ExFor:aw.Fonts.FontInfoCollection.contains(String)
-    //ExFor:aw.Fonts.FontInfoCollection.count
+    //ExFor:FontInfoCollection.contains(String)
+    //ExFor:FontInfoCollection.count
     //ExSummary:Shows info about the fonts that are present in the blank document.
     let doc = new aw.Document();
 
@@ -1301,10 +1312,10 @@ describe("ExFont", () => {
     //ExStart
     //ExFor:EmbeddedFontFormat
     //ExFor:EmbeddedFontStyle
-    //ExFor:aw.Fonts.FontInfo.getEmbeddedFont(EmbeddedFontFormat,EmbeddedFontStyle)
-    //ExFor:aw.Fonts.FontInfo.getEmbeddedFontAsOpenType(EmbeddedFontStyle)
-    //ExFor:aw.Fonts.FontInfoCollection.item(Int32)
-    //ExFor:aw.Fonts.FontInfoCollection.item(String)
+    //ExFor:FontInfo.getEmbeddedFont(EmbeddedFontFormat,EmbeddedFontStyle)
+    //ExFor:FontInfo.getEmbeddedFontAsOpenType(EmbeddedFontStyle)
+    //ExFor:FontInfoCollection.item(Int32)
+    //ExFor:FontInfoCollection.item(String)
     //ExSummary:Shows how to extract an embedded font from a document, and save it to the local file system.
     let doc = new aw.Document(base.myDir + "Embedded font.docx");
 
@@ -1333,12 +1344,12 @@ describe("ExFont", () => {
     //ExStart
     //ExFor:FontFamily
     //ExFor:FontPitch
-    //ExFor:aw.Fonts.FontInfo.altName
-    //ExFor:aw.Fonts.FontInfo.charset
-    //ExFor:aw.Fonts.FontInfo.family
-    //ExFor:aw.Fonts.FontInfo.panose
-    //ExFor:aw.Fonts.FontInfo.pitch
-    //ExFor:aw.Fonts.FontInfoCollection.getEnumerator
+    //ExFor:FontInfo.altName
+    //ExFor:FontInfo.charset
+    //ExFor:FontInfo.family
+    //ExFor:FontInfo.panose
+    //ExFor:FontInfo.pitch
+    //ExFor:FontInfoCollection.getEnumerator
     //ExSummary:Shows how to access and print details of each font in a document.
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -1377,7 +1388,7 @@ describe("ExFont", () => {
 
   test('LineSpacing', () => {
     //ExStart
-    //ExFor:aw.Font.lineSpacing
+    //ExFor:Font.lineSpacing
     //ExSummary:Shows how to get a font's line spacing, in points.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1394,7 +1405,8 @@ describe("ExFont", () => {
 
   test('HasDmlEffect', () => {
     //ExStart
-    //ExFor:aw.Font.hasDmlEffect(TextDmlEffect)
+    //ExFor:Font.hasDmlEffect(TextDmlEffect)
+    //ExFor:TextDmlEffect
     //ExSummary:Shows how to check if a run displays a DrawingML text effect.
     let doc = new aw.Document(base.myDir + "DrawingML text effects.docx");
 
@@ -1433,7 +1445,7 @@ describe("ExFont", () => {
     aw.EmphasisMark.UnderSolidCircle])('SetEmphasisMark(emphasisMark = %o)', (emphasisMark) => {
     //ExStart
     //ExFor:EmphasisMark
-    //ExFor:aw.Font.emphasisMark
+    //ExFor:Font.emphasisMark
     //ExSummary:Shows how to add additional character rendered above/below the glyph-character.
     let builder = new aw.DocumentBuilder();
 
@@ -1453,12 +1465,12 @@ describe("ExFont", () => {
 
   test.skip('ThemeFontsColors: WORDSNODEJS-123', () => {
     //ExStart
-    //ExFor:aw.Font.themeFont
-    //ExFor:aw.Font.themeFontAscii
-    //ExFor:aw.Font.themeFontBi
-    //ExFor:aw.Font.themeFontFarEast
-    //ExFor:aw.Font.themeFontOther
-    //ExFor:aw.Font.themeColor
+    //ExFor:Font.themeFont
+    //ExFor:Font.themeFontAscii
+    //ExFor:Font.themeFontBi
+    //ExFor:Font.themeFontFarEast
+    //ExFor:Font.themeFontOther
+    //ExFor:Font.themeColor
     //ExFor:ThemeFont
     //ExFor:ThemeColor
     //ExSummary:Shows how to work with theme fonts and colors.
@@ -1492,10 +1504,10 @@ describe("ExFont", () => {
     expect(font.nameOther).toEqual("Algerian");
 
     expect(font.themeColor).toEqual(aw.Themes.ThemeColor.Accent2);
-    expect(font.color).toEqual("#000000");
+    expect(font.color).toEqual(base.emptyColor);
 
     // There are several ways of reset them font and color.
-    // 1 -  By setting aw.Themes.ThemeFont.None/aw.Themes.ThemeColor.None:
+    // 1 -  By setting ThemeFont.None/ThemeColor.None:
     font.themeFont = aw.Themes.ThemeFont.None;
     font.themeColor = aw.Themes.ThemeColor.None;
 
@@ -1515,7 +1527,7 @@ describe("ExFont", () => {
     expect(font.nameOther).toEqual("Algerian");
 
     expect(font.themeColor).toEqual(aw.Themes.ThemeColor.None);
-    expect(font.color).toEqual("#000000");
+    expect(font.color).toEqual(base.emptyColor);
 
     // 2 -  By setting non-theme font/color names:
     font.name = "Arial";
@@ -1544,9 +1556,9 @@ describe("ExFont", () => {
 
   test.skip('CreateThemedStyle: WORDSNODEJS-123', () => {
     //ExStart
-    //ExFor:aw.Font.themeFont
-    //ExFor:aw.Font.themeColor
-    //ExFor:aw.Font.tintAndShade
+    //ExFor:Font.themeFont
+    //ExFor:Font.themeColor
+    //ExFor:Font.tintAndShade
     //ExFor:ThemeFont
     //ExFor:ThemeColor
     //ExSummary:Shows how to create and use themed style.
@@ -1583,7 +1595,86 @@ describe("ExFont", () => {
     expect(run.font.nameOther).toEqual("Times New Roman");
 
     expect(run.font.themeColor).toEqual(aw.Themes.ThemeColor.Accent5);
-    expect(run.font.color).toEqual("#000000");
+    expect(run.font.color).toEqual(base.emptyColor);
+  });
+
+
+  test('FontInfoEmbeddingLicensingRights', () => {
+    //ExStart:FontInfoEmbeddingLicensingRights
+    //GistId:708ce40a68fac5003d46f6b4acfd5ff1
+    //ExFor:FontInfo.embeddingLicensingRights
+    //ExFor:FontEmbeddingUsagePermissions
+    //ExFor:FontEmbeddingLicensingRights
+    //ExFor:FontEmbeddingLicensingRights.embeddingUsagePermissions
+    //ExFor:FontEmbeddingLicensingRights.bitmapEmbeddingOnly
+    //ExFor:FontEmbeddingLicensingRights.noSubsetting
+    //ExSummary:Shows how to get license rights information for embedded fonts (FontInfo).
+    let doc = new aw.Document(base.myDir + "Embedded font rights.docx");
+
+    // Get the list of document fonts.
+    let fontInfos = doc.fontInfos;
+    for (let fontInfo of fontInfos) 
+    {
+      if (fontInfo.embeddingLicensingRights != null)
+      {
+        console.log(fontInfo.embeddingLicensingRights.embeddingUsagePermissions);
+        console.log(fontInfo.embeddingLicensingRights.bitmapEmbeddingOnly);
+        console.log(fontInfo.embeddingLicensingRights.noSubsetting);
+      }
+    }
+    //ExEnd:FontInfoEmbeddingLicensingRights
+  });
+
+
+  test.skip('PhysicalFontInfoEmbeddingLicensingRights - TODO', () => {
+    //ExStart:PhysicalFontInfoEmbeddingLicensingRights
+    //GistId:708ce40a68fac5003d46f6b4acfd5ff1
+    //ExFor:PhysicalFontInfo.embeddingLicensingRights
+    //ExSummary:Shows how to get license rights information for embedded fonts (PhysicalFontInfo).
+    let settings = aw.Fonts.FontSettings.defaultInstance;
+    let source = settings.getFontsSources()[0];
+
+    // Get the list of available fonts.
+    let fontInfos = source.getAvailableFonts();
+    for (let fontInfo of fontInfos)
+    {
+      if (fontInfo.embeddingLicensingRights != null)
+      {
+        console.log(fontInfo.embeddingLicensingRights.embeddingUsagePermissions);
+        console.log(fontInfo.embeddingLicensingRights.bitmapEmbeddingOnly);
+        console.log(fontInfo.embeddingLicensingRights.noSubsetting);
+      }
+    }
+    //ExEnd:PhysicalFontInfoEmbeddingLicensingRights
+  });
+
+
+  test('NumberSpacing', () => {
+    //ExStart:NumberSpacing
+    //GistId:95fdae949cefbf2ce485acc95cccc495
+    //ExFor:Font.numberSpacing
+    //ExFor:NumSpacing
+    //ExSummary:Shows how to set the spacing type of the numeral.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    // This effect is only supported in newer versions of MS Word.
+    doc.compatibilityOptions.optimizeFor(aw.Settings.MsWordVersion.Word2019);
+
+    builder.write("1 ");
+    builder.write("This is an example");
+
+    let run = doc.firstSection.body.firstParagraph.runs.at(0);
+    if (run.font.numberSpacing == aw.NumSpacing.Default)
+      run.font.numberSpacing = aw.NumSpacing.Proportional;
+
+    doc.save(base.artifactsDir + "Fonts.numberSpacing.docx");
+    //ExEnd:NumberSpacing
+
+    doc = new aw.Document(base.artifactsDir + "Fonts.numberSpacing.docx");
+
+    run = doc.firstSection.body.firstParagraph.runs.at(0);
+    expect(run.font.numberSpacing).toEqual(aw.NumSpacing.Proportional);
   });
 
 });

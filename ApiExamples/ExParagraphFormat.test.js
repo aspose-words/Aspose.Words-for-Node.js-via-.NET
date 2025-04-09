@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,9 +21,9 @@ describe("ExParagraphFormat", () => {
 
   test('AsianTypographyProperties', () => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.farEastLineBreakControl
-    //ExFor:aw.ParagraphFormat.wordWrap
-    //ExFor:aw.ParagraphFormat.hangingPunctuation
+    //ExFor:ParagraphFormat.farEastLineBreakControl
+    //ExFor:ParagraphFormat.wordWrap
+    //ExFor:ParagraphFormat.hangingPunctuation
     //ExSummary:Shows how to set special properties for Asian typography. 
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -84,8 +84,9 @@ describe("ExParagraphFormat", () => {
 
   test('LineSpacing', () => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.lineSpacing
-    //ExFor:aw.ParagraphFormat.lineSpacingRule
+    //ExFor:ParagraphFormat.lineSpacing
+    //ExFor:ParagraphFormat.lineSpacingRule
+    //ExFor:LineSpacingRule
     //ExSummary:Shows how to work with line spacing.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -141,10 +142,10 @@ describe("ExParagraphFormat", () => {
 
   test.each([false, true])('ParagraphSpacingAuto(%o)', (autoSpacing) => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.spaceAfter
-    //ExFor:aw.ParagraphFormat.spaceAfterAuto
-    //ExFor:aw.ParagraphFormat.spaceBefore
-    //ExFor:aw.ParagraphFormat.spaceBeforeAuto
+    //ExFor:ParagraphFormat.spaceAfter
+    //ExFor:ParagraphFormat.spaceAfterAuto
+    //ExFor:ParagraphFormat.spaceBefore
+    //ExFor:ParagraphFormat.spaceBeforeAuto
     //ExSummary:Shows how to set automatic paragraph spacing.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -184,9 +185,9 @@ describe("ExParagraphFormat", () => {
 
   test.each([false, true])('ParagraphSpacingSameStyle(%o)', (noSpaceBetweenParagraphsOfSameStyle) => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.spaceAfter
-    //ExFor:aw.ParagraphFormat.spaceBefore
-    //ExFor:aw.ParagraphFormat.noSpaceBetweenParagraphsOfSameStyle
+    //ExFor:ParagraphFormat.spaceAfter
+    //ExFor:ParagraphFormat.spaceBefore
+    //ExFor:ParagraphFormat.noSpaceBetweenParagraphsOfSameStyle
     //ExSummary:Shows how to apply no spacing between paragraphs with the same style.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -229,7 +230,8 @@ describe("ExParagraphFormat", () => {
 
   test('ParagraphOutlineLevel', () => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.outlineLevel
+    //ExFor:ParagraphFormat.outlineLevel
+    //ExFor:OutlineLevel
     //ExSummary:Shows how to configure paragraph outline levels to create collapsible text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -271,7 +273,7 @@ describe("ExParagraphFormat", () => {
 
   test.each([false, true])('PageBreakBefore(%o)', (pageBreakBefore) => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.pageBreakBefore
+    //ExFor:ParagraphFormat.pageBreakBefore
     //ExSummary:Shows how to create paragraphs with page breaks at the beginning.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -313,7 +315,7 @@ describe("ExParagraphFormat", () => {
 
   test.each([false, true])('WidowControl(%o)', (widowControl) => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.widowControl
+    //ExFor:ParagraphFormat.widowControl
     //ExSummary:Shows how to enable widow/orphan control for a paragraph.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -345,7 +347,7 @@ describe("ExParagraphFormat", () => {
 
    test('LinesToDrop', () => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.linesToDrop
+    //ExFor:ParagraphFormat.linesToDrop
     //ExSummary:Shows how to set the size of a drop cap.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -373,11 +375,11 @@ describe("ExParagraphFormat", () => {
 
   test('ParagraphSpacingAndIndents', () => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.characterUnitLeftIndent
-    //ExFor:aw.ParagraphFormat.characterUnitRightIndent
-    //ExFor:aw.ParagraphFormat.characterUnitFirstLineIndent
-    //ExFor:aw.ParagraphFormat.lineUnitBefore
-    //ExFor:aw.ParagraphFormat.lineUnitAfter
+    //ExFor:ParagraphFormat.characterUnitLeftIndent
+    //ExFor:ParagraphFormat.characterUnitRightIndent
+    //ExFor:ParagraphFormat.characterUnitFirstLineIndent
+    //ExFor:ParagraphFormat.lineUnitBefore
+    //ExFor:ParagraphFormat.lineUnitAfter
     //ExSummary:Shows how to change paragraph spacing and indents.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -448,7 +450,7 @@ describe("ExParagraphFormat", () => {
   test('ParagraphBaselineAlignment', () => {
     //ExStart
     //ExFor:BaselineAlignment
-    //ExFor:aw.ParagraphFormat.baselineAlignment
+    //ExFor:ParagraphFormat.baselineAlignment
     //ExSummary:Shows how to set fonts vertical position on a line.
     let doc = new aw.Document(base.myDir + "Office math.docx");
 
@@ -470,7 +472,7 @@ describe("ExParagraphFormat", () => {
   test('MirrorIndents', () => {
     //ExStart:MirrorIndents
     //GistId:5f20ac02cb42c6b08481aa1c5b0cd3db
-    //ExFor:aw.ParagraphFormat.mirrorIndents
+    //ExFor:ParagraphFormat.mirrorIndents
     //ExSummary:Show how to make left and right indents the same.
     let doc = new aw.Document(base.myDir + "Document.docx");
     let format = doc.firstSection.body.paragraphs.at(0).paragraphFormat;

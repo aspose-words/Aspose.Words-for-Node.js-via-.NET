@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,9 +22,9 @@ describe("ExDocumentBuilderImages", () => {
 
   test('InsertImageFromStream', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(Stream)
-    //ExFor:aw.DocumentBuilder.insertImage(Stream, Double, Double)
-    //ExFor:aw.DocumentBuilder.insertImage(Stream, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertImage(Stream)
+    //ExFor:DocumentBuilder.insertImage(Stream, Double, Double)
+    //ExFor:DocumentBuilder.insertImage(Stream, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to insert an image from a stream into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -98,9 +98,9 @@ describe("ExDocumentBuilderImages", () => {
 
   test('InsertImageFromFilename', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(String)
-    //ExFor:aw.DocumentBuilder.insertImage(String, Double, Double)
-    //ExFor:aw.DocumentBuilder.insertImage(String, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertImage(String)
+    //ExFor:DocumentBuilder.insertImage(String, Double, Double)
+    //ExFor:DocumentBuilder.insertImage(String, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to insert an image from the local file system into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -173,7 +173,7 @@ describe("ExDocumentBuilderImages", () => {
 
   test('InsertSvgImage', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(String)
+    //ExFor:DocumentBuilder.insertImage(String)
     //ExSummary:Shows how to determine which image will be inserted.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -197,9 +197,9 @@ describe("ExDocumentBuilderImages", () => {
 
   test('InsertImageFromImageObject', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(Image)
-    //ExFor:aw.DocumentBuilder.insertImage(Image, Double, Double)
-    //ExFor:aw.DocumentBuilder.insertImage(Image, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertImage(Image)
+    //ExFor:DocumentBuilder.insertImage(Image, Double, Double)
+    //ExFor:DocumentBuilder.insertImage(Image, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to insert an image from an object into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -274,9 +274,9 @@ describe("ExDocumentBuilderImages", () => {
 
   test('InsertImageFromByteArray', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(Byte[])
-    //ExFor:aw.DocumentBuilder.insertImage(Byte[], Double, Double)
-    //ExFor:aw.DocumentBuilder.insertImage(Byte[], RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertImage(Byte[])
+    //ExFor:DocumentBuilder.insertImage(Byte[], Double, Double)
+    //ExFor:DocumentBuilder.insertImage(Byte[], RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to insert an image from a byte array into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -351,7 +351,7 @@ describe("ExDocumentBuilderImages", () => {
 
   test('InsertGif', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(String)
+    //ExFor:DocumentBuilder.insertImage(String)
     //ExSummary:Shows how to insert gif image to the document.
     let builder = new aw.DocumentBuilder();
 

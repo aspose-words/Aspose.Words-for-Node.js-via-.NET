@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,13 +22,13 @@ describe("ExFieldOptions", () => {
 
   test('CurrentUser', () => {
     //ExStart
-    //ExFor:aw.Document.updateFields
-    //ExFor:aw.Fields.FieldOptions.currentUser
+    //ExFor:Document.updateFields
+    //ExFor:FieldOptions.currentUser
     //ExFor:UserInformation
-    //ExFor:aw.Fields.UserInformation.name
-    //ExFor:aw.Fields.UserInformation.initials
-    //ExFor:aw.Fields.UserInformation.address
-    //ExFor:aw.Fields.UserInformation.defaultUser
+    //ExFor:UserInformation.name
+    //ExFor:UserInformation.initials
+    //ExFor:UserInformation.address
+    //ExFor:UserInformation.defaultUser
     //ExSummary:Shows how to set user details, and display them using fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -83,9 +83,9 @@ describe("ExFieldOptions", () => {
 
   test('FileName', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldOptions.fileName
+    //ExFor:FieldOptions.fileName
     //ExFor:FieldFileName
-    //ExFor:aw.Fields.FieldFileName.includeFullPath
+    //ExFor:FieldFileName.includeFullPath
     //ExSummary:Shows how to use FieldOptions to override the default value for the FILENAME field.
     let doc = new aw.Document(base.myDir + "Document.docx");
     let builder = new aw.DocumentBuilder(doc);
@@ -131,7 +131,7 @@ describe("ExFieldOptions", () => {
 
   test('Bidi', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldOptions.isBidiTextSupportedOnUpdate
+    //ExFor:FieldOptions.isBidiTextSupportedOnUpdate
     //ExSummary:Shows how to use FieldOptions to ensure that field updating fully supports bi-directional text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -159,7 +159,7 @@ describe("ExFieldOptions", () => {
 
   test('LegacyNumberFormat', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldOptions.legacyNumberFormat
+    //ExFor:FieldOptions.legacyNumberFormat
     //ExSummary:Shows how enable legacy number formatting for fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -183,7 +183,7 @@ describe("ExFieldOptions", () => {
 
   test.skip('PreProcessCulture: unsupported culture (CultureInfo)', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldOptions.preProcessCulture
+    //ExFor:FieldOptions.preProcessCulture
     //ExSummary:Shows how to set the preprocess culture.
     let doc = new aw.Document(base.myDir + "Document.docx");
     let builder = new aw.DocumentBuilder(doc);
@@ -213,10 +213,10 @@ describe("ExFieldOptions", () => {
 
   test('TableOfAuthorityCategories', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldOptions.toaCategories
+    //ExFor:FieldOptions.toaCategories
     //ExFor:ToaCategories
-    //ExFor:aw.Fields.ToaCategories.item(Int32)
-    //ExFor:aw.Fields.ToaCategories.defaultCategories
+    //ExFor:ToaCategories.item(Int32)
+    //ExFor:ToaCategories.defaultCategories
     //ExSummary:Shows how to specify a set of categories for TOA fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -272,7 +272,7 @@ describe("ExFieldOptions", () => {
 
   test.skip('UseInvariantCultureNumberFormat: unsupported culture (CultureInfo)', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldOptions.useInvariantCultureNumberFormat
+    //ExFor:FieldOptions.useInvariantCultureNumberFormat
     //ExSummary:Shows how to format numbers according to the invariant culture.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -301,7 +301,8 @@ describe("ExFieldOptions", () => {
   });
 
 
-  /*  //ExStart
+  /*//Commented
+    //ExStart
     //ExFor:FieldOptions.FieldUpdateCultureProvider
     //ExFor:IFieldUpdateCultureProvider
     //ExFor:IFieldUpdateCultureProvider.GetCulture(string, Field)
@@ -367,5 +368,6 @@ describe("ExFieldOptions", () => {
       }
     }
   }
-  //ExEnd*/
+  //ExEnd
+  //EndCommented*/
 });

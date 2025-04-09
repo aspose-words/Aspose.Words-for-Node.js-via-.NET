@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -24,13 +24,13 @@ describe("ExPageSetup", () => {
   
   test('ClearFormatting', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.pageSetup
-    //ExFor:aw.DocumentBuilder.insertBreak
-    //ExFor:aw.DocumentBuilder.document
+    //ExFor:DocumentBuilder.pageSetup
+    //ExFor:DocumentBuilder.insertBreak
+    //ExFor:DocumentBuilder.document
     //ExFor:PageSetup
-    //ExFor:aw.PageSetup.orientation
-    //ExFor:aw.PageSetup.verticalAlignment
-    //ExFor:aw.PageSetup.clearFormatting
+    //ExFor:PageSetup.orientation
+    //ExFor:PageSetup.verticalAlignment
+    //ExFor:PageSetup.clearFormatting
     //ExFor:Orientation
     //ExFor:PageVerticalAlignment
     //ExFor:BreakType
@@ -74,7 +74,7 @@ describe("ExPageSetup", () => {
   test.each([false,
     true])('DifferentFirstPageHeaderFooter', (differentFirstPageHeaderFooter) => {
     //ExStart
-    //ExFor:aw.PageSetup.differentFirstPageHeaderFooter
+    //ExFor:PageSetup.differentFirstPageHeaderFooter
     //ExSummary:Shows how to enable or disable primary headers/footers.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -121,7 +121,7 @@ describe("ExPageSetup", () => {
   test.each([false,
     true])('OddAndEvenPagesHeaderFooter', (oddAndEvenPagesHeaderFooter) => {
     //ExStart
-    //ExFor:aw.PageSetup.oddAndEvenPagesHeaderFooter
+    //ExFor:PageSetup.oddAndEvenPagesHeaderFooter
     //ExSummary:Shows how to enable or disable even page headers/footers.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -168,8 +168,8 @@ describe("ExPageSetup", () => {
 
   test('CharactersPerLine', () => {
     //ExStart
-    //ExFor:aw.PageSetup.charactersPerLine
-    //ExFor:aw.PageSetup.layoutMode
+    //ExFor:PageSetup.charactersPerLine
+    //ExFor:PageSetup.layoutMode
     //ExFor:SectionLayoutMode
     //ExSummary:Shows how to specify a for the number of characters that each line may have.
     let doc = new aw.Document();
@@ -198,9 +198,9 @@ describe("ExPageSetup", () => {
 
   test('LinesPerPage', () => {
     //ExStart
-    //ExFor:aw.PageSetup.linesPerPage
-    //ExFor:aw.PageSetup.layoutMode
-    //ExFor:aw.ParagraphFormat.snapToGrid
+    //ExFor:PageSetup.linesPerPage
+    //ExFor:PageSetup.layoutMode
+    //ExFor:ParagraphFormat.snapToGrid
     //ExFor:SectionLayoutMode
     //ExSummary:Shows how to specify a limit for the number of lines that each page may have.
     let doc = new aw.Document();
@@ -232,8 +232,8 @@ describe("ExPageSetup", () => {
   test('SetSectionStart', () => {
     //ExStart
     //ExFor:SectionStart
-    //ExFor:aw.PageSetup.sectionStart
-    //ExFor:aw.Document.sections
+    //ExFor:PageSetup.sectionStart
+    //ExFor:Document.sections
     //ExSummary:Shows how to specify how a new section separates itself from the previous.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -291,8 +291,8 @@ describe("ExPageSetup", () => {
 /*  [Ignore("Run only when the printer driver is installed")]
   test('DefaultPaperTray', () => {
     //ExStart
-    //ExFor:aw.PageSetup.firstPageTray
-    //ExFor:aw.PageSetup.otherPagesTray
+    //ExFor:PageSetup.firstPageTray
+    //ExFor:PageSetup.otherPagesTray
     //ExSummary:Shows how to get all the sections in a document to use the default paper tray of the selected printer.
     let doc = new aw.Document();
 
@@ -321,8 +321,8 @@ describe("ExPageSetup", () => {
 /*[Ignore("Run only when the printer driver is installed")]
   test('PaperTrayForDifferentPaperType', () => {
     //ExStart
-    //ExFor:aw.PageSetup.firstPageTray
-    //ExFor:aw.PageSetup.otherPagesTray
+    //ExFor:PageSetup.firstPageTray
+    //ExFor:PageSetup.otherPagesTray
     //ExSummary:Shows how to set up printing using different printer trays for different paper sizes.
     let doc = new aw.Document();
 
@@ -372,16 +372,16 @@ describe("ExPageSetup", () => {
   test('PageMargins', () => {
     //ExStart
     //ExFor:ConvertUtil
-    //ExFor:aw.ConvertUtil.inchToPoint
+    //ExFor:ConvertUtil.inchToPoint
     //ExFor:PaperSize
-    //ExFor:aw.PageSetup.paperSize
-    //ExFor:aw.PageSetup.orientation
-    //ExFor:aw.PageSetup.topMargin
-    //ExFor:aw.PageSetup.bottomMargin
-    //ExFor:aw.PageSetup.leftMargin
-    //ExFor:aw.PageSetup.rightMargin
-    //ExFor:aw.PageSetup.headerDistance
-    //ExFor:aw.PageSetup.footerDistance
+    //ExFor:PageSetup.paperSize
+    //ExFor:PageSetup.orientation
+    //ExFor:PageSetup.topMargin
+    //ExFor:PageSetup.bottomMargin
+    //ExFor:PageSetup.leftMargin
+    //ExFor:PageSetup.rightMargin
+    //ExFor:PageSetup.headerDistance
+    //ExFor:PageSetup.footerDistance
     //ExSummary:Shows how to adjust paper size, orientation, margins, along with other settings for a section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -418,7 +418,7 @@ describe("ExPageSetup", () => {
   test('PaperSizes', () => {
     //ExStart
     //ExFor:PaperSize
-    //ExFor:aw.PageSetup.paperSize
+    //ExFor:PageSetup.paperSize
     //ExSummary:Shows how to set page sizes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -473,10 +473,12 @@ describe("ExPageSetup", () => {
 
   test('ColumnsSameWidth', () => {
     //ExStart
-    //ExFor:aw.PageSetup.textColumns
+    //ExFor:PageSetup.textColumns
     //ExFor:TextColumnCollection
-    //ExFor:aw.TextColumnCollection.spacing
-    //ExFor:aw.TextColumnCollection.setCount
+    //ExFor:TextColumnCollection.spacing
+    //ExFor:TextColumnCollection.setCount
+    //ExFor:TextColumnCollection.count
+    //ExFor:TextColumnCollection.width
     //ExSummary:Shows how to create multiple evenly spaced columns in a section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -496,16 +498,17 @@ describe("ExPageSetup", () => {
 
     expect(doc.firstSection.pageSetup.textColumns.spacing).toEqual(100.0);
     expect(doc.firstSection.pageSetup.textColumns.count).toEqual(2);
+    expect(doc.firstSection.pageSetup.textColumns.width).toBeCloseTo(184, 1);
   });
 
 
   test('CustomColumnWidth', () => {
     //ExStart
-    //ExFor:aw.TextColumnCollection.evenlySpaced
-    //ExFor:aw.TextColumnCollection.item
+    //ExFor:TextColumnCollection.evenlySpaced
+    //ExFor:TextColumnCollection.item
     //ExFor:TextColumn
-    //ExFor:aw.TextColumn.width
-    //ExFor:aw.TextColumn.spaceAfter
+    //ExFor:TextColumn.width
+    //ExFor:TextColumn.spaceAfter
     //ExSummary:Shows how to create unevenly spaced columns.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -551,7 +554,7 @@ describe("ExPageSetup", () => {
   test.each([false,
     true])('VerticalLineBetweenColumns', (lineBetween) => {
     //ExStart
-    //ExFor:aw.TextColumnCollection.lineBetween
+    //ExFor:TextColumnCollection.lineBetween
     //ExSummary:Shows how to separate columns with a vertical line.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -580,11 +583,11 @@ describe("ExPageSetup", () => {
 
   test('LineNumbers', () => {
     //ExStart
-    //ExFor:aw.PageSetup.lineStartingNumber
-    //ExFor:aw.PageSetup.lineNumberDistanceFromText
-    //ExFor:aw.PageSetup.lineNumberCountBy
-    //ExFor:aw.PageSetup.lineNumberRestartMode
-    //ExFor:aw.ParagraphFormat.suppressLineNumbers
+    //ExFor:PageSetup.lineStartingNumber
+    //ExFor:PageSetup.lineNumberDistanceFromText
+    //ExFor:PageSetup.lineNumberCountBy
+    //ExFor:PageSetup.lineNumberRestartMode
+    //ExFor:ParagraphFormat.suppressLineNumbers
     //ExFor:LineNumberRestartMode
     //ExSummary:Shows how to enable line numbering for a section.
     let doc = new aw.Document();
@@ -625,13 +628,13 @@ describe("ExPageSetup", () => {
 
   test('PageBorderProperties', () => {
     //ExStart
-    //ExFor:aw.Section.pageSetup
-    //ExFor:aw.PageSetup.borderAlwaysInFront
-    //ExFor:aw.PageSetup.borderDistanceFrom
-    //ExFor:aw.PageSetup.borderAppliesTo
+    //ExFor:Section.pageSetup
+    //ExFor:PageSetup.borderAlwaysInFront
+    //ExFor:PageSetup.borderDistanceFrom
+    //ExFor:PageSetup.borderAppliesTo
     //ExFor:PageBorderDistanceFrom
     //ExFor:PageBorderAppliesTo
-    //ExFor:aw.Border.distanceFromText
+    //ExFor:Border.distanceFromText
     //ExSummary:Shows how to create a wide blue band border at the top of the first page.
     let doc = new aw.Document();
 
@@ -667,13 +670,13 @@ describe("ExPageSetup", () => {
 
   test('PageBorders', () => {
     //ExStart
-    //ExFor:aw.PageSetup.borders
-    //ExFor:aw.Border.shadow
-    //ExFor:aw.BorderCollection.lineStyle
-    //ExFor:aw.BorderCollection.lineWidth
-    //ExFor:aw.BorderCollection.color
-    //ExFor:aw.BorderCollection.distanceFromText
-    //ExFor:aw.BorderCollection.shadow
+    //ExFor:PageSetup.borders
+    //ExFor:Border.shadow
+    //ExFor:BorderCollection.lineStyle
+    //ExFor:BorderCollection.lineWidth
+    //ExFor:BorderCollection.color
+    //ExFor:BorderCollection.distanceFromText
+    //ExFor:BorderCollection.shadow
     //ExSummary:Shows how to create green wavy page border with a shadow.
     let doc = new aw.Document();
     let pageSetup = doc.sections.at(0).pageSetup;
@@ -703,10 +706,10 @@ describe("ExPageSetup", () => {
 
   test('PageNumbering', () => {
     //ExStart
-    //ExFor:aw.PageSetup.restartPageNumbering
-    //ExFor:aw.PageSetup.pageStartingNumber
-    //ExFor:aw.PageSetup.pageNumberStyle
-    //ExFor:aw.DocumentBuilder.insertField(String, String)
+    //ExFor:PageSetup.restartPageNumbering
+    //ExFor:PageSetup.pageStartingNumber
+    //ExFor:PageSetup.pageNumberStyle
+    //ExFor:DocumentBuilder.insertField(String, String)
     //ExSummary:Shows how to set up page numbering in a section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -774,8 +777,8 @@ describe("ExPageSetup", () => {
 
   test('FootnoteOptions', () => {
     //ExStart
-    //ExFor:aw.PageSetup.endnoteOptions
-    //ExFor:aw.PageSetup.footnoteOptions
+    //ExFor:PageSetup.endnoteOptions
+    //ExFor:PageSetup.footnoteOptions
     //ExSummary:Shows how to configure options affecting footnotes/endnotes in a section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -821,7 +824,7 @@ describe("ExPageSetup", () => {
   test.each([false,
     true])('Bidi', (reverseColumns) => {
     //ExStart
-    //ExFor:aw.PageSetup.bidi
+    //ExFor:PageSetup.bidi
     //ExSummary:Shows how to set the order of text columns in a section.
     let doc = new aw.Document();
 
@@ -854,8 +857,8 @@ describe("ExPageSetup", () => {
 
   test('PageBorder', () => {
     //ExStart
-    //ExFor:aw.PageSetup.borderSurroundsFooter
-    //ExFor:aw.PageSetup.borderSurroundsHeader
+    //ExFor:PageSetup.borderSurroundsFooter
+    //ExFor:PageSetup.borderSurroundsHeader
     //ExSummary:Shows how to apply a border to the page and header/footer.
     let doc = new aw.Document();
 
@@ -892,9 +895,9 @@ describe("ExPageSetup", () => {
 
   test('Gutter', () => {
     //ExStart
-    //ExFor:aw.PageSetup.gutter
-    //ExFor:aw.PageSetup.rtlGutter
-    //ExFor:aw.PageSetup.multiplePages
+    //ExFor:PageSetup.gutter
+    //ExFor:PageSetup.rtlGutter
+    //ExFor:PageSetup.multiplePages
     //ExSummary:Shows how to set gutter margins.
     let doc = new aw.Document();
 
@@ -937,9 +940,10 @@ describe("ExPageSetup", () => {
 
   test('Booklet', () => {
     //ExStart
-    //ExFor:aw.PageSetup.gutter
-    //ExFor:aw.PageSetup.multiplePages
-    //ExFor:aw.PageSetup.sheetsPerBooklet
+    //ExFor:PageSetup.gutter
+    //ExFor:PageSetup.multiplePages
+    //ExFor:PageSetup.sheetsPerBooklet
+    //ExFor:MultiplePagesType
     //ExSummary:Shows how to configure a document that can be printed as a book fold.
     let doc = new aw.Document();
 
@@ -975,7 +979,7 @@ describe("ExPageSetup", () => {
 
   test('SetTextOrientation', () => {
     //ExStart
-    //ExFor:aw.PageSetup.textOrientation
+    //ExFor:PageSetup.textOrientation
     //ExSummary:Shows how to set text orientation.
     let doc = new aw.Document();
 
@@ -1061,9 +1065,9 @@ describe("ExPageSetup", () => {
 
   test('ChapterPageSeparator', () => {
     //ExStart
-    //ExFor:aw.PageSetup.headingLevelForChapter
+    //ExFor:PageSetup.headingLevelForChapter
     //ExFor:ChapterPageSeparator
-    //ExFor:aw.PageSetup.chapterPageSeparator
+    //ExFor:PageSetup.chapterPageSeparator
     //ExSummary:Shows how to work with page chapters.
     let doc = new aw.Document(base.myDir + "Big document.docx");
 

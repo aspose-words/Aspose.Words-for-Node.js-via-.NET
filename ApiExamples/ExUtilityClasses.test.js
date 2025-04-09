@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,8 +21,8 @@ describe("ExUtilityClasses", () => {
   test('PointsAndInches', () => {
     //ExStart
     //ExFor:ConvertUtil
-    //ExFor:aw.ConvertUtil.pointToInch
-    //ExFor:aw.ConvertUtil.inchToPoint
+    //ExFor:ConvertUtil.pointToInch
+    //ExFor:ConvertUtil.inchToPoint
     //ExSummary:Shows how to specify page properties in inches.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -65,7 +65,7 @@ describe("ExUtilityClasses", () => {
 
   test('PointsAndMillimeters', () => {
     //ExStart
-    //ExFor:aw.ConvertUtil.millimeterToPoint
+    //ExFor:ConvertUtil.millimeterToPoint
     //ExSummary:Shows how to specify page properties in millimeters.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -103,8 +103,8 @@ describe("ExUtilityClasses", () => {
 
   test('PointsAndPixels', () => {
     //ExStart
-    //ExFor:aw.ConvertUtil.pixelToPoint(double)
-    //ExFor:aw.ConvertUtil.pointToPixel(double)
+    //ExFor:ConvertUtil.pixelToPoint(double)
+    //ExFor:ConvertUtil.pointToPixel(double)
     //ExSummary:Shows how to specify page properties in pixels.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -150,9 +150,9 @@ describe("ExUtilityClasses", () => {
 
   test('PointsAndPixelsDpi', () => {
     //ExStart
-    //ExFor:aw.ConvertUtil.pixelToNewDpi
-    //ExFor:aw.ConvertUtil.pixelToPoint(double, double)
-    //ExFor:aw.ConvertUtil.pointToPixel(double, double)
+    //ExFor:ConvertUtil.pixelToNewDpi
+    //ExFor:ConvertUtil.pixelToPoint(double, double)
+    //ExFor:ConvertUtil.pointToPixel(double, double)
     //ExSummary:Shows how to use convert points to pixels with default and custom resolution.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

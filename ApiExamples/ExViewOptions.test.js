@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -15,11 +15,12 @@ const fs = require('fs');
 describe("ExViewOptions", () => {
   test('SetZoomPercentage', () => {
     //ExStart
-    //ExFor:aw.Document.viewOptions
+    //ExFor:Document.viewOptions
     //ExFor:ViewOptions
-    //ExFor:aw.Settings.ViewOptions.viewType
-    //ExFor:aw.Settings.ViewOptions.zoomPercent
-    //ExFor:aw.Settings.ViewOptions.zoomType
+    //ExFor:ViewOptions.viewType
+    //ExFor:ViewOptions.zoomPercent
+    //ExFor:ViewOptions.zoomType
+    //ExFor:ZoomType
     //ExFor:ViewType
     //ExSummary:Shows how to set a custom zoom factor, which older versions of Microsoft Word will apply to a document upon loading.
     let doc = new aw.Document();
@@ -47,9 +48,9 @@ describe("ExViewOptions", () => {
     aw.Settings.ZoomType.FullPage,
     aw.Settings.ZoomType.TextFit])('SetZoomType', (zoomType) => {
     //ExStart
-    //ExFor:aw.Document.viewOptions
+    //ExFor:Document.viewOptions
     //ExFor:ViewOptions
-    //ExFor:aw.Settings.ViewOptions.zoomType
+    //ExFor:ViewOptions.zoomType
     //ExSummary:Shows how to set a custom zoom type, which older versions of Microsoft Word will apply to a document upon loading.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -75,7 +76,7 @@ describe("ExViewOptions", () => {
   test.each([false,
     true])('DisplayBackgroundShape', (displayBackgroundShape) => {
     //ExStart
-    //ExFor:aw.Settings.ViewOptions.displayBackgroundShape
+    //ExFor:ViewOptions.displayBackgroundShape
     //ExSummary:Shows how to hide/display document background images in view options.
     // Use an HTML string to create a new document with a flat background color.
     const html = 
@@ -108,7 +109,7 @@ describe("ExViewOptions", () => {
   test.each([false,
     true])('DisplayPageBoundaries', (doNotDisplayPageBoundaries) => {
     //ExStart
-    //ExFor:aw.Settings.ViewOptions.doNotDisplayPageBoundaries
+    //ExFor:ViewOptions.doNotDisplayPageBoundaries
     //ExSummary:Shows how to hide vertical whitespace and headers/footers in view options.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -145,7 +146,7 @@ describe("ExViewOptions", () => {
   test.each([false,
     true])('FormsDesign', (useFormsDesign) => {
     //ExStart
-    //ExFor:aw.Settings.ViewOptions.formsDesign
+    //ExFor:ViewOptions.formsDesign
     //ExSummary:Shows how to enable/disable forms design mode.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

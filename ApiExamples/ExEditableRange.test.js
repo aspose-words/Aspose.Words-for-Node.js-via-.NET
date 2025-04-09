@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,19 +22,19 @@ describe("ExEditableRange", () => {
 
   test('CreateAndRemove', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.startEditableRange
-    //ExFor:aw.DocumentBuilder.endEditableRange
+    //ExFor:DocumentBuilder.startEditableRange
+    //ExFor:DocumentBuilder.endEditableRange
     //ExFor:EditableRange
-    //ExFor:aw.EditableRange.editableRangeEnd
-    //ExFor:aw.EditableRange.editableRangeStart
-    //ExFor:aw.EditableRange.id
-    //ExFor:aw.EditableRange.remove
-    //ExFor:aw.EditableRangeEnd.editableRangeStart
-    //ExFor:aw.EditableRangeEnd.id
-    //ExFor:aw.EditableRangeEnd.nodeType
-    //ExFor:aw.EditableRangeStart.editableRange
-    //ExFor:aw.EditableRangeStart.id
-    //ExFor:aw.EditableRangeStart.nodeType
+    //ExFor:EditableRange.editableRangeEnd
+    //ExFor:EditableRange.editableRangeStart
+    //ExFor:EditableRange.id
+    //ExFor:EditableRange.remove
+    //ExFor:EditableRangeEnd.editableRangeStart
+    //ExFor:EditableRangeEnd.id
+    //ExFor:EditableRangeEnd.nodeType
+    //ExFor:EditableRangeStart.editableRange
+    //ExFor:EditableRangeStart.id
+    //ExFor:EditableRangeStart.nodeType
     //ExSummary:Shows how to work with an editable range.
     let doc = new aw.Document();
     doc.protect(aw.ProtectionType.ReadOnly, "MyPassword");
@@ -95,9 +95,9 @@ describe("ExEditableRange", () => {
 
   test('Nested', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.startEditableRange
-    //ExFor:aw.DocumentBuilder.endEditableRange(EditableRangeStart)
-    //ExFor:aw.EditableRange.editorGroup
+    //ExFor:DocumentBuilder.startEditableRange
+    //ExFor:DocumentBuilder.endEditableRange(EditableRangeStart)
+    //ExFor:EditableRange.editorGroup
     //ExSummary:Shows how to create nested editable ranges.
     let doc = new aw.Document();
     doc.protect(aw.ProtectionType.ReadOnly, "MyPassword");
@@ -150,8 +150,8 @@ describe("ExEditableRange", () => {
   });
 
 
-  /*  //ExStart
-
+  /*//Commented
+   //ExStart
     //ExFor:EditableRange
     //ExFor:EditableRange.EditorGroup
     //ExFor:EditableRange.SingleUser
@@ -262,7 +262,8 @@ describe("ExEditableRange", () => {
     private bool mInsideEditableRange;
     private readonly StringBuilder mBuilder;
   }
-    //ExEnd*/
+    //ExEnd
+    //EndCommented*/
 
   test('IncorrectStructureException', () => {
     let doc = new aw.Document();

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,7 +22,7 @@ describe("ExRange", () => {
 
   test('Replace', () => {
     //ExStart
-    //ExFor:aw.Range.replace(String, String)
+    //ExFor:Range.replace(String, String)
     //ExSummary:Shows how to perform a find-and-replace text operation on the contents of a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -41,9 +41,9 @@ describe("ExRange", () => {
   test.each([false,
     true])('ReplaceMatchCase', (matchCase) => {
     //ExStart
-    //ExFor:aw.Range.replace(String, String, FindReplaceOptions)
+    //ExFor:Range.replace(String, String, FindReplaceOptions)
     //ExFor:FindReplaceOptions
-    //ExFor:aw.Replacing.FindReplaceOptions.matchCase
+    //ExFor:FindReplaceOptions.matchCase
     //ExSummary:Shows how to toggle case sensitivity when performing a find-and-replace operation.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -67,9 +67,9 @@ describe("ExRange", () => {
   test.each([false,
     true])('ReplaceFindWholeWordsOnly', (findWholeWordsOnly) => {
     //ExStart
-    //ExFor:aw.Range.replace(String, String, FindReplaceOptions)
+    //ExFor:Range.replace(String, String, FindReplaceOptions)
     //ExFor:FindReplaceOptions
-    //ExFor:aw.Replacing.FindReplaceOptions.findWholeWordsOnly
+    //ExFor:FindReplaceOptions.findWholeWordsOnly
     //ExSummary:Shows how to toggle standalone word-only find-and-replace operations. 
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -94,7 +94,7 @@ describe("ExRange", () => {
   test.each([true,
     false])('IgnoreDeleted', (ignoreTextInsideDeleteRevisions) => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.ignoreDeleted
+    //ExFor:FindReplaceOptions.ignoreDeleted
     //ExSummary:Shows how to include or ignore text inside delete revisions during a find-and-replace operation.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -130,7 +130,7 @@ describe("ExRange", () => {
   test.each([true,
     false])('IgnoreInserted', (ignoreTextInsideInsertRevisions) => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.ignoreInserted
+    //ExFor:FindReplaceOptions.ignoreInserted
     //ExSummary:Shows how to include or ignore text inside insert revisions during a find-and-replace operation.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -166,7 +166,7 @@ describe("ExRange", () => {
   test.each([true,
     false])('IgnoreFields', (ignoreTextInsideFields) => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.ignoreFields
+    //ExFor:FindReplaceOptions.ignoreFields
     //ExSummary:Shows how to ignore text inside fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -196,7 +196,7 @@ describe("ExRange", () => {
   test.skip.each([true,
     false])('IgnoreFieldCodes - TODO: WORDSNODEJS-106 - Add support of regex to doc.range.replace', (ignoreFieldCodes) => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.ignoreFieldCodes
+    //ExFor:FindReplaceOptions.ignoreFieldCodes
     //ExSummary:Shows how to ignore text inside field codes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -221,7 +221,7 @@ describe("ExRange", () => {
   test.each([true,
     false])('IgnoreFootnote', (isIgnoreFootnotes) => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.ignoreFootnotes
+    //ExFor:FindReplaceOptions.ignoreFootnotes
     //ExSummary:Shows how to ignore footnotes during a find-and-replace operation.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -264,7 +264,7 @@ describe("ExRange", () => {
 
   test('IgnoreShapes', () => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.ignoreShapes
+    //ExFor:FindReplaceOptions.ignoreShapes
     //ExSummary:Shows how to ignore shapes while replacing text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -284,7 +284,7 @@ describe("ExRange", () => {
 
   test('UpdateFieldsInRange', () => {
     //ExStart
-    //ExFor:aw.Range.updateFields
+    //ExFor:Range.updateFields
     //ExSummary:Shows how to update all the fields in a range.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -328,7 +328,7 @@ describe("ExRange", () => {
 
   test.skip('ReplaceWithRegex - TODO: WORDSNODEJS-106 - Add support of regex to doc.range.replace', () => {
     //ExStart
-    //ExFor:aw.Range.replace(Regex, String)
+    //ExFor:Range.replace(Regex, String)
     //ExSummary:Shows how to replace all occurrences of a regular expression pattern with other text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -474,8 +474,8 @@ describe("ExRange", () => {
 
   test('ApplyParagraphFormat', () => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.applyParagraphFormat
-    //ExFor:aw.Range.replace(String, String)
+    //ExFor:FindReplaceOptions.applyParagraphFormat
+    //ExFor:Range.replace(String, String)
     //ExSummary:Shows how to add formatting to paragraphs in which a find-and-replace operation has found matches.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -514,8 +514,8 @@ describe("ExRange", () => {
 
   test('DeleteSelection', () => {
     //ExStart
-    //ExFor:aw.Node.range
-    //ExFor:aw.Range.delete
+    //ExFor:Node.range
+    //ExFor:Range.delete
     //ExSummary:Shows how to delete all the nodes from a range.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -540,7 +540,7 @@ describe("ExRange", () => {
   test('RangesGetText', () => {
     //ExStart
     //ExFor:Range
-    //ExFor:aw.Range.text
+    //ExFor:Range.text
     //ExSummary:Shows how to get the text contents of all the nodes that a range covers.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -609,7 +609,7 @@ describe("ExRange", () => {
   test.skip.each([false,
     true])('UseSubstitutions - TODO: WORDSNODEJS-106 - Add support of regex to doc.range.replace', (useSubstitutions) => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.useSubstitutions
+    //ExFor:FindReplaceOptions.useSubstitutions
     //ExSummary:Shows how to replace the text with substitutions.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

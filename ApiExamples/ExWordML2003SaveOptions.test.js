@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -25,7 +25,7 @@ describe("ExWordML2003SaveOptions", () => {
     true])('PrettyFormat', (prettyFormat) => {
     //ExStart
     //ExFor:WordML2003SaveOptions
-    //ExFor:aw.Saving.WordML2003SaveOptions.saveFormat
+    //ExFor:WordML2003SaveOptions.saveFormat
     //ExSummary:Shows how to manage output document's raw content.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

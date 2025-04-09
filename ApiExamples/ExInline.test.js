@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -24,17 +24,17 @@ describe("ExInline", () => {
   test('InlineRevisions', () => {
     //ExStart
     //ExFor:Inline
-    //ExFor:aw.Inline.isDeleteRevision
-    //ExFor:aw.Inline.isFormatRevision
-    //ExFor:aw.Inline.isInsertRevision
-    //ExFor:aw.Inline.isMoveFromRevision
-    //ExFor:aw.Inline.isMoveToRevision
-    //ExFor:aw.Inline.parentParagraph
-    //ExFor:aw.Paragraph.runs
-    //ExFor:aw.Revision.parentNode
+    //ExFor:Inline.isDeleteRevision
+    //ExFor:Inline.isFormatRevision
+    //ExFor:Inline.isInsertRevision
+    //ExFor:Inline.isMoveFromRevision
+    //ExFor:Inline.isMoveToRevision
+    //ExFor:Inline.parentParagraph
+    //ExFor:Paragraph.runs
+    //ExFor:Revision.parentNode
     //ExFor:RunCollection
-    //ExFor:aw.RunCollection.item(Int32)
-    //ExFor:aw.RunCollection.toArray
+    //ExFor:RunCollection.item(Int32)
+    //ExFor:RunCollection.toArray
     //ExSummary:Shows how to determine the revision type of an inline node.
     let doc = new aw.Document(base.myDir + "Revision runs.docx");
 

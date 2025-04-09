@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -25,7 +25,7 @@ describe("ExNode", () => {
   test('CloneCompositeNode', () => {
     //ExStart
     //ExFor:Node
-    //ExFor:aw.Node.clone
+    //ExFor:Node.clone
     //ExSummary:Shows how to clone a composite node.
     let doc = new aw.Document();
     let para = doc.firstSection.body.firstParagraph;
@@ -49,7 +49,7 @@ describe("ExNode", () => {
 
   test('GetParentNode', () => {
     //ExStart
-    //ExFor:aw.Node.parentNode
+    //ExFor:Node.parentNode
     //ExSummary:Shows how to access a node's parent node.
     let doc = new aw.Document();
     let para = doc.firstSection.body.firstParagraph;
@@ -70,8 +70,8 @@ describe("ExNode", () => {
 
   test('OwnerDocument', () => {
     //ExStart
-    //ExFor:aw.Node.document
-    //ExFor:aw.Node.parentNode
+    //ExFor:Node.document
+    //ExFor:Node.parentNode
     //ExSummary:Shows how to create a node and set its owning document.
     let doc = new aw.Document();
     let para = new aw.Paragraph(doc);
@@ -105,13 +105,13 @@ describe("ExNode", () => {
   test('ChildNodesEnumerate', () => {
     //ExStart
     //ExFor:Node
-    //ExFor:aw.Node.customNodeId
+    //ExFor:Node.customNodeId
     //ExFor:NodeType
     //ExFor:CompositeNode
-    //ExFor:aw.CompositeNode.getChild
-    //ExFor:aw.CompositeNode.getChildNodes(NodeType, bool)
-    //ExFor:aw.NodeCollection.count
-    //ExFor:aw.NodeCollection.item
+    //ExFor:CompositeNode.getChild
+    //ExFor:CompositeNode.getChildNodes(NodeType, bool)
+    //ExFor:NodeCollection.count
+    //ExFor:NodeCollection.item
     //ExSummary:Shows how to traverse through a composite node's collection of child nodes.
     let doc = new aw.Document();
 
@@ -229,8 +229,8 @@ describe("ExNode", () => {
 
     //ExStart
     //ExFor:Node
-    //ExFor:aw.Node.nodeType
-    //ExFor:aw.Node.remove
+    //ExFor:Node.nodeType
+    //ExFor:Node.remove
     //ExSummary:Shows how to remove all child nodes of a specific type from a composite node.
     let doc = new aw.Document(base.myDir + "Tables.docx");
 
@@ -258,10 +258,10 @@ describe("ExNode", () => {
 
   test('EnumNextSibling', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.firstChild
-    //ExFor:aw.Node.nextSibling
-    //ExFor:aw.Node.nodeTypeToString
-    //ExFor:aw.Node.nodeType
+    //ExFor:CompositeNode.firstChild
+    //ExFor:Node.nextSibling
+    //ExFor:Node.nodeTypeToString
+    //ExFor:Node.nodeType
     //ExSummary:Shows how to use a node's NextSibling property to enumerate through its immediate children.
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
 
@@ -279,9 +279,9 @@ describe("ExNode", () => {
   test('TypedAccess', () => {
 
     //ExStart
-    //ExFor:aw.Story.tables
-    //ExFor:aw.Tables.Table.firstRow
-    //ExFor:aw.Tables.Table.lastRow
+    //ExFor:Story.tables
+    //ExFor:Table.firstRow
+    //ExFor:Table.lastRow
     //ExFor:TableCollection
     //ExSummary:Shows how to remove the first and last rows of all tables in a document.
     let doc = new aw.Document(base.myDir + "Tables.docx");
@@ -305,9 +305,9 @@ describe("ExNode", () => {
 
   test('RemoveChild', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.lastChild
-    //ExFor:aw.Node.previousSibling
-    //ExFor:aw.CompositeNode.removeChild``1(``0)
+    //ExFor:CompositeNode.lastChild
+    //ExFor:Node.previousSibling
+    //ExFor:CompositeNode.removeChild``1(``0)
     //ExSummary:Shows how to use of methods of Node and CompositeNode to remove a section before the last section in the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -332,10 +332,10 @@ describe("ExNode", () => {
 
   test('SelectCompositeNodes', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.selectSingleNode
-    //ExFor:aw.CompositeNode.selectNodes
-    //ExFor:aw.NodeList.getEnumerator
-    //ExFor:aw.NodeList.toArray
+    //ExFor:CompositeNode.selectSingleNode
+    //ExFor:CompositeNode.selectNodes
+    //ExFor:NodeList.getEnumerator
+    //ExFor:NodeList.toArray
     //ExSummary:Shows how to select certain nodes by using an XPath expression.
     let doc = new aw.Document(base.myDir + "Tables.docx");
 
@@ -365,7 +365,7 @@ describe("ExNode", () => {
 
   test('TestNodeIsInsideField', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.selectNodes
+    //ExFor:CompositeNode.selectNodes
     //ExSummary:Shows how to use an XPath expression to test whether a node is inside a field.
     let doc = new aw.Document(base.myDir + "Mail merge destination - Northwind employees.docx");
 
@@ -393,7 +393,7 @@ describe("ExNode", () => {
 
   test('RemoveSmartTagsFromCompositeNode', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.removeSmartTags
+    //ExFor:CompositeNode.removeSmartTags
     //ExSummary:Removes all smart tags from descendant nodes of a composite node.
     let doc = new aw.Document(base.myDir + "Smart tags.doc");
 
@@ -408,7 +408,7 @@ describe("ExNode", () => {
 
   test('GetIndexOfNode', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.indexOf
+    //ExFor:CompositeNode.indexOf
     //ExSummary:Shows how to get the index of a given child node from its parent.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -422,8 +422,8 @@ describe("ExNode", () => {
 
   test('ConvertNodeToHtmlWithDefaultOptions', () => {
     //ExStart
-    //ExFor:aw.Node.toString(SaveFormat)
-    //ExFor:aw.Node.toString(SaveOptions)
+    //ExFor:Node.toString(SaveFormat)
+    //ExFor:Node.toString(SaveOptions)
     //ExSummary:Exports the content of a node to String in HTML format.
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -448,7 +448,7 @@ describe("ExNode", () => {
 
   test('TypedNodeCollectionToArray', () => {
     //ExStart
-    //ExFor:aw.ParagraphCollection.toArray
+    //ExFor:ParagraphCollection.toArray
     //ExSummary:Shows how to create an array from a NodeCollection.
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
 
@@ -461,7 +461,7 @@ describe("ExNode", () => {
 
   test('NodeEnumerationHotRemove', () => {
     //ExStart
-    //ExFor:aw.ParagraphCollection.toArray
+    //ExFor:ParagraphCollection.toArray
     //ExSummary:Shows how to use "hot remove" to remove a node during enumeration.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -553,9 +553,9 @@ describe("ExNode", () => {
 
   test('NodeCollection', () => {
     //ExStart
-    //ExFor:aw.NodeCollection.contains(Node)
-    //ExFor:aw.NodeCollection.insert(Int32,Node)
-    //ExFor:aw.NodeCollection.remove(Node)
+    //ExFor:NodeCollection.contains(Node)
+    //ExFor:NodeCollection.insert(Int32,Node)
+    //ExFor:NodeCollection.remove(Node)
     //ExSummary:Shows how to work with a NodeCollection.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -564,7 +564,7 @@ describe("ExNode", () => {
     builder.write("Run 1. ");
     builder.write("Run 2. ");
 
-    // Every invocation of the "Write" method creates a new aw.Run,
+    // Every invocation of the "Write" method creates a new Run,
     // which then appears in the parent Paragraph's RunCollection.
     let runs = doc.firstSection.body.firstParagraph.runs;
 
@@ -590,8 +590,8 @@ describe("ExNode", () => {
 
   test('NodeList', () => {
     //ExStart
-    //ExFor:aw.NodeList.count
-    //ExFor:aw.NodeList.item(Int32)
+    //ExFor:NodeList.count
+    //ExFor:NodeList.item(Int32)
     //ExSummary:Shows how to use XPaths to navigate a NodeList.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

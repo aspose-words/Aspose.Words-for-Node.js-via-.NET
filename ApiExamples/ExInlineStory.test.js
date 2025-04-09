@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -26,9 +26,9 @@ describe("ExInlineStory", () => {
   test.each([aw.Notes.FootnotePosition.BeneathText,
     aw.Notes.FootnotePosition.BottomOfPage])('PositionFootnote', (footnotePosition) => {
     //ExStart
-    //ExFor:aw.Document.footnoteOptions
+    //ExFor:Document.footnoteOptions
     //ExFor:FootnoteOptions
-    //ExFor:aw.Notes.FootnoteOptions.position
+    //ExFor:FootnoteOptions.position
     //ExFor:FootnotePosition
     //ExSummary:Shows how to select a different place where the document collects and displays its footnotes.
     let doc = new aw.Document();
@@ -66,9 +66,9 @@ describe("ExInlineStory", () => {
   test.each([aw.Notes.EndnotePosition.EndOfDocument,
     aw.Notes.EndnotePosition.EndOfSection])('PositionEndnote', (endnotePosition) => {
     //ExStart
-    //ExFor:aw.Document.endnoteOptions
+    //ExFor:Document.endnoteOptions
     //ExFor:EndnoteOptions
-    //ExFor:aw.Notes.EndnoteOptions.position
+    //ExFor:EndnoteOptions.position
     //ExFor:EndnotePosition
     //ExSummary:Shows how to select a different place where the document collects and displays its endnotes.
     let doc = new aw.Document();
@@ -107,12 +107,12 @@ describe("ExInlineStory", () => {
 
   test('RefMarkNumberStyle', () => {
     //ExStart
-    //ExFor:aw.Document.endnoteOptions
+    //ExFor:Document.endnoteOptions
     //ExFor:EndnoteOptions
-    //ExFor:aw.Notes.EndnoteOptions.numberStyle
-    //ExFor:aw.Document.footnoteOptions
+    //ExFor:EndnoteOptions.numberStyle
+    //ExFor:Document.footnoteOptions
     //ExFor:FootnoteOptions
-    //ExFor:aw.Notes.FootnoteOptions.numberStyle
+    //ExFor:FootnoteOptions.numberStyle
     //ExSummary:Shows how to change the number style of footnote/endnote reference marks.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -178,13 +178,13 @@ describe("ExInlineStory", () => {
 
   test('NumberingRule', () => {
     //ExStart
-    //ExFor:aw.Document.endnoteOptions
+    //ExFor:Document.endnoteOptions
     //ExFor:EndnoteOptions
-    //ExFor:aw.Notes.EndnoteOptions.restartRule
+    //ExFor:EndnoteOptions.restartRule
     //ExFor:FootnoteNumberingRule
-    //ExFor:aw.Document.footnoteOptions
+    //ExFor:Document.footnoteOptions
     //ExFor:FootnoteOptions
-    //ExFor:aw.Notes.FootnoteOptions.restartRule
+    //ExFor:FootnoteOptions.restartRule
     //ExSummary:Shows how to restart footnote/endnote numbering at certain places in the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -259,12 +259,12 @@ describe("ExInlineStory", () => {
 
   test('StartNumber', () => {
     //ExStart
-    //ExFor:aw.Document.endnoteOptions
+    //ExFor:Document.endnoteOptions
     //ExFor:EndnoteOptions
-    //ExFor:aw.Notes.EndnoteOptions.startNumber
-    //ExFor:aw.Document.footnoteOptions
+    //ExFor:EndnoteOptions.startNumber
+    //ExFor:Document.footnoteOptions
     //ExFor:FootnoteOptions
-    //ExFor:aw.Notes.FootnoteOptions.startNumber
+    //ExFor:FootnoteOptions.startNumber
     //ExSummary:Shows how to set a number at which the document begins the footnote/endnote count.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -333,11 +333,11 @@ describe("ExInlineStory", () => {
   test('AddFootnote', () => {
     //ExStart
     //ExFor:Footnote
-    //ExFor:aw.Notes.Footnote.isAuto
-    //ExFor:aw.Notes.Footnote.referenceMark
+    //ExFor:Footnote.isAuto
+    //ExFor:Footnote.referenceMark
     //ExFor:InlineStory
-    //ExFor:aw.InlineStory.paragraphs
-    //ExFor:aw.InlineStory.firstParagraph
+    //ExFor:InlineStory.paragraphs
+    //ExFor:InlineStory.firstParagraph
     //ExFor:FootnoteType
     //ExFor:Footnote.#ctor
     //ExSummary:Shows how to insert and customize footnotes.
@@ -394,7 +394,7 @@ describe("ExInlineStory", () => {
 
   test('FootnoteEndnote', () => {
     //ExStart
-    //ExFor:aw.Notes.Footnote.footnoteType
+    //ExFor:Footnote.footnoteType
     //ExSummary:Shows the difference between footnotes and endnotes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -436,8 +436,8 @@ describe("ExInlineStory", () => {
     //ExStart
     //ExFor:Comment
     //ExFor:InlineStory
-    //ExFor:aw.InlineStory.paragraphs
-    //ExFor:aw.InlineStory.firstParagraph
+    //ExFor:InlineStory.paragraphs
+    //ExFor:InlineStory.firstParagraph
     //ExFor:Comment.#ctor(DocumentBase, String, String, DateTime)
     //ExSummary:Shows how to add a comment to a paragraph.
     let doc = new aw.Document();
@@ -468,10 +468,10 @@ describe("ExInlineStory", () => {
 
   test('InlineStoryRevisions', () => {
     //ExStart
-    //ExFor:aw.InlineStory.isDeleteRevision
-    //ExFor:aw.InlineStory.isInsertRevision
-    //ExFor:aw.InlineStory.isMoveFromRevision
-    //ExFor:aw.InlineStory.isMoveToRevision
+    //ExFor:InlineStory.isDeleteRevision
+    //ExFor:InlineStory.isInsertRevision
+    //ExFor:InlineStory.isMoveFromRevision
+    //ExFor:InlineStory.isMoveToRevision
     //ExSummary:Shows how to view revision-related properties of InlineStory nodes.
     let doc = new aw.Document(base.myDir + "Revision footnotes.docx");
 
@@ -517,14 +517,14 @@ describe("ExInlineStory", () => {
 
   test('InsertInlineStoryNodes', () => {
     //ExStart
-    //ExFor:aw.Comment.storyType
-    //ExFor:aw.Notes.Footnote.storyType
-    //ExFor:aw.InlineStory.ensureMinimum
-    //ExFor:aw.InlineStory.font
-    //ExFor:aw.InlineStory.lastParagraph
-    //ExFor:aw.InlineStory.parentParagraph
-    //ExFor:aw.InlineStory.storyType
-    //ExFor:aw.InlineStory.tables
+    //ExFor:Comment.storyType
+    //ExFor:Footnote.storyType
+    //ExFor:InlineStory.ensureMinimum
+    //ExFor:InlineStory.font
+    //ExFor:InlineStory.lastParagraph
+    //ExFor:InlineStory.parentParagraph
+    //ExFor:InlineStory.storyType
+    //ExFor:InlineStory.tables
     //ExSummary:Shows how to insert InlineStory nodes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -595,8 +595,8 @@ describe("ExInlineStory", () => {
   test('DeleteShapes', () => {
     //ExStart
     //ExFor:Story
-    //ExFor:aw.Story.deleteShapes
-    //ExFor:aw.Story.storyType
+    //ExFor:Story.deleteShapes
+    //ExFor:Story.storyType
     //ExFor:StoryType
     //ExSummary:Shows how to remove all shapes from a node.
     let doc = new aw.Document();
@@ -620,8 +620,8 @@ describe("ExInlineStory", () => {
   test('UpdateActualReferenceMarks', () => {
     //ExStart:UpdateActualReferenceMarks
     //GistId:a775441ecb396eea917a2717cb9e8f8f
-    //ExFor:aw.Document.updateActualReferenceMarks
-    //ExFor:aw.Notes.Footnote.actualReferenceMark
+    //ExFor:Document.updateActualReferenceMarks
+    //ExFor:Footnote.actualReferenceMark
     //ExSummary:Shows how to get actual footnote reference mark.
     let doc = new aw.Document(base.myDir + "Footnotes and endnotes.docx");
 
@@ -632,4 +632,43 @@ describe("ExInlineStory", () => {
     expect(footnote.actualReferenceMark).toEqual("1");
     //ExEnd:UpdateActualReferenceMarks
   });
+
+  
+  test('EndnoteSeparator', () => {
+    //ExStart:EndnoteSeparator
+    //GistId:e06aa7a168b57907a5598e823a22bf0a
+    //ExFor:DocumentBase.footnoteSeparators
+    //ExFor:FootnoteSeparatorType
+    //ExSummary:Shows how to remove endnote separator.
+    let doc = new aw.Document(base.myDir + "Footnotes and endnotes.docx");
+
+    let endnoteSeparator = doc.footnoteSeparators.at(aw.Notes.FootnoteSeparatorType.EndnoteSeparator);
+    // Remove endnote separator.
+    endnoteSeparator.firstParagraph.firstChild.remove();
+    //ExEnd:EndnoteSeparator
+
+    doc.save(base.artifactsDir + "InlineStory.endnoteSeparator.docx");
+  });
+
+
+  test('FootnoteSeparator', () => {
+    //ExStart:FootnoteSeparator
+    //GistId:e06aa7a168b57907a5598e823a22bf0a
+    //ExFor:DocumentBase.footnoteSeparators
+    //ExFor:FootnoteSeparator
+    //ExFor:FootnoteSeparatorType
+    //ExFor:FootnoteSeparatorCollection
+    //ExFor:FootnoteSeparatorCollection.item(FootnoteSeparatorType)
+    //ExSummary:Shows how to manage footnote separator format.
+    let doc = new aw.Document(base.myDir + "Footnotes and endnotes.docx");
+
+    let footnoteSeparator = doc.footnoteSeparators.at(aw.Notes.FootnoteSeparatorType.FootnoteSeparator);
+    // Align footnote separator.
+    footnoteSeparator.firstParagraph.paragraphFormat.alignment = aw.ParagraphAlignment.Center;
+    //ExEnd:FootnoteSeparator
+
+    doc.save(base.artifactsDir + "InlineStory.footnoteSeparator.docx");
+  });
+
+
 });

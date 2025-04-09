@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -8,6 +8,7 @@
 const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
+
 
 describe("ExCleanupOptions", () => {
   beforeAll(() => {
@@ -20,11 +21,11 @@ describe("ExCleanupOptions", () => {
 
   test('RemoveUnusedResources', () => {
     //ExStart
-    //ExFor:aw.Document.cleanup(CleanupOptions)
+    //ExFor:Document.cleanup(CleanupOptions)
     //ExFor:CleanupOptions
-    //ExFor:aw.CleanupOptions.unusedLists
-    //ExFor:aw.CleanupOptions.unusedStyles
-    //ExFor:aw.CleanupOptions.unusedBuiltinStyles
+    //ExFor:CleanupOptions.unusedLists
+    //ExFor:CleanupOptions.unusedStyles
+    //ExFor:CleanupOptions.unusedBuiltinStyles
     //ExSummary:Shows how to remove all unused custom styles from a document. 
     let doc = new aw.Document();
 
@@ -71,7 +72,7 @@ describe("ExCleanupOptions", () => {
 
   test('RemoveDuplicateStyles', () => {
     //ExStart
-    //ExFor:aw.CleanupOptions.duplicateStyle
+    //ExFor:CleanupOptions.duplicateStyle
     //ExSummary:Shows how to remove duplicated styles from the document.
     let doc = new aw.Document();
 

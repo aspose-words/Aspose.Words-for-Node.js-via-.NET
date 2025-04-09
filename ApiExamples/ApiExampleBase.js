@@ -60,7 +60,8 @@ class ApiExampleBase {
     /// <summary>
     /// Gets the path to the documents used by the code examples. Ends with a back slash.
     /// </summary>
-    static artifactsDir;
+     static artifactsDir;
+    
     /// <summary>
     /// Gets the path to the documents used by the code examples. Ends with a back slash.
     /// </summary>
@@ -92,7 +93,7 @@ class ApiExampleBase {
         this.codeBaseDir = __dirname;
         const dataDir =  path.join(this.codeBaseDir, "..", "Data");
         this.artifactsDir = path.join(dataDir, "Artifacts") + path.sep;
-        this.licenseDir = path.join(dataDir, "License") + path.sep;
+        this.licenseDir = path.join(this.codeBaseDir, "..", "..") + path.sep;
         this.goldsDir = path.join(dataDir, "Golds") + path.sep;
         this.myDir = dataDir + path.sep;
         this.imageDir = path.join(dataDir, "Images") + path.sep;

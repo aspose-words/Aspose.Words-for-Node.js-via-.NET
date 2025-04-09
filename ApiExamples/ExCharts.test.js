@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -70,12 +70,12 @@ describe("ExCharts", () => {
     //ExStart:ChartTitle
     //GistId:3428e84add5beb0d46a8face6e5fc858
     //ExFor:Chart
-    //ExFor:aw.Drawing.Charts.Chart.title
+    //ExFor:Chart.title
     //ExFor:ChartTitle
-    //ExFor:aw.Drawing.Charts.ChartTitle.overlay
-    //ExFor:aw.Drawing.Charts.ChartTitle.show
-    //ExFor:aw.Drawing.Charts.ChartTitle.text
-    //ExFor:aw.Drawing.Charts.ChartTitle.font
+    //ExFor:ChartTitle.overlay
+    //ExFor:ChartTitle.show
+    //ExFor:ChartTitle.text
+    //ExFor:ChartTitle.font
     //ExSummary:Shows how to insert a chart and set a title.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -114,9 +114,9 @@ describe("ExCharts", () => {
 
   test('DataLabelNumberFormat', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.numberFormat
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.font
-    //ExFor:aw.Drawing.Charts.ChartNumberFormat.formatCode
+    //ExFor:Drawing.Charts.ChartDataLabelCollection.numberFormat
+    //ExFor:Drawing.Charts.ChartDataLabelCollection.font
+    //ExFor:Drawing.Charts.ChartNumberFormat.formatCode
     //ExSummary:Shows how to enable and configure data labels for a chart series.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -193,22 +193,29 @@ describe("ExCharts", () => {
   test('AxisProperties', () => {
     //ExStart
     //ExFor:ChartAxis
-    //ExFor:aw.Drawing.Charts.ChartAxis.categoryType
-    //ExFor:aw.Drawing.Charts.ChartAxis.crosses
-    //ExFor:aw.Drawing.Charts.ChartAxis.reverseOrder
-    //ExFor:aw.Drawing.Charts.ChartAxis.majorTickMark
-    //ExFor:aw.Drawing.Charts.ChartAxis.minorTickMark
-    //ExFor:aw.Drawing.Charts.ChartAxis.majorUnit
-    //ExFor:aw.Drawing.Charts.ChartAxis.minorUnit
-    //ExFor:aw.Drawing.Charts.AxisTickLabels.offset
-    //ExFor:aw.Drawing.Charts.AxisTickLabels.position
-    //ExFor:aw.Drawing.Charts.AxisTickLabels.isAutoSpacing
-    //ExFor:aw.Drawing.Charts.ChartAxis.tickMarkSpacing
+    //ExFor:ChartAxis.categoryType
+    //ExFor:ChartAxis.crosses
+    //ExFor:ChartAxis.reverseOrder
+    //ExFor:ChartAxis.majorTickMark
+    //ExFor:ChartAxis.minorTickMark
+    //ExFor:ChartAxis.majorUnit
+    //ExFor:ChartAxis.minorUnit
+    //ExFor:ChartAxis.document
+    //ExFor:ChartAxis.tickLabels
+    //ExFor:ChartAxis.format
+    //ExFor:AxisTickLabels
+    //ExFor:AxisTickLabels.offset
+    //ExFor:AxisTickLabels.position
+    //ExFor:AxisTickLabels.isAutoSpacing
+    //ExFor:AxisTickLabels.alignment
+    //ExFor:AxisTickLabels.font
+    //ExFor:AxisTickLabels.spacing
+    //ExFor:ChartAxis.tickMarkSpacing
     //ExFor:AxisCategoryType
     //ExFor:AxisCrosses
-    //ExFor:aw.Drawing.Charts.Chart.axisX
-    //ExFor:aw.Drawing.Charts.Chart.axisY
-    //ExFor:aw.Drawing.Charts.Chart.axisZ
+    //ExFor:Chart.axisX
+    //ExFor:Chart.axisY
+    //ExFor:Chart.axisZ
     //ExSummary:Shows how to insert a chart and modify the appearance of its axes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -239,6 +246,8 @@ describe("ExCharts", () => {
     xAxis.tickLabels.isAutoSpacing = false;
     xAxis.tickMarkSpacing = 1;
 
+    expect(xAxis.document.referenceEquals(doc)).toEqual(true);
+
     let yAxis = chart.axisY;
     yAxis.categoryType = aw.Drawing.Charts.AxisCategoryType.Automatic;
     yAxis.crosses = aw.Drawing.Charts.AxisCrosses.Maximum;
@@ -248,6 +257,9 @@ describe("ExCharts", () => {
     yAxis.majorUnit = 100.0;
     yAxis.minorUnit = 20.0;
     yAxis.tickLabels.position = aw.Drawing.Charts.AxisTickLabelPosition.NextToAxis;
+    yAxis.tickLabels.alignment = aw.ParagraphAlignment.Center;
+    yAxis.tickLabels.font.color = "#FF0000";
+    yAxis.tickLabels.spacing = 1;
 
     // Column charts do not have a Z-axis.
     expect(chart.axisZ).toBe(null);
@@ -269,6 +281,7 @@ describe("ExCharts", () => {
     expect(chart.axisX.tickLabels.position).toEqual(aw.Drawing.Charts.AxisTickLabelPosition.Low);
     expect(chart.axisX.tickLabels.isAutoSpacing).toEqual(false);
     expect(chart.axisX.tickMarkSpacing).toEqual(1);
+    expect(chart.axisX.format.isDefined).toEqual(true);
 
     expect(chart.axisY.categoryType).toEqual(aw.Drawing.Charts.AxisCategoryType.Category);
     expect(chart.axisY.crosses).toEqual(aw.Drawing.Charts.AxisCrosses.Maximum);
@@ -278,12 +291,16 @@ describe("ExCharts", () => {
     expect(chart.axisY.majorUnit).toEqual(100.0);
     expect(chart.axisY.minorUnit).toEqual(20.0);
     expect(chart.axisY.tickLabels.position).toEqual(aw.Drawing.Charts.AxisTickLabelPosition.NextToAxis);
+    expect(chart.axisY.tickLabels.alignment).toEqual(aw.ParagraphAlignment.Center);
+    expect(chart.axisY.tickLabels.font.color).toEqual("#FF0000");
+    expect(chart.axisY.tickLabels.spacing).toEqual(1);
+    expect(chart.axisY.format.isDefined).toEqual(true);
   });
 
   test('AxisCollection', () => {
     //ExStart
     //ExFor:ChartAxisCollection
-    //ExFor:aw.Drawing.Charts.Chart.axes
+    //ExFor:Chart.axes
     //ExSummary:Shows how to work with axes collection.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -307,15 +324,15 @@ describe("ExCharts", () => {
     //ExFor:AxisBound
     //ExFor:AxisBound.#ctor(Double)
     //ExFor:AxisBound.#ctor(DateTime)
-    //ExFor:aw.Drawing.Charts.AxisScaling.minimum
-    //ExFor:aw.Drawing.Charts.AxisScaling.maximum
-    //ExFor:aw.Drawing.Charts.ChartAxis.scaling
+    //ExFor:AxisScaling.minimum
+    //ExFor:AxisScaling.maximum
+    //ExFor:ChartAxis.scaling
     //ExFor:AxisTickMark
     //ExFor:AxisTickLabelPosition
     //ExFor:AxisTimeUnit
-    //ExFor:aw.Drawing.Charts.ChartAxis.baseTimeUnit
-    //ExFor:aw.Drawing.Charts.ChartAxis.hasMajorGridlines
-    //ExFor:aw.Drawing.Charts.ChartAxis.hasMinorGridlines
+    //ExFor:ChartAxis.baseTimeUnit
+    //ExFor:ChartAxis.hasMajorGridlines
+    //ExFor:ChartAxis.hasMinorGridlines
     //ExSummary:Shows how to insert chart with date/time values.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -388,7 +405,7 @@ describe("ExCharts", () => {
 
   test('HideChartAxis', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartAxis.hidden
+    //ExFor:ChartAxis.hidden
     //ExSummary:Shows how to hide chart axes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -420,10 +437,10 @@ describe("ExCharts", () => {
 
   test('SetNumberFormatToChartAxis', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartAxis.numberFormat
+    //ExFor:ChartAxis.numberFormat
     //ExFor:ChartNumberFormat
-    //ExFor:aw.Drawing.Charts.ChartNumberFormat.formatCode
-    //ExFor:aw.Drawing.Charts.ChartNumberFormat.isLinkedToSource
+    //ExFor:ChartNumberFormat.formatCode
+    //ExFor:ChartNumberFormat.isLinkedToSource
     //ExSummary:Shows how to set formatting for chart values.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -466,7 +483,7 @@ describe("ExCharts", () => {
     let shape = builder.insertChart(chartType, 500, 300);
     let chart = shape.chart;
     chart.series.clear();
-            
+
     chart.series.add("Aspose Test Series",
       [ "Word", "PDF", "Excel", "GoogleDocs", "Note" ],
       [ 1900000, 850000, 2100000, 600000, 1500000 ]);
@@ -501,10 +518,10 @@ describe("ExCharts", () => {
 
   test('DataLabelsBubbleChart', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.separator
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.showBubbleSize
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.showCategoryName
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.showSeriesName
+    //ExFor:ChartDataLabelCollection.separator
+    //ExFor:ChartDataLabelCollection.showBubbleSize
+    //ExFor:ChartDataLabelCollection.showCategoryName
+    //ExFor:ChartDataLabelCollection.showSeriesName
     //ExSummary:Shows how to work with data labels of a bubble chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -542,11 +559,11 @@ describe("ExCharts", () => {
 
   test('DataLabelsPieChart', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.separator
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.showLeaderLines
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.showLegendKey
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.showPercentage
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.showValue
+    //ExFor:ChartDataLabelCollection.separator
+    //ExFor:ChartDataLabelCollection.showLeaderLines
+    //ExFor:ChartDataLabelCollection.showLegendKey
+    //ExFor:ChartDataLabelCollection.showPercentage
+    //ExFor:ChartDataLabelCollection.showValue
     //ExSummary:Shows how to work with data labels of a pie chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -583,11 +600,13 @@ describe("ExCharts", () => {
     expect(dataLabels.separator).toEqual("; ");
   });
 
+
   //ExStart
   //ExFor:ChartSeries
   //ExFor:ChartSeries.DataLabels
   //ExFor:ChartSeries.DataPoints
   //ExFor:ChartSeries.Name
+  //ExFor:ChartSeries.Explosion
   //ExFor:ChartDataLabel
   //ExFor:ChartDataLabel.Index
   //ExFor:ChartDataLabel.IsVisible
@@ -601,7 +620,10 @@ describe("ExCharts", () => {
   //ExFor:ChartDataLabel.ShowSeriesName
   //ExFor:ChartDataLabel.ShowValue
   //ExFor:ChartDataLabel.IsHidden
+  //ExFor:ChartDataLabel.Format
+  //ExFor:ChartDataLabel.ClearFormat
   //ExFor:ChartDataLabelCollection
+  //ExFor:ChartDataLabelCollection.ShowDataLabelsRange
   //ExFor:ChartDataLabelCollection.ClearFormat
   //ExFor:ChartDataLabelCollection.Count
   //ExFor:ChartDataLabelCollection.GetEnumerator
@@ -634,8 +656,11 @@ describe("ExCharts", () => {
         label.separator = " & ";
     }
 
+    let dataLabel = chart.series.at(1).dataLabels.at(2);
+    dataLabel.format.fill.color = "#FF0000";
+
     // For a cleaner looking graph, we can remove data labels individually.
-    chart.series.at(1).dataLabels.at(2).clearFormat();
+    dataLabel.clearFormat();
 
     // We can also strip an entire series of its data labels at once.
     chart.series.at(2).dataLabels.clearFormat();
@@ -646,7 +671,10 @@ describe("ExCharts", () => {
 
   //ExStart
   //ExFor:ChartSeries.Smooth
+  //ExFor:ChartSeries.InvertIfNegative
   //ExFor:ChartDataPoint
+  //ExFor:ChartDataPoint.Format
+  //ExFor:ChartDataPoint.ClearFormat
   //ExFor:ChartDataPoint.Index
   //ExFor:ChartDataPointCollection
   //ExFor:ChartDataPointCollection.ClearFormat
@@ -658,6 +686,7 @@ describe("ExCharts", () => {
   //ExFor:ChartMarker.Symbol
   //ExFor:IChartDataPoint
   //ExFor:IChartDataPoint.InvertIfNegative
+  //ExFor:ChartDataPoint.InvertIfNegative
   //ExFor:IChartDataPoint.Marker
   //ExFor:MarkerSymbol
   //ExSummary:Shows how to work with data points on a line chart.
@@ -686,8 +715,11 @@ describe("ExCharts", () => {
       expect(p.invertIfNegative).toEqual(false);
     }
 
+    let dataPoint = chart.series.at(1).dataPoints.at(2);
+    dataPoint.format.fill.color = "#FF0000";
+
     // For a cleaner looking graph, we can clear format individually.
-    chart.series.at(1).dataPoints.at(2).clearFormat();
+    dataPoint.clearFormat();
 
     // We can also strip an entire series of data points at once.
     chart.series.at(2).dataPoints.clearFormat();
@@ -698,7 +730,8 @@ describe("ExCharts", () => {
 
   test('PieChartExplosion', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.IChartDataPoint.explosion
+    //ExFor:IChartDataPoint.explosion
+    //ExFor:ChartDataPoint.explosion
     //ExSummary:Shows how to move the slices of a pie chart away from the center.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -731,9 +764,10 @@ describe("ExCharts", () => {
 
   test('Bubble3D', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartDataLabel.showBubbleSize
-    //ExFor:aw.Drawing.Charts.ChartDataLabel.font
-    //ExFor:aw.Drawing.Charts.IChartDataPoint.bubble3D
+    //ExFor:ChartDataLabel.showBubbleSize
+    //ExFor:ChartDataLabel.font
+    //ExFor:IChartDataPoint.bubble3D
+    //ExFor:ChartSeries.bubble3D
     //ExSummary:Shows how to use 3D effects with bubble charts.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -848,11 +882,11 @@ describe("ExCharts", () => {
   test('ChartSeriesCollectionModify', () => {
     //ExStart
     //ExFor:ChartSeriesCollection
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.clear
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.count
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.getEnumerator
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.item(Int32)
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.removeAt(Int32)
+    //ExFor:ChartSeriesCollection.clear
+    //ExFor:ChartSeriesCollection.count
+    //ExFor:ChartSeriesCollection.getEnumerator
+    //ExFor:ChartSeriesCollection.item(Int32)
+    //ExFor:ChartSeriesCollection.removeAt(Int32)
     //ExSummary:Shows how to add and remove series data in a chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -905,8 +939,8 @@ describe("ExCharts", () => {
     //ExStart
     //ExFor:AxisScaleType
     //ExFor:AxisScaling
-    //ExFor:aw.Drawing.Charts.AxisScaling.logBase
-    //ExFor:aw.Drawing.Charts.AxisScaling.type
+    //ExFor:AxisScaling.logBase
+    //ExFor:AxisScaling.type
     //ExSummary:Shows how to apply logarithmic scaling to a chart axis.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -945,9 +979,9 @@ describe("ExCharts", () => {
   test('AxisBound', () => {
     //ExStart
     //ExFor:AxisBound.#ctor
-    //ExFor:aw.Drawing.Charts.AxisBound.isAuto
-    //ExFor:aw.Drawing.Charts.AxisBound.value
-    //ExFor:aw.Drawing.Charts.AxisBound.valueAsDate
+    //ExFor:AxisBound.isAuto
+    //ExFor:AxisBound.value
+    //ExFor:AxisBound.valueAsDate
     //ExSummary:Shows how to set custom axis bounds.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1023,10 +1057,10 @@ describe("ExCharts", () => {
 
   test('ChartLegend', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.Chart.legend
+    //ExFor:Chart.legend
     //ExFor:ChartLegend
-    //ExFor:aw.Drawing.Charts.ChartLegend.overlay
-    //ExFor:aw.Drawing.Charts.ChartLegend.position
+    //ExFor:ChartLegend.overlay
+    //ExFor:ChartLegend.position
     //ExFor:LegendPosition
     //ExSummary:Shows how to edit the appearance of a chart's legend.
     let doc = new aw.Document();
@@ -1060,8 +1094,8 @@ describe("ExCharts", () => {
 
   test('AxisCross', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartAxis.axisBetweenCategories
-    //ExFor:aw.Drawing.Charts.ChartAxis.crossesAt
+    //ExFor:ChartAxis.axisBetweenCategories
+    //ExFor:ChartAxis.crossesAt
     //ExSummary:Shows how to get a graph axis to cross at a custom location.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1097,16 +1131,15 @@ describe("ExCharts", () => {
   test('AxisDisplayUnit', () => {
     //ExStart
     //ExFor:AxisBuiltInUnit
-    //ExFor:aw.Drawing.Charts.ChartAxis.displayUnit
-    //ExFor:aw.Drawing.Charts.ChartAxis.majorUnitIsAuto
-    //ExFor:aw.Drawing.Charts.ChartAxis.majorUnitScale
-    //ExFor:aw.Drawing.Charts.ChartAxis.minorUnitIsAuto
-    //ExFor:aw.Drawing.Charts.ChartAxis.minorUnitScale
-    //ExFor:aw.Drawing.Charts.ChartAxis.tickLabelSpacing
-    //ExFor:aw.Drawing.Charts.ChartAxis.tickLabelAlignment
+    //ExFor:ChartAxis.displayUnit
+    //ExFor:ChartAxis.majorUnitIsAuto
+    //ExFor:ChartAxis.majorUnitScale
+    //ExFor:ChartAxis.minorUnitIsAuto
+    //ExFor:ChartAxis.minorUnitScale
     //ExFor:AxisDisplayUnit
-    //ExFor:aw.Drawing.Charts.AxisDisplayUnit.customUnit
-    //ExFor:aw.Drawing.Charts.AxisDisplayUnit.unit
+    //ExFor:AxisDisplayUnit.customUnit
+    //ExFor:AxisDisplayUnit.unit
+    //ExFor:AxisDisplayUnit.document
     //ExSummary:Shows how to manipulate the tick marks and displayed values of a chart axis.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1148,6 +1181,7 @@ describe("ExCharts", () => {
     axis.tickLabels.alignment = aw.ParagraphAlignment.Right;
 
     expect(axis.tickLabels.spacing).toEqual(1);
+    expect(axis.displayUnit.document.referenceEquals(doc)).toEqual(true);
 
     // Set the tick labels to display their value in millions.
     axis.displayUnit.unit = aw.Drawing.Charts.AxisBuiltInUnit.Millions;
@@ -1191,14 +1225,17 @@ describe("ExCharts", () => {
 
   test('MarkerFormatting', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartMarker.format
-    //ExFor:aw.Drawing.Charts.ChartFormat.fill
-    //ExFor:aw.Drawing.Charts.ChartFormat.stroke
-    //ExFor:aw.Drawing.Stroke.foreColor
-    //ExFor:aw.Drawing.Stroke.backColor
-    //ExFor:aw.Drawing.Stroke.visible
-    //ExFor:aw.Drawing.Stroke.transparency
-    //ExFor:aw.Drawing.Fill.presetTextured(PresetTexture)
+    //ExFor:ChartDataPoint.marker
+    //ExFor:ChartMarker.format
+    //ExFor:ChartFormat.fill
+    //ExFor:ChartSeries.marker
+    //ExFor:ChartFormat.stroke
+    //ExFor:Stroke.foreColor
+    //ExFor:Stroke.backColor
+    //ExFor:Stroke.visible
+    //ExFor:Stroke.transparency
+    //ExFor:PresetTexture
+    //ExFor:Fill.presetTextured(PresetTexture)
     //ExSummary:Show how to set marker formatting.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1234,7 +1271,7 @@ describe("ExCharts", () => {
 
   test('SeriesColor', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartSeries.format
+    //ExFor:ChartSeries.format
     //ExSummary:Sows how to set series color.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1267,7 +1304,7 @@ describe("ExCharts", () => {
 
   test('DataPointsFormatting', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartDataPoint.format
+    //ExFor:ChartDataPoint.format
     //ExSummary:Shows how to set individual formatting for categories of a column chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1298,8 +1335,8 @@ describe("ExCharts", () => {
   test('LegendEntries', () => {
     //ExStart
     //ExFor:ChartLegendEntryCollection
-    //ExFor:aw.Drawing.Charts.ChartLegend.legendEntries
-    //ExFor:aw.Drawing.Charts.ChartLegendEntry.isHidden
+    //ExFor:ChartLegend.legendEntries
+    //ExFor:ChartLegendEntry.isHidden
     //ExSummary:Shows how to work with a legend entry for chart series.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1328,8 +1365,10 @@ describe("ExCharts", () => {
   test('LegendFont', () => {
     //ExStart:LegendFont
     //GistId:470c0da51e4317baae82ad9495747fed
-    //ExFor:aw.Drawing.Charts.ChartLegendEntry.font
-    //ExFor:aw.Drawing.Charts.ChartLegend.font
+    //ExFor:ChartLegendEntry
+    //ExFor:ChartLegendEntry.font
+    //ExFor:ChartLegend.font
+    //ExFor:ChartSeries.legendEntry
     //ExSummary:Shows how to work with a legend font.
     let doc = new aw.Document(base.myDir + "Reporting engine template - Chart series.docx");
     let chart = doc.getShape(0, true).chart;
@@ -1340,6 +1379,8 @@ describe("ExCharts", () => {
     // Change font for specific legend entry.
     chartLegend.legendEntries.at(1).font.italic = true;
     chartLegend.legendEntries.at(1).font.size = 12;
+    // Get legend entry for chart series.
+    let legendEntry = chart.series.at(0).legendEntry;
 
     doc.save(base.artifactsDir + "Charts.LegendFont.docx");
     //ExEnd:LegendFont
@@ -1348,7 +1389,7 @@ describe("ExCharts", () => {
 
   test('RemoveSpecificChartSeries', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartSeries.seriesType
+    //ExFor:ChartSeries.seriesType
     //ExFor:ChartSeriesType
     //ExSummary:Shows how to remove specific chart serie.
     let doc = new aw.Document(base.myDir + "Reporting engine template - Chart series.docx");
@@ -1373,12 +1414,17 @@ describe("ExCharts", () => {
 
   test('PopulateChartWithData', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartXValue.fromDouble(Double)
-    //ExFor:aw.Drawing.Charts.ChartYValue.fromDouble(Double)
-    //ExFor:aw.Drawing.Charts.ChartSeries.add(ChartXValue, ChartYValue)
+    //ExFor:ChartXValue
+    //ExFor:ChartXValue.fromDouble(Double)
+    //ExFor:ChartYValue.fromDouble(Double)
+    //ExFor:ChartSeries.add(ChartXValue)
+    //ExFor:ChartSeries.add(ChartXValue, ChartYValue)
+    //ExFor:ChartSeries.add(ChartXValue, ChartYValue, double)
+    //ExFor:ChartSeries.clearValues
+    //ExFor:ChartSeries.clear
     //ExSummary:Shows how to populate chart series with data.
     let doc = new aw.Document();
-    let builder = new aw.DocumentBuilder();
+    let builder = new aw.DocumentBuilder(doc);
 
     let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Column, 432, 252);
     let chart = shape.chart;
@@ -1388,15 +1434,14 @@ describe("ExCharts", () => {
     series1.clearValues();
 
     // Populate the series with data.
-    series1.add(aw.Drawing.Charts.ChartXValue.fromDouble(3), aw.Drawing.Charts.ChartYValue.fromDouble(10));
+    series1.add(aw.Drawing.Charts.ChartXValue.fromDouble(3), aw.Drawing.Charts.ChartYValue.fromDouble(10), 10);
     series1.add(aw.Drawing.Charts.ChartXValue.fromDouble(5), aw.Drawing.Charts.ChartYValue.fromDouble(5));
     series1.add(aw.Drawing.Charts.ChartXValue.fromDouble(7), aw.Drawing.Charts.ChartYValue.fromDouble(11));
-    series1.add(aw.Drawing.Charts.ChartXValue.fromDouble(9), aw.Drawing.Charts.ChartYValue.fromDouble(17));
+    series1.add(aw.Drawing.Charts.ChartXValue.fromDouble(9));
 
     let series2 = chart.series.at(1);
-
     // Clear X and Y values of the second series.
-    series2.clearValues();
+    series2.clear();
 
     // Populate the series with data.
     series2.add(aw.Drawing.Charts.ChartXValue.fromDouble(2), aw.Drawing.Charts.ChartYValue.fromDouble(4));
@@ -1459,9 +1504,9 @@ describe("ExCharts", () => {
 
   test('ChartDataValues', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartXValue.fromString(String)
-    //ExFor:aw.Drawing.Charts.ChartSeries.remove(Int32)
-    //ExFor:aw.Drawing.Charts.ChartSeries.add(ChartXValue, ChartYValue)
+    //ExFor:ChartXValue.fromString(String)
+    //ExFor:ChartSeries.remove(Int32)
+    //ExFor:ChartSeries.add(ChartXValue, ChartYValue)
     //ExSummary:Shows how to add/remove chart data values.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder();
@@ -1487,8 +1532,8 @@ describe("ExCharts", () => {
 
   test('FormatDataLables', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.format
-    //ExFor:aw.Drawing.Charts.ChartFormat.shapeType
+    //ExFor:ChartDataLabelCollection.format
+    //ExFor:ChartFormat.shapeType
     //ExFor:ChartShapeType
     //ExSummary:Shows how to set fill, stroke and callout formatting for chart data labels.
     let doc = new aw.Document();
@@ -1529,11 +1574,12 @@ describe("ExCharts", () => {
   test('ChartAxisTitle', () => {
     //ExStart:ChartAxisTitle
     //GistId:3428e84add5beb0d46a8face6e5fc858
+    //ExFor:ChartAxis.title
     //ExFor:ChartAxisTitle
-    //ExFor:aw.Drawing.Charts.ChartAxisTitle.text
-    //ExFor:aw.Drawing.Charts.ChartAxisTitle.show
-    //ExFor:aw.Drawing.Charts.ChartAxisTitle.overlay
-    //ExFor:aw.Drawing.Charts.ChartAxisTitle.font
+    //ExFor:ChartAxisTitle.text
+    //ExFor:ChartAxisTitle.show
+    //ExFor:ChartAxisTitle.overlay
+    //ExFor:ChartAxisTitle.font
     //ExSummary:Shows how to set chart axis title.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1586,9 +1632,9 @@ describe("ExCharts", () => {
   test('CopyDataPointFormat', () => {
     //ExStart:CopyDataPointFormat
     //GistId:3428e84add5beb0d46a8face6e5fc858
-    //ExFor:aw.Drawing.Charts.ChartSeries.copyFormatFrom(int)
-    //ExFor:aw.Drawing.Charts.ChartDataPointCollection.hasDefaultFormat(int)
-    //ExFor:aw.Drawing.Charts.ChartDataPointCollection.copyFormat(int, int)
+    //ExFor:ChartSeries.copyFormatFrom(int)
+    //ExFor:ChartDataPointCollection.hasDefaultFormat(int)
+    //ExFor:ChartDataPointCollection.copyFormat(int, int)
     //ExSummary:Shows how to copy data point format.
     let doc = new aw.Document(base.myDir + "DataPoint format.docx");
 
@@ -1622,8 +1668,8 @@ describe("ExCharts", () => {
   test('ResetDataPointFill', () => {
     //ExStart:ResetDataPointFill
     //GistId:3428e84add5beb0d46a8face6e5fc858
-    //ExFor:aw.Drawing.Charts.ChartFormat.isDefined
-    //ExFor:aw.Drawing.Charts.ChartFormat.setDefaultFill
+    //ExFor:ChartFormat.isDefined
+    //ExFor:ChartFormat.setDefaultFill
     //ExSummary:Shows how to reset the fill to the default value defined in the series.
     let doc = new aw.Document(base.myDir + "DataPoint format.docx");
 
@@ -1643,15 +1689,22 @@ describe("ExCharts", () => {
   test('DataTable', () => {
     //ExStart:DataTable
     //GistId:a775441ecb396eea917a2717cb9e8f8f
+    //ExFor:Chart.dataTable
     //ExFor:ChartDataTable
-    //ExFor:aw.Drawing.Charts.ChartDataTable.show
+    //ExFor:ChartDataTable.show
+    //ExFor:ChartDataTable.format
+    //ExFor:ChartDataTable.font
+    //ExFor:ChartDataTable.hasLegendKeys
+    //ExFor:ChartDataTable.hasHorizontalBorder
+    //ExFor:ChartDataTable.hasVerticalBorder
+    //ExFor:ChartDataTable.hasOutlineBorder
     //ExSummary:Shows how to show data table with chart series data.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
 
     let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Column, 432, 252);
     let chart = shape.chart;
-            
+
     let series = chart.series;
     series.clear();
     let xValues = [ 2020, 2021, 2022, 2023 ];
@@ -1665,6 +1718,7 @@ describe("ExCharts", () => {
     dataTable.hasLegendKeys = false;
     dataTable.hasHorizontalBorder = false;
     dataTable.hasVerticalBorder = false;
+    dataTable.hasOutlineBorder = false;
 
     dataTable.font.italic = true;
     dataTable.format.stroke.weight = 1;
@@ -1679,10 +1733,12 @@ describe("ExCharts", () => {
   test('ChartFormat', () => {
     //ExStart:ChartFormat
     //GistId:5f20ac02cb42c6b08481aa1c5b0cd3db
-    //ExFor:aw.Drawing.Charts.Chart.format
-    //ExFor:aw.Drawing.Charts.ChartTitle.format
-    //ExFor:aw.Drawing.Charts.ChartAxisTitle.format
-    //ExFor:aw.Drawing.Charts.ChartLegend.format
+    //ExFor:ChartFormat
+    //ExFor:Chart.format
+    //ExFor:ChartTitle.format
+    //ExFor:ChartAxisTitle.format
+    //ExFor:ChartLegend.format
+    //ExFor:Fill.solid(Color)
     //ExSummary:Shows how to use chart formating.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1734,11 +1790,13 @@ describe("ExCharts", () => {
     //ExStart:SecondaryAxis
     //GistId:6e4482e7434754c31c6f2f6e4bf48bb1
     //ExFor:ChartSeriesGroup
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroup.axisGroup
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroup.axisX
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroup.axisY
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroup.series
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroupCollection.add(ChartSeriesType)
+    //ExFor:ChartSeriesGroup.seriesType
+    //ExFor:ChartSeriesGroup.axisGroup
+    //ExFor:ChartSeriesGroup.axisX
+    //ExFor:ChartSeriesGroup.axisY
+    //ExFor:ChartSeriesGroup.series
+    //ExFor:ChartSeriesGroupCollection
+    //ExFor:ChartSeriesGroupCollection.add(ChartSeriesType)
     //ExFor:AxisGroup
     //ExSummary:Shows how to work with the secondary axis of chart.
     let doc = new aw.Document();
@@ -1765,6 +1823,8 @@ describe("ExCharts", () => {
     newSeriesGroup.axisY.title.show = true;
     newSeriesGroup.axisY.title.text = "Secondary Y axis";
 
+    expect(newSeriesGroup.seriesType).toEqual(aw.Drawing.Charts.ChartSeriesType.Line);
+
     // Add a series to the new series group.
     let series3 =
       newSeriesGroup.series.add("Series of secondary series group", categories, [ 13, 11, 16 ]);
@@ -1778,8 +1838,9 @@ describe("ExCharts", () => {
   test('ConfigureGapOverlap', () => {
     //ExStart:ConfigureGapOverlap
     //GistId:6e4482e7434754c31c6f2f6e4bf48bb1
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroup.gapWidth
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroup.overlap
+    //ExFor:Chart.seriesGroups
+    //ExFor:ChartSeriesGroup.gapWidth
+    //ExFor:ChartSeriesGroup.overlap
     //ExSummary:Show how to configure gap width and overlap.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1799,7 +1860,7 @@ describe("ExCharts", () => {
   test('BubbleScale', () => {
     //ExStart:BubbleScale
     //GistId:6e4482e7434754c31c6f2f6e4bf48bb1
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroup.bubbleScale
+    //ExFor:ChartSeriesGroup.bubbleScale
     //ExSummary:Show how to set size of the bubbles.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1819,9 +1880,9 @@ describe("ExCharts", () => {
   test('RemoveSecondaryAxis', () => {
     //ExStart:RemoveSecondaryAxis
     //GistId:6e4482e7434754c31c6f2f6e4bf48bb1
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroupCollection.count
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroupCollection.item(Int32)
-    //ExFor:aw.Drawing.Charts.ChartSeriesGroupCollection.removeAt(Int32)
+    //ExFor:ChartSeriesGroupCollection.count
+    //ExFor:ChartSeriesGroupCollection.item(Int32)
+    //ExFor:ChartSeriesGroupCollection.removeAt(Int32)
     //ExSummary:Show how to remove secondary axis.
     let doc = new aw.Document(base.myDir + "Combo chart.docx");
 
@@ -1840,8 +1901,11 @@ describe("ExCharts", () => {
   test('TreemapChart', () => {
     //ExStart:TreemapChart
     //GistId:65919861586e42e24f61a3ccb65f8f4e
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.add(String, ChartMultilevelValue.at(], double[))
+    //ExFor:ChartSeriesCollection.add(String, ChartMultilevelValue[], double[])
+    //ExFor:ChartMultilevelValue
+    //ExFor:ChartMultilevelValue.#ctor(String, String, String)
     //ExFor:ChartMultilevelValue.#ctor(String, String)
+    //ExFor:ChartMultilevelValue.#ctor(String)
     //ExSummary:Shows how to create treemap chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1876,7 +1940,7 @@ describe("ExCharts", () => {
         new aw.Drawing.Charts.ChartMultilevelValue("Latin America", "Brazil"),
         new aw.Drawing.Charts.ChartMultilevelValue("Latin America", "Mexico"),
         new aw.Drawing.Charts.ChartMultilevelValue("Latin America", "Other"),
-        new aw.Drawing.Charts.ChartMultilevelValue("Northern America", "United States"),
+        new aw.Drawing.Charts.ChartMultilevelValue("Northern America", "United States", "Other"),
         new aw.Drawing.Charts.ChartMultilevelValue("Northern America", "Other"),
         new aw.Drawing.Charts.ChartMultilevelValue("Oceania")
       ],
@@ -1904,7 +1968,7 @@ describe("ExCharts", () => {
   test('SunburstChart', () => {
     //ExStart:SunburstChart
     //GistId:65919861586e42e24f61a3ccb65f8f4e
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.add(String, ChartMultilevelValue.at(], double[))
+    //ExFor:ChartSeriesCollection.add(String, ChartMultilevelValue[], double[])
     //ExSummary:Shows how to create sunburst chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1947,102 +2011,105 @@ describe("ExCharts", () => {
   });
 
 
-    function histogramChart() {
-      //ExStart:HistogramChart
-      //GistId:65919861586e42e24f61a3ccb65f8f4e
-      //ExFor:ChartSeriesCollection.Add(String, double[])
-      //ExSummary:Shows how to create histogram chart.
-      let doc = new aw.Document();
-      let builder = new aw.DocumentBuilder(doc);
+  test('HistogramChart', () => {
+    //ExStart:HistogramChart
+    //GistId:65919861586e42e24f61a3ccb65f8f4e
+    //ExFor:ChartSeriesCollection.add(String, double[])
+    //ExSummary:Shows how to create histogram chart.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
 
-      // Insert a Histogram chart.
-      let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Histogram, 450, 450);
-      let chart = shape.chart;
-      chart.title.text = "Avg Temperature since 1991";
+    // Insert a Histogram chart.
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Histogram, 450, 450);
+    let chart = shape.chart;
+    chart.title.text = "Avg Temperature since 1991";
 
-      // Delete default generated series.
-      chart.series.clear();
+    // Delete default generated series.
+    chart.series.clear();
 
-      // Add a series.
-      chart.series.add(
-        "Avg Temperature",
-        [
-          51.8, 53.6, 50.3, 54.7, 53.9, 54.3, 53.4, 52.9, 53.3, 53.7, 53.8, 52.0, 55.0, 52.1, 53.4,
-          53.8, 53.8, 51.9, 52.1, 52.7, 51.8, 56.6, 53.3, 55.6, 56.3, 56.2, 56.1, 56.2, 53.6, 55.7,
-          56.3, 55.9, 55.6
-        ]);
+    // Add a series.
+    chart.series.add(
+      "Avg Temperature",
+      [
+        51.8, 53.6, 50.3, 54.7, 53.9, 54.3, 53.4, 52.9, 53.3, 53.7, 53.8, 52.0, 55.0, 52.1, 53.4,
+        53.8, 53.8, 51.9, 52.1, 52.7, 51.8, 56.6, 53.3, 55.6, 56.3, 56.2, 56.1, 56.2, 53.6, 55.7,
+        56.3, 55.9, 55.6
+      ]);
 
-      doc.save(base.artifactsDir + "Charts.Histogram.docx");
-      //ExEnd:HistogramChart
-    }
+    doc.save(base.artifactsDir + "Charts.histogram.docx");
+    //ExEnd:HistogramChart
+  });
 
-    function paretoChart() {
-      //ExStart:ParetoChart
-      //GistId:65919861586e42e24f61a3ccb65f8f4e
-      //ExFor:ChartSeriesCollection.Add(String, String[], double[])
-      //ExSummary:Shows how to create pareto chart.
-      let doc = new aw.Document();
-      let builder = new aw.DocumentBuilder(doc);
 
-      // Insert a Pareto chart.
-      let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Pareto, 450, 450);
-      let chart = shape.chart;
-      chart.title.text = "Best-Selling Car";
+  test('ParetoChart', () => {
+    //ExStart:ParetoChart
+    //GistId:65919861586e42e24f61a3ccb65f8f4e
+    //ExFor:ChartSeriesCollection.add(String, String[], double[])
+    //ExSummary:Shows how to create pareto chart.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
 
-      // Delete default generated series.
-      chart.series.clear();
+    // Insert a Pareto chart.
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Pareto, 450, 450);
+    let chart = shape.chart;
+    chart.title.text = "Best-Selling Car";
 
-      // Add a series.
-      chart.series.add(
-        "Best-Selling Car",
-        [ "Tesla Model Y", "Toyota Corolla", "Toyota RAV4", "Ford F-Series", "Honda CR-V" ],
-        [ 1.43, 0.91, 1.17, 0.98, 0.85 ]);
+    // Delete default generated series.
+    chart.series.clear();
 
-      doc.save(base.artifactsDir + "Charts.Pareto.docx");
-      //ExEnd:ParetoChart
-    }
+    // Add a series.
+    chart.series.add(
+      "Best-Selling Car",
+      [ "Tesla Model Y", "Toyota Corolla", "Toyota RAV4", "Ford F-Series", "Honda CR-V" ],
+      [ 1.43, 0.91, 1.17, 0.98, 0.85 ]);
 
-    function boxAndWhiskerChart() {
-      //ExStart:BoxAndWhiskerChart
-      //GistId:65919861586e42e24f61a3ccb65f8f4e
-      //ExFor:ChartSeriesCollection.Add(String, String[], double[])
-      //ExSummary:Shows how to create box and whisker chart.
-      let doc = new aw.Document();
-      let builder = new aw.DocumentBuilder(doc);
+    doc.save(base.artifactsDir + "Charts.pareto.docx");
+    //ExEnd:ParetoChart
+  });
 
-      // Insert a Box & Whisker chart.
-      let shape = builder.insertChart(aw.Drawing.Charts.ChartType.BoxAndWhisker, 450, 450);
-      let chart = shape.chart;
-      chart.title.text = "Points by Years";
 
-      // Delete default generated series.
-      chart.series.clear();
+  test('BoxAndWhiskerChart', () => {
+    //ExStart:BoxAndWhiskerChart
+    //GistId:65919861586e42e24f61a3ccb65f8f4e
+    //ExFor:ChartSeriesCollection.add(String, String[], double[])
+    //ExSummary:Shows how to create box and whisker chart.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
 
-      // Add a series.
-      let series = chart.series.add(
-        "Points by Years",
-        [
-          "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC",
-          "NR", "NR", "NR", "NR", "NR", "NR", "NR", "NR", "NR", "NR",
-          "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA"
-        ],
-        [
-          91, 80, 100, 77, 90, 104, 105, 118, 120, 101,
-          114, 107, 110, 60, 79, 78, 77, 102, 101, 113,
-          94, 93, 84, 71, 80, 103, 80, 94, 100, 101
-        ]);
+    // Insert a Box & Whisker chart.
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.BoxAndWhisker, 450, 450);
+    let chart = shape.chart;
+    chart.title.text = "Points by Years";
 
-      // Show data labels.
-      series.hasDataLabels = true;
+    // Delete default generated series.
+    chart.series.clear();
 
-      doc.save(base.artifactsDir + "Charts.BoxAndWhisker.docx");
-      //ExEnd:BoxAndWhiskerChart
-    }
+    // Add a series.
+    let series = chart.series.add(
+      "Points by Years",
+      [
+        "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC", "WC",
+        "NR", "NR", "NR", "NR", "NR", "NR", "NR", "NR", "NR", "NR",
+        "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA"
+      ],
+      [
+        91, 80, 100, 77, 90, 104, 105, 118, 120, 101,
+        114, 107, 110, 60, 79, 78, 77, 102, 101, 113,
+        94, 93, 84, 71, 80, 103, 80, 94, 100, 101
+      ]);
+
+    // Show data labels.
+    series.hasDataLabels = true;
+
+    doc.save(base.artifactsDir + "Charts.boxAndWhisker.docx");
+    //ExEnd:BoxAndWhiskerChart
+  });
+
 
   test('WaterfallChart', () => {
     //ExStart:WaterfallChart
     //GistId:65919861586e42e24f61a3ccb65f8f4e
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.add(String, String.at(], double[), bool[])
+    //ExFor:ChartSeriesCollection.add(String, String[], double[], bool[])
     //ExSummary:Shows how to create waterfall chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2073,7 +2140,7 @@ describe("ExCharts", () => {
   test('FunnelChart', () => {
     //ExStart:FunnelChart
     //GistId:65919861586e42e24f61a3ccb65f8f4e
-    //ExFor:aw.Drawing.Charts.ChartSeriesCollection.add(String, String.at(], double[))
+    //ExFor:ChartSeriesCollection.add(String, String[], double[])
     //ExSummary:Shows how to create funnel chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2105,10 +2172,10 @@ describe("ExCharts", () => {
   test('LabelOrientationRotation', () => {
     //ExStart:LabelOrientationRotation
     //GistId:ac8ba4eb35f3fbb8066b48c999da63b0
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.orientation
-    //ExFor:aw.Drawing.Charts.ChartDataLabelCollection.rotation
-    //ExFor:aw.Drawing.Charts.ChartDataLabel.rotation
-    //ExFor:aw.Drawing.Charts.ChartDataLabel.orientation
+    //ExFor:ChartDataLabelCollection.orientation
+    //ExFor:ChartDataLabelCollection.rotation
+    //ExFor:ChartDataLabel.rotation
+    //ExFor:ChartDataLabel.orientation
     //ExFor:ShapeTextOrientation
     //ExSummary:Shows how to change orientation and rotation for data labels.
     let doc = new aw.Document();
@@ -2138,4 +2205,313 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.LabelOrientationRotation.docx");
     //ExEnd:LabelOrientationRotation
   });
+
+
+  test('TickLabelsOrientationRotation', () => {
+    //ExStart:TickLabelsOrientationRotation
+    //GistId:708ce40a68fac5003d46f6b4acfd5ff1
+    //ExFor:AxisTickLabels.rotation
+    //ExFor:AxisTickLabels.orientation
+    //ExSummary:Shows how to change orientation and rotation for axis tick labels.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    // Insert a column chart.
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Column, 432, 252);
+    let xTickLabels = shape.chart.axisX.tickLabels;
+    let yTickLabels = shape.chart.axisY.tickLabels;
+
+    // Set axis tick label orientation and rotation.
+    xTickLabels.orientation = aw.Drawing.ShapeTextOrientation.VerticalFarEast;
+    xTickLabels.rotation = -30;
+    yTickLabels.orientation = aw.Drawing.ShapeTextOrientation.Horizontal;
+    yTickLabels.rotation = 45;
+
+    doc.save(base.artifactsDir + "Charts.TickLabelsOrientationRotation.docx");
+    //ExEnd:TickLabelsOrientationRotation
+  });
+
+
+  test('DoughnutChart', () => {
+    //ExStart:DoughnutChart
+    //GistId:bb594993b5fe48692541e16f4d354ac2
+    //ExFor:ChartSeriesGroup.doughnutHoleSize
+    //ExFor:ChartSeriesGroup.firstSliceAngle
+    //ExSummary:Shows how to create and format Doughnut chart.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Doughnut, 400, 400);
+    let chart = shape.chart;
+    // Delete the default generated series.
+    chart.series.clear();
+
+    let categories = [ "Category 1", "Category 2", "Category 3" ];
+    chart.series.add("Series 1", categories, [ 4, 2, 5 ]);
+
+    // Format the Doughnut chart.
+    let seriesGroup = chart.seriesGroups.at(0);
+    seriesGroup.doughnutHoleSize = 10;
+    seriesGroup.firstSliceAngle = 270;
+
+    doc.save(base.artifactsDir + "Charts.doughnutChart.docx");
+    //ExEnd:DoughnutChart
+  });
+
+
+  test('PieOfPieChart', () => {
+    //ExStart:PieOfPieChart
+    //GistId:bb594993b5fe48692541e16f4d354ac2
+    //ExFor:ChartSeriesGroup.secondSectionSize
+    //ExSummary:Shows how to create and format pie of Pie chart.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.PieOfPie, 440, 300);
+    let chart = shape.chart;
+    // Delete the default generated series.
+    chart.series.clear();
+
+    let categories = [ "Category 1", "Category 2", "Category 3", "Category 4" ];
+    chart.series.add("Series 1", categories, [ 11, 8, 4, 3 ]);
+
+    // Format the Pie of Pie chart.
+    let seriesGroup = chart.seriesGroups.at(0);
+    seriesGroup.gapWidth = 10;
+    seriesGroup.secondSectionSize = 77;
+
+    doc.save(base.artifactsDir + "Charts.PieOfPieChart.docx");
+    //ExEnd:PieOfPieChart
+  });
+
+
+  test('FormatCode', () => {
+    //ExStart:FormatCode
+    //GistId:366eb64fd56dec3c2eaa40410e594182
+    //ExFor:ChartXValueCollection.formatCode
+    //ExFor:ChartYValueCollection.formatCode
+    //ExFor:BubbleSizeCollection.formatCode
+    //ExFor:ChartSeries.bubbleSizes
+    //ExFor:ChartSeries.xValues
+    //ExFor:ChartSeries.yValues
+    //ExSummary:Shows how to work with the format code of the chart data.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    // Insert a Bubble chart.
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Bubble, 432, 252);
+    let chart = shape.chart;
+
+    // Delete default generated series.
+    chart.series.clear();
+
+    let series = chart.series.add(
+      "Series1",
+      [ 1, 1.9, 2.45, 3 ],
+      [ 1, -0.9, 1.82, 0 ],
+      [ 2, 1.1, 2.95, 2 ]);
+
+    // Show data labels.
+    series.hasDataLabels = true;
+    series.dataLabels.showCategoryName = true;
+    series.dataLabels.showValue = true;
+    series.dataLabels.showBubbleSize = true;
+
+    // Set data format codes.
+    series.xvalues.formatCode = "#,##0.0#";
+    series.yvalues.formatCode = "#,##0.0#;[Red]\\-#,##0.0#";
+    series.bubbleSizes.formatCode = "#,##0.0#";
+
+    doc.save(base.artifactsDir + "Charts.formatCode.docx");
+    //ExEnd:FormatCode
+
+    doc = new aw.Document(base.artifactsDir + "Charts.formatCode.docx");
+    shape = doc.getShape(0, true);
+    chart = shape.chart;
+
+    let seriesCollection = chart.series;
+    for (let seriesProperties of seriesCollection)
+    {
+      expect(seriesProperties.xvalues.formatCode).toEqual("#,##0.0#");
+      expect(seriesProperties.yvalues.formatCode).toEqual("#,##0.0#;[Red]\\-#,##0.0#");
+      expect(seriesProperties.bubbleSizes.formatCode).toEqual("#,##0.0#");
+    }
+  });
+
+
+  test('DataLablePosition', () => {
+    //ExStart:DataLablePosition
+    //GistId:695136dbbe4f541a8a0a17b3d3468689
+    //ExFor:ChartDataLabelCollection.position
+    //ExFor:ChartDataLabel.position
+    //ExFor:ChartDataLabelPosition
+    //ExSummary:Shows how to set the position of the data label.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    // Insert column chart.
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Column, 432, 252);
+    let chart = shape.chart;
+    let seriesColl = chart.series;
+
+    // Delete default generated series.
+    seriesColl.clear();
+
+    // Add series.
+    let series = seriesColl.add(
+      "Series 1",
+      [ "Category 1", "Category 2", "Category 3" ],
+      [ 4, 5, 6 ]);
+
+    // Show data labels and set font color.
+    series.hasDataLabels = true;
+    let dataLabels = series.dataLabels;
+    dataLabels.showValue = true;
+    dataLabels.font.color = "#FFFFFF";
+
+    // Set data label position.
+    dataLabels.position = aw.Drawing.Charts.ChartDataLabelPosition.InsideBase;
+    dataLabels.at(0).position = aw.Drawing.Charts.ChartDataLabelPosition.OutsideEnd;
+    dataLabels.at(0).font.color = "#8B0000";
+
+    doc.save(base.artifactsDir + "Charts.labelPosition.docx");
+    //ExEnd:DataLablePosition
+  });
+
+
+  test('DoughnutChartLabelPosition', () => {
+    //ExStart:DoughnutChartLabelPosition
+    //GistId:695136dbbe4f541a8a0a17b3d3468689
+    //ExFor:ChartDataLabel.left
+    //ExFor:ChartDataLabel.leftMode
+    //ExFor:ChartDataLabel.top
+    //ExFor:ChartDataLabel.topMode
+    //ExFor:ChartDataLabelLocationMode
+    //ExSummary:Shows how to place data labels of doughnut chart outside doughnut.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    const chartWidth = 432;
+    const  chartHeight = 252;
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Doughnut, chartWidth, chartHeight);
+    let chart = shape.chart;
+    let seriesColl = chart.series;
+    // Delete default generated series.
+    seriesColl.clear();
+
+    // Hide the legend.
+    chart.legend.position = aw.Drawing.Charts.LegendPosition.None;
+
+    // Generate data.
+    const dataLength = 20;
+    let totalValue = 0;
+    let categories = [];
+    let values = [];
+
+    for (let i = 0; i < dataLength; i++)
+    {
+      categories.push(`Category ${i}`);
+      values.push(dataLength - i);
+      totalValue = totalValue + values.at(i);
+    }
+
+    let series = seriesColl.add("Series 1", categories, values);
+    series.hasDataLabels = true;
+
+    let dataLabels = series.dataLabels;
+    dataLabels.showValue = true;
+    dataLabels.showLeaderLines = true;
+
+    // The Position property cannot be used for doughnut charts. Let's place data labels using the Left and Top
+    // properties around a circle outside of the chart doughnut.
+    // The origin is in the upper left corner of the chart.
+
+    const titleAreaHeight = 25.5; // This can be calculated using title text and font.
+    const doughnutCenterY = titleAreaHeight + (chartHeight - titleAreaHeight) / 2;
+    const doughnutCenterX = chartWidth / 2;
+    const labelHeight = 16.5; // This can be calculated using label font.
+    const oneCharLabelWidth = 12.75; // This can be calculated for each label using its text and font.
+    const twoCharLabelWidth = 17.25; // This can be calculated for each label using its text and font.
+    const yMargin = 0.75;
+    const labelMargin = 1.5;
+    const labelCircleRadius = chartHeight - doughnutCenterY - yMargin - labelHeight / 2;
+
+    // Because the data points start at the top, the X coordinates used in the Left and Top properties of
+    // the data labels point to the right and the Y coordinates point down, the starting angle is -PI/2.
+    let totalAngle = -Math.PI / 2;
+    let previousLabel = null;
+
+    for (let i = 0; i < series.yvalues.count; i++)
+    {
+      let dataLabel = dataLabels.at(i);
+
+      let value = series.yvalues.at(i).doubleValue;
+      let labelWidth;
+      if (value < 10)
+        labelWidth = oneCharLabelWidth;
+      else
+        labelWidth = twoCharLabelWidth;
+      let labelSegmentAngle = value / totalValue * 2 * Math.PI;
+      let labelAngle = labelSegmentAngle / 2 + totalAngle;
+      let labelCenterX = labelCircleRadius * Math.cos(labelAngle) + doughnutCenterX;
+      let labelCenterY = labelCircleRadius * Math.sin(labelAngle) + doughnutCenterY;
+      let labelLeft = labelCenterX - labelWidth / 2;
+      let labelTop = labelCenterY - labelHeight / 2;
+
+      // If the current data label overlaps other labels, move it horizontally.
+      if ((previousLabel != null) &&
+        (Math.abs(previousLabel.top - labelTop) < labelHeight) &&
+        (Math.abs(previousLabel.left - labelLeft) < labelWidth))
+      {
+        // Move right on the top, left on the bottom.
+        let isOnTop = (totalAngle < 0) || (totalAngle >= Math.PI);
+        let factor;
+        if (isOnTop)
+          factor = 1;
+        else
+          factor = -1;
+
+        labelLeft = previousLabel.left + labelWidth * factor + labelMargin;
+      }
+
+      dataLabel.left = labelLeft;
+      dataLabel.leftMode = aw.Drawing.Charts.ChartDataLabelLocationMode.Absolute;
+      dataLabel.top = labelTop;
+      dataLabel.topMode = aw.Drawing.Charts.ChartDataLabelLocationMode.Absolute;
+
+      totalAngle = totalAngle + labelSegmentAngle;
+      previousLabel = dataLabel;
+    }
+
+    doc.save(base.artifactsDir + "Charts.DoughnutChartLabelPosition.docx");
+    //ExEnd:DoughnutChartLabelPosition
+  });
+
+
+  test('InsertChartSeries', () => {
+    //ExStart
+    //ExFor:ChartSeries.insert(Int32, ChartXValue)
+    //ExFor:ChartSeries.insert(Int32, ChartXValue, ChartYValue)
+    //ExFor:ChartSeries.insert(Int32, ChartXValue, ChartYValue, double)
+    //ExSummary:Shows how to insert data into a chart series.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    let shape = builder.insertChart(aw.Drawing.Charts.ChartType.Line, 432, 252);
+    let chart = shape.chart;
+    let series1 = chart.series.at(0);
+
+    // Clear X and Y values of the first series.
+    series1.clearValues();
+    // Populate the series with data.
+    series1.insert(0, aw.Drawing.Charts.ChartXValue.fromDouble(3));
+    series1.insert(1, aw.Drawing.Charts.ChartXValue.fromDouble(3), aw.Drawing.Charts.ChartYValue.fromDouble(10));
+    series1.insert(2, aw.Drawing.Charts.ChartXValue.fromDouble(3), aw.Drawing.Charts.ChartYValue.fromDouble(10));
+    series1.insert(3, aw.Drawing.Charts.ChartXValue.fromDouble(3), aw.Drawing.Charts.ChartYValue.fromDouble(10), 10);
+
+    doc.save(base.artifactsDir + "Charts.PopulateChartWithData.docx");
+    //ExEnd
+  });
+
+
 });

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -63,6 +63,7 @@ describe("ExBookmarks", () => {
     expect(doc.range.bookmarks.at(0).name).toEqual("My Bookmark");
   });
 
+
   //ExStart
   //ExFor:Bookmark
   //ExFor:Bookmark.Name
@@ -97,6 +98,7 @@ describe("ExBookmarks", () => {
     bookmarks.at(0).name = `${bookmarks.at(0).name}_NewName`;
     bookmarks.at("MyBookmark_2").text = `Updated text contents of ${bookmarks.at(1).name}`;
   });
+  //ExEnd
 
   test('TableColumnBookmarks', () => {
     //ExStart
@@ -126,14 +128,15 @@ describe("ExBookmarks", () => {
     expect(secondTableColumnBookmark.lastColumn).toEqual(3);
   });
 
+
   test('Remove', () => {
     //ExStart
-    //ExFor:aw.BookmarkCollection.clear
-    //ExFor:aw.BookmarkCollection.count
-    //ExFor:aw.BookmarkCollection.remove(Bookmark)
-    //ExFor:aw.BookmarkCollection.remove(String)
-    //ExFor:aw.BookmarkCollection.removeAt
-    //ExFor:aw.Bookmark.remove
+    //ExFor:BookmarkCollection.clear
+    //ExFor:BookmarkCollection.count
+    //ExFor:BookmarkCollection.remove(Bookmark)
+    //ExFor:BookmarkCollection.remove(String)
+    //ExFor:BookmarkCollection.removeAt
+    //ExFor:Bookmark.remove
     //ExSummary:Shows how to remove bookmarks from a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

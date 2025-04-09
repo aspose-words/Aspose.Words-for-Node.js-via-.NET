@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -20,8 +20,8 @@ describe("ExBuildVersion", () => {
   test('PrintBuildVersionInfo', () => {
     //ExStart
     //ExFor:BuildVersionInfo
-    //ExFor:aw.BuildVersionInfo.product
-    //ExFor:aw.BuildVersionInfo.version
+    //ExFor:BuildVersionInfo.product
+    //ExFor:BuildVersionInfo.version
     //ExSummary:Shows how to display information about your installed version of Aspose.words.
     console.log(`I am currently using ${aw.BuildVersionInfo.product}, version number ${aw.BuildVersionInfo.version}!`);
     //ExEnd

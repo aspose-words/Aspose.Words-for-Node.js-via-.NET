@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,9 +22,9 @@ describe("ExFormFields", () => {
   test('Create', () => {
     //ExStart
     //ExFor:FormField
-    //ExFor:aw.Fields.FormField.result
-    //ExFor:aw.Fields.FormField.type
-    //ExFor:aw.Fields.FormField.name
+    //ExFor:FormField.result
+    //ExFor:FormField.type
+    //ExFor:FormField.name
     //ExSummary:Shows how to insert a combo box.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -53,7 +53,7 @@ describe("ExFormFields", () => {
 
   test('TextInput', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertTextInput
+    //ExFor:DocumentBuilder.insertTextInput
     //ExSummary:Shows how to insert a text input form field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -83,7 +83,7 @@ describe("ExFormFields", () => {
 
   test('DeleteFormField', () => {
     //ExStart
-    //ExFor:aw.Fields.FormField.removeField
+    //ExFor:FormField.removeField
     //ExSummary:Shows how to delete a form field.
     let doc = new aw.Document(base.myDir + "Form fields.docx");
 
@@ -143,7 +143,8 @@ describe("ExFormFields", () => {
   });
 
 
-  /*  //ExStart
+  /*//Commented
+    //ExStart
     //ExFor:FormField.Accept(DocumentVisitor)
     //ExFor:FormField.CalculateOnExit
     //ExFor:FormField.CheckBoxSize
@@ -241,7 +242,7 @@ describe("ExFormFields", () => {
 
 
     /// <summary>
-    /// Visitor implementation that prints details of form fields that it visits. 
+    /// Visitor implementation that prints details of form fields that it visits.
     /// </summary>
   public class FormFieldVisitor : DocumentVisitor
   {
@@ -340,21 +341,22 @@ describe("ExFormFields", () => {
     expect(formFields.at(2).textInputType).toEqual(aw.Fields.TextFormFieldType.Regular);
     expect(formFields.at(2).maxLength).toEqual(50);
     expect(formFields.at(2).result).toEqual("Regular");
-  }*/
+  }
+  //EndCommented*/
 
   test('DropDownItemCollection', () => {
     //ExStart
     //ExFor:DropDownItemCollection
-    //ExFor:aw.Fields.DropDownItemCollection.add(String)
-    //ExFor:aw.Fields.DropDownItemCollection.clear
-    //ExFor:aw.Fields.DropDownItemCollection.contains(String)
-    //ExFor:aw.Fields.DropDownItemCollection.count
-    //ExFor:aw.Fields.DropDownItemCollection.getEnumerator
-    //ExFor:aw.Fields.DropDownItemCollection.indexOf(String)
-    //ExFor:aw.Fields.DropDownItemCollection.insert(Int32, String)
-    //ExFor:aw.Fields.DropDownItemCollection.item(Int32)
-    //ExFor:aw.Fields.DropDownItemCollection.remove(String)
-    //ExFor:aw.Fields.DropDownItemCollection.removeAt(Int32)
+    //ExFor:DropDownItemCollection.add(String)
+    //ExFor:DropDownItemCollection.clear
+    //ExFor:DropDownItemCollection.contains(String)
+    //ExFor:DropDownItemCollection.count
+    //ExFor:DropDownItemCollection.getEnumerator
+    //ExFor:DropDownItemCollection.indexOf(String)
+    //ExFor:DropDownItemCollection.insert(Int32, String)
+    //ExFor:DropDownItemCollection.item(Int32)
+    //ExFor:DropDownItemCollection.remove(String)
+    //ExFor:DropDownItemCollection.removeAt(Int32)
     //ExSummary:Shows how to insert a combo box field, and edit the elements in its item collection.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

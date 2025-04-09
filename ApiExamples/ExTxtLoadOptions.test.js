@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -25,7 +25,7 @@ describe("ExTxtLoadOptions", () => {
   test.each([false,
     true])('DetectNumberingWithWhitespaces', (detectNumberingWithWhitespaces) => {
     //ExStart
-    //ExFor:aw.Loading.TxtLoadOptions.detectNumberingWithWhitespaces
+    //ExFor:TxtLoadOptions.detectNumberingWithWhitespaces
     //ExSummary:Shows how to detect lists when loading plaintext documents.
     // Create a plaintext document in a string with four separate parts that we may interpret as lists,
     // with different delimiters. Upon loading the plaintext document into a "Document" object,
@@ -80,8 +80,8 @@ describe("ExTxtLoadOptions", () => {
     [aw.Loading.TxtLeadingSpacesOptions.Trim, aw.Loading.TxtTrailingSpacesOptions.Trim]])
     ('TrailSpaces', (txtLeadingSpacesOptions, txtTrailingSpacesOptions) => {
     //ExStart
-    //ExFor:aw.Loading.TxtLoadOptions.trailingSpacesOptions
-    //ExFor:aw.Loading.TxtLoadOptions.leadingSpacesOptions
+    //ExFor:TxtLoadOptions.trailingSpacesOptions
+    //ExFor:TxtLoadOptions.leadingSpacesOptions
     //ExFor:TxtTrailingSpacesOptions
     //ExFor:TxtLeadingSpacesOptions
     //ExSummary:Shows how to trim whitespace when loading plaintext documents.
@@ -157,8 +157,8 @@ describe("ExTxtLoadOptions", () => {
 
   test('DetectDocumentDirection', () => {
     //ExStart
-    //ExFor:aw.Loading.TxtLoadOptions.documentDirection
-    //ExFor:aw.ParagraphFormat.bidi
+    //ExFor:TxtLoadOptions.documentDirection
+    //ExFor:ParagraphFormat.bidi
     //ExSummary:Shows how to detect plaintext document text direction.
     // Create a "TxtLoadOptions" object, which we can pass to a document's constructor
     // to modify how we load a plaintext document.
@@ -184,7 +184,7 @@ describe("ExTxtLoadOptions", () => {
 
   test('AutoNumberingDetection', () => {
     //ExStart
-    //ExFor:aw.Loading.TxtLoadOptions.autoNumberingDetection
+    //ExFor:TxtLoadOptions.autoNumberingDetection
     //ExSummary:Shows how to disable automatic numbering detection.
     let options = new aw.Loading.TxtLoadOptions();
     options.autoNumberingDetection = false;
@@ -205,7 +205,9 @@ describe("ExTxtLoadOptions", () => {
   test('DetectHyperlinks', () => {
     //ExStart:DetectHyperlinks
     //GistId:3428e84add5beb0d46a8face6e5fc858
-    //ExFor:aw.Loading.TxtLoadOptions.detectHyperlinks
+    //ExFor:TxtLoadOptions
+    //ExFor:TxtLoadOptions.#ctor
+    //ExFor:TxtLoadOptions.detectHyperlinks
     //ExSummary:Shows how to read and display hyperlinks.
     const inputText = "Some links in TXT:\n" +
         "https://www.aspose.com/\n" +

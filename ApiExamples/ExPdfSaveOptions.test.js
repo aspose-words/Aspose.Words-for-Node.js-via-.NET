@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -24,8 +24,8 @@ describe("ExPdfSaveOptions", () => {
   
   test('OnePage', async () => {
     //ExStart
-    //ExFor:aw.Saving.FixedPageSaveOptions.pageSet
-    //ExFor:aw.Document.save(Stream, SaveOptions)
+    //ExFor:FixedPageSaveOptions.pageSet
+    //ExFor:Document.save(Stream, SaveOptions)
     //ExSummary:Shows how to convert only some of the pages in a document to PDF.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -53,9 +53,9 @@ describe("ExPdfSaveOptions", () => {
 
   test('HeadingsOutlineLevels', () => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.isHeading
-    //ExFor:aw.Saving.PdfSaveOptions.outlineOptions
-    //ExFor:aw.Saving.PdfSaveOptions.saveFormat
+    //ExFor:ParagraphFormat.isHeading
+    //ExFor:PdfSaveOptions.outlineOptions
+    //ExFor:PdfSaveOptions.saveFormat
     //ExSummary:Shows how to limit the headings' level that will appear in the outline of a saved PDF document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -96,8 +96,8 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('CreateMissingOutlineLevels', (createMissingOutlineLevels) => {
     //ExStart
-    //ExFor:aw.Saving.OutlineOptions.createMissingOutlineLevels
-    //ExFor:aw.Saving.PdfSaveOptions.outlineOptions
+    //ExFor:OutlineOptions.createMissingOutlineLevels
+    //ExFor:PdfSaveOptions.outlineOptions
     //ExSummary:Shows how to work with outline levels that do not contain any corresponding headings when saving a PDF document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -139,7 +139,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('TableHeadingOutlines', (createOutlinesForHeadingsInTables) => {
     //ExStart
-    //ExFor:aw.Saving.OutlineOptions.createOutlinesForHeadingsInTables
+    //ExFor:OutlineOptions.createOutlinesForHeadingsInTables
     //ExSummary:Shows how to create PDF document outline entries for headings inside tables.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -182,10 +182,10 @@ describe("ExPdfSaveOptions", () => {
 
   test('ExpandedOutlineLevels', () => {
     //ExStart
-    //ExFor:aw.Document.save(String, SaveOptions)
+    //ExFor:Document.save(String, SaveOptions)
     //ExFor:PdfSaveOptions
-    //ExFor:aw.Saving.OutlineOptions.headingsOutlineLevels
-    //ExFor:aw.Saving.OutlineOptions.expandedOutlineLevels
+    //ExFor:OutlineOptions.headingsOutlineLevels
+    //ExFor:OutlineOptions.expandedOutlineLevels
     //ExSummary:Shows how to convert a whole document to PDF with three levels in the document outline.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -243,8 +243,8 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('UpdateFields', (updateFields) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.clone
-    //ExFor:aw.Saving.SaveOptions.updateFields
+    //ExFor:PdfSaveOptions.clone
+    //ExFor:SaveOptions.updateFields
     //ExSummary:Shows how to update all the fields in a document immediately before saving it to PDF.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -281,7 +281,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('PreserveFormFields', (preserveFormFields) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.preserveFormFields
+    //ExFor:PdfSaveOptions.preserveFormFields
     //ExSummary:Shows how to save a document to the PDF format using the Save method and the PdfSaveOptions class.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -319,26 +319,26 @@ describe("ExPdfSaveOptions", () => {
     //ExSummary:Shows how to set the PDF standards compliance level of saved PDF documents.
     let doc = new aw.Document(base.myDir + "Images.docx");
 
-    // Create a "PdfSaveOptions" object that we can pass to the document's "Save" method
-    // to modify how that method converts the document to .PDF.
-    // Note that some PdfSaveOptions are prohibited when saving to one of the standards and automatically fixed.
-    // Use IWarningCallback to know which options are automatically fixed.
+      // Create a "PdfSaveOptions" object that we can pass to the document's "Save" method
+      // to modify how that method converts the document to .PDF.
+      // Note that some PdfSaveOptions are prohibited when saving to one of the standards and automatically fixed.
+      // Use IWarningCallback to know which options are automatically fixed.
     let saveOptions = new aw.Saving.PdfSaveOptions();
 
-    // Set the "Compliance" property to "PdfCompliance.PdfA1b" to comply with the "PDF/A-1b" standard,
-    // which aims to preserve the visual appearance of the document as Aspose.words convert it to PDF.
-    // Set the "Compliance" property to "PdfCompliance.Pdf17" to comply with the "1.7" standard.
-    // Set the "Compliance" property to "PdfCompliance.PdfA1a" to comply with the "PDF/A-1a" standard,
-    // which complies with "PDF/A-1b" as well as preserving the document structure of the original document.
-    // Set the "Compliance" property to "PdfCompliance.PdfUa1" to comply with the "PDF/UA-1" (ISO 14289-1) standard,
-    // which aims to define represent electronic documents in PDF that allow the file to be accessible.
-    // Set the "Compliance" property to "PdfCompliance.Pdf20" to comply with the "PDF 2.0" (ISO 32000-2) standard.
-    // Set the "Compliance" property to "PdfCompliance.PdfA4" to comply with the "PDF/A-4" (ISO 19004:2020) standard,
-    // which preserving document static visual appearance over time.
-    // Set the "Compliance" property to "PdfCompliance.PdfA4Ua2" to comply with both PDF/A-4 (ISO 19005-4:2020)
-    // and PDF/UA-2 (ISO 14289-2:2024) standards.
-    // Set the "Compliance" property to "PdfCompliance.PdfUa2" to comply with the PDF/UA-2 (ISO 14289-2:2024) standard.
-    // This helps with making documents searchable but may significantly increase the size of already large documents.
+      // Set the "Compliance" property to "PdfCompliance.PdfA1b" to comply with the "PDF/A-1b" standard,
+      // which aims to preserve the visual appearance of the document as Aspose.Words convert it to PDF.
+      // Set the "Compliance" property to "PdfCompliance.Pdf17" to comply with the "1.7" standard.
+      // Set the "Compliance" property to "PdfCompliance.PdfA1a" to comply with the "PDF/A-1a" standard,
+      // which complies with "PDF/A-1b" as well as preserving the document structure of the original document.
+      // Set the "Compliance" property to "PdfCompliance.PdfUa1" to comply with the "PDF/UA-1" (ISO 14289-1) standard,
+      // which aims to define represent electronic documents in PDF that allow the file to be accessible.
+      // Set the "Compliance" property to "PdfCompliance.Pdf20" to comply with the "PDF 2.0" (ISO 32000-2) standard.
+      // Set the "Compliance" property to "PdfCompliance.PdfA4" to comply with the "PDF/A-4" (ISO 19004:2020) standard,
+      // which preserving document static visual appearance over time.
+      // Set the "Compliance" property to "PdfCompliance.PdfA4Ua2" to comply with both PDF/A-4 (ISO 19005-4:2020)
+      // and PDF/UA-2 (ISO 14289-2:2024) standards.
+      // Set the "Compliance" property to "PdfCompliance.PdfUa2" to comply with the PDF/UA-2 (ISO 14289-2:2024) standard.
+      // This helps with making documents searchable but may significantly increase the size of already large documents.
     saveOptions.compliance = pdfCompliance;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.compliance.pdf", saveOptions);
@@ -350,7 +350,7 @@ describe("ExPdfSaveOptions", () => {
     aw.Saving.PdfTextCompression.Flate])('TextCompression', (pdfTextCompression) => {
     //ExStart
     //ExFor:PdfSaveOptions
-    //ExFor:aw.Saving.PdfSaveOptions.textCompression
+    //ExFor:PdfSaveOptions.textCompression
     //ExFor:PdfTextCompression
     //ExSummary:Shows how to apply text compression when saving a document to PDF.
     let doc = new aw.Document();
@@ -393,8 +393,8 @@ describe("ExPdfSaveOptions", () => {
   test.each([aw.Saving.PdfImageCompression.Auto,
     aw.Saving.PdfImageCompression.Jpeg])('ImageCompression', (pdfImageCompression) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.imageCompression
-    //ExFor:aw.Saving.PdfSaveOptions.jpegQuality
+    //ExFor:PdfSaveOptions.imageCompression
+    //ExFor:PdfSaveOptions.jpegQuality
     //ExFor:PdfImageCompression
     //ExSummary:Shows how to specify a compression type for all images in a document that we are converting to PDF.
     let doc = new aw.Document();
@@ -426,7 +426,7 @@ describe("ExPdfSaveOptions", () => {
     aw.Saving.PdfImageColorSpaceExportMode.SimpleCmyk])('ImageColorSpaceExportMode', (pdfImageColorSpaceExportMode) => {
     //ExStart
     //ExFor:PdfImageColorSpaceExportMode
-    //ExFor:aw.Saving.PdfSaveOptions.imageColorSpaceExportMode
+    //ExFor:PdfSaveOptions.imageColorSpaceExportMode
     //ExSummary:Shows how to set a different color space for images in a document as we export it to PDF.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -457,10 +457,10 @@ describe("ExPdfSaveOptions", () => {
   test('DownsampleOptions', () => {
     //ExStart
     //ExFor:DownsampleOptions
-    //ExFor:aw.Saving.DownsampleOptions.downsampleImages
-    //ExFor:aw.Saving.DownsampleOptions.resolution
-    //ExFor:aw.Saving.DownsampleOptions.resolutionThreshold
-    //ExFor:aw.Saving.PdfSaveOptions.downsampleOptions
+    //ExFor:DownsampleOptions.downsampleImages
+    //ExFor:DownsampleOptions.resolution
+    //ExFor:DownsampleOptions.resolutionThreshold
+    //ExFor:PdfSaveOptions.downsampleOptions
     //ExSummary:Shows how to change the resolution of images in the PDF document.
     let doc = new aw.Document(base.myDir + "Images.docx");
 
@@ -493,7 +493,7 @@ describe("ExPdfSaveOptions", () => {
     //ExStart
     //ExFor:PdfSaveOptions
     //ExFor:ColorMode
-    //ExFor:aw.Saving.FixedPageSaveOptions.colorMode
+    //ExFor:FixedPageSaveOptions.colorMode
     //ExSummary:Shows how to change image color with saving options property.
     let doc = new aw.Document(base.myDir + "Images.docx");
 
@@ -513,7 +513,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('DocTitle', (displayDocTitle) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.displayDocTitle
+    //ExFor:PdfSaveOptions.displayDocTitle
     //ExSummary:Shows how to display the title of the document as the title bar.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -537,8 +537,8 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('MemoryOptimization', (memoryOptimization) => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.createSaveOptions(SaveFormat)
-    //ExFor:aw.Saving.SaveOptions.memoryOptimization
+    //ExFor:SaveOptions.createSaveOptions(SaveFormat)
+    //ExFor:SaveOptions.memoryOptimization
     //ExSummary:Shows an option to optimize memory consumption when rendering large documents to PDF.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -569,7 +569,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('OpenHyperlinksInNewWindow', (openHyperlinksInNewWindow) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.openHyperlinksInNewWindow
+    //ExFor:PdfSaveOptions.openHyperlinksInNewWindow
     //ExSummary:Shows how to save hyperlinks in a document we convert to PDF so that they open new pages when we click on them.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -661,9 +661,9 @@ describe("ExPdfSaveOptions", () => {
     //ExStart
     //ExFor:HeaderFooterBookmarksExportMode
     //ExFor:OutlineOptions
-    //ExFor:aw.Saving.OutlineOptions.defaultBookmarksOutlineLevel
-    //ExFor:aw.Saving.PdfSaveOptions.headerFooterBookmarksExportMode
-    //ExFor:aw.Saving.PdfSaveOptions.pageMode
+    //ExFor:OutlineOptions.defaultBookmarksOutlineLevel
+    //ExFor:PdfSaveOptions.headerFooterBookmarksExportMode
+    //ExFor:PdfSaveOptions.pageMode
     //ExFor:PdfPageMode
     //ExSummary:Shows to process bookmarks in headers/footers in a document that we are rendering to PDF.
     let doc = new aw.Document(base.myDir + "Bookmarks in headers and footers.docx");
@@ -724,8 +724,8 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('EmulateRenderingToSizeOnPage', (renderToSize) => {
     //ExStart
-    //ExFor:aw.Saving.MetafileRenderingOptions.emulateRenderingToSizeOnPage
-    //ExFor:aw.Saving.MetafileRenderingOptions.emulateRenderingToSizeOnPageResolution
+    //ExFor:MetafileRenderingOptions.emulateRenderingToSizeOnPage
+    //ExFor:MetafileRenderingOptions.emulateRenderingToSizeOnPageResolution
     //ExSummary:Shows how to display of the metafile according to the size on page.
     let doc = new aw.Document(base.myDir + "WMF with text.docx");
 
@@ -750,7 +750,7 @@ describe("ExPdfSaveOptions", () => {
     true])('EmbedFullFonts - TODO: WORDSNODEJS-110 - Add marshalling of IList<T> results to nodewgen.', (embedFullFonts) => {
     //ExStart
     //ExFor:PdfSaveOptions.#ctor
-    //ExFor:aw.Saving.PdfSaveOptions.embedFullFonts
+    //ExFor:PdfSaveOptions.embedFullFonts
     //ExSummary:Shows how to enable or disable subsetting when embedding fonts while rendering a document to PDF.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -800,7 +800,7 @@ describe("ExPdfSaveOptions", () => {
     aw.Saving.PdfFontEmbeddingMode.EmbedNone,
     aw.Saving.PdfFontEmbeddingMode.EmbedNonstandard])('EmbedWindowsFonts', (pdfFontEmbeddingMode) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.fontEmbeddingMode
+    //ExFor:PdfSaveOptions.fontEmbeddingMode
     //ExFor:PdfFontEmbeddingMode
     //ExSummary:Shows how to set Aspose.words to skip embedding Arial and Times New Roman fonts into a PDF document.
     let doc = new aw.Document();
@@ -844,7 +844,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('EmbedCoreFonts', (useCoreFonts) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.useCoreFonts
+    //ExFor:PdfSaveOptions.useCoreFonts
     //ExSummary:Shows how enable/disable PDF Type 1 font substitution.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -876,7 +876,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('AdditionalTextPositioning', (applyAdditionalTextPositioning) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.additionalTextPositioning
+    //ExFor:PdfSaveOptions.additionalTextPositioning
     //ExSummary:Show how to write additional text positioning operators.
     let doc = new aw.Document(base.myDir + "Text positioning operators.docx");
 
@@ -897,7 +897,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false, 
     true])('SaveAsPdfBookFold', (renderTextAsBookfold) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.useBookFoldPrintingSettings
+    //ExFor:PdfSaveOptions.useBookFoldPrintingSettings
     //ExSummary:Shows how to save a document to the PDF format in the form of a book fold.
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
 
@@ -927,8 +927,8 @@ describe("ExPdfSaveOptions", () => {
 
   test('ZoomBehaviour', () => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.zoomBehavior
-    //ExFor:aw.Saving.PdfSaveOptions.zoomFactor
+    //ExFor:PdfSaveOptions.zoomBehavior
+    //ExFor:PdfSaveOptions.zoomFactor
     //ExFor:PdfZoomBehavior
     //ExSummary:Shows how to set the default zooming that a reader applies when opening a rendered PDF document.
     let doc = new aw.Document();
@@ -957,7 +957,7 @@ describe("ExPdfSaveOptions", () => {
     aw.Saving.PdfPageMode.UseNone,
     aw.Saving.PdfPageMode.UseAttachments])('PageMode', (pageMode) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.pageMode
+    //ExFor:PdfSaveOptions.pageMode
     //ExFor:PdfPageMode
     //ExSummary:Shows how to set instructions for some PDF readers to follow when opening an output document.
     let doc = new aw.Document();
@@ -1018,7 +1018,7 @@ describe("ExPdfSaveOptions", () => {
 
   test('NoteHyperlinks', () => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.createNoteHyperlinks
+    //ExFor:PdfSaveOptions.createNoteHyperlinks
     //ExSummary:Shows how to make footnotes and endnotes function as hyperlinks.
     let doc = new aw.Document(base.myDir + "Footnotes and endnotes.docx");
 
@@ -1066,7 +1066,7 @@ describe("ExPdfSaveOptions", () => {
     aw.Saving.PdfCustomPropertiesExport.Metadata])('CustomPropertiesExport(%o)', (pdfCustomPropertiesExportMode) => {
     //ExStart
     //ExFor:PdfCustomPropertiesExport
-    //ExFor:aw.Saving.PdfSaveOptions.customPropertiesExport
+    //ExFor:PdfSaveOptions.customPropertiesExport
     //ExSummary:Shows how to export custom properties while converting a document to PDF.
     let doc = new aw.Document();
 
@@ -1118,9 +1118,9 @@ describe("ExPdfSaveOptions", () => {
     //ExStart
     //ExFor:DmlRenderingMode
     //ExFor:DmlEffectsRenderingMode
-    //ExFor:aw.Saving.PdfSaveOptions.dmlEffectsRenderingMode
-    //ExFor:aw.Saving.SaveOptions.dmlEffectsRenderingMode
-    //ExFor:aw.Saving.SaveOptions.dmlRenderingMode
+    //ExFor:PdfSaveOptions.dmlEffectsRenderingMode
+    //ExFor:SaveOptions.dmlEffectsRenderingMode
+    //ExFor:SaveOptions.dmlRenderingMode
     //ExSummary:Shows how to configure the rendering quality of DrawingML effects in a document as we save it to PDF.
     let doc = new aw.Document(base.myDir + "DrawingML shape effects.docx");
 
@@ -1146,7 +1146,7 @@ describe("ExPdfSaveOptions", () => {
     aw.Saving.DmlRenderingMode.DrawingML])('DrawingMLFallback', (dmlRenderingMode) => {
     //ExStart
     //ExFor:DmlRenderingMode
-    //ExFor:aw.Saving.SaveOptions.dmlRenderingMode
+    //ExFor:SaveOptions.dmlRenderingMode
     //ExSummary:Shows how to render fallback shapes when saving to PDF.
     let doc = new aw.Document(base.myDir + "DrawingML shape fallbacks.docx");
 
@@ -1182,7 +1182,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('ExportDocumentStructure', (exportDocumentStructure) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.exportDocumentStructure
+    //ExFor:PdfSaveOptions.exportDocumentStructure
     //ExSummary:Shows how to preserve document structure elements, which can assist in programmatically interpreting our document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1223,7 +1223,7 @@ describe("ExPdfSaveOptions", () => {
   test.each([false,
     true])('InterpolateImages', (interpolateImages) => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.interpolateImages
+    //ExFor:PdfSaveOptions.interpolateImages
     //ExSummary:Shows how to perform interpolation on images while saving a document to PDF.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1266,6 +1266,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.dml3DEffectsRenderingMode = aw.Saving.Dml3DEffectsRenderingMode.Advanced;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.Dml3DEffectsRenderingModeTest.pdf", saveOptions);
+    //ExEnd
 
     expect(warningCallback.count).toEqual(48);
   });
@@ -1309,12 +1310,13 @@ describe("ExPdfSaveOptions", () => {
     //ExFor:PdfDigitalSignatureDetails
     //ExFor:PdfDigitalSignatureDetails.#ctor
     //ExFor:PdfDigitalSignatureDetails.#ctor(CertificateHolder, String, String, DateTime)
-    //ExFor:aw.Saving.PdfDigitalSignatureDetails.hashAlgorithm
-    //ExFor:aw.Saving.PdfDigitalSignatureDetails.location
-    //ExFor:aw.Saving.PdfDigitalSignatureDetails.reason
-    //ExFor:aw.Saving.PdfDigitalSignatureDetails.signatureDate
+    //ExFor:PdfDigitalSignatureDetails.hashAlgorithm
+    //ExFor:PdfDigitalSignatureDetails.location
+    //ExFor:PdfDigitalSignatureDetails.reason
+    //ExFor:PdfDigitalSignatureDetails.signatureDate
     //ExFor:PdfDigitalSignatureHashAlgorithm
-    //ExFor:aw.Saving.PdfSaveOptions.digitalSignatureDetails
+    //ExFor:PdfSaveOptions.digitalSignatureDetails
+    //ExFor:PdfDigitalSignatureDetails.certificateHolder
     //ExSummary:Shows how to sign a generated PDF document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1350,15 +1352,15 @@ describe("ExPdfSaveOptions", () => {
 
   test('PdfDigitalSignatureTimestamp', () => {
     //ExStart
-    //ExFor:aw.Saving.PdfDigitalSignatureDetails.timestampSettings
+    //ExFor:PdfDigitalSignatureDetails.timestampSettings
     //ExFor:PdfDigitalSignatureTimestampSettings
     //ExFor:PdfDigitalSignatureTimestampSettings.#ctor
     //ExFor:PdfDigitalSignatureTimestampSettings.#ctor(String,String,String)
     //ExFor:PdfDigitalSignatureTimestampSettings.#ctor(String,String,String,TimeSpan)
-    //ExFor:aw.Saving.PdfDigitalSignatureTimestampSettings.password
-    //ExFor:aw.Saving.PdfDigitalSignatureTimestampSettings.serverUrl
-    //ExFor:aw.Saving.PdfDigitalSignatureTimestampSettings.timeout
-    //ExFor:aw.Saving.PdfDigitalSignatureTimestampSettings.userName
+    //ExFor:PdfDigitalSignatureTimestampSettings.password
+    //ExFor:PdfDigitalSignatureTimestampSettings.serverUrl
+    //ExFor:PdfDigitalSignatureTimestampSettings.timeout
+    //ExFor:PdfDigitalSignatureTimestampSettings.userName
     //ExSummary:Shows how to sign a saved PDF document digitally and timestamp it.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1407,8 +1409,8 @@ describe("ExPdfSaveOptions", () => {
     aw.Saving.EmfPlusDualRenderingMode.EmfPlusWithFallback])('RenderMetafile', (renderingMode) => {
     //ExStart
     //ExFor:EmfPlusDualRenderingMode
-    //ExFor:aw.Saving.MetafileRenderingOptions.emfPlusDualRenderingMode
-    //ExFor:aw.Saving.MetafileRenderingOptions.useEmfEmbeddedToWmf
+    //ExFor:MetafileRenderingOptions.emfPlusDualRenderingMode
+    //ExFor:MetafileRenderingOptions.useEmfEmbeddedToWmf
     //ExSummary:Shows how to configure Enhanced Windows Metafile-related rendering options when saving to PDF.
     let doc = new aw.Document(base.myDir + "EMF.docx");
 
@@ -1437,10 +1439,10 @@ describe("ExPdfSaveOptions", () => {
   test('EncryptionPermissions', () => {
     //ExStart
     //ExFor:PdfEncryptionDetails.#ctor(String,String,PdfPermissions)
-    //ExFor:aw.Saving.PdfSaveOptions.encryptionDetails
-    //ExFor:aw.Saving.PdfEncryptionDetails.permissions
-    //ExFor:aw.Saving.PdfEncryptionDetails.ownerPassword
-    //ExFor:aw.Saving.PdfEncryptionDetails.userPassword
+    //ExFor:PdfSaveOptions.encryptionDetails
+    //ExFor:PdfEncryptionDetails.permissions
+    //ExFor:PdfEncryptionDetails.ownerPassword
+    //ExFor:PdfEncryptionDetails.userPassword
     //ExFor:PdfPermissions
     //ExFor:PdfEncryptionDetails
     //ExSummary:Shows how to set permissions on a saved PDF document.
@@ -1471,7 +1473,7 @@ describe("ExPdfSaveOptions", () => {
     aw.Saving.NumeralFormat.European,
     aw.Saving.NumeralFormat.System])('SetNumeralFormat', (numeralFormat) => {
     //ExStart
-    //ExFor:aw.Saving.FixedPageSaveOptions.numeralFormat
+    //ExFor:FixedPageSaveOptions.numeralFormat
     //ExFor:NumeralFormat
     //ExSummary:Shows how to set the numeral format used when saving to PDF.
     let doc = new aw.Document();
@@ -1501,7 +1503,10 @@ describe("ExPdfSaveOptions", () => {
 
   test('ExportPageSet', () => {
     //ExStart
-    //ExFor:aw.Saving.FixedPageSaveOptions.pageSet
+    //ExFor:FixedPageSaveOptions.pageSet
+    //ExFor:PageSet.all
+    //ExFor:PageSet.even
+    //ExFor:PageSet.odd
     //ExSummary:Shows how to export Odd pages from the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1539,7 +1544,7 @@ describe("ExPdfSaveOptions", () => {
 
   test('ExportLanguageToSpanTag', () => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.exportLanguageToSpanTag
+    //ExFor:PdfSaveOptions.exportLanguageToSpanTag
     //ExSummary:Shows how to create a "Span" tag in the document structure to export the text language.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1557,26 +1562,27 @@ describe("ExPdfSaveOptions", () => {
   });
 
 
-  test('PdfEmbedAttachments', () => {
-    //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.embedAttachments
+  test('AttachmentsEmbeddingMode', () => {
+    //ExStart:AttachmentsEmbeddingMode
+    //GistId:1a265b92fa0019b26277ecfef3c20330
+    //ExFor:PdfSaveOptions.attachmentsEmbeddingMode
     //ExSummary:Shows how to add embed attachments to the PDF document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
 
     builder.insertOleObject(base.myDir + "Spreadsheet.xlsx", "Excel.Sheet", false, true, null);
 
-    let options = new aw.Saving.PdfSaveOptions();
-    options.embedAttachments = true;
+    let saveOptions = new aw.Saving.PdfSaveOptions();
+    saveOptions.attachmentsEmbeddingMode = aw.Saving.PdfAttachmentsEmbeddingMode.Annotations;
 
-    doc.save(base.artifactsDir + "PdfSaveOptions.PdfEmbedAttachments.pdf", options);
-    //ExEnd
+    doc.save(base.artifactsDir + "PdfSaveOptions.PdfEmbedAttachments.pdf", saveOptions);
+    //ExEnd:AttachmentsEmbeddingMode
   });
 
 
   test('CacheBackgroundGraphics', () => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.cacheBackgroundGraphics
+    //ExFor:PdfSaveOptions.cacheBackgroundGraphics
     //ExSummary:Shows how to cache graphics placed in document's background.
     let doc = new aw.Document(base.myDir + "Background images.docx");
 
@@ -1595,7 +1601,7 @@ describe("ExPdfSaveOptions", () => {
 
   test('ExportParagraphGraphicsToArtifact', () => {
     //ExStart
-    //ExFor:aw.Saving.PdfSaveOptions.exportParagraphGraphicsToArtifact
+    //ExFor:PdfSaveOptions.exportParagraphGraphicsToArtifact
     //ExSummary:Shows how to export paragraph graphics as artifact (underlines, text emphasis, etc.).
     let doc = new aw.Document(base.myDir + "PDF artifacts.docx");
 
@@ -1612,7 +1618,7 @@ describe("ExPdfSaveOptions", () => {
   test('PageLayout', () => {
     //ExStart:PageLayout
     //GistId:e386727403c2341ce4018bca370a5b41
-    //ExFor:aw.Saving.PdfSaveOptions.pageLayout
+    //ExFor:PdfSaveOptions.pageLayout
     //ExFor:PdfPageLayout
     //ExSummary:Shows how to display pages when opened in a PDF reader.
     let doc = new aw.Document(base.myDir + "Big document.docx");
@@ -1624,4 +1630,40 @@ describe("ExPdfSaveOptions", () => {
     doc.save(base.artifactsDir + "PdfSaveOptions.pageLayout.pdf", saveOptions);
     //ExEnd:PageLayout
   });
+
+
+  test('SdtTagAsFormFieldName', () => {
+    //ExStart:SdtTagAsFormFieldName
+    //GistId:708ce40a68fac5003d46f6b4acfd5ff1
+    //ExFor:PdfSaveOptions.useSdtTagAsFormFieldName
+    //ExSummary:Shows how to use SDT control Tag or Id property as a name of form field in PDF.
+    let doc = new aw.Document(base.myDir + "Form fields.docx");
+
+    let saveOptions = new aw.Saving.PdfSaveOptions();
+    saveOptions.preserveFormFields = true;
+    // When set to 'false', SDT control Id property is used as a name of form field in PDF.
+    // When set to 'true', SDT control Tag property is used as a name of form field in PDF.
+    saveOptions.useSdtTagAsFormFieldName = true;
+
+    doc.save(base.artifactsDir + "PdfSaveOptions.SdtTagAsFormFieldName.pdf", saveOptions);
+    //ExEnd:SdtTagAsFormFieldName
+  });
+
+
+  test('RenderChoiceFormFieldBorder', () => {
+    //ExStart:RenderChoiceFormFieldBorder
+    //GistId:366eb64fd56dec3c2eaa40410e594182
+    //ExFor:PdfSaveOptions.renderChoiceFormFieldBorder
+    //ExSummary:Shows how to render PDF choice form field border.
+    let doc = new aw.Document(base.myDir + "Legacy drop-down.docx");
+
+    let saveOptions = new aw.Saving.PdfSaveOptions();
+    saveOptions.preserveFormFields = true;
+    saveOptions.renderChoiceFormFieldBorder = true;
+
+    doc.save(base.artifactsDir + "PdfSaveOptions.renderChoiceFormFieldBorder.pdf", saveOptions);
+    //ExEnd:RenderChoiceFormFieldBorder
+  });
+
+
 });

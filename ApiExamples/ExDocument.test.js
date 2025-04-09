@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -50,6 +50,7 @@ describe('ExDocument', () => {
   test('CreateSimpleDocument', () => {
     //ExStart:CreateSimpleDocument
     //GistId:3428e84add5beb0d46a8face6e5fc858
+    //ExFor:DocumentBase.document
     //ExFor:Document.#ctor()
     //ExSummary:Shows how to create simple document.
     const doc = new aw.Document();
@@ -98,10 +99,35 @@ describe('ExDocument', () => {
     //ExEnd
   });
 
+
+  test('LoadFromWeb', async () => {
+    //ExStart
+    //ExFor:Document.#ctor(Stream)
+    //ExSummary:Shows how to load a document from a URL.
+    // Create a URL that points to a Microsoft Word document.
+    const url = "https://filesamples.com/samples/document/docx/sample3.docx";
+
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const arrayBuffer = await blob.arrayBuffer();
+    const dataBytes = Buffer.from(arrayBuffer);    
+
+    let doc = new aw.Document(dataBytes);
+
+    // At this stage, we can read and edit the document's contents and then save it to the local file system.
+    expect(doc.firstSection.body.paragraphs.at(3).getText().trim()).toEqual("There are eight section headings in this document. At the beginning, \"Sample Document\" is a level 1 heading. " +
+                                    "The main section headings, such as \"Headings\" and \"Lists\" are level 2 headings. " +
+                                    "The Tables section contains two sub-headings, \"Simple Table\" and \"Complex Table,\" which are both level 3 headings.");
+
+    doc.save(base.artifactsDir + "Document.LoadFromWeb.docx");
+    //ExEnd
+  });
+
+
   test('ConvertToPdf', () => {
     //ExStart
     //ExFor:Document.#ctor(String)
-    //ExFor:Document.Save(String)
+    //ExFor:Document.save(String)
     //ExSummary:Shows how to open a document and convert it to .PDF.
     const doc = new aw.Document(base.myDir + "Document.docx");
     doc.save(base.artifactsDir + "Document.ConvertToPdf.pdf");
@@ -110,7 +136,7 @@ describe('ExDocument', () => {
   
   test('SaveToImageStream', async () => {
     //ExStart
-    //ExFor:Document.Save(Stream, SaveFormat)
+    //ExFor:Document.save(Stream, SaveFormat)
     //ExSummary:Shows how to save a document to an image via stream, and then read the image from that stream.
     const doc = new aw.Document();
     const builder = new aw.DocumentBuilder(doc);
@@ -130,8 +156,9 @@ describe('ExDocument', () => {
     const image = bmp.decode(bmpData);
     expect(image.width).toEqual(816);
     expect(image.height).toEqual(1056);
+    //ExEnd
   });
-  
+
   test('DetectMobiDocumentFormat', () => {
     const info = aw.FileFormatUtil.detectFileFormat(base.myDir + "Document.mobi");
     expect(info.LoadFormat).toEqual(aw.LoadFormat.mobi);
@@ -141,7 +168,8 @@ describe('ExDocument', () => {
     //ExStart
     //ExFor:Document.#ctor(Stream,LoadOptions)
     //ExFor:LoadOptions.#ctor
-    //ExFor:LoadOptions.BaseUri
+    //ExFor:LoadOptions.baseUri
+    //ExFor:ShapeBase.isImage
     //ExSummary:Shows how to open an HTML document with images from a stream using a base URI.
     const buffer = base.loadFileToBuffer(base.myDir + "Document.html");
     // Pass the URI of the base folder while loading it
@@ -165,21 +193,17 @@ describe('ExDocument', () => {
     //ExFor:LoadFormat
     //ExSummary:Shows how save a web page as a .docx file.
     const url = "https://products.aspose.com/words/";
-    const download = require('download');
-    await download(url, base.artifactsDir).then(() => {
-      const buffer = base.loadFileToBuffer(base.artifactsDir + "words");
-      // The URL is used again as a baseUri to ensure that any relative image paths are retrieved correctly.
-      const options = new aw.Loading.LoadOptions();
-      options.loadOptions = aw.LoadFormat;
-      options.baseUri = url;
-      // Load the HTML document from stream and pass the LoadOptions object.
-      const doc = new aw.Document(buffer, options);
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const arrayBuffer = await blob.arrayBuffer();
+    const dataBytes = Buffer.from(arrayBuffer);    
 
-      // At this stage, we can read and edit the document's contents and then save it to the local file system.
-      //assert.strict(doc.GetText().includes("HYPERLINK \"https://products.aspose.com/words/net/\" \\o \"Aspose.Words\""), true); //ExSkip
+    let doc = new aw.Document(dataBytes);
 
-      doc.save(base.artifactsDir + "Document.InsertHtmlFromWebPage.docx");
-    }, 10000);
+    // At this stage, we can read and edit the document's contents and then save it to the local file system.
+    expect(doc.getText().includes("HYPERLINK \"https://products.aspose.com/words/net/\" \\o \"Aspose.Words\"")).toBe(true) ; //ExSkip
+
+    doc.save(base.artifactsDir + "Document.LoadFromWeb.docx");    
     //ExEnd
   });
 
@@ -210,17 +234,23 @@ describe('ExDocument', () => {
   });
 
   test.skip('NotSupportedWarning - TODO: Inherence from IWarningCallback not supported.', () => {
-    //const warnings = new WarningInfoCollection();
-    const options = new aw.Loading.LoadOptions();
-    //options.warningCallback = warnings;
+    //ExStart
+    //ExFor:WarningInfoCollection.count
+    //ExFor:WarningInfoCollection.item(Int32)
+    //ExSummary:Shows how to get warnings about unsupported formats.
+    let warnings = new aw.WarningInfoCollection();
+    let lo = new aw.Loading.LoadOptions();
+    lo.warningCallback = warnings;
+    let doc = new aw.Document(base.myDir + "FB2 document.fb2", lo);
 
-    const doc = new aw.Document(base.myDir + "FB2 document.fb2",  options);
-    //expect(warnings.description()).toEqual("The original file load format is FB2, which is not supported by Aspose.Words. The file is loaded as an XML document.");
+    expect(warnings.at(0).description).toEqual("The original file load format is FB2, which is not supported by Aspose.words. The file is loaded as an XML document.");
+    expect(warnings.count).toEqual(1);
+    //ExEnd
   });
 
   test('TempFolder', () => {
     //ExStart
-    //ExFor:LoadOptions.TempFolder
+    //ExFor:LoadOptions.tempFolder
     //ExSummary:Shows how to load a document using temporary files.
     // Note that such an approach can reduce memory usage but degrades speed
     const loadOptions = new aw.Loading.LoadOptions();
@@ -237,7 +267,7 @@ describe('ExDocument', () => {
 
   test('ConvertToHtml', () => {
     //ExStart
-    //ExFor:Document.Save(String,SaveFormat)
+    //ExFor:Document.save(String,SaveFormat)
     //ExFor:SaveFormat
     //ExSummary:Shows how to convert from DOCX to HTML format.
     const doc = new aw.Document(base.myDir + "Document.docx");
@@ -263,7 +293,7 @@ describe('ExDocument', () => {
 
   test('SaveToStream', async () => {
     //ExStart
-    //ExFor:Document.Save(Stream,SaveFormat)
+    //ExFor:Document.save(Stream,SaveFormat)
     //ExSummary:Shows how to save a document to a stream.
     const doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -331,7 +361,7 @@ describe('ExDocument', () => {
 
   test.each([true, false])('TestImportList', (isKeepSourceNumbering) => {
     //ExStart
-    //ExFor:ImportFormatOptions.KeepSourceNumbering
+    //ExFor:ImportFormatOptions.keepSourceNumbering
     //ExSummary:Shows how to import a document with numbered lists.
     const srcDoc = new aw.Document(base.myDir + "List source.docx");
     const dstDoc = new aw.Document(base.myDir + "List destination.docx");
@@ -355,7 +385,7 @@ describe('ExDocument', () => {
 
   test('KeepSourceNumberingSameListIds', () => {
     //ExStart
-    //ExFor:ImportFormatOptions.KeepSourceNumbering
+    //ExFor:ImportFormatOptions.keepSourceNumbering
     //ExFor:NodeImporter.#ctor(DocumentBase, DocumentBase, ImportFormatMode, ImportFormatOptions)
     //ExSummary:Shows how resolve a clash when importing documents that have lists with the same list definition identifier.
     const srcDoc = new aw.Document(base.myDir + "List with the same definition identifier - source.docx");
@@ -378,7 +408,7 @@ describe('ExDocument', () => {
 
   test('MergePastedLists', () => {
     //ExStart
-    //ExFor:ImportFormatOptions.MergePastedLists
+    //ExFor:ImportFormatOptions.mergePastedLists
     //ExSummary:Shows how to merge lists from a documents.
     const srcDoc = new aw.Document(base.myDir + "List item.docx");
     const dstDoc = new aw.Document(base.myDir + "List destination.docx");
@@ -395,7 +425,7 @@ describe('ExDocument', () => {
 
   test('ForceCopyStyles', () => {
     //ExStart
-    //ExFor:ImportFormatOptions.ForceCopyStyles
+    //ExFor:ImportFormatOptions.forceCopyStyles
     //ExSummary:Shows how to copy source styles with unique names forcibly.
     // Both documents contain MyStyle1 and MyStyle2, MyStyle3 exists only in a source document.
     const srcDoc = new aw.Document(base.myDir + "Styles source.docx");
@@ -415,10 +445,10 @@ describe('ExDocument', () => {
 
   test('AdjustSentenceAndWordSpacing', () => {
       //ExStart
-      //ExFor:ImportFormatOptions.AdjustSentenceAndWordSpacing
+      //ExFor:ImportFormatOptions.adjustSentenceAndWordSpacing
       //ExSummary:Shows how to adjust sentence and word spacing automatically.
-      const srcDoc = new aw.Document();
-      const dstDoc = new aw.Document();
+      let srcDoc = new aw.Document();
+      let dstDoc = new aw.Document();
 
       var builder = new aw.DocumentBuilder(srcDoc);
       builder.write("Dolor sit amet.");
@@ -436,29 +466,24 @@ describe('ExDocument', () => {
 
   test('ValidateIndividualDocumentSignatures', () => {
     //ExStart
-    //ExFor:CertificateHolder.Certificate
-    //ExFor:Document.DigitalSignatures
+    //ExFor:CertificateHolder.certificate
+    //ExFor:Document.digitalSignatures
     //ExFor:DigitalSignature
     //ExFor:DigitalSignatureCollection
-    //ExFor:DigitalSignature.IsValid
-    //ExFor:DigitalSignature.Comments
-    //ExFor:DigitalSignature.SignTime
-    //ExFor:DigitalSignature.SignatureType
+    //ExFor:DigitalSignature.isValid
+    //ExFor:DigitalSignature.comments
+    //ExFor:DigitalSignature.signTime
+    //ExFor:DigitalSignature.signatureType
     //ExSummary:Shows how to validate and display information about each signature in a document.
     const doc = new aw.Document(base.myDir + "Digitally signed.docx");
 
     for (var i = 0; i < doc.digitalSignatures.count; i++) {
       const signature = doc.digitalSignatures.at(i);
-      //console.log(`${signature.isValid ? "Valid" : "Invalid"} signature: `);
-      //console.log(`\tReason:\t${signature.comments}`);
-      //console.log(`\tType:\t${signature.signatureType}`);
-      //console.log(`\tSign time:\t${signature.signTime}`);
-      /*
-      TODO: digitalSig.certificateHolder.certificate of X509Certificate2 type is not supported by Node.js.
-      console.log(`\tSubject name:\t${signature.certificateHolder.certificate.subjectName}`);
-      console.log(`\tIssuer name:\t${signature.certificateHolder.certificate.issuerName.name}`);
-      */
-      //console.log(`\r\n`);
+      console.log(`${signature.isValid ? "Valid" : "Invalid"} signature: `);
+      console.log(`\tReason:\t${signature.comments}`);
+      console.log(`\tType:\t${signature.signatureType}`);
+      console.log(`\tSign time:\t${signature.signTime}`);
+      console.log(`\r\n`);
     }
     //ExEnd
 
@@ -469,12 +494,6 @@ describe('ExDocument', () => {
     expect(digitalSig.isValid).toEqual(true);
     expect(digitalSig.comments).toEqual("Test Sign");
     expect(digitalSig.signatureType).toEqual(aw.DigitalSignatures.DigitalSignatureType.XmlDsig);
-    /* 
-    TODO: digitalSig.certificateHolder.certificate of X509Certificate2 type is not supported by Node.js.
-    expect(digitalSig.certificateHolder.certificate.subject.contains("Aspose Pty Ltd")).toEqual(true);
-    expect(digitalSig.certificateHolder.certificate.issuerName.name != null &&
-           digitalSig.certificateHolder.certificate.issuerName.name.contains("VeriSign")).toEqual(true);
-    */
   });
 
   test.skip('DigitalSignature - X509Certificate2 type is not supported by Node.js', () => {
@@ -482,7 +501,7 @@ describe('ExDocument', () => {
 
   test('SignatureValue', () => {
     //ExStart
-    //ExFor:DigitalSignature.SignatureValue
+    //ExFor:DigitalSignature.signatureValue
     //ExSummary:Shows how to get a digital signature value from a digitally signed document.
     const doc = new aw.Document(base.myDir + "Digitally signed.docx");
     for (var i = 0; i < doc.digitalSignatures.count; i++) {
@@ -498,7 +517,7 @@ describe('ExDocument', () => {
 
   test('AppendAllDocumentsInFolder', () => {
     //ExStart
-    //ExFor:Document.AppendDocument(Document, ImportFormatMode)
+    //ExFor:Document.appendDocument(Document, ImportFormatMode)
     //ExSummary:Shows how to append all the documents in a folder to the end of a template document.
     const dstDoc = new aw.Document();
     const builder = new aw.DocumentBuilder(dstDoc);
@@ -550,9 +569,9 @@ describe('ExDocument', () => {
               
   test('DefaultTabStop', () => {
     //ExStart
-    //ExFor:aw.Document.defaultTabStop
-    //ExFor:aw.ControlChar.tab
-    //ExFor:aw.ControlChar.tabChar
+    //ExFor:Document.defaultTabStop
+    //ExFor:ControlChar.tab
+    //ExFor:ControlChar.tabChar
     //ExSummary:Shows how to set a custom interval for tab stop positions.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -568,7 +587,7 @@ describe('ExDocument', () => {
       
   test('CloneDocument', () => {
     //ExStart
-    //ExFor:aw.Document.clone
+    //ExFor:Document.clone
     //ExSummary:Shows how to deep clone a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -583,8 +602,8 @@ describe('ExDocument', () => {
 
   test('DocumentGetTextToString', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.getText
-    //ExFor:aw.Node.toString(SaveFormat)
+    //ExFor:CompositeNode.getText
+    //ExFor:Node.toString(SaveFormat)
     //ExSummary:Shows the difference between calling the GetText and ToString methods on a node.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -598,10 +617,10 @@ describe('ExDocument', () => {
 
   test('ProtectUnprotect', () => {
     //ExStart
-    //ExFor:aw.Document.protect(ProtectionType,String)
-    //ExFor:aw.Document.protectionType
-    //ExFor:aw.Document.unprotect
-    //ExFor:aw.Document.unprotect(String)
+    //ExFor:Document.protect(ProtectionType,String)
+    //ExFor:Document.protectionType
+    //ExFor:Document.unprotect
+    //ExFor:Document.unprotect(String)
     //ExSummary:Shows how to protect and unprotect a document.
     let doc = new aw.Document();
     doc.protect(aw.ProtectionType.ReadOnly, "password");
@@ -633,7 +652,7 @@ describe('ExDocument', () => {
   /* getChildNodes not supported
   test('DocumentEnsureMinimum', () => {
     //ExStart
-    //ExFor:aw.Document.ensureMinimum
+    //ExFor:Document.ensureMinimum
     //ExSummary:Shows how to ensure that a document contains the minimal set of nodes required for editing its contents.
     // A newly created document contains one child Section, which includes one child Body and one child Paragraph.
     // We can edit the document body's contents by adding nodes such as Runs or inline Shapes to that paragraph.
@@ -662,7 +681,7 @@ describe('ExDocument', () => {
  
   test('RemoveMacrosFromDocument', () => {
     //ExStart
-    //ExFor:aw.Document.removeMacros
+    //ExFor:Document.removeMacros
     //ExSummary:Shows how to remove all macros from a document.
     let doc = new aw.Document(base.myDir + "Macro.docm");
     expect(doc.hasMacros).toEqual(true);
@@ -676,7 +695,7 @@ describe('ExDocument', () => {
 
   test('GetPageCount', () => {
     //ExStart
-    //ExFor:aw.Document.pageCount
+    //ExFor:Document.pageCount
     //ExSummary:Shows how to count the number of pages in the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -696,12 +715,12 @@ describe('ExDocument', () => {
 
   test('GetUpdatedPageProperties', () => {
     //ExStart
-    //ExFor:aw.Document.updateWordCount()
-    //ExFor:aw.Document.updateWordCount(Boolean)
-    //ExFor:aw.Properties.BuiltInDocumentProperties.characters
-    //ExFor:aw.Properties.BuiltInDocumentProperties.words
-    //ExFor:aw.Properties.BuiltInDocumentProperties.paragraphs
-    //ExFor:aw.Properties.BuiltInDocumentProperties.lines
+    //ExFor:Document.updateWordCount()
+    //ExFor:Document.updateWordCount(Boolean)
+    //ExFor:BuiltInDocumentProperties.characters
+    //ExFor:BuiltInDocumentProperties.words
+    //ExFor:BuiltInDocumentProperties.paragraphs
+    //ExFor:BuiltInDocumentProperties.lines
     //ExSummary:Shows how to update all list labels in a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -726,11 +745,11 @@ describe('ExDocument', () => {
     //ExEnd
   });
     
-  /*
+  /*//Commented
   test('TableStyleToDirectFormatting', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.getChild
-    //ExFor:aw.Document.expandTableStylesToDirectFormatting
+    //ExFor:CompositeNode.getChild
+    //ExFor:Document.expandTableStylesToDirectFormatting
     //ExSummary:Shows how to apply the properties of a table's style directly to the table's elements.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -756,12 +775,12 @@ describe('ExDocument', () => {
     TestUtil.DocPackageFileContainsString("<w:tblBorders><w:top w:val=\"dotDash\" w:sz=\"2\" w:space=\"0\" w:color=\"0000FF\" /><w:left w:val=\"dotDash\" w:sz=\"2\" w:space=\"0\" w:color=\"0000FF\" /><w:bottom w:val=\"dotDash\" w:sz=\"2\" w:space=\"0\" w:color=\"0000FF\" /><w:right w:val=\"dotDash\" w:sz=\"2\" w:space=\"0\" w:color=\"0000FF\" /><w:insideH w:val=\"dotDash\" w:sz=\"2\" w:space=\"0\" w:color=\"0000FF\" /><w:insideV w:val=\"dotDash\" w:sz=\"2\" w:space=\"0\" w:color=\"0000FF\" /></w:tblBorders>",
         base.artifactsDir + "Document.TableStyleToDirectFormatting.docx", "document.xml");
   });
-  */
+  //EndCommented*/
 
   test('GetOriginalFileInfo', () => {
     //ExStart
-    //ExFor:aw.Document.originalFileName
-    //ExFor:aw.Document.originalLoadFormat
+    //ExFor:Document.originalFileName
+    //ExFor:Document.originalLoadFormat
     //ExSummary:Shows how to retrieve details of a document's load operation.
     let doc = new aw.Document(base.myDir + "Document.docx");
     expect(doc.originalFileName).toEqual(base.myDir + "Document.docx");
@@ -773,7 +792,7 @@ describe('ExDocument', () => {
   test('FootnoteColumns', () => {
     //ExStart
     //ExFor:FootnoteOptions
-    //ExFor:aw.Notes.FootnoteOptions.columns
+    //ExFor:FootnoteOptions.columns
     //ExSummary:Shows how to split the footnote section into a given number of columns.
     let doc = new aw.Document(base.myDir + "Footnotes and endnotes.docx");
     expect(doc.footnoteOptions.columns).toEqual(0);
@@ -844,7 +863,7 @@ describe('ExDocument', () => {
 
   test('RemoveExternalSchemaReferences', () => {
     //ExStart
-    //ExFor:aw.Document.removeExternalSchemaReferences
+    //ExFor:Document.removeExternalSchemaReferences
     //ExSummary:Shows how to remove all external XML schema references from a document.
     let doc = new aw.Document(base.myDir + "External XML schema.docx");
     doc.removeExternalSchemaReferences();
@@ -853,11 +872,11 @@ describe('ExDocument', () => {
 
   test.skip('UpdateThumbnail - TODO: Use JSSize for ThumbnailSize', () => {
     //ExStart
-    //ExFor:aw.Document.updateThumbnail()
-    //ExFor:aw.Document.updateThumbnail(ThumbnailGeneratingOptions)
+    //ExFor:Document.updateThumbnail()
+    //ExFor:Document.updateThumbnail(ThumbnailGeneratingOptions)
     //ExFor:ThumbnailGeneratingOptions
-    //ExFor:aw.Rendering.ThumbnailGeneratingOptions.generateFromFirstPage
-    //ExFor:aw.Rendering.ThumbnailGeneratingOptions.thumbnailSize
+    //ExFor:ThumbnailGeneratingOptions.generateFromFirstPage
+    //ExFor:ThumbnailGeneratingOptions.thumbnailSize
     //ExSummary:Shows how to update a document's thumbnail.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -880,12 +899,12 @@ describe('ExDocument', () => {
 
   test('HyphenationOptions', () => {
     //ExStart
-    //ExFor:aw.Document.hyphenationOptions
+    //ExFor:Document.hyphenationOptions
     //ExFor:HyphenationOptions
-    //ExFor:aw.Settings.HyphenationOptions.autoHyphenation
-    //ExFor:aw.Settings.HyphenationOptions.consecutiveHyphenLimit
-    //ExFor:aw.Settings.HyphenationOptions.hyphenationZone
-    //ExFor:aw.Settings.HyphenationOptions.hyphenateCaps
+    //ExFor:HyphenationOptions.autoHyphenation
+    //ExFor:HyphenationOptions.consecutiveHyphenLimit
+    //ExFor:HyphenationOptions.hyphenationZone
+    //ExFor:HyphenationOptions.hyphenateCaps
     //ExSummary:Shows how to configure automatic hyphenation.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -922,7 +941,7 @@ describe('ExDocument', () => {
 
   test('OoxmlComplianceVersion', () => {
     //ExStart
-    //ExFor:aw.Document.compliance
+    //ExFor:Document.compliance
     //ExSummary:Shows how to read a loaded document's Open Office XML compliance version.
     // The compliance version varies between documents created by different versions of Microsoft Word.
     let doc = new aw.Document(base.myDir + "Document.doc");
@@ -935,9 +954,9 @@ describe('ExDocument', () => {
   // WORDSNET-20342
   test('ImageSaveOptions', async () => {
     //ExStart
-    //ExFor:aw.Document.save(String, SaveOptions)
-    //ExFor:aw.Saving.SaveOptions.useAntiAliasing
-    //ExFor:aw.Saving.SaveOptions.useHighQualityRendering
+    //ExFor:Document.save(String, SaveOptions)
+    //ExFor:SaveOptions.useAntiAliasing
+    //ExFor:SaveOptions.useHighQualityRendering
     //ExSummary:Shows how to improve the quality of a rendered document with SaveOptions.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
     let builder = new aw.DocumentBuilder(doc);
@@ -957,7 +976,7 @@ describe('ExDocument', () => {
 
   test('Cleanup', () => {
     //ExStart
-    //ExFor:aw.Document.cleanup
+    //ExFor:Document.cleanup
     //ExSummary:Shows how to remove unused custom styles from a document.
     let doc = new aw.Document();
     doc.styles.add(aw.StyleType.List, "MyListStyle1");
@@ -988,7 +1007,7 @@ describe('ExDocument', () => {
 
   test('AutomaticallyUpdateStyles', () => {
     //ExStart
-    //ExFor:aw.Document.automaticallyUpdateStyles
+    //ExFor:Document.automaticallyUpdateStyles
     //ExSummary:Shows how to attach a template to a document.
     let doc = new aw.Document();
     // Microsoft Word documents by default come with an attached template called "Normal.dotm".
@@ -1008,10 +1027,10 @@ describe('ExDocument', () => {
 
   test('DefaultTemplate', () => {
     //ExStart
-    //ExFor:aw.Document.attachedTemplate
-    //ExFor:aw.Document.automaticallyUpdateStyles
-    //ExFor:aw.Saving.SaveOptions.createSaveOptions(String)
-    //ExFor:aw.Saving.SaveOptions.defaultTemplate
+    //ExFor:Document.attachedTemplate
+    //ExFor:Document.automaticallyUpdateStyles
+    //ExFor:SaveOptions.createSaveOptions(String)
+    //ExFor:SaveOptions.defaultTemplate
     //ExSummary:Shows how to set a default template for documents that do not have attached templates.
     let doc = new aw.Document();
     // Enable automatic style updating, but do not attach a template document.
@@ -1029,8 +1048,9 @@ describe('ExDocument', () => {
 
   test.skip('UseSubstitutions - TODO: Regex is not supported yet.', () => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.useSubstitutions
-    //ExFor:aw.Replacing.FindReplaceOptions.legacyMode
+    //ExFor:FindReplaceOptions.#ctor
+    //ExFor:FindReplaceOptions.useSubstitutions
+    //ExFor:FindReplaceOptions.legacyMode
     //ExSummary:Shows how to recognize and use substitutions within replacement patterns.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1047,7 +1067,8 @@ describe('ExDocument', () => {
 
   test('SetInvalidateFieldTypes', () => {
     //ExStart
-    //ExFor:aw.Document.normalizeFieldTypes
+    //ExFor:Document.normalizeFieldTypes
+    //ExFor:Range.normalizeFieldTypes
     //ExSummary:Shows how to get the keep a field's type up to date with its field code.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1076,9 +1097,9 @@ describe('ExDocument', () => {
 
   test.each([false, true])('LayoutOptionsHiddenText', (showHiddenText) => {
     //ExStart
-    //ExFor:aw.Document.layoutOptions
+    //ExFor:Document.layoutOptions
     //ExFor:LayoutOptions
-    //ExFor:aw.Layout.LayoutOptions.showHiddenText
+    //ExFor:LayoutOptions.showHiddenText
     //ExSummary:Shows how to hide text in a rendered output document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1107,9 +1128,9 @@ describe('ExDocument', () => {
   
   test.each([false, true])('LayoutOptionsParagraphMarks', (showParagraphMarks) => {
     //ExStart
-    //ExFor:aw.Document.layoutOptions
+    //ExFor:Document.layoutOptions
     //ExFor:LayoutOptions
-    //ExFor:aw.Layout.LayoutOptions.showParagraphMarks
+    //ExFor:LayoutOptions.showParagraphMarks
     //ExSummary:Shows how to show paragraph marks in a rendered output document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1138,10 +1159,11 @@ describe('ExDocument', () => {
   
   test('UpdatePageLayout', () => {
     //ExStart
-    //ExFor:aw.StyleCollection.item(String)
-    //ExFor:aw.SectionCollection.item(Int32)
-    //ExFor:aw.Document.updatePageLayout
-    //ExFor:aw.PageSetup.margins
+    //ExFor:StyleCollection.item(String)
+    //ExFor:SectionCollection.item(Int32)
+    //ExFor:Document.updatePageLayout
+    //ExFor:Margins
+    //ExFor:PageSetup.margins
     //ExSummary:Shows when to recalculate the page layout of the document.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
     // Saving a document to PDF, to an image, or printing for the first time will automatically
@@ -1162,21 +1184,21 @@ describe('ExDocument', () => {
   test('DocPackageCustomParts', () => {
     //ExStart
     //ExFor:CustomPart
-    //ExFor:aw.Markup.CustomPart.contentType
-    //ExFor:aw.Markup.CustomPart.relationshipType
-    //ExFor:aw.Markup.CustomPart.isExternal
-    //ExFor:aw.Markup.CustomPart.data
-    //ExFor:aw.Markup.CustomPart.name
-    //ExFor:aw.Markup.CustomPart.clone
+    //ExFor:CustomPart.contentType
+    //ExFor:CustomPart.relationshipType
+    //ExFor:CustomPart.isExternal
+    //ExFor:CustomPart.data
+    //ExFor:CustomPart.name
+    //ExFor:CustomPart.clone
     //ExFor:CustomPartCollection
-    //ExFor:aw.Markup.CustomPartCollection.add(CustomPart)
-    //ExFor:aw.Markup.CustomPartCollection.clear
-    //ExFor:aw.Markup.CustomPartCollection.clone
-    //ExFor:aw.Markup.CustomPartCollection.count
-    //ExFor:aw.Markup.CustomPartCollection.getEnumerator
-    //ExFor:aw.Markup.CustomPartCollection.item(Int32)
-    //ExFor:aw.Markup.CustomPartCollection.removeAt(Int32)
-    //ExFor:aw.Document.packageCustomParts
+    //ExFor:CustomPartCollection.add(CustomPart)
+    //ExFor:CustomPartCollection.clear
+    //ExFor:CustomPartCollection.clone
+    //ExFor:CustomPartCollection.count
+    //ExFor:CustomPartCollection.getEnumerator
+    //ExFor:CustomPartCollection.item(Int32)
+    //ExFor:CustomPartCollection.removeAt(Int32)
+    //ExFor:Document.packageCustomParts
     //ExSummary:Shows how to access a document's arbitrary custom parts collection.
     let doc = new aw.Document(base.myDir + "Custom parts OOXML package.docx");
     expect(doc.packageCustomParts.count).toEqual(2);
@@ -1208,7 +1230,7 @@ describe('ExDocument', () => {
   
   test.each([false, true])('ShadeFormData', (useGreyShading) => {
     //ExStart
-    //ExFor:aw.Document.shadeFormData
+    //ExFor:Document.shadeFormData
     //ExSummary:Shows how to apply gray shading to form fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1224,7 +1246,7 @@ describe('ExDocument', () => {
   
   test('VersionsCount', () => {
     //ExStart
-    //ExFor:aw.Document.versionsCount
+    //ExFor:Document.versionsCount
     //ExSummary:Shows how to work with the versions count feature of older Microsoft Word documents.
     let doc = new aw.Document(base.myDir + "Versions.doc");
     // We can read this property of a document, but we cannot preserve it while saving.
@@ -1237,12 +1259,12 @@ describe('ExDocument', () => {
   
   test('WriteProtection', () => {
     //ExStart
-    //ExFor:aw.Document.writeProtection
+    //ExFor:Document.writeProtection
     //ExFor:WriteProtection
-    //ExFor:aw.Settings.WriteProtection.isWriteProtected
-    //ExFor:aw.Settings.WriteProtection.readOnlyRecommended
-    //ExFor:aw.Settings.WriteProtection.setPassword(String)
-    //ExFor:aw.Settings.WriteProtection.validatePassword(String)
+    //ExFor:WriteProtection.isWriteProtected
+    //ExFor:WriteProtection.readOnlyRecommended
+    //ExFor:WriteProtection.setPassword(String)
+    //ExFor:WriteProtection.validatePassword(String)
     //ExSummary:Shows how to protect a document with a password.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1271,7 +1293,7 @@ describe('ExDocument', () => {
   
   test.each([false, true])('RemovePersonalInformation', (saveWithoutPersonalInfo) => {
     //ExStart
-    //ExFor:aw.Document.removePersonalInformation
+    //ExFor:Document.removePersonalInformation
     //ExSummary:Shows how to enable the removal of personal information during a manual save.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1297,7 +1319,7 @@ describe('ExDocument', () => {
   
   test('ShowComments', () => {
     //ExStart
-    //ExFor:aw.Layout.LayoutOptions.commentDisplayMode
+    //ExFor:LayoutOptions.commentDisplayMode
     //ExFor:CommentDisplayMode
     //ExSummary:Shows how to show comments when saving a document to a rendered format.
     let doc = new aw.Document();
@@ -1310,8 +1332,9 @@ describe('ExDocument', () => {
     // In other formats, it will work similarly to Hide.
     doc.layoutOptions.commentDisplayMode = aw.Layout.CommentDisplayMode.ShowInAnnotations;
     doc.save(base.artifactsDir + "Document.ShowCommentsInAnnotations.pdf");
-    // Note that it's required to rebuild the document page layout (via aw.Document.updatePageLayout() method)
-    // after changing the aw.Document.layoutOptions values.
+
+    // Note that it's required to rebuild the document page layout (via Document.updatePageLayout() method)
+    // after changing the Document.layoutOptions values.
     doc.layoutOptions.commentDisplayMode = aw.Layout.CommentDisplayMode.ShowInBalloons;
     doc.updatePageLayout();
     doc.save(base.artifactsDir + "Document.ShowCommentsInBalloons.pdf");
@@ -1332,7 +1355,7 @@ describe('ExDocument', () => {
   
   test('CopyTemplateStylesViaDocument', () => {
     //ExStart
-    //ExFor:aw.Document.copyStylesFromTemplate(Document)
+    //ExFor:Document.copyStylesFromTemplate(Document)
     //ExSummary:Shows how to copies styles from the template to a document via Document.
     let template = new aw.Document(base.myDir + "Rendering.docx");
     let target = new aw.Document(base.myDir + "Document.docx");
@@ -1345,8 +1368,8 @@ describe('ExDocument', () => {
   
   test('CopyTemplateStylesViaDocumentNew', () => {
     //ExStart
-    //ExFor:aw.Document.copyStylesFromTemplate(Document)
-    //ExFor:aw.Document.copyStylesFromTemplate(String)
+    //ExFor:Document.copyStylesFromTemplate(Document)
+    //ExFor:Document.copyStylesFromTemplate(String)
     //ExSummary:Shows how to copy styles from one document to another.
     // Create a document, and then add styles that we will copy to another document.
     let template = new aw.Document();
@@ -1383,20 +1406,20 @@ describe('ExDocument', () => {
   
   test('ReadMacrosFromExistingDocument', () => {
     //ExStart
-    //ExFor:aw.Document.vbaProject
+    //ExFor:Document.vbaProject
     //ExFor:VbaModuleCollection
-    //ExFor:aw.Vba.VbaModuleCollection.count
-    //ExFor:aw.Vba.VbaModuleCollection.item(System.int32)
-    //ExFor:aw.Vba.VbaModuleCollection.item(System.string)
-    //ExFor:aw.Vba.VbaModuleCollection.remove
+    //ExFor:VbaModuleCollection.count
+    //ExFor:VbaModuleCollection.item(System.int32)
+    //ExFor:VbaModuleCollection.item(System.string)
+    //ExFor:VbaModuleCollection.remove
     //ExFor:VbaModule
-    //ExFor:aw.Vba.VbaModule.name
-    //ExFor:aw.Vba.VbaModule.sourceCode
+    //ExFor:VbaModule.name
+    //ExFor:VbaModule.sourceCode
     //ExFor:VbaProject
-    //ExFor:aw.Vba.VbaProject.name
-    //ExFor:aw.Vba.VbaProject.modules
-    //ExFor:aw.Vba.VbaProject.codePage
-    //ExFor:aw.Vba.VbaProject.isSigned
+    //ExFor:VbaProject.name
+    //ExFor:VbaProject.modules
+    //ExFor:VbaProject.codePage
+    //ExFor:VbaProject.isSigned
     //ExSummary:Shows how to access a document's VBA project information.
     let doc = new aw.Document(base.myDir + "VBA project.docm");
     // A VBA project contains a collection of VBA modules.
@@ -1429,7 +1452,7 @@ describe('ExDocument', () => {
   test('SaveOutputParameters', () => {
     //ExStart
     //ExFor:SaveOutputParameters
-    //ExFor:aw.Saving.SaveOutputParameters.contentType
+    //ExFor:SaveOutputParameters.contentType
     //ExSummary:Shows how to access output parameters of a document's save operation.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1446,7 +1469,7 @@ describe('ExDocument', () => {
   test('SubDocument', () => {
     //ExStart
     //ExFor:SubDocument
-    //ExFor:aw.SubDocument.nodeType
+    //ExFor:SubDocument.nodeType
     //ExSummary:Shows how to access a master document's subdocument.
     let doc = new aw.Document(base.myDir + "Master document.docx");
     let subDocuments = doc.getChildNodes(aw.NodeType.SubDocument, true);
@@ -1461,30 +1484,39 @@ describe('ExDocument', () => {
     //ExStart
     //ExFor:BaseWebExtensionCollection`1.add(`0)
     //ExFor:BaseWebExtensionCollection`1.clear
+    //ExFor:Document.webExtensionTaskPanes
     //ExFor:TaskPane
-    //ExFor:aw.WebExtensions.TaskPane.dockState
-    //ExFor:aw.WebExtensions.TaskPane.isVisible
-    //ExFor:aw.WebExtensions.TaskPane.width
-    //ExFor:aw.WebExtensions.TaskPane.isLocked
-    //ExFor:aw.WebExtensions.TaskPane.webExtension
-    //ExFor:aw.WebExtensions.TaskPane.row
+    //ExFor:TaskPane.dockState
+    //ExFor:TaskPane.isVisible
+    //ExFor:TaskPane.width
+    //ExFor:TaskPane.isLocked
+    //ExFor:TaskPane.webExtension
+    //ExFor:TaskPane.row
     //ExFor:WebExtension
-    //ExFor:aw.WebExtensions.WebExtension.reference
-    //ExFor:aw.WebExtensions.WebExtension.properties
-    //ExFor:aw.WebExtensions.WebExtension.bindings
-    //ExFor:aw.WebExtensions.WebExtension.isFrozen
-    //ExFor:aw.WebExtensions.WebExtensionReference.id
-    //ExFor:aw.WebExtensions.WebExtensionReference.version
-    //ExFor:aw.WebExtensions.WebExtensionReference.storeType
-    //ExFor:aw.WebExtensions.WebExtensionReference.store
+    //ExFor:WebExtension.id
+    //ExFor:WebExtension.alternateReferences
+    //ExFor:WebExtension.reference
+    //ExFor:WebExtension.properties
+    //ExFor:WebExtension.bindings
+    //ExFor:WebExtension.isFrozen
+    //ExFor:WebExtensionReference
+    //ExFor:WebExtensionReference.id
+    //ExFor:WebExtensionReference.version
+    //ExFor:WebExtensionReference.storeType
+    //ExFor:WebExtensionReference.store
     //ExFor:WebExtensionPropertyCollection
     //ExFor:WebExtensionBindingCollection
     //ExFor:WebExtensionProperty.#ctor(String, String)
+    //ExFor:WebExtensionProperty.name
+    //ExFor:WebExtensionProperty.value
     //ExFor:WebExtensionBinding.#ctor(String, WebExtensionBindingType, String)
     //ExFor:WebExtensionStoreType
     //ExFor:WebExtensionBindingType
     //ExFor:TaskPaneDockState
     //ExFor:TaskPaneCollection
+    //ExFor:WebExtensionBinding.id
+    //ExFor:WebExtensionBinding.appRef
+    //ExFor:WebExtensionBinding.bindingType
     //ExSummary:Shows how to add a web extension to a document.
     let doc = new aw.Document();
     // Create task pane with "MyScript" add-in, which will be used by the document,
@@ -1513,15 +1545,17 @@ describe('ExDocument', () => {
     // Remove all web extension task panes at once like this.
     doc.webExtensionTaskPanes.clear();
     expect(doc.webExtensionTaskPanes.count).toEqual(0);
-    //ExEnd
     doc = new aw.Document(base.artifactsDir + "Document.webExtension.docx");
+            
     myScriptTaskPane = doc.webExtensionTaskPanes.at(0);
     expect(myScriptTaskPane.dockState).toEqual(aw.WebExtensions.TaskPaneDockState.Right);
     expect(myScriptTaskPane.isVisible).toEqual(true);
     expect(myScriptTaskPane.width).toEqual(300.0);
     expect(myScriptTaskPane.isLocked).toEqual(true);
     expect(myScriptTaskPane.row).toEqual(1);
+
     webExtension = myScriptTaskPane.webExtension;
+    expect(webExtension.id).toEqual("");    
     expect(webExtension.reference.id).toEqual("WA104380646");
     expect(webExtension.reference.version).toEqual("1.0.0.0");
     expect(webExtension.reference.storeType).toEqual(aw.WebExtensions.WebExtensionStoreType.OMEX);
@@ -1532,6 +1566,7 @@ describe('ExDocument', () => {
     expect(webExtension.bindings.at(0).bindingType).toEqual(aw.WebExtensions.WebExtensionBindingType.Text);
     expect(webExtension.bindings.at(0).appRef).toEqual("104380646");
     expect(webExtension.isFrozen).toEqual(false);
+    //ExEnd
   });
   
   test('GetWebExtensionInfo', () => {
@@ -1573,16 +1608,20 @@ describe('ExDocument', () => {
   
   test('TextWatermark', () => {
     //ExStart
-    //ExFor:aw.Watermark.setText(String)
-    //ExFor:aw.Watermark.setText(String, TextWatermarkOptions)
-    //ExFor:aw.Watermark.remove
-    //ExFor:aw.TextWatermarkOptions.fontFamily
-    //ExFor:aw.TextWatermarkOptions.fontSize
-    //ExFor:aw.TextWatermarkOptions.color
-    //ExFor:aw.TextWatermarkOptions.layout
-    //ExFor:aw.TextWatermarkOptions.isSemitrasparent
+    //ExFor:Document.watermark
+    //ExFor:Watermark
+    //ExFor:Watermark.setText(String)
+    //ExFor:Watermark.setText(String, TextWatermarkOptions)
+    //ExFor:Watermark.remove
+    //ExFor:TextWatermarkOptions
+    //ExFor:TextWatermarkOptions.fontFamily
+    //ExFor:TextWatermarkOptions.fontSize
+    //ExFor:TextWatermarkOptions.color
+    //ExFor:TextWatermarkOptions.layout
+    //ExFor:TextWatermarkOptions.isSemitrasparent
     //ExFor:WatermarkLayout
     //ExFor:WatermarkType
+    //ExFor:Watermark.type
     //ExSummary:Shows how to create a text watermark.
     let doc = new aw.Document();
     // Add a plain text watermark.
@@ -1607,9 +1646,12 @@ describe('ExDocument', () => {
   
   test('ImageWatermark', () => {
     //ExStart
-    //ExFor:aw.Watermark.setImage(Image, ImageWatermarkOptions)
-    //ExFor:aw.ImageWatermarkOptions.scale
-    //ExFor:aw.ImageWatermarkOptions.isWashout
+    //ExFor:Watermark.setImage(Image)
+    //ExFor:Watermark.setImage(Image, ImageWatermarkOptions)
+    //ExFor:Watermark.setImage(String, ImageWatermarkOptions)
+    //ExFor:ImageWatermarkOptions
+    //ExFor:ImageWatermarkOptions.scale
+    //ExFor:ImageWatermarkOptions.isWashout
     //ExSummary:Shows how to create a watermark from an image in the local file system.
     let doc = new aw.Document();
     // Modify the image watermark's appearance with an ImageWatermarkOptions object,
@@ -1627,8 +1669,8 @@ describe('ExDocument', () => {
   
   test.each([false, true])('SpellingAndGrammarErrors', (showErrors) => {
     //ExStart
-    //ExFor:aw.Document.showGrammaticalErrors
-    //ExFor:aw.Document.showSpellingErrors
+    //ExFor:Document.showGrammaticalErrors
+    //ExFor:Document.showSpellingErrors
     //ExSummary:Shows how to show/hide errors in the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1649,7 +1691,7 @@ describe('ExDocument', () => {
   
   test('IgnorePrinterMetrics', () => {
     //ExStart
-    //ExFor:aw.Layout.LayoutOptions.ignorePrinterMetrics
+    //ExFor:LayoutOptions.ignorePrinterMetrics
     //ExSummary:Shows how to ignore 'Use printer metrics to lay out document' option.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
     doc.layoutOptions.ignorePrinterMetrics = false;
@@ -1659,7 +1701,7 @@ describe('ExDocument', () => {
   
   test('ExtractPages', () => {
     //ExStart
-    //ExFor:aw.Document.extractPages
+    //ExFor:Document.extractPages
     //ExSummary:Shows how to get specified range of pages from the document.
     let doc = new aw.Document(base.myDir + "Layout entities.docx");
     doc = doc.extractPages(0, 2);
@@ -1671,8 +1713,8 @@ describe('ExDocument', () => {
   
   test.each([true, false])('SpellingOrGrammar', (checkSpellingGrammar) => {
     //ExStart
-    //ExFor:aw.Document.spellingChecked
-    //ExFor:aw.Document.grammarChecked
+    //ExFor:Document.spellingChecked
+    //ExFor:Document.grammarChecked
     //ExSummary:Shows how to set spelling or grammar verifying.
     let doc = new aw.Document();
     // The string with spelling errors.
@@ -1688,7 +1730,7 @@ describe('ExDocument', () => {
   
   test('AllowEmbeddingPostScriptFonts - TODO: ', () => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.allowEmbeddingPostScriptFonts
+    //ExFor:SaveOptions.allowEmbeddingPostScriptFonts
     //ExSummary:Shows how to save the document with PostScript font.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1710,11 +1752,14 @@ describe('ExDocument', () => {
   
   test('Frameset', () => {
     //ExStart
-    //ExFor:aw.Document.frameset
+    //ExFor:Document.frameset
     //ExFor:Frameset
-    //ExFor:aw.Framesets.Frameset.frameDefaultUrl
-    //ExFor:aw.Framesets.Frameset.isFrameLinkToFile
-    //ExFor:aw.Framesets.Frameset.childFramesets
+    //ExFor:Frameset.frameDefaultUrl
+    //ExFor:Frameset.isFrameLinkToFile
+    //ExFor:Frameset.childFramesets
+    //ExFor:FramesetCollection
+    //ExFor:FramesetCollection.count
+    //ExFor:FramesetCollection.item(Int32)
     //ExSummary:Shows how to access frames on-page.
     // Document contains several frames with links to other documents.
     let doc = new aw.Document(base.myDir + "Frameset.docx");
@@ -1758,10 +1803,10 @@ describe('ExDocument', () => {
   
   test('MoveToStructuredDocumentTag', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.moveToStructuredDocumentTag(int, int)
-    //ExFor:aw.DocumentBuilder.moveToStructuredDocumentTag(StructuredDocumentTag, int)
-    //ExFor:aw.DocumentBuilder.isAtEndOfStructuredDocumentTag
-    //ExFor:aw.DocumentBuilder.currentStructuredDocumentTag
+    //ExFor:DocumentBuilder.moveToStructuredDocumentTag(int, int)
+    //ExFor:DocumentBuilder.moveToStructuredDocumentTag(StructuredDocumentTag, int)
+    //ExFor:DocumentBuilder.isAtEndOfStructuredDocumentTag
+    //ExFor:DocumentBuilder.currentStructuredDocumentTag
     //ExSummary:Shows how to move cursor of DocumentBuilder inside a structured document tag.
     let doc = new aw.Document(base.myDir + "Structured document tags.docx");
     let builder = new aw.DocumentBuilder(doc);
@@ -1784,7 +1829,7 @@ describe('ExDocument', () => {
   
   test('IncludeTextboxesFootnotesEndnotesInStat', () => {
     //ExStart
-    //ExFor:aw.Document.includeTextboxesFootnotesEndnotesInStat
+    //ExFor:Document.includeTextboxesFootnotesEndnotesInStat
     //ExSummary: Shows how to include or exclude textboxes, footnotes and endnotes from word count statistics.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1803,7 +1848,7 @@ describe('ExDocument', () => {
   
   test('SetJustificationMode', () => {
     //ExStart
-    //ExFor:aw.Document.justificationMode
+    //ExFor:Document.justificationMode
     //ExFor:JustificationMode
     //ExSummary:Shows how to manage character spacing control.
     let doc = new aw.Document(base.myDir + "Document.docx");
@@ -1816,7 +1861,8 @@ describe('ExDocument', () => {
   
   test('PageIsInColor', () => {
     //ExStart
-    //ExFor:aw.Rendering.PageInfo.colored
+    //ExFor:PageInfo.colored
+    //ExFor:Document.getPageInfo(Int32)
     //ExSummary:Shows how to check whether the page is in color or not.
     let doc = new aw.Document(base.myDir + "Document.docx");
     // Check that the first page of the document is not colored.
@@ -1827,7 +1873,7 @@ describe('ExDocument', () => {
   test('InsertDocumentInline', () => {
     //ExStart:InsertDocumentInline
     //GistId:3428e84add5beb0d46a8face6e5fc858
-    //ExFor:aw.DocumentBuilder.insertDocumentInline(Document, ImportFormatMode, ImportFormatOptions)
+    //ExFor:DocumentBuilder.insertDocumentInline(Document, ImportFormatMode, ImportFormatOptions)
     //ExSummary:Shows how to insert a document inline at the cursor position.
     let srcDoc = new aw.DocumentBuilder();
     srcDoc.write("[src content]");
@@ -1911,10 +1957,35 @@ describe('ExDocument', () => {
   test('HasMacros', () => {
     //ExStart:HasMacros
     //GistId:6e4482e7434754c31c6f2f6e4bf48bb1
-    //ExFor:aw.FileFormatInfo.hasMacros
+    //ExFor:FileFormatInfo.hasMacros
     //ExSummary:Shows how to check VBA macro presence without loading document.
     let fileFormatInfo = aw.FileFormatUtil.detectFileFormat(base.myDir + "Macro.docm");
     expect(fileFormatInfo.hasMacros).toEqual(true);
     //ExEnd:HasMacros
   });
+
+  
+  test('PunctuationKerning', () => {
+    //ExStart
+    //ExFor:Document.punctuationKerning
+    //ExSummary:Shows how to work with kerning applies to both Latin text and punctuation.
+    let doc = new aw.Document(base.myDir + "Document.docx");
+    expect(doc.punctuationKerning).toEqual(true);
+    //ExEnd
+  });
+
+
+  test('RemoveBlankPages', () => {
+    //ExStart
+    //ExFor:Document.removeBlankPages
+    //ExSummary:Shows how to remove blank pages from the document.
+    let doc = new aw.Document(base.myDir + "Blank pages.docx");
+    expect(doc.pageCount).toEqual(2);
+    doc.removeBlankPages();
+    doc.updatePageLayout();
+    expect(doc.pageCount).toEqual(1);
+    //ExEnd
+  });
+
+
 });

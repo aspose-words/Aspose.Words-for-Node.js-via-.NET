@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,7 +22,7 @@ describe("ExRtfLoadOptions", () => {
     //ExStart
     //ExFor:RtfLoadOptions
     //ExFor:RtfLoadOptions.#ctor
-    //ExFor:aw.Loading.RtfLoadOptions.recognizeUtf8Text
+    //ExFor:RtfLoadOptions.recognizeUtf8Text
     //ExSummary:Shows how to detect UTF-8 characters while loading an RTF document.
     // Create an "RtfLoadOptions" object to modify how we load an RTF document.
     let loadOptions = new aw.Loading.RtfLoadOptions();
