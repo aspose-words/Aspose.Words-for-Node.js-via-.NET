@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -20,9 +20,9 @@ describe("ExSection", () => {
 
   test('Protect', () => {
     //ExStart
-    //ExFor:aw.Document.protect(ProtectionType)
+    //ExFor:Document.protect(ProtectionType)
     //ExFor:ProtectionType
-    //ExFor:aw.Section.protectedForForms
+    //ExFor:Section.protectedForForms
     //ExSummary:Shows how to turn off protection for a section.
     let doc = new aw.Document();
 
@@ -54,10 +54,10 @@ describe("ExSection", () => {
 
   test('AddRemove', () => {
     //ExStart
-    //ExFor:aw.Document.sections
-    //ExFor:aw.Section.clone
+    //ExFor:Document.sections
+    //ExFor:Section.clone
     //ExFor:SectionCollection
-    //ExFor:aw.NodeCollection.removeAt(Int32)
+    //ExFor:NodeCollection.removeAt(Int32)
     //ExSummary:Shows how to add and remove sections in a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -85,8 +85,8 @@ describe("ExSection", () => {
 
   test('FirstAndLast', () => {
     //ExStart
-    //ExFor:aw.Document.firstSection
-    //ExFor:aw.Document.lastSection
+    //ExFor:Document.firstSection
+    //ExFor:Document.lastSection
     //ExSummary:Shows how to create a new section with a document builder.
     let doc = new aw.Document();
 
@@ -126,29 +126,29 @@ describe("ExSection", () => {
 
   test('CreateManually', () => {
     //ExStart
-    //ExFor:aw.Node.getText
-    //ExFor:aw.CompositeNode.removeAllChildren
-    //ExFor:aw.CompositeNode.appendChild``1(``0)
+    //ExFor:Node.getText
+    //ExFor:CompositeNode.removeAllChildren
+    //ExFor:CompositeNode.appendChild``1(``0)
     //ExFor:Section
     //ExFor:Section.#ctor
-    //ExFor:aw.Section.pageSetup
-    //ExFor:aw.PageSetup.sectionStart
-    //ExFor:aw.PageSetup.paperSize
+    //ExFor:Section.pageSetup
+    //ExFor:PageSetup.sectionStart
+    //ExFor:PageSetup.paperSize
     //ExFor:SectionStart
     //ExFor:PaperSize
     //ExFor:Body
     //ExFor:Body.#ctor
     //ExFor:Paragraph
     //ExFor:Paragraph.#ctor
-    //ExFor:aw.Paragraph.paragraphFormat
+    //ExFor:Paragraph.paragraphFormat
     //ExFor:ParagraphFormat
-    //ExFor:aw.ParagraphFormat.styleName
-    //ExFor:aw.ParagraphFormat.alignment
+    //ExFor:ParagraphFormat.styleName
+    //ExFor:ParagraphFormat.alignment
     //ExFor:ParagraphAlignment
     //ExFor:Run
     //ExFor:Run.#ctor(DocumentBase)
-    //ExFor:aw.Run.text
-    //ExFor:aw.Inline.font
+    //ExFor:Run.text
+    //ExFor:Inline.font
     //ExSummary:Shows how to construct an Aspose.words document by hand.
     let doc = new aw.Document();
 
@@ -196,9 +196,9 @@ describe("ExSection", () => {
 
   test('EnsureMinimum', () => {
     //ExStart
-    //ExFor:aw.NodeCollection.add
-    //ExFor:aw.Section.ensureMinimum
-    //ExFor:aw.SectionCollection.item(Int32)
+    //ExFor:NodeCollection.add
+    //ExFor:Section.ensureMinimum
+    //ExFor:SectionCollection.item(Int32)
     //ExSummary:Shows how to prepare a new section node for editing.
     let doc = new aw.Document();
 
@@ -228,8 +228,8 @@ describe("ExSection", () => {
 
   test('BodyEnsureMinimum', () => {
     //ExStart
-    //ExFor:aw.Section.body
-    //ExFor:aw.Body.ensureMinimum
+    //ExFor:Section.body
+    //ExFor:Body.ensureMinimum
     //ExSummary:Clears main text from all sections from the document leaving the sections themselves.
     let doc = new aw.Document();
 
@@ -265,9 +265,9 @@ describe("ExSection", () => {
 
   test('BodyChildNodes', () => {
     //ExStart
-    //ExFor:aw.Body.nodeType
-    //ExFor:aw.HeaderFooter.nodeType
-    //ExFor:aw.Document.firstSection
+    //ExFor:Body.nodeType
+    //ExFor:HeaderFooter.nodeType
+    //ExFor:Document.firstSection
     //ExSummary:Shows how to iterate through the children of a composite node.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -314,7 +314,7 @@ describe("ExSection", () => {
 
   test('Clear', () => {
     //ExStart
-    //ExFor:aw.NodeCollection.clear
+    //ExFor:NodeCollection.clear
     //ExSummary:Shows how to remove all sections from a document.
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -334,8 +334,8 @@ describe("ExSection", () => {
 
   test('PrependAppendContent', () => {
     //ExStart
-    //ExFor:aw.Section.appendContent
-    //ExFor:aw.Section.prependContent
+    //ExFor:Section.appendContent
+    //ExFor:Section.prependContent
     //ExSummary:Shows how to append the contents of a section to another section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -369,7 +369,7 @@ describe("ExSection", () => {
 
   test('ClearContent', () => {
     //ExStart
-    //ExFor:aw.Section.clearContent
+    //ExFor:Section.clearContent
     //ExSummary:Shows how to clear the contents of a section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -391,7 +391,7 @@ describe("ExSection", () => {
 
   test('ClearHeadersFooters', () => {
     //ExStart
-    //ExFor:aw.Section.clearHeadersFooters
+    //ExFor:Section.clearHeadersFooters
     //ExSummary:Shows how to clear the contents of all headers and footers in a section.
     let doc = new aw.Document();
 
@@ -423,7 +423,7 @@ describe("ExSection", () => {
 
   test('DeleteHeaderFooterShapes', () => {
     //ExStart
-    //ExFor:aw.Section.deleteHeaderFooterShapes
+    //ExFor:Section.deleteHeaderFooterShapes
     //ExSummary:Shows how to remove all shapes from all headers footers in a section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -434,7 +434,7 @@ describe("ExSection", () => {
 
     // Create a primary footer with an image.
     builder.moveToHeaderFooter(aw.HeaderFooterType.FooterPrimary);
-    builder.insertImage(base.imageDir + "Logo Icon.ico");
+    builder.insertImage(base.imageDir + "Logo icon.ico");
 
     expect(doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.HeaderPrimary).getChildNodes(aw.NodeType.Shape, true).count).toEqual(1);
     expect(doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.FooterPrimary).getChildNodes(aw.NodeType.Shape, true).count).toEqual(1);
@@ -541,6 +541,44 @@ describe("ExSection", () => {
     expect(sectionDeAfter.pageSetup.headerDistance).toEqual(35.4);
     expect(sectionDeAfter.pageSetup.footerDistance).toEqual(35.4);
     expect(sectionDeAfter.pageSetup.textColumns.spacing).toEqual(35.4);
+  });
+
+
+  test('PreserveWatermarks', () => {
+    //ExStart:PreserveWatermarks
+    //GistId:708ce40a68fac5003d46f6b4acfd5ff1
+    //ExFor:Section.clearHeadersFooters(bool)
+    //ExSummary:Shows how to clear the contents of header and footer with or without a watermark.
+    let doc = new aw.Document(base.myDir + "Header and footer types.docx");
+
+    // Add a plain text watermark.
+    doc.watermark.setText("Aspose Watermark");
+
+    // Make sure the headers and footers have content.
+    let headersFooters = doc.firstSection.headersFooters;
+    expect(headersFooters.at(aw.HeaderFooterType.HeaderFirst).getText().trim()).toEqual("First header");
+    expect(headersFooters.at(aw.HeaderFooterType.HeaderEven).getText().trim()).toEqual("Second header");
+    expect(headersFooters.at(aw.HeaderFooterType.HeaderPrimary).getText().trim()).toEqual("Third header");
+    expect(headersFooters.at(aw.HeaderFooterType.FooterFirst).getText().trim()).toEqual("First footer");
+    expect(headersFooters.at(aw.HeaderFooterType.FooterEven).getText().trim()).toEqual("Second footer");
+    expect(headersFooters.at(aw.HeaderFooterType.FooterPrimary).getText().trim()).toEqual("Third footer");
+
+    // Removes all header and footer content except watermarks.
+    doc.firstSection.clearHeadersFooters(true);
+
+    headersFooters = doc.firstSection.headersFooters;
+    expect(headersFooters.at(aw.HeaderFooterType.HeaderFirst).getText().trim()).toEqual("");
+    expect(headersFooters.at(aw.HeaderFooterType.HeaderEven).getText().trim()).toEqual("");
+    expect(headersFooters.at(aw.HeaderFooterType.HeaderPrimary).getText().trim()).toEqual("");
+    expect(headersFooters.at(aw.HeaderFooterType.FooterFirst).getText().trim()).toEqual("");
+    expect(headersFooters.at(aw.HeaderFooterType.FooterEven).getText().trim()).toEqual("");
+    expect(headersFooters.at(aw.HeaderFooterType.FooterPrimary).getText().trim()).toEqual("");
+    expect(doc.watermark.type).toEqual(aw.WatermarkType.Text);
+
+    // Removes all header and footer content including watermarks.
+    doc.firstSection.clearHeadersFooters(false);
+    expect(doc.watermark.type).toEqual(aw.WatermarkType.None);
+    //ExEnd:PreserveWatermarks
   });
 
 

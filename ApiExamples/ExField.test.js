@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -26,11 +26,11 @@ describe("ExField", () => {
     //ExStart
     //ExFor:FieldType
     //ExFor:FieldChar
-    //ExFor:aw.Fields.FieldChar.fieldType
-    //ExFor:aw.Fields.FieldChar.isDirty
-    //ExFor:aw.Fields.FieldChar.isLocked
-    //ExFor:aw.Fields.FieldChar.getField
-    //ExFor:aw.Fields.Field.isLocked
+    //ExFor:FieldChar.fieldType
+    //ExFor:FieldChar.isDirty
+    //ExFor:FieldChar.isLocked
+    //ExFor:FieldChar.getField
+    //ExFor:Field.isLocked
     //ExSummary:Shows how to work with a FieldStart node.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -63,7 +63,7 @@ describe("ExField", () => {
 
   test('GetFieldData', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldStart.fieldData
+    //ExFor:FieldStart.fieldData
     //ExSummary:Shows how to get data associated with the field.
     let doc = new aw.Document(base.myDir + "Field sample - Field with data.docx");
 
@@ -75,8 +75,8 @@ describe("ExField", () => {
 
   test('GetFieldCode', () => {
     //ExStart
-    //ExFor:aw.Fields.Field.getFieldCode
-    //ExFor:aw.Fields.Field.getFieldCode(bool)
+    //ExFor:Field.getFieldCode
+    //ExFor:Field.getFieldCode(bool)
     //ExSummary:Shows how to get a field's field code.
     // Open a document which contains a MERGEFIELD inside an IF field.
     let doc = new aw.Document(base.myDir + "Nested fields.docx");
@@ -97,7 +97,7 @@ describe("ExField", () => {
 
   test('DisplayResult', () => {
     //ExStart
-    //ExFor:aw.Fields.Field.displayResult
+    //ExFor:Field.displayResult
     //ExSummary:Shows how to get the real text that a field displays in the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -129,7 +129,7 @@ describe("ExField", () => {
   test('CreateWithFieldBuilder', () => {
     //ExStart
     //ExFor:FieldBuilder.#ctor(FieldType)
-    //ExFor:aw.Fields.FieldBuilder.buildAndInsert(Inline)
+    //ExFor:FieldBuilder.buildAndInsert(Inline)
     //ExSummary:Shows how to create and insert a field using a field builder.
     let doc = new aw.Document();
 
@@ -162,7 +162,7 @@ describe("ExField", () => {
 
   test('RevNum', () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.revisionNumber
+    //ExFor:BuiltInDocumentProperties.revisionNumber
     //ExFor:FieldRevNum
     //ExSummary:Shows how to work with REVNUM fields.
     let doc = new aw.Document();
@@ -227,7 +227,8 @@ describe("ExField", () => {
   });
 
 
-  /*test('InsertTcFieldsAtText', () => {
+  /*//Commented
+  test('InsertTcFieldsAtText', () => {
     let doc = new aw.Document();
 
     let options = new aw.Replacing.FindReplaceOptions();
@@ -268,11 +269,12 @@ describe("ExField", () => {
 
       return aw.Replacing.ReplaceAction.Skip;
     }
-  }*/
+  }
+  //EndCommented*/
 
   test.skip('FieldLocale: unsupported CultureInfo', () => {
     //ExStart
-    //ExFor:aw.Fields.Field.localeId
+    //ExFor:Field.localeId
     //ExSummary:Shows how to insert a field and work with its locale.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -306,8 +308,8 @@ describe("ExField", () => {
 
   test.skip.each([true, false])('UpdateDirtyFields(%o) - TODO: WORDSNODEJS-118', (updateDirtyFields) => {
     //ExStart
-    //ExFor:aw.Fields.Field.isDirty
-    //ExFor:aw.Loading.LoadOptions.updateDirtyFields
+    //ExFor:Field.isDirty
+    //ExFor:LoadOptions.updateDirtyFields
     //ExSummary:Shows how to use special property for updating field result.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -325,7 +327,7 @@ describe("ExField", () => {
     expect(field.result).toEqual("John Doe");
 
     // Since the field's value is out of date, we can mark it as "dirty".
-    // This value will stay out of date until we update the field manually with the aw.Fields.Field.update() method.
+    // This value will stay out of date until we update the field manually with the Field.update() method.
     field.isDirty = true;
 
     let docStream = new MemoryStream();
@@ -425,15 +427,19 @@ describe("ExField", () => {
   test('FieldDatabase', () => {
     //ExStart
     //ExFor:FieldDatabase
-    //ExFor:aw.Fields.FieldDatabase.connection
-    //ExFor:aw.Fields.FieldDatabase.fileName
-    //ExFor:aw.Fields.FieldDatabase.firstRecord
-    //ExFor:aw.Fields.FieldDatabase.formatAttributes
-    //ExFor:aw.Fields.FieldDatabase.insertHeadings
-    //ExFor:aw.Fields.FieldDatabase.insertOnceOnMailMerge
-    //ExFor:aw.Fields.FieldDatabase.lastRecord
-    //ExFor:aw.Fields.FieldDatabase.query
-    //ExFor:aw.Fields.FieldDatabase.tableFormat
+    //ExFor:FieldDatabase.connection
+    //ExFor:FieldDatabase.fileName
+    //ExFor:FieldDatabase.firstRecord
+    //ExFor:FieldDatabase.formatAttributes
+    //ExFor:FieldDatabase.insertHeadings
+    //ExFor:FieldDatabase.insertOnceOnMailMerge
+    //ExFor:FieldDatabase.lastRecord
+    //ExFor:FieldDatabase.query
+    //ExFor:FieldDatabase.tableFormat
+    //ExFor:FieldDatabaseDataTable
+    //ExFor:IFieldDatabaseProvider
+    //ExFor:IFieldDatabaseProvider.getQueryResult(String,String,String,FieldDatabase)
+    //ExFor:FieldOptions.fieldDatabaseProvider
     //ExSummary:Shows how to extract data from a database and insert it as a field into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -535,8 +541,8 @@ describe("ExField", () => {
 
   test.skip.each([false, true])('PreserveIncludePicture(%o) - TODO: WORDSNODEJS-118', (preserveIncludePictureField) => {
     //ExStart
-    //ExFor:aw.Fields.Field.update(bool)
-    //ExFor:aw.Loading.LoadOptions.preserveIncludePictureField
+    //ExFor:Field.update(bool)
+    //ExFor:LoadOptions.preserveIncludePictureField
     //ExSummary:Shows how to preserve or discard INCLUDEPICTURE fields when loading a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -572,20 +578,20 @@ describe("ExField", () => {
 
   test('FieldFormat', () => {
     //ExStart
-    //ExFor:aw.Fields.Field.format
-    //ExFor:aw.Fields.Field.update
+    //ExFor:Field.format
+    //ExFor:Field.update
     //ExFor:FieldFormat
-    //ExFor:aw.Fields.FieldFormat.dateTimeFormat
-    //ExFor:aw.Fields.FieldFormat.numericFormat
-    //ExFor:aw.Fields.FieldFormat.generalFormats
+    //ExFor:FieldFormat.dateTimeFormat
+    //ExFor:FieldFormat.numericFormat
+    //ExFor:FieldFormat.generalFormats
     //ExFor:GeneralFormat
     //ExFor:GeneralFormatCollection
-    //ExFor:aw.Fields.GeneralFormatCollection.add(GeneralFormat)
-    //ExFor:aw.Fields.GeneralFormatCollection.count
-    //ExFor:aw.Fields.GeneralFormatCollection.item(Int32)
-    //ExFor:aw.Fields.GeneralFormatCollection.remove(GeneralFormat)
-    //ExFor:aw.Fields.GeneralFormatCollection.removeAt(Int32)
-    //ExFor:aw.Fields.GeneralFormatCollection.getEnumerator
+    //ExFor:GeneralFormatCollection.add(GeneralFormat)
+    //ExFor:GeneralFormatCollection.count
+    //ExFor:GeneralFormatCollection.item(Int32)
+    //ExFor:GeneralFormatCollection.remove(GeneralFormat)
+    //ExFor:GeneralFormatCollection.removeAt(Int32)
+    //ExFor:GeneralFormatCollection.getEnumerator
     //ExSummary:Shows how to format field results.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -646,7 +652,7 @@ describe("ExField", () => {
 
   test('Unlink', () => {
     //ExStart
-    //ExFor:aw.Document.unlinkFields
+    //ExFor:Document.unlinkFields
     //ExSummary:Shows how to unlink all fields in the document.
     let doc = new aw.Document(base.myDir + "Linked fields.docx");
 
@@ -662,7 +668,7 @@ describe("ExField", () => {
 
   test('UnlinkAllFieldsInRange', () => {
     //ExStart
-    //ExFor:aw.Range.unlinkFields
+    //ExFor:Range.unlinkFields
     //ExSummary:Shows how to unlink all fields in a range.
     let doc = new aw.Document(base.myDir + "Linked fields.docx");
 
@@ -681,7 +687,7 @@ describe("ExField", () => {
 
   test('UnlinkSingleField', () => {
     //ExStart
-    //ExFor:aw.Fields.Field.unlink
+    //ExFor:Field.unlink
     //ExSummary:Shows how to unlink a field.
     let doc = new aw.Document(base.myDir + "Linked fields.docx");
     doc.range.fields.at(1).unlink();
@@ -854,12 +860,12 @@ describe("ExField", () => {
   test('FieldAdvance', () => {
     //ExStart
     //ExFor:FieldAdvance
-    //ExFor:aw.Fields.FieldAdvance.downOffset
-    //ExFor:aw.Fields.FieldAdvance.horizontalPosition
-    //ExFor:aw.Fields.FieldAdvance.leftOffset
-    //ExFor:aw.Fields.FieldAdvance.rightOffset
-    //ExFor:aw.Fields.FieldAdvance.upOffset
-    //ExFor:aw.Fields.FieldAdvance.verticalPosition
+    //ExFor:FieldAdvance.downOffset
+    //ExFor:FieldAdvance.horizontalPosition
+    //ExFor:FieldAdvance.leftOffset
+    //ExFor:FieldAdvance.rightOffset
+    //ExFor:FieldAdvance.upOffset
+    //ExFor:FieldAdvance.verticalPosition
     //ExSummary:Shows how to insert an ADVANCE field, and edit its properties. 
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -924,11 +930,11 @@ describe("ExField", () => {
 
   test('FieldAddressBlock', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldAddressBlock.excludedCountryOrRegionName
-    //ExFor:aw.Fields.FieldAddressBlock.formatAddressOnCountryOrRegion
-    //ExFor:aw.Fields.FieldAddressBlock.includeCountryOrRegionName
-    //ExFor:aw.Fields.FieldAddressBlock.languageId
-    //ExFor:aw.Fields.FieldAddressBlock.nameAndAddressFormat
+    //ExFor:FieldAddressBlock.excludedCountryOrRegionName
+    //ExFor:FieldAddressBlock.formatAddressOnCountryOrRegion
+    //ExFor:FieldAddressBlock.includeCountryOrRegionName
+    //ExFor:FieldAddressBlock.languageId
+    //ExFor:FieldAddressBlock.nameAndAddressFormat
     //ExSummary:Shows how to insert an ADDRESSBLOCK field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1090,12 +1096,12 @@ describe("ExField", () => {
   test('RemoveFields', () => {
     //ExStart
     //ExFor:FieldCollection
-    //ExFor:aw.Fields.FieldCollection.count
-    //ExFor:aw.Fields.FieldCollection.clear
-    //ExFor:aw.Fields.FieldCollection.item(Int32)
-    //ExFor:aw.Fields.FieldCollection.remove(Field)
-    //ExFor:aw.Fields.FieldCollection.removeAt(Int32)
-    //ExFor:aw.Fields.Field.remove
+    //ExFor:FieldCollection.count
+    //ExFor:FieldCollection.clear
+    //ExFor:FieldCollection.item(Int32)
+    //ExFor:FieldCollection.remove(Field)
+    //ExFor:FieldCollection.removeAt(Int32)
+    //ExFor:Field.remove
     //ExSummary:Shows how to remove fields from a field collection.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1136,9 +1142,9 @@ describe("ExField", () => {
   test('FieldCompare', () => {
     //ExStart
     //ExFor:FieldCompare
-    //ExFor:aw.Fields.FieldCompare.comparisonOperator
-    //ExFor:aw.Fields.FieldCompare.leftExpression
-    //ExFor:aw.Fields.FieldCompare.rightExpression
+    //ExFor:FieldCompare.comparisonOperator
+    //ExFor:FieldCompare.leftExpression
+    //ExFor:FieldCompare.rightExpression
     //ExSummary:Shows how to compare expressions using a COMPARE field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1191,12 +1197,12 @@ describe("ExField", () => {
   test('FieldIf', () => {
     //ExStart
     //ExFor:FieldIf
-    //ExFor:aw.Fields.FieldIf.comparisonOperator
-    //ExFor:aw.Fields.FieldIf.evaluateCondition
-    //ExFor:aw.Fields.FieldIf.falseText
-    //ExFor:aw.Fields.FieldIf.leftExpression
-    //ExFor:aw.Fields.FieldIf.rightExpression
-    //ExFor:aw.Fields.FieldIf.trueText
+    //ExFor:FieldIf.comparisonOperator
+    //ExFor:FieldIf.evaluateCondition
+    //ExFor:FieldIf.falseText
+    //ExFor:FieldIf.leftExpression
+    //ExFor:FieldIf.rightExpression
+    //ExFor:FieldIf.trueText
     //ExFor:FieldIfComparisonResult
     //ExSummary:Shows how to insert an IF field.
     let doc = new aw.Document();
@@ -1261,7 +1267,7 @@ describe("ExField", () => {
   test('FieldAutoNum', () => {
     //ExStart
     //ExFor:FieldAutoNum
-    //ExFor:aw.Fields.FieldAutoNum.separatorCharacter
+    //ExFor:FieldAutoNum.separatorCharacter
     //ExSummary:Shows how to number paragraphs using autonum fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1418,10 +1424,10 @@ describe("ExField", () => {
   test('FieldAutoText', () => {
     //ExStart
     //ExFor:FieldAutoText
-    //ExFor:aw.Fields.FieldAutoText.entryName
-    //ExFor:aw.Fields.FieldOptions.builtInTemplatesPaths
+    //ExFor:FieldAutoText.entryName
+    //ExFor:FieldOptions.builtInTemplatesPaths
     //ExFor:FieldGlossary
-    //ExFor:aw.Fields.FieldGlossary.entryName
+    //ExFor:FieldGlossary.entryName
     //ExSummary:Shows how to display a building block with AUTOTEXT and GLOSSARY fields. 
     let doc = new aw.Document();
 
@@ -1558,10 +1564,10 @@ describe("ExField", () => {
   test.skip('FieldGreetingLine: DataTable', () => {
     //ExStart
     //ExFor:FieldGreetingLine
-    //ExFor:aw.Fields.FieldGreetingLine.alternateText
-    //ExFor:aw.Fields.FieldGreetingLine.getFieldNames
-    //ExFor:aw.Fields.FieldGreetingLine.languageId
-    //ExFor:aw.Fields.FieldGreetingLine.nameFormat
+    //ExFor:FieldGreetingLine.alternateText
+    //ExFor:FieldGreetingLine.getFieldNames
+    //ExFor:FieldGreetingLine.languageId
+    //ExFor:FieldGreetingLine.nameFormat
     //ExSummary:Shows how to insert a GREETINGLINE field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1618,10 +1624,10 @@ describe("ExField", () => {
   test('FieldListNum', () => {
     //ExStart
     //ExFor:FieldListNum
-    //ExFor:aw.Fields.FieldListNum.hasListName
-    //ExFor:aw.Fields.FieldListNum.listLevel
-    //ExFor:aw.Fields.FieldListNum.listName
-    //ExFor:aw.Fields.FieldListNum.startingNumber
+    //ExFor:FieldListNum.hasListName
+    //ExFor:FieldListNum.listLevel
+    //ExFor:FieldListNum.listName
+    //ExFor:FieldListNum.startingNumber
     //ExSummary:Shows how to number paragraphs with LISTNUM fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1729,12 +1735,13 @@ describe("ExField", () => {
   test.skip('MergeField: DataTable', () => {
     //ExStart
     //ExFor:FieldMergeField
-    //ExFor:aw.Fields.FieldMergeField.fieldName
-    //ExFor:aw.Fields.FieldMergeField.fieldNameNoPrefix
-    //ExFor:aw.Fields.FieldMergeField.isMapped
-    //ExFor:aw.Fields.FieldMergeField.isVerticalFormatting
-    //ExFor:aw.Fields.FieldMergeField.textAfter
-    //ExFor:aw.Fields.FieldMergeField.textBefore
+    //ExFor:FieldMergeField.fieldName
+    //ExFor:FieldMergeField.fieldNameNoPrefix
+    //ExFor:FieldMergeField.isMapped
+    //ExFor:FieldMergeField.isVerticalFormatting
+    //ExFor:FieldMergeField.textAfter
+    //ExFor:FieldMergeField.textBefore
+    //ExFor:FieldMergeField.type
     //ExSummary:Shows how to use MERGEFIELD fields to perform a mail merge.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1758,6 +1765,7 @@ describe("ExField", () => {
     fieldMergeField.textAfter = " ";
 
     expect(fieldMergeField.getFieldCode()).toEqual(" MERGEFIELD  \"Courtesy Title\" \\m \\b \"Dear \" \\f \" \"");
+    expect(fieldMergeField.type).toEqual(aw.Fields.FieldType.FieldMergeField);
 
     // Insert another MERGEFIELD for a different column in the data source.
     fieldMergeField = builder.insertField(aw.Fields.FieldType.FieldMergeField, true).asFieldMergeField();
@@ -1987,11 +1995,11 @@ describe("ExField", () => {
   test('TocSeqPrefix', () => {
     //ExStart
     //ExFor:FieldToc
-    //ExFor:aw.Fields.FieldToc.tableOfFiguresLabel
-    //ExFor:aw.Fields.FieldToc.prefixedSequenceIdentifier
-    //ExFor:aw.Fields.FieldToc.sequenceSeparator
+    //ExFor:FieldToc.tableOfFiguresLabel
+    //ExFor:FieldToc.prefixedSequenceIdentifier
+    //ExFor:FieldToc.sequenceSeparator
     //ExFor:FieldSeq
-    //ExFor:aw.Fields.FieldSeq.sequenceIdentifier
+    //ExFor:FieldSeq.sequenceIdentifier
     //ExSummary:Shows how to populate a TOC field with entries using SEQ fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2123,10 +2131,10 @@ describe("ExField", () => {
   test('TocSeqNumbering', () => {
     //ExStart
     //ExFor:FieldSeq
-    //ExFor:aw.Fields.FieldSeq.insertNextNumber
-    //ExFor:aw.Fields.FieldSeq.resetHeadingLevel
-    //ExFor:aw.Fields.FieldSeq.resetNumber
-    //ExFor:aw.Fields.FieldSeq.sequenceIdentifier
+    //ExFor:FieldSeq.insertNextNumber
+    //ExFor:FieldSeq.resetHeadingLevel
+    //ExFor:FieldSeq.resetNumber
+    //ExFor:FieldSeq.sequenceIdentifier
     //ExSummary:Shows create numbering using SEQ fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2213,7 +2221,7 @@ describe("ExField", () => {
   test('TocSeqBookmark', () => {
     //ExStart
     //ExFor:FieldSeq
-    //ExFor:aw.Fields.FieldSeq.bookmarkName
+    //ExFor:FieldSeq.bookmarkName
     //ExSummary:Shows how to combine table of contents and sequence fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2337,18 +2345,20 @@ describe("ExField", () => {
   test('FieldCitation', () => {
     //ExStart
     //ExFor:FieldCitation
-    //ExFor:aw.Fields.FieldCitation.anotherSourceTag
-    //ExFor:aw.Fields.FieldCitation.formatLanguageId
-    //ExFor:aw.Fields.FieldCitation.pageNumber
-    //ExFor:aw.Fields.FieldCitation.prefix
-    //ExFor:aw.Fields.FieldCitation.sourceTag
-    //ExFor:aw.Fields.FieldCitation.suffix
-    //ExFor:aw.Fields.FieldCitation.suppressAuthor
-    //ExFor:aw.Fields.FieldCitation.suppressTitle
-    //ExFor:aw.Fields.FieldCitation.suppressYear
-    //ExFor:aw.Fields.FieldCitation.volumeNumber
+    //ExFor:FieldCitation.anotherSourceTag
+    //ExFor:FieldCitation.formatLanguageId
+    //ExFor:FieldCitation.pageNumber
+    //ExFor:FieldCitation.prefix
+    //ExFor:FieldCitation.sourceTag
+    //ExFor:FieldCitation.suffix
+    //ExFor:FieldCitation.suppressAuthor
+    //ExFor:FieldCitation.suppressTitle
+    //ExFor:FieldCitation.suppressYear
+    //ExFor:FieldCitation.volumeNumber
     //ExFor:FieldBibliography
-    //ExFor:aw.Fields.FieldBibliography.formatLanguageId
+    //ExFor:FieldBibliography.formatLanguageId
+    //ExFor:FieldBibliography.filterLanguageId
+    //ExFor:FieldBibliography.sourceTag
     //ExSummary:Shows how to work with CITATION and BIBLIOGRAPHY fields.
     // Open a document containing bibliographical sources that we can find in
     // Microsoft Word via References -> Citations & Bibliography -> Manage Sources.
@@ -2391,8 +2401,10 @@ describe("ExField", () => {
     builder.insertBreak(aw.BreakType.PageBreak);
     let fieldBibliography = builder.insertField(aw.Fields.FieldType.FieldBibliography, true).asFieldBibliography();
     fieldBibliography.formatLanguageId = "5129";
+    fieldBibliography.filterLanguageId = "5129";
+    fieldBibliography.sourceTag = "Book2";
 
-    expect(fieldBibliography.getFieldCode()).toEqual(" BIBLIOGRAPHY  \\l 5129");
+    expect(fieldBibliography.getFieldCode()).toEqual(" BIBLIOGRAPHY  \\l 5129 \\f 5129 \\m Book2");
 
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.CITATION.docx");
@@ -2429,9 +2441,12 @@ describe("ExField", () => {
 
     fieldBibliography = doc.range.fields.at(2).asFieldBibliography();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldBibliography, " BIBLIOGRAPHY  \\l 5129",
-      "Cardholder, A. (2018). My Book, Vol. II. New York: Doe Co. Ltd.\rDoe, J. (2018). My Book, Vol I. London: Doe Co. Ltd.\r", fieldBibliography);
+    
+    TestUtil.verifyField(aw.Fields.FieldType.FieldBibliography, " BIBLIOGRAPHY  \\l 5129 \\f 5129 \\m Book2",
+      "Cardholder, A. (2018). My Book, Vol. II. New York: Doe Co. Ltd.\r", fieldBibliography);
+      
     expect(fieldBibliography.formatLanguageId).toEqual("5129");
+    expect(fieldBibliography.filterLanguageId).toEqual("5129");
 
     fieldCitation = doc.range.fields.at(3).asFieldCitation();
 
@@ -2446,16 +2461,21 @@ describe("ExField", () => {
 
   });
 
-
-  /*  //ExStart
-    //ExFor:IBibliographyStylesProvider
-    //ExFor:FieldOptions.BibliographyStylesProvider
-    //ExSummary:Shows how to override built-in styles or provide custom one.
+/*
+  //ExStart
+  //ExFor:Bibliography.BibliographyStyle
+  //ExFor:IBibliographyStylesProvider
+  //ExFor:IBibliographyStylesProvider.GetStyle(String)
+  //ExFor:FieldOptions.BibliographyStylesProvider
+  //ExSummary:Shows how to override built-in styles or provide custom one.
   test('ChangeBibliographyStyles', () => {
     var oldCulture = Thread.currentThread.CurrentCulture; //ExSkip
     Thread.currentThread.CurrentCulture = new CultureInfo("en-nz", false); //ExSkip
 
     let doc = new aw.Document(base.myDir + "Bibliography.docx");
+
+    // If the document already has a style you can change it with the following code:
+    // doc.bibliography.bibliographyStyle = "Bibliography custom style.xsl";
 
     doc.fieldOptions.bibliographyStylesProvider = new BibliographyStylesProvider();
     doc.updateFields();
@@ -2473,7 +2493,8 @@ describe("ExField", () => {
       return File.OpenRead(base.myDir + "Bibliography custom style.xsl");
     }
   }
-    //ExEnd*/
+    //ExEnd
+*/    
 
   test('FieldData', () => {
     //ExStart
@@ -2493,10 +2514,10 @@ describe("ExField", () => {
   test('FieldInclude', () => {
     //ExStart
     //ExFor:FieldInclude
-    //ExFor:aw.Fields.FieldInclude.bookmarkName
-    //ExFor:aw.Fields.FieldInclude.lockFields
-    //ExFor:aw.Fields.FieldInclude.sourceFullName
-    //ExFor:aw.Fields.FieldInclude.textConverter
+    //ExFor:FieldInclude.bookmarkName
+    //ExFor:FieldInclude.lockFields
+    //ExFor:FieldInclude.sourceFullName
+    //ExFor:FieldInclude.textConverter
     //ExSummary:Shows how to create an INCLUDE field, and set its properties.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2532,15 +2553,15 @@ describe("ExField", () => {
   test('FieldIncludePicture', () => {
     //ExStart
     //ExFor:FieldIncludePicture
-    //ExFor:aw.Fields.FieldIncludePicture.graphicFilter
-    //ExFor:aw.Fields.FieldIncludePicture.isLinked
-    //ExFor:aw.Fields.FieldIncludePicture.resizeHorizontally
-    //ExFor:aw.Fields.FieldIncludePicture.resizeVertically
-    //ExFor:aw.Fields.FieldIncludePicture.sourceFullName
+    //ExFor:FieldIncludePicture.graphicFilter
+    //ExFor:FieldIncludePicture.isLinked
+    //ExFor:FieldIncludePicture.resizeHorizontally
+    //ExFor:FieldIncludePicture.resizeVertically
+    //ExFor:FieldIncludePicture.sourceFullName
     //ExFor:FieldImport
-    //ExFor:aw.Fields.FieldImport.graphicFilter
-    //ExFor:aw.Fields.FieldImport.isLinked
-    //ExFor:aw.Fields.FieldImport.sourceFullName
+    //ExFor:FieldImport.graphicFilter
+    //ExFor:FieldImport.isLinked
+    //ExFor:FieldImport.sourceFullName
     //ExSummary:Shows how to insert images using IMPORT and INCLUDEPICTURE fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2692,7 +2713,7 @@ describe("ExField", () => {
         {
             // When on all other rows of the input document's table, ensure that cell contents match XML element Values.
           expect(table.rows.at(i).cells.at(j).getText().Replace(aw.ControlChar.cell, '')).toEqual(catalogData.childNodes.at(i - 1).childNodes[j].firstChild.value);
-          expect(table.rows.at(i).cells.at(j).cellFormat.shading.backgroundPatternColor).toEqual("#000000");
+          expect(table.rows.at(i).cells.at(j).cellFormat.shading.backgroundPatternColor).toEqual(base.emptyColor);
         }
 
         Assert.AreEqual(
@@ -2718,16 +2739,15 @@ describe("ExField", () => {
     expect(fieldIncludeText.result).toEqual(expectedFieldResult);
   }*/
 
-  //[Ignore("WORDSNET-17545")]
   test('FieldHyperlink', () => {
     //ExStart
     //ExFor:FieldHyperlink
-    //ExFor:aw.Fields.FieldHyperlink.address
-    //ExFor:aw.Fields.FieldHyperlink.isImageMap
-    //ExFor:aw.Fields.FieldHyperlink.openInNewWindow
-    //ExFor:aw.Fields.FieldHyperlink.screenTip
-    //ExFor:aw.Fields.FieldHyperlink.subAddress
-    //ExFor:aw.Fields.FieldHyperlink.target
+    //ExFor:FieldHyperlink.address
+    //ExFor:FieldHyperlink.isImageMap
+    //ExFor:FieldHyperlink.openInNewWindow
+    //ExFor:FieldHyperlink.screenTip
+    //ExFor:FieldHyperlink.subAddress
+    //ExFor:FieldHyperlink.target
     //ExSummary:Shows how to use HYPERLINK fields to link to documents in the local file system.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2790,6 +2810,7 @@ describe("ExField", () => {
     //ExFor:ImageFieldMergingArgs.ImageFileName
     //ExFor:ImageFieldMergingArgs.ImageWidth
     //ExFor:ImageFieldMergingArgs.ImageHeight
+    //ExFor:ImageFieldMergingArgs.Shape
     //ExSummary:Shows how to set the dimensions of images as MERGEFIELDS accepts them during a mail merge.
   test('MergeFieldImageDimension', () => {
     let doc = new aw.Document();
@@ -2846,6 +2867,7 @@ describe("ExField", () => {
       expect(args.imageWidth.unit).toEqual(mUnit);
       expect(args.imageHeight.value).toEqual(mImageHeight);
       expect(args.imageHeight.unit).toEqual(mUnit);
+      expect(args.shape).toBe(null);
     }
 
     private readonly double mImageWidth;
@@ -2973,11 +2995,11 @@ describe("ExField", () => {
   test('FieldIndexFilter', () => {
     //ExStart
     //ExFor:FieldIndex
-    //ExFor:aw.Fields.FieldIndex.bookmarkName
-    //ExFor:aw.Fields.FieldIndex.entryType
+    //ExFor:FieldIndex.bookmarkName
+    //ExFor:FieldIndex.entryType
     //ExFor:FieldXE
-    //ExFor:aw.Fields.FieldXE.entryType
-    //ExFor:aw.Fields.FieldXE.text
+    //ExFor:FieldXE.entryType
+    //ExFor:FieldXE.text
     //ExSummary:Shows how to create an INDEX field, and then use XE fields to populate it with entries.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3060,14 +3082,14 @@ describe("ExField", () => {
   test('FieldIndexFormatting', () => {
     //ExStart
     //ExFor:FieldIndex
-    //ExFor:aw.Fields.FieldIndex.heading
-    //ExFor:aw.Fields.FieldIndex.numberOfColumns
-    //ExFor:aw.Fields.FieldIndex.languageId
-    //ExFor:aw.Fields.FieldIndex.letterRange
+    //ExFor:FieldIndex.heading
+    //ExFor:FieldIndex.numberOfColumns
+    //ExFor:FieldIndex.languageId
+    //ExFor:FieldIndex.letterRange
     //ExFor:FieldXE
-    //ExFor:aw.Fields.FieldXE.isBold
-    //ExFor:aw.Fields.FieldXE.isItalic
-    //ExFor:aw.Fields.FieldXE.text
+    //ExFor:FieldXE.isBold
+    //ExFor:FieldXE.isItalic
+    //ExFor:FieldXE.text
     //ExSummary:Shows how to populate an INDEX field with entries using XE fields, and also modify its appearance.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3196,9 +3218,9 @@ describe("ExField", () => {
 
   test('FieldIndexSequence', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldIndex.hasSequenceName
-    //ExFor:aw.Fields.FieldIndex.sequenceName
-    //ExFor:aw.Fields.FieldIndex.sequenceSeparator
+    //ExFor:FieldIndex.hasSequenceName
+    //ExFor:FieldIndex.sequenceName
+    //ExFor:FieldIndex.sequenceSeparator
     //ExSummary:Shows how to split a document into portions by combining INDEX and SEQ fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3285,9 +3307,9 @@ describe("ExField", () => {
 
   test('FieldIndexPageNumberSeparator', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldIndex.hasPageNumberSeparator
-    //ExFor:aw.Fields.FieldIndex.pageNumberSeparator
-    //ExFor:aw.Fields.FieldIndex.pageNumberListSeparator
+    //ExFor:FieldIndex.hasPageNumberSeparator
+    //ExFor:FieldIndex.pageNumberSeparator
+    //ExFor:FieldIndex.pageNumberListSeparator
     //ExSummary:Shows how to edit the page number separator in an INDEX field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3340,8 +3362,8 @@ describe("ExField", () => {
 
   test('FieldIndexPageRangeBookmark', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldIndex.pageRangeSeparator
-    //ExFor:aw.Fields.FieldXE.pageRangeBookmarkName
+    //ExFor:FieldIndex.pageRangeSeparator
+    //ExFor:FieldXE.pageRangeBookmarkName
     //ExSummary:Shows how to specify a bookmark's spanned pages as a page range for an INDEX field entry.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3405,8 +3427,8 @@ describe("ExField", () => {
 
   test('FieldIndexCrossReferenceSeparator', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldIndex.crossReferenceSeparator
-    //ExFor:aw.Fields.FieldXE.pageNumberReplacement
+    //ExFor:FieldIndex.crossReferenceSeparator
+    //ExFor:FieldXE.pageNumberReplacement
     //ExSummary:Shows how to define cross references in an INDEX field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3474,7 +3496,7 @@ describe("ExField", () => {
 
   test.each([true, false])('FieldIndexSubheading(%o)', (runSubentriesOnTheSameLine) => {
     //ExStart
-    //ExFor:aw.Fields.FieldIndex.runSubentriesOnSameLine
+    //ExFor:FieldIndex.runSubentriesOnSameLine
     //ExSummary:Shows how to work with subentries in an INDEX field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3560,8 +3582,8 @@ describe("ExField", () => {
 
   test.skip.each([true, false])('FieldIndexYomi(%o): WORDSNET-24595', (sortEntriesUsingYomi) => {
     //ExStart
-    //ExFor:aw.Fields.FieldIndex.useYomi
-    //ExFor:aw.Fields.FieldXE.yomi
+    //ExFor:FieldIndex.useYomi
+    //ExFor:FieldXE.yomi
     //ExSummary:Shows how to sort INDEX field entries phonetically.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3665,10 +3687,10 @@ describe("ExField", () => {
   test('FieldBarcode', () => {
     //ExStart
     //ExFor:FieldBarcode
-    //ExFor:aw.Fields.FieldBarcode.facingIdentificationMark
-    //ExFor:aw.Fields.FieldBarcode.isBookmark
-    //ExFor:aw.Fields.FieldBarcode.isUSPostalAddress
-    //ExFor:aw.Fields.FieldBarcode.postalAddress
+    //ExFor:FieldBarcode.facingIdentificationMark
+    //ExFor:FieldBarcode.isBookmark
+    //ExFor:FieldBarcode.isUSPostalAddress
+    //ExFor:FieldBarcode.postalAddress
     //ExSummary:Shows how to use the BARCODE field to display U.S. ZIP codes in the form of a barcode. 
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3727,19 +3749,19 @@ describe("ExField", () => {
   test('FieldDisplayBarcode', () => {
     //ExStart
     //ExFor:FieldDisplayBarcode
-    //ExFor:aw.Fields.FieldDisplayBarcode.addStartStopChar
-    //ExFor:aw.Fields.FieldDisplayBarcode.backgroundColor
-    //ExFor:aw.Fields.FieldDisplayBarcode.barcodeType
-    //ExFor:aw.Fields.FieldDisplayBarcode.barcodeValue
-    //ExFor:aw.Fields.FieldDisplayBarcode.caseCodeStyle
-    //ExFor:aw.Fields.FieldDisplayBarcode.displayText
-    //ExFor:aw.Fields.FieldDisplayBarcode.errorCorrectionLevel
-    //ExFor:aw.Fields.FieldDisplayBarcode.fixCheckDigit
-    //ExFor:aw.Fields.FieldDisplayBarcode.foregroundColor
-    //ExFor:aw.Fields.FieldDisplayBarcode.posCodeStyle
-    //ExFor:aw.Fields.FieldDisplayBarcode.scalingFactor
-    //ExFor:aw.Fields.FieldDisplayBarcode.symbolHeight
-    //ExFor:aw.Fields.FieldDisplayBarcode.symbolRotation
+    //ExFor:FieldDisplayBarcode.addStartStopChar
+    //ExFor:FieldDisplayBarcode.backgroundColor
+    //ExFor:FieldDisplayBarcode.barcodeType
+    //ExFor:FieldDisplayBarcode.barcodeValue
+    //ExFor:FieldDisplayBarcode.caseCodeStyle
+    //ExFor:FieldDisplayBarcode.displayText
+    //ExFor:FieldDisplayBarcode.errorCorrectionLevel
+    //ExFor:FieldDisplayBarcode.fixCheckDigit
+    //ExFor:FieldDisplayBarcode.foregroundColor
+    //ExFor:FieldDisplayBarcode.posCodeStyle
+    //ExFor:FieldDisplayBarcode.scalingFactor
+    //ExFor:FieldDisplayBarcode.symbolHeight
+    //ExFor:FieldDisplayBarcode.symbolRotation
     //ExSummary:Shows how to insert a DISPLAYBARCODE field, and set its properties. 
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3836,14 +3858,14 @@ describe("ExField", () => {
     //ExStart
     //ExFor:FieldDisplayBarcode
     //ExFor:FieldMergeBarcode
-    //ExFor:aw.Fields.FieldMergeBarcode.backgroundColor
-    //ExFor:aw.Fields.FieldMergeBarcode.barcodeType
-    //ExFor:aw.Fields.FieldMergeBarcode.barcodeValue
-    //ExFor:aw.Fields.FieldMergeBarcode.errorCorrectionLevel
-    //ExFor:aw.Fields.FieldMergeBarcode.foregroundColor
-    //ExFor:aw.Fields.FieldMergeBarcode.scalingFactor
-    //ExFor:aw.Fields.FieldMergeBarcode.symbolHeight
-    //ExFor:aw.Fields.FieldMergeBarcode.symbolRotation
+    //ExFor:FieldMergeBarcode.backgroundColor
+    //ExFor:FieldMergeBarcode.barcodeType
+    //ExFor:FieldMergeBarcode.barcodeValue
+    //ExFor:FieldMergeBarcode.errorCorrectionLevel
+    //ExFor:FieldMergeBarcode.foregroundColor
+    //ExFor:FieldMergeBarcode.scalingFactor
+    //ExFor:FieldMergeBarcode.symbolHeight
+    //ExFor:FieldMergeBarcode.symbolRotation
     //ExSummary:Shows how to perform a mail merge on QR barcodes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3907,11 +3929,11 @@ describe("ExField", () => {
   test.skip('FieldMergeBarcode_EAN13: DataTable', () => {
     //ExStart
     //ExFor:FieldMergeBarcode
-    //ExFor:aw.Fields.FieldMergeBarcode.barcodeType
-    //ExFor:aw.Fields.FieldMergeBarcode.barcodeValue
-    //ExFor:aw.Fields.FieldMergeBarcode.displayText
-    //ExFor:aw.Fields.FieldMergeBarcode.fixCheckDigit
-    //ExFor:aw.Fields.FieldMergeBarcode.posCodeStyle
+    //ExFor:FieldMergeBarcode.barcodeType
+    //ExFor:FieldMergeBarcode.barcodeValue
+    //ExFor:FieldMergeBarcode.displayText
+    //ExFor:FieldMergeBarcode.fixCheckDigit
+    //ExFor:FieldMergeBarcode.posCodeStyle
     //ExSummary:Shows how to perform a mail merge on EAN13 barcodes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3970,8 +3992,8 @@ describe("ExField", () => {
   test.skip('FieldMergeBarcode_CODE39: DataTable', () => {
     //ExStart
     //ExFor:FieldMergeBarcode
-    //ExFor:aw.Fields.FieldMergeBarcode.addStartStopChar
-    //ExFor:aw.Fields.FieldMergeBarcode.barcodeType
+    //ExFor:FieldMergeBarcode.addStartStopChar
+    //ExFor:FieldMergeBarcode.barcodeType
     //ExSummary:Shows how to perform a mail merge on CODE39 barcodes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -4028,8 +4050,8 @@ describe("ExField", () => {
   test.skip('FieldMergeBarcode_ITF14: DataTable', () => {
     //ExStart
     //ExFor:FieldMergeBarcode
-    //ExFor:aw.Fields.FieldMergeBarcode.barcodeType
-    //ExFor:aw.Fields.FieldMergeBarcode.caseCodeStyle
+    //ExFor:FieldMergeBarcode.barcodeType
+    //ExFor:FieldMergeBarcode.caseCodeStyle
     //ExSummary:Shows how to perform a mail merge on ITF14 barcodes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -4290,7 +4312,7 @@ describe("ExField", () => {
   test('FieldUserAddress', () => {
     //ExStart
     //ExFor:FieldUserAddress
-    //ExFor:aw.Fields.FieldUserAddress.userAddress
+    //ExFor:FieldUserAddress.userAddress
     //ExSummary:Shows how to use the USERADDRESS field.
     let doc = new aw.Document();
 
@@ -4334,7 +4356,7 @@ describe("ExField", () => {
   test('FieldUserInitials', () => {
     //ExStart
     //ExFor:FieldUserInitials
-    //ExFor:aw.Fields.FieldUserInitials.userInitials
+    //ExFor:FieldUserInitials.userInitials
     //ExSummary:Shows how to use the USERINITIALS field.
     let doc = new aw.Document();
 
@@ -4378,7 +4400,7 @@ describe("ExField", () => {
   test('FieldUserName', () => {
     //ExStart
     //ExFor:FieldUserName
-    //ExFor:aw.Fields.FieldUserName.userName
+    //ExFor:FieldUserName.userName
     //ExSummary:Shows how to use the USERNAME field.
     let doc = new aw.Document();
 
@@ -4423,13 +4445,13 @@ describe("ExField", () => {
   test('FieldStyleRefParagraphNumbers', () => {
     //ExStart
     //ExFor:FieldStyleRef
-    //ExFor:aw.Fields.FieldStyleRef.insertParagraphNumber
-    //ExFor:aw.Fields.FieldStyleRef.insertParagraphNumberInFullContext
-    //ExFor:aw.Fields.FieldStyleRef.insertParagraphNumberInRelativeContext
-    //ExFor:aw.Fields.FieldStyleRef.insertRelativePosition
-    //ExFor:aw.Fields.FieldStyleRef.searchFromBottom
-    //ExFor:aw.Fields.FieldStyleRef.styleName
-    //ExFor:aw.Fields.FieldStyleRef.suppressNonDelimiters
+    //ExFor:FieldStyleRef.insertParagraphNumber
+    //ExFor:FieldStyleRef.insertParagraphNumberInFullContext
+    //ExFor:FieldStyleRef.insertParagraphNumberInRelativeContext
+    //ExFor:FieldStyleRef.insertRelativePosition
+    //ExFor:FieldStyleRef.searchFromBottom
+    //ExFor:FieldStyleRef.styleName
+    //ExFor:FieldStyleRef.suppressNonDelimiters
     //ExSummary:Shows how to use STYLEREF fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -4509,25 +4531,25 @@ describe("ExField", () => {
 
     field = doc.range.fields.at(2).asFieldStyleRef();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldStyleRef, " STYLEREF  Quote \\n", "b )", field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldStyleRef, " STYLEREF  Quote \\n", "\u200Eb )", field);
     expect(field.styleName).toEqual("Quote");
     expect(field.insertParagraphNumber).toEqual(true);
 
     field = doc.range.fields.at(3).asFieldStyleRef();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldStyleRef, " STYLEREF  Quote \\r", "b )", field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldStyleRef, " STYLEREF  Quote \\r", "\u200Eb )", field);
     expect(field.styleName).toEqual("Quote");
     expect(field.insertParagraphNumberInRelativeContext).toEqual(true);
 
     field = doc.range.fields.at(4).asFieldStyleRef();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldStyleRef, " STYLEREF  Quote \\w", "1.b )", field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldStyleRef, " STYLEREF  Quote \\w", "\u200E1.b )", field);
     expect(field.styleName).toEqual("Quote");
     expect(field.insertParagraphNumberInFullContext).toEqual(true);
 
     field = doc.range.fields.at(5).asFieldStyleRef();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldStyleRef, " STYLEREF  Quote \\w \\t", "1.b)", field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldStyleRef, " STYLEREF  Quote \\w \\t", "\u200E1.b)", field);
     expect(field.styleName).toEqual("Quote");
     expect(field.insertParagraphNumberInFullContext).toEqual(true);
     expect(field.suppressNonDelimiters).toEqual(true);
@@ -4537,10 +4559,10 @@ describe("ExField", () => {
   test('FieldDate', () => {
     //ExStart
     //ExFor:FieldDate
-    //ExFor:aw.Fields.FieldDate.useLunarCalendar
-    //ExFor:aw.Fields.FieldDate.useSakaEraCalendar
-    //ExFor:aw.Fields.FieldDate.useUmAlQuraCalendar
-    //ExFor:aw.Fields.FieldDate.useLastFormat
+    //ExFor:FieldDate.useLunarCalendar
+    //ExFor:FieldDate.useSakaEraCalendar
+    //ExFor:FieldDate.useUmAlQuraCalendar
+    //ExFor:FieldDate.useLastFormat
     //ExSummary:Shows how to use DATE fields to display dates according to different kinds of calendars.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -4587,17 +4609,17 @@ describe("ExField", () => {
 
     field = doc.range.fields.at(1).asFieldDate();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\u", moment(new Date()).format("D/M/YYYY"), field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\u", moment(new Date()).format("D/MM/YYYY"), field);
     expect(field.useUmAlQuraCalendar).toEqual(true);
 
     field = doc.range.fields.at(2).asFieldDate();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\s", moment(new Date()).format("D/M/YYYY"), field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\s", moment(new Date()).format("D/MM/YYYY"), field);
     expect(field.useSakaEraCalendar).toEqual(true);
 
     field = doc.range.fields.at(3).asFieldDate();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\l", moment(new Date()).format("D/M/YYYY"), field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\l", moment(new Date()).format("D/MM/YYYY"), field);
     expect(field.useLastFormat).toEqual(true);
   });
 
@@ -4605,9 +4627,9 @@ describe("ExField", () => {
   test.skip('FieldCreateDate: WORDSNET-17669 + System.Globalization.UmAlQuraCalendar', () => {
     //ExStart
     //ExFor:FieldCreateDate
-    //ExFor:aw.Fields.FieldCreateDate.useLunarCalendar
-    //ExFor:aw.Fields.FieldCreateDate.useSakaEraCalendar
-    //ExFor:aw.Fields.FieldCreateDate.useUmAlQuraCalendar
+    //ExFor:FieldCreateDate.useLunarCalendar
+    //ExFor:FieldCreateDate.useSakaEraCalendar
+    //ExFor:FieldCreateDate.useUmAlQuraCalendar
     //ExSummary:Shows how to use the CREATEDATE field to display the creation date/time of the document.
     let doc = new aw.Document(base.myDir + "Document.docx");
     let builder = new aw.DocumentBuilder(doc);
@@ -4667,11 +4689,11 @@ describe("ExField", () => {
 
   test.skip('FieldSaveDate: WORDSNET-17669', () => {
     //ExStart
-    //ExFor:aw.Properties.BuiltInDocumentProperties.lastSavedTime
+    //ExFor:BuiltInDocumentProperties.lastSavedTime
     //ExFor:FieldSaveDate
-    //ExFor:aw.Fields.FieldSaveDate.useLunarCalendar
-    //ExFor:aw.Fields.FieldSaveDate.useSakaEraCalendar
-    //ExFor:aw.Fields.FieldSaveDate.useUmAlQuraCalendar
+    //ExFor:FieldSaveDate.useLunarCalendar
+    //ExFor:FieldSaveDate.useSakaEraCalendar
+    //ExFor:FieldSaveDate.useUmAlQuraCalendar
     //ExSummary:Shows how to use the SAVEDATE field to display the date/time of the document's most recent save operation performed using Microsoft Word.
     let doc = new aw.Document(base.myDir + "Document.docx");
     let builder = new aw.DocumentBuilder(doc);
@@ -4735,20 +4757,21 @@ describe("ExField", () => {
   test.skip('FieldBuilder: WORDSNODEJS-114', () => {
     //ExStart
     //ExFor:FieldBuilder
-    //ExFor:aw.Fields.FieldBuilder.addArgument(Int32)
-    //ExFor:aw.Fields.FieldBuilder.addArgument(FieldArgumentBuilder)
-    //ExFor:aw.Fields.FieldBuilder.addArgument(String)
-    //ExFor:aw.Fields.FieldBuilder.addArgument(Double)
-    //ExFor:aw.Fields.FieldBuilder.addArgument(FieldBuilder)
-    //ExFor:aw.Fields.FieldBuilder.addSwitch(String)
-    //ExFor:aw.Fields.FieldBuilder.addSwitch(String, Double)
-    //ExFor:aw.Fields.FieldBuilder.addSwitch(String, Int32)
-    //ExFor:aw.Fields.FieldBuilder.addSwitch(String, String)
-    //ExFor:aw.Fields.FieldBuilder.buildAndInsert(Paragraph)
+    //ExFor:FieldBuilder.addArgument(Int32)
+    //ExFor:FieldBuilder.addArgument(FieldArgumentBuilder)
+    //ExFor:FieldBuilder.addArgument(String)
+    //ExFor:FieldBuilder.addArgument(Double)
+    //ExFor:FieldBuilder.addArgument(FieldBuilder)
+    //ExFor:FieldBuilder.addSwitch(String)
+    //ExFor:FieldBuilder.addSwitch(String, Double)
+    //ExFor:FieldBuilder.addSwitch(String, Int32)
+    //ExFor:FieldBuilder.addSwitch(String, String)
+    //ExFor:FieldBuilder.buildAndInsert(Paragraph)
     //ExFor:FieldArgumentBuilder
-    //ExFor:aw.Fields.FieldArgumentBuilder.addField(FieldBuilder)
-    //ExFor:aw.Fields.FieldArgumentBuilder.addText(String)
-    //ExFor:aw.Fields.FieldArgumentBuilder.addNode(Inline)
+    //ExFor:FieldArgumentBuilder.#ctor
+    //ExFor:FieldArgumentBuilder.addField(FieldBuilder)
+    //ExFor:FieldArgumentBuilder.addText(String)
+    //ExFor:FieldArgumentBuilder.addNode(Inline)
     //ExSummary:Shows how to construct fields using a field builder, and then insert them into the document.
     let doc = new aw.Document();
 
@@ -4867,8 +4890,8 @@ describe("ExField", () => {
   test('FieldAuthor', () => {
     //ExStart
     //ExFor:FieldAuthor
-    //ExFor:aw.Fields.FieldAuthor.authorName  
-    //ExFor:aw.Fields.FieldOptions.defaultDocumentAuthor
+    //ExFor:FieldAuthor.authorName  
+    //ExFor:FieldOptions.defaultDocumentAuthor
     //ExSummary:Shows how to use an AUTHOR field to display a document creator's name.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -4933,7 +4956,7 @@ describe("ExField", () => {
     //ExStart
     //ExFor:FieldDocProperty
     //ExFor:FieldDocVariable
-    //ExFor:aw.Fields.FieldDocVariable.variableName
+    //ExFor:FieldDocVariable.variableName
     //ExSummary:Shows how to use DOCPROPERTY fields to display document properties and variables.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -4984,7 +5007,7 @@ describe("ExField", () => {
   test('FieldSubject', () => {
     //ExStart
     //ExFor:FieldSubject
-    //ExFor:aw.Fields.FieldSubject.text
+    //ExFor:FieldSubject.text
     //ExSummary:Shows how to use the SUBJECT field.
     let doc = new aw.Document();
 
@@ -5027,7 +5050,7 @@ describe("ExField", () => {
   test('FieldComments', () => {
     //ExStart
     //ExFor:FieldComments
-    //ExFor:aw.Fields.FieldComments.text
+    //ExFor:FieldComments.text
     //ExSummary:Shows how to use the COMMENTS field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -5068,8 +5091,8 @@ describe("ExField", () => {
   test('FieldFileSize', () => {
     //ExStart
     //ExFor:FieldFileSize
-    //ExFor:aw.Fields.FieldFileSize.isInKilobytes
-    //ExFor:aw.Fields.FieldFileSize.isInMegabytes
+    //ExFor:FieldFileSize.isInKilobytes
+    //ExFor:FieldFileSize.isInMegabytes
     //ExSummary:Shows how to display the file size of a document with a FILESIZE field.
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -5135,8 +5158,8 @@ describe("ExField", () => {
   test('FieldGoToButton', () => {
     //ExStart
     //ExFor:FieldGoToButton
-    //ExFor:aw.Fields.FieldGoToButton.displayText
-    //ExFor:aw.Fields.FieldGoToButton.location
+    //ExFor:FieldGoToButton.displayText
+    //ExFor:FieldGoToButton.location
     //ExSummary:Shows to insert a GOTOBUTTON field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -5234,8 +5257,8 @@ describe("ExField", () => {
   test('FieldInfo', () => {
     //ExStart
     //ExFor:FieldInfo
-    //ExFor:aw.Fields.FieldInfo.infoType
-    //ExFor:aw.Fields.FieldInfo.newValue
+    //ExFor:FieldInfo.infoType
+    //ExFor:FieldInfo.newValue
     //ExSummary:Shows how to work with INFO fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -5284,10 +5307,10 @@ describe("ExField", () => {
 
   test('FieldMacroButton', () => {
     //ExStart
-    //ExFor:aw.Document.hasMacros
+    //ExFor:Document.hasMacros
     //ExFor:FieldMacroButton
-    //ExFor:aw.Fields.FieldMacroButton.displayText
-    //ExFor:aw.Fields.FieldMacroButton.macroName
+    //ExFor:FieldMacroButton.displayText
+    //ExFor:FieldMacroButton.macroName
     //ExSummary:Shows how to use MACROBUTTON fields to allow us to run a document's macros by clicking.
     let doc = new aw.Document(base.myDir + "Macro.docm");
     let builder = new aw.DocumentBuilder(doc);
@@ -5336,7 +5359,7 @@ describe("ExField", () => {
   test('FieldKeywords', () => {
     //ExStart
     //ExFor:FieldKeywords
-    //ExFor:aw.Fields.FieldKeywords.text
+    //ExFor:FieldKeywords.text
     //ExSummary:Shows to insert a KEYWORDS field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -5429,8 +5452,8 @@ describe("ExField", () => {
   test('FieldPrint', () => {
     //ExStart
     //ExFor:FieldPrint
-    //ExFor:aw.Fields.FieldPrint.postScriptGroup
-    //ExFor:aw.Fields.FieldPrint.printerInstructions
+    //ExFor:FieldPrint.postScriptGroup
+    //ExFor:FieldPrint.printerInstructions
     //ExSummary:Shows to insert a PRINT field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -5467,9 +5490,9 @@ describe("ExField", () => {
   test('FieldPrintDate', () => {
     //ExStart
     //ExFor:FieldPrintDate
-    //ExFor:aw.Fields.FieldPrintDate.useLunarCalendar
-    //ExFor:aw.Fields.FieldPrintDate.useSakaEraCalendar
-    //ExFor:aw.Fields.FieldPrintDate.useUmAlQuraCalendar
+    //ExFor:FieldPrintDate.useLunarCalendar
+    //ExFor:FieldPrintDate.useSakaEraCalendar
+    //ExFor:FieldPrintDate.useUmAlQuraCalendar
     //ExSummary:Shows read PRINTDATE fields.
     let doc = new aw.Document(base.myDir + "Field sample - PRINTDATE.docx");
 
@@ -5510,8 +5533,8 @@ describe("ExField", () => {
   test('FieldQuote', () => {
     //ExStart
     //ExFor:FieldQuote
-    //ExFor:aw.Fields.FieldQuote.text
-    //ExFor:aw.Document.updateFields
+    //ExFor:FieldQuote.text
+    //ExFor:Document.updateFields
     //ExSummary:Shows to use the QUOTE field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -5531,7 +5554,7 @@ describe("ExField", () => {
     builder.moveTo(field.separator);
     builder.insertField(aw.Fields.FieldType.FieldDate, true);
 
-    expect(field.getFieldCode()).toEqual(" QUOTE \u0013 DATE \u0014" + moment(new Date()).format("D/M/YYYY") + "\u0015");
+    expect(field.getFieldCode()).toEqual(" QUOTE \u0013 DATE \u0014" + moment(new Date()).format("D/MM/YYYY") + "\u0015");
 
     // Update all the fields to display their correct results.
     doc.updateFields();
@@ -5545,7 +5568,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE  \"\\\"Quoted text\\\"\"", "\"Quoted text\"", doc.range.fields.at(0));
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE \u0013 DATE \u0014" + moment(new Date()).format("D/M/YYYY") + "\u0015", moment(new Date()).format("D/M/YYYY"), doc.range.fields.at(1));
+    TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE \u0013 DATE \u0014" + moment(new Date()).format("D/MM/YYYY") + "\u0015", moment(new Date()).format("D/MM/YYYY"), doc.range.fields.at(1));
 
   });
 
@@ -5974,28 +5997,28 @@ describe("ExField", () => {
 
     field = doc.range.fields.at(2).asFieldRef();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark \\n", ">>> i", field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark \\n", "\u200E>>> i", field);
     expect(field.bookmarkName).toEqual("MyBookmark");
     expect(field.insertParagraphNumber).toEqual(true);
     expect(field.getFieldCode()).toEqual(" REF  MyBookmark \\n");
-    expect(field.result).toEqual(">>> i");
+    expect(field.result).toEqual("\u200E>>> i");
 
     field = doc.range.fields.at(3).asFieldRef();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark \\n \\t", "i", field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark \\n \\t", "\u200Ei", field);
     expect(field.bookmarkName).toEqual("MyBookmark");
     expect(field.insertParagraphNumber).toEqual(true);
     expect(field.suppressNonDelimiters).toEqual(true);
 
     field = doc.range.fields.at(4).asFieldRef();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark \\w", "> 4>> c>>> i", field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark \\w", "\u200E> 4>> c>>> i", field);
     expect(field.bookmarkName).toEqual("MyBookmark");
     expect(field.insertParagraphNumberInFullContext).toEqual(true);
 
     field = doc.range.fields.at(5).asFieldRef();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark \\r", ">> c>>> i", field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark \\r", "\u200E>> c>>> i", field);
     expect(field.bookmarkName).toEqual("MyBookmark");
     expect(field.insertParagraphNumberInRelativeContext).toEqual(true);
   }
@@ -6003,8 +6026,8 @@ describe("ExField", () => {
   test('FieldRD', () => {
     //ExStart
     //ExFor:FieldRD
-    //ExFor:aw.Fields.FieldRD.fileName
-    //ExFor:aw.Fields.FieldRD.isPathRelative
+    //ExFor:FieldRD.fileName
+    //ExFor:FieldRD.isPathRelative
     //ExSummary:Shows to use the RD field to create a table of contents entries from headings in other documents.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -6057,9 +6080,9 @@ describe("ExField", () => {
   test.skip('SkipIf: DataTable', () => {
     //ExStart
     //ExFor:FieldSkipIf
-    //ExFor:aw.Fields.FieldSkipIf.comparisonOperator
-    //ExFor:aw.Fields.FieldSkipIf.leftExpression
-    //ExFor:aw.Fields.FieldSkipIf.rightExpression
+    //ExFor:FieldSkipIf.comparisonOperator
+    //ExFor:FieldSkipIf.leftExpression
+    //ExFor:FieldSkipIf.rightExpression
     //ExSummary:Shows how to skip pages in a mail merge using the SKIPIF field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -6110,10 +6133,10 @@ describe("ExField", () => {
   test('FieldSetRef', () => {
     //ExStart
     //ExFor:FieldRef
-    //ExFor:aw.Fields.FieldRef.bookmarkName
+    //ExFor:FieldRef.bookmarkName
     //ExFor:FieldSet
-    //ExFor:aw.Fields.FieldSet.bookmarkName
-    //ExFor:aw.Fields.FieldSet.bookmarkText
+    //ExFor:FieldSet.bookmarkName
+    //ExFor:FieldSet.bookmarkText
     //ExSummary:Shows how to create bookmarked text with a SET field, and then display it in the document using a REF field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -6156,8 +6179,8 @@ describe("ExField", () => {
   test('FieldTemplate', () => {
     //ExStart
     //ExFor:FieldTemplate
-    //ExFor:aw.Fields.FieldTemplate.includeFullPath
-    //ExFor:aw.Fields.FieldOptions.templateName
+    //ExFor:FieldTemplate.includeFullPath
+    //ExFor:FieldOptions.templateName
     //ExSummary:Shows how to use a TEMPLATE field to display the local file system location of a document's template.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -6194,13 +6217,13 @@ describe("ExField", () => {
   test('FieldSymbol', () => {
     //ExStart
     //ExFor:FieldSymbol
-    //ExFor:aw.Fields.FieldSymbol.characterCode
-    //ExFor:aw.Fields.FieldSymbol.dontAffectsLineSpacing
-    //ExFor:aw.Fields.FieldSymbol.fontName
-    //ExFor:aw.Fields.FieldSymbol.fontSize
-    //ExFor:aw.Fields.FieldSymbol.isAnsi
-    //ExFor:aw.Fields.FieldSymbol.isShiftJis
-    //ExFor:aw.Fields.FieldSymbol.isUnicode
+    //ExFor:FieldSymbol.characterCode
+    //ExFor:FieldSymbol.dontAffectsLineSpacing
+    //ExFor:FieldSymbol.fontName
+    //ExFor:FieldSymbol.fontSize
+    //ExFor:FieldSymbol.isAnsi
+    //ExFor:FieldSymbol.isShiftJis
+    //ExFor:FieldSymbol.isUnicode
     //ExSummary:Shows how to use the SYMBOL field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -6281,7 +6304,7 @@ describe("ExField", () => {
   test('FieldTitle', () => {
     //ExStart
     //ExFor:FieldTitle
-    //ExFor:aw.Fields.FieldTitle.text
+    //ExFor:FieldTitle.text
     //ExSummary:Shows how to use the TITLE field.
     let doc = new aw.Document();
 
@@ -6673,6 +6696,7 @@ describe("ExField", () => {
   test('FieldEQAsOfficeMath', () => {
     //ExStart
     //ExFor:FieldEQ
+    //ExFor:FieldEQ.asOfficeMath
     //ExSummary:Shows how to replace the EQ field with Office Math.
     let doc = new aw.Document(base.myDir + "Field sample - EQ.docx");
     let fieldEQ = Array.from(doc.range.fields).map(node => node.asFieldEQ()).filter(node => node != null)[0];
@@ -6770,9 +6794,9 @@ describe("ExField", () => {
     //ExFor:FieldMergeRec
     //ExFor:FieldMergeSeq
     //ExFor:FieldSkipIf
-    //ExFor:aw.Fields.FieldSkipIf.comparisonOperator
-    //ExFor:aw.Fields.FieldSkipIf.leftExpression
-    //ExFor:aw.Fields.FieldSkipIf.rightExpression
+    //ExFor:FieldSkipIf.comparisonOperator
+    //ExFor:FieldSkipIf.leftExpression
+    //ExFor:FieldSkipIf.rightExpression
     //ExSummary:Shows how to use MERGEREC and MERGESEQ fields to the number and count mail merge records in a mail merge's output documents.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -7043,8 +7067,8 @@ describe("ExField", () => {
     //ExStart
     //ExFor:FieldBidiOutline
     //ExFor:FieldShape
-    //ExFor:aw.Fields.FieldShape.text
-    //ExFor:aw.ParagraphFormat.bidi
+    //ExFor:FieldShape.text
+    //ExFor:ParagraphFormat.bidi
     //ExSummary:Shows how to create right-to-left language-compatible lists with BIDIOUTLINE fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -7085,7 +7109,7 @@ describe("ExField", () => {
     //ExStart
     //ExFor:FieldEmbed
     //ExFor:FieldShape
-    //ExFor:aw.Fields.FieldShape.text
+    //ExFor:FieldShape.text
     //ExSummary:Shows how some older Microsoft Word fields such as SHAPE and EMBED are handled during loading.
     // Open a document that was created in Microsoft Word 2003.
     let doc = new aw.Document(base.myDir + "Legacy fields.doc");
@@ -7121,7 +7145,8 @@ describe("ExField", () => {
 
   test('SetFieldIndexFormat', () => {
     //ExStart
-    //ExFor:aw.Fields.FieldOptions.fieldIndexFormat
+    //ExFor:FieldIndexFormat
+    //ExFor:FieldOptions.fieldIndexFormat
     //ExSummary:Shows how to formatting FieldIndex fields.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -7144,11 +7169,15 @@ describe("ExField", () => {
     //ExFor:ComparisonEvaluationResult.#ctor(bool)
     //ExFor:ComparisonEvaluationResult.#ctor(string)
     //ExFor:ComparisonEvaluationResult
+    //ExFor:ComparisonEvaluationResult.ErrorMessage
+    //ExFor:ComparisonEvaluationResult.Result
     //ExFor:ComparisonExpression
     //ExFor:ComparisonExpression.LeftExpression
     //ExFor:ComparisonExpression.ComparisonOperator
     //ExFor:ComparisonExpression.RightExpression
     //ExFor:FieldOptions.ComparisonExpressionEvaluator
+    //ExFor:IComparisonExpressionEvaluator
+    //ExFor:IComparisonExpressionEvaluator.Evaluate(Field,ComparisonExpression)
     //ExSummary:Shows how to implement custom evaluation for the IF and COMPARE fields.
   test.each([" IF {0} {1} {2} \"true argument\" \"false argument\" ", 1, null, "true argument",
     " IF {0} {1} {2} \"true argument\" \"false argument\" ", 0, null, "false argument",
@@ -7192,6 +7221,11 @@ describe("ExField", () => {
     public ComparisonExpressionEvaluator(ComparisonEvaluationResult result)
     {
       mResult = result;
+      if (mResult != null)
+      {
+        console.log(mResult.errorMessage);
+        console.log(mResult.result);
+      }
     }
 
     public ComparisonEvaluationResult Evaluate(Field field, ComparisonExpression expression)
@@ -7314,19 +7348,22 @@ describe("ExField", () => {
       .AssertInvocationArguments(0, "1", "=", "3")
       .AssertInvocationArguments(1, "2", "=", "3")
       .AssertInvocationArguments(2, "3", "=", "3");
-  });*/
+  });
 
 
-  /*  //ExStart
-    //ExFor:IFieldUpdatingCallback
-    //ExFor:IFieldUpdatingProgressCallback
-    //ExFor:IFieldUpdatingProgressCallback.Notify(FieldUpdatingProgressArgs)
-    //ExFor:FieldUpdatingProgressArgs.UpdateCompleted
-    //ExFor:FieldUpdatingProgressArgs.TotalFieldsCount
-    //ExFor:FieldUpdatingProgressArgs.UpdatedFieldsCount
-    //ExFor:IFieldUpdatingCallback.FieldUpdating(Field)
-    //ExFor:IFieldUpdatingCallback.FieldUpdated(Field)
-    //ExSummary:Shows how to use callback methods during a field update.
+  //ExStart
+  //ExFor:FieldOptions.FieldUpdatingCallback
+  //ExFor:FieldOptions.FieldUpdatingProgressCallback
+  //ExFor:IFieldUpdatingCallback
+  //ExFor:IFieldUpdatingProgressCallback
+  //ExFor:IFieldUpdatingProgressCallback.Notify(FieldUpdatingProgressArgs)
+  //ExFor:FieldUpdatingProgressArgs
+  //ExFor:FieldUpdatingProgressArgs.UpdateCompleted
+  //ExFor:FieldUpdatingProgressArgs.TotalFieldsCount
+  //ExFor:FieldUpdatingProgressArgs.UpdatedFieldsCount
+  //ExFor:IFieldUpdatingCallback.FieldUpdating(Field)
+  //ExFor:IFieldUpdatingCallback.FieldUpdated(Field)
+  //ExSummary:Shows how to use callback methods during a field update.
   test('FieldUpdatingCallbackTest', () => {
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -7385,22 +7422,97 @@ describe("ExField", () => {
 
     public IList<string> FieldUpdatedCalls { get; }
   }
-    //ExEnd*/
+    //ExEnd
+  */
 
   test('BibliographySources', () => {
     //ExStart:BibliographySources
     //GistId:eeeec1fbf118e95e7df3f346c91ed726
+    //ExFor:Document.bibliography
     //ExFor:Bibliography
-    //ExFor:aw.Bibliography.Bibliography.sources
-    //ExFor:aw.Bibliography.Source.title
-    //ExFor:aw.Bibliography.Source.contributors
+    //ExFor:Bibliography.sources
+    //ExFor:Source
+    //ExFor:Source.#ctor(string, SourceType)
+    //ExFor:Source.title
+    //ExFor:Source.abbreviatedCaseNumber
+    //ExFor:Source.albumTitle
+    //ExFor:Source.bookTitle
+    //ExFor:Source.broadcaster
+    //ExFor:Source.broadcastTitle
+    //ExFor:Source.caseNumber
+    //ExFor:Source.chapterNumber
+    //ExFor:Source.city
+    //ExFor:Source.comments
+    //ExFor:Source.conferenceName
+    //ExFor:Source.countryOrRegion
+    //ExFor:Source.court
+    //ExFor:Source.day
+    //ExFor:Source.dayAccessed
+    //ExFor:Source.department
+    //ExFor:Source.distributor
+    //ExFor:Source.doi
+    //ExFor:Source.edition
+    //ExFor:Source.guid
+    //ExFor:Source.institution
+    //ExFor:Source.internetSiteTitle
+    //ExFor:Source.issue
+    //ExFor:Source.journalName
+    //ExFor:Source.lcid
+    //ExFor:Source.medium
+    //ExFor:Source.month
+    //ExFor:Source.monthAccessed
+    //ExFor:Source.numberVolumes
+    //ExFor:Source.pages
+    //ExFor:Source.patentNumber
+    //ExFor:Source.periodicalTitle
+    //ExFor:Source.productionCompany
+    //ExFor:Source.publicationTitle
+    //ExFor:Source.publisher
+    //ExFor:Source.recordingNumber
+    //ExFor:Source.refOrder
+    //ExFor:Source.reporter
+    //ExFor:Source.shortTitle
+    //ExFor:Source.sourceType
+    //ExFor:Source.standardNumber
+    //ExFor:Source.stateOrProvince
+    //ExFor:Source.station
+    //ExFor:Source.tag
+    //ExFor:Source.theater
+    //ExFor:Source.thesisType
+    //ExFor:Source.type
+    //ExFor:Source.url
+    //ExFor:Source.version
+    //ExFor:Source.volume
+    //ExFor:Source.year
+    //ExFor:Source.yearAccessed
+    //ExFor:Source.contributors
+    //ExFor:SourceType
+    //ExFor:Contributor
     //ExFor:ContributorCollection
-    //ExFor:aw.Bibliography.ContributorCollection.author
+    //ExFor:ContributorCollection.author
+    //ExFor:ContributorCollection.artist
+    //ExFor:ContributorCollection.bookAuthor
+    //ExFor:ContributorCollection.compiler
+    //ExFor:ContributorCollection.composer
+    //ExFor:ContributorCollection.conductor
+    //ExFor:ContributorCollection.counsel
+    //ExFor:ContributorCollection.director
+    //ExFor:ContributorCollection.editor
+    //ExFor:ContributorCollection.interviewee
+    //ExFor:ContributorCollection.interviewer
+    //ExFor:ContributorCollection.inventor
+    //ExFor:ContributorCollection.performer
+    //ExFor:ContributorCollection.producer
+    //ExFor:ContributorCollection.translator
+    //ExFor:ContributorCollection.writer
     //ExFor:PersonCollection
+    //ExFor:PersonCollection.count
+    //ExFor:PersonCollection.item(Int32)
+    //ExFor:Person.#ctor(string, string, string)
     //ExFor:Person
-    //ExFor:aw.Bibliography.Person.first
-    //ExFor:aw.Bibliography.Person.middle
-    //ExFor:aw.Bibliography.Person.last
+    //ExFor:Person.first
+    //ExFor:Person.middle
+    //ExFor:Person.last
     //ExSummary:Shows how to get bibliography sources available in the document.
     let document = new aw.Document(base.myDir + "Bibliography sources.docx");
 
@@ -7409,6 +7521,60 @@ describe("ExField", () => {
 
     let source = bibliography.sources.at(0);
     expect(source.title).toEqual("Book 0 (No LCID)");
+    expect(source.sourceType).toEqual(aw.Bibliography.SourceType.Book);
+    expect([...source.contributors].length).toEqual(3);
+    expect(source.abbreviatedCaseNumber).toBe(null);
+    expect(source.albumTitle).toBe(null);
+    expect(source.bookTitle).toBe(null);
+    expect(source.broadcaster).toBe(null);
+    expect(source.broadcastTitle).toBe(null);
+    expect(source.caseNumber).toBe(null);
+    expect(source.chapterNumber).toBe(null);
+    expect(source.comments).toBe(null);
+    expect(source.conferenceName).toBe(null);
+    expect(source.countryOrRegion).toBe(null);
+    expect(source.court).toBe(null);
+    expect(source.day).toBe(null);
+    expect(source.dayAccessed).toBe(null);
+    expect(source.department).toBe(null);
+    expect(source.distributor).toBe(null);
+    expect(source.doi).toBe(null);
+    expect(source.edition).toBe(null);
+    expect(source.guid).toBe(null);
+    expect(source.institution).toBe(null);
+    expect(source.internetSiteTitle).toBe(null);
+    expect(source.issue).toBe(null);
+    expect(source.journalName).toBe(null);
+    expect(source.lcid).toBe(null);
+    expect(source.medium).toBe(null);
+    expect(source.month).toBe(null);
+    expect(source.monthAccessed).toBe(null);
+    expect(source.numberVolumes).toBe(null);
+    expect(source.pages).toBe(null);
+    expect(source.patentNumber).toBe(null);
+    expect(source.periodicalTitle).toBe(null);
+    expect(source.productionCompany).toBe(null);
+    expect(source.publicationTitle).toBe(null);
+    expect(source.publisher).toBe(null);
+    expect(source.recordingNumber).toBe(null);
+    expect(source.refOrder).toBe(null);
+    expect(source.reporter).toBe(null);
+    expect(source.shortTitle).toBe(null);
+    expect(source.standardNumber).toBe(null);
+    expect(source.stateOrProvince).toBe(null);
+    expect(source.station).toBe(null);
+    expect(source.tag).toEqual("BookNoLCID");
+    expect(source.theater).toBe(null);
+    expect(source.thesisType).toBe(null);
+    expect(source.type).toBe(null);
+    expect(source.url).toBe(null);
+    expect(source.version).toBe(null);
+    expect(source.volume).toBe(null);
+    expect(source.year).toBe(null);
+    expect(source.yearAccessed).toBe(null);
+
+    // Also, you can create a new source.
+    let newSource = new aw.Bibliography.Source("New source", aw.Bibliography.SourceType.Misc);
 
     let contributors = source.contributors;
     let authors = contributors.author.asPersonCollection();
@@ -7420,4 +7586,55 @@ describe("ExField", () => {
     expect(person.last).toEqual("Tejeda");
     //ExEnd:BibliographySources
   });
+
+ 
+  test('BibliographyPersons', () => {
+    //ExStart
+    //ExFor:Person.#ctor(string, string, string)
+    //ExFor:PersonCollection.#ctor
+    //ExFor:PersonCollection.#ctor(Person[])
+    //ExFor:PersonCollection.add(Person)
+    //ExFor:PersonCollection.contains(Person)
+    //ExFor:PersonCollection.clear
+    //ExFor:PersonCollection.remove(Person)
+    //ExFor:PersonCollection.removeAt(Int32)
+    //ExSummary:Shows how to work with person collection.
+    // Create a new person collection.
+    let persons = new aw.Bibliography.PersonCollection();
+    let person = new aw.Bibliography.Person("Roxanne", "Brielle", "Tejeda_updated");
+    // Add new person to the collection.
+    persons.add(person);
+    expect(persons.count).toEqual(1);
+    // Remove person from the collection if it exists.
+    if (persons.contains(person))
+      persons.remove(person);
+    expect(persons.count).toEqual(0);
+
+    // Create person collection with two persons.
+    persons = new aw.Bibliography.PersonCollection([new aw.Bibliography.Person("Roxanne_1", "Brielle_1", "Tejeda_1"), new aw.Bibliography.Person("Roxanne_2", "Brielle_2", "Tejeda_2") ]);
+    expect(persons.count).toEqual(2);
+    // Remove person from the collection by the index.
+    persons.removeAt(0);
+    expect(persons.count).toEqual(1);
+    // Remove all persons from the collection.
+    persons.clear();
+    expect(persons.count).toEqual(0);
+    //ExEnd
+  });
+
+
+  test('CaptionlessTableOfFiguresLabel', () => {
+    //ExStart
+    //ExFor:FieldToc.captionlessTableOfFiguresLabel
+    //ExSummary:Shows how to set the name of the sequence identifier.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    let fieldToc = builder.insertField(aw.Fields.FieldType.FieldTOC, true).asFieldToc();
+    fieldToc.captionlessTableOfFiguresLabel = "Test";
+
+    expect(fieldToc.getFieldCode()).toEqual(" TOC  \\a Test");
+    //ExEnd
+  });
+
 });

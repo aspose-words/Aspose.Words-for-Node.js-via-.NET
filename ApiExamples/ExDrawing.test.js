@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,7 +21,8 @@ describe("ExDrawing", () => {
     //base.oneTimeTearDown();
   });
 
-/*#if NET461_OR_GREATER || JAVA
+/*//Commented
+#if NET461_OR_GREATER || JAVA
   test('VariousShapes', () => {
     //ExStart
     //ExFor:ArrowLength
@@ -29,21 +30,21 @@ describe("ExDrawing", () => {
     //ExFor:ArrowWidth
     //ExFor:DashStyle
     //ExFor:EndCap
-    //ExFor:aw.Drawing.Fill.foreColor
-    //ExFor:aw.Drawing.Fill.imageBytes
-    //ExFor:aw.Drawing.Fill.visible
+    //ExFor:Fill.foreColor
+    //ExFor:Fill.imageBytes
+    //ExFor:Fill.visible
     //ExFor:JoinStyle
-    //ExFor:aw.Drawing.Shape.stroke
-    //ExFor:aw.Drawing.Stroke.color
-    //ExFor:aw.Drawing.Stroke.startArrowLength
-    //ExFor:aw.Drawing.Stroke.startArrowType
-    //ExFor:aw.Drawing.Stroke.startArrowWidth
-    //ExFor:aw.Drawing.Stroke.endArrowLength
-    //ExFor:aw.Drawing.Stroke.endArrowWidth
-    //ExFor:aw.Drawing.Stroke.dashStyle
-    //ExFor:aw.Drawing.Stroke.endArrowType
-    //ExFor:aw.Drawing.Stroke.endCap
-    //ExFor:aw.Drawing.Stroke.opacity
+    //ExFor:Shape.stroke
+    //ExFor:Stroke.color
+    //ExFor:Stroke.startArrowLength
+    //ExFor:Stroke.startArrowType
+    //ExFor:Stroke.startArrowWidth
+    //ExFor:Stroke.endArrowLength
+    //ExFor:Stroke.endArrowWidth
+    //ExFor:Stroke.dashStyle
+    //ExFor:Stroke.endArrowType
+    //ExFor:Stroke.endCap
+    //ExFor:Stroke.opacity
     //ExSummary:Shows to create a variety of shapes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -120,7 +121,7 @@ describe("ExDrawing", () => {
 
     expect(arrow.shapeType).toEqual(aw.Drawing.ShapeType.Line);
     expect(arrow.width).toEqual(200.0);
-    expect(arrow.stroke.color.ToArgb()).toEqual("#FF0000".ToArgb());
+    expect(arrow.stroke.color).toEqual("#FF0000");
     expect(arrow.stroke.startArrowType).toEqual(aw.Drawing.ArrowType.Arrow);
     expect(arrow.stroke.startArrowLength).toEqual(aw.Drawing.ArrowLength.Long);
     expect(arrow.stroke.startArrowWidth).toEqual(aw.Drawing.ArrowWidth.Wide);
@@ -145,7 +146,7 @@ describe("ExDrawing", () => {
     expect(filledInArrow.width).toEqual(200.0);
     expect(filledInArrow.height).toEqual(40.0);
     expect(filledInArrow.top).toEqual(100.0);
-    expect(filledInArrow.fill.foreColor.ToArgb()).toEqual("#008000".ToArgb());
+    expect(filledInArrow.fill.foreColor).toEqual("#008000");
     expect(filledInArrow.fill.visible).toEqual(true);
 
     filledInArrowImg = (Shape) doc.getShape(3, true);
@@ -160,8 +161,8 @@ describe("ExDrawing", () => {
 
   test('ImportImage', () => {
     //ExStart
-    //ExFor:aw.Drawing.ImageData.setImage(Image)
-    //ExFor:aw.Drawing.ImageData.setImage(Stream)
+    //ExFor:ImageData.setImage(Image)
+    //ExFor:ImageData.setImage(Stream)
     //ExSummary:Shows how to display images from the local file system in a document.
     let doc = new aw.Document();
 
@@ -212,7 +213,8 @@ describe("ExDrawing", () => {
     expect(imgShape.width).toEqual(300.0);
   });
 
-#endif*/
+#endif
+//EndCommented*/
 
   test('TypeOfImage', () => {
     //ExStart
@@ -229,8 +231,12 @@ describe("ExDrawing", () => {
 
   test('FillSolid', () => {
     //ExStart
-    //ExFor:aw.Drawing.Fill.color()
-    //ExFor:aw.Drawing.Fill.solid(Color)
+    //ExFor:Fill.color()
+    //ExFor:FillType
+    //ExFor:Fill.fillType
+    //ExFor:Fill.solid
+    //ExFor:Fill.transparency
+    //ExFor:Font.fill
     //ExSummary:Shows how to convert any of the fills back to solid fill.
     let doc = new aw.Document(base.myDir + "Two color gradient.docx");
 
@@ -243,7 +249,7 @@ describe("ExDrawing", () => {
     console.log("The fill is transparent at {0}%", fill.transparency * 100);
 
     // Change type of the fill to Solid with uniform green color.
-    fill.solid("#008000");
+    fill.solid();
     console.log("\nThe fill is changed:");
     console.log("The type of the fill is: {0}", fill.fillType);
     console.log("The foreground color of the fill is: {0}", fill.foreColor);
@@ -269,9 +275,9 @@ describe("ExDrawing", () => {
 
   test('SaveAllImages', async () => {
     //ExStart
-    //ExFor:aw.Drawing.ImageData.hasImage
-    //ExFor:aw.Drawing.ImageData.toImage
-    //ExFor:aw.Drawing.ImageData.save(Stream)
+    //ExFor:ImageData.hasImage
+    //ExFor:ImageData.toImage
+    //ExFor:ImageData.save(Stream)
     //ExSummary:Shows how to save all images from a document to the file system.
     let imgSourceDoc = new aw.Document(base.myDir + "Images.docx");
 
@@ -310,8 +316,8 @@ describe("ExDrawing", () => {
 
   test('StrokePattern', async () => {
     //ExStart
-    //ExFor:aw.Drawing.Stroke.color2
-    //ExFor:aw.Drawing.Stroke.imageBytes
+    //ExFor:Stroke.color2
+    //ExFor:Stroke.imageBytes
     //ExSummary:Shows how to process shape stroke features.
     let doc = new aw.Document(base.myDir + "Shape stroke pattern border.docx");
     let shape = doc.getShape(0, true).asShape();
@@ -332,7 +338,8 @@ describe("ExDrawing", () => {
   });
 
 
-  /*//ExStart
+  /*//Commented
+  //ExStart
     //ExFor:DocumentVisitor.VisitShapeEnd(Shape)
     //ExFor:DocumentVisitor.VisitShapeStart(Shape)
     //ExFor:DocumentVisitor.VisitGroupShapeEnd(GroupShape)
@@ -340,6 +347,8 @@ describe("ExDrawing", () => {
     //ExFor:GroupShape
     //ExFor:GroupShape.#ctor(DocumentBase)
     //ExFor:GroupShape.Accept(DocumentVisitor)
+    //ExFor:GroupShape.AcceptStart(DocumentVisitor)
+    //ExFor:GroupShape.AcceptEnd(DocumentVisitor)
     //ExFor:ShapeBase.IsGroup
     //ExFor:ShapeBase.ShapeType
     //ExSummary:Shows how to create a group of shapes, and print its contents using a document visitor.
@@ -349,7 +358,7 @@ describe("ExDrawing", () => {
             
     // If you need to create "NonPrimitive" shapes, such as SingleCornerSnipped, TopCornersSnipped, DiagonalCornersSnipped,
     // TopCornersOneRoundedOneSnipped, SingleCornerRounded, TopCornersRounded, DiagonalCornersRounded
-    // please use aw.DocumentBuilder.insertShape methods.
+    // please use DocumentBuilder.insertShape methods.
     let balloon = new aw.Drawing.Shape(doc, aw.Drawing.ShapeType.Balloon)
     {
       Width = 200,
@@ -439,15 +448,16 @@ describe("ExDrawing", () => {
     expect(shape.shapeType).toEqual(aw.Drawing.ShapeType.Balloon);
     expect(shape.width).toEqual(200.0);
     expect(shape.height).toEqual(200.0);
-    expect(shape.strokeColor.ToArgb()).toEqual("#FF0000".ToArgb());
+    expect(shape.strokeColor).toEqual("#FF0000");
 
     shape = (Shape)shapes.getChildNodes(aw.NodeType.Any, false)[1];
 
     expect(shape.shapeType).toEqual(aw.Drawing.ShapeType.Cube);
     expect(shape.width).toEqual(100.0);
     expect(shape.height).toEqual(100.0);
-    expect(shape.strokeColor.ToArgb()).toEqual("#0000FF".ToArgb());
-  }*/
+     expect(shape.strokeColor).toEqual("#0000FF");
+  }
+//EndCommented*/    
 
   test('TextBox', async () => {
     //ExStart
@@ -483,9 +493,9 @@ describe("ExDrawing", () => {
 
   test.skip('GetDataFromImage - TODO: Aspose.Words.Drawing.ImageData.ToStream() is skipped', async () => {
     //ExStart
-    //ExFor:aw.Drawing.ImageData.imageBytes
-    //ExFor:aw.Drawing.ImageData.toByteArray
-    //ExFor:aw.Drawing.ImageData.toStream
+    //ExFor:ImageData.imageBytes
+    //ExFor:ImageData.toByteArray
+    //ExFor:ImageData.toStream
     //ExSummary:Shows how to create an image file from a shape's raw image data.
     let imgSourceDoc = new aw.Document(base.myDir + "Images.docx");
     expect(imgSourceDoc.getChildNodes(aw.NodeType.Shape, true).count).toEqual(10);
@@ -514,19 +524,19 @@ describe("ExDrawing", () => {
 
   test('ImageData', () => {
     //ExStart
-    //ExFor:aw.Drawing.ImageData.biLevel
-    //ExFor:aw.Drawing.ImageData.borders
-    //ExFor:aw.Drawing.ImageData.brightness
-    //ExFor:aw.Drawing.ImageData.chromaKey
-    //ExFor:aw.Drawing.ImageData.contrast
-    //ExFor:aw.Drawing.ImageData.cropBottom
-    //ExFor:aw.Drawing.ImageData.cropLeft
-    //ExFor:aw.Drawing.ImageData.cropRight
-    //ExFor:aw.Drawing.ImageData.cropTop
-    //ExFor:aw.Drawing.ImageData.grayScale
-    //ExFor:aw.Drawing.ImageData.isLink
-    //ExFor:aw.Drawing.ImageData.isLinkOnly
-    //ExFor:aw.Drawing.ImageData.title
+    //ExFor:ImageData.biLevel
+    //ExFor:ImageData.borders
+    //ExFor:ImageData.brightness
+    //ExFor:ImageData.chromaKey
+    //ExFor:ImageData.contrast
+    //ExFor:ImageData.cropBottom
+    //ExFor:ImageData.cropLeft
+    //ExFor:ImageData.cropRight
+    //ExFor:ImageData.cropTop
+    //ExFor:ImageData.grayScale
+    //ExFor:ImageData.isLink
+    //ExFor:ImageData.isLinkOnly
+    //ExFor:ImageData.title
     //ExSummary:Shows how to edit a shape's image data.
     let imgSourceDoc = new aw.Document(base.myDir + "Images.docx");
     let sourceShape = imgSourceDoc.getChildNodes(aw.NodeType.Shape, true).at(0).asShape();
@@ -610,10 +620,10 @@ describe("ExDrawing", () => {
 
   test('ImageSize', () => {
     //ExStart
-    //ExFor:aw.Drawing.ImageSize.heightPixels
-    //ExFor:aw.Drawing.ImageSize.horizontalResolution
-    //ExFor:aw.Drawing.ImageSize.verticalResolution
-    //ExFor:aw.Drawing.ImageSize.widthPixels
+    //ExFor:ImageSize.heightPixels
+    //ExFor:ImageSize.horizontalResolution
+    //ExFor:ImageSize.verticalResolution
+    //ExFor:ImageSize.widthPixels
     //ExSummary:Shows how to read the properties of an image in a shape.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

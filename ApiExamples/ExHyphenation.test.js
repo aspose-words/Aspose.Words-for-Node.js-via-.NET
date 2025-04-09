@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -20,9 +20,9 @@ describe("ExHyphenation", () => {
 
   test.skip('Dictionary: CultureInfo', () => {
     //ExStart
-    //ExFor:aw.Hyphenation.isDictionaryRegistered(String)
-    //ExFor:aw.Hyphenation.registerDictionary(String, String)
-    //ExFor:aw.Hyphenation.unregisterDictionary(String)
+    //ExFor:Hyphenation.isDictionaryRegistered(String)
+    //ExFor:Hyphenation.registerDictionary(String, String)
+    //ExFor:Hyphenation.unregisterDictionary(String)
     //ExSummary:Shows how to register a hyphenation dictionary.
     // A hyphenation dictionary contains a list of strings that define hyphenation rules for the dictionary's language.
     // When a document contains lines of text in which a word could be split up and continued on the next line,
@@ -54,7 +54,8 @@ describe("ExHyphenation", () => {
   });
 
 
-  /*  //ExStart
+  /*//Commented
+    //ExStart
     //ExFor:Hyphenation
     //ExFor:Hyphenation.Callback
     //ExFor:Hyphenation.RegisterDictionary(String, Stream)
@@ -134,6 +135,7 @@ describe("ExHyphenation", () => {
     private readonly Dictionary<string, string> mHyphenationDictionaryFiles;
   }
     //ExEnd
-#endif*/
+#endif
+//EndCommented*/
 
 });

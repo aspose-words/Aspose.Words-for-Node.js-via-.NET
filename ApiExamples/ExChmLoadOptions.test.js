@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -20,7 +20,9 @@ describe("ExChmLoadOptions", () => {
 
   test('OriginalFileName', () => {
     //ExStart
-    //ExFor:aw.Loading.ChmLoadOptions.originalFileName
+    //ExFor:ChmLoadOptions
+    //ExFor:ChmLoadOptions.#ctor
+    //ExFor:ChmLoadOptions.originalFileName
     //ExSummary:Shows how to resolve URLs like "ms-its:myfile.chm::/index.htm".
     // Our document contains URLs like "ms-its:amhelp.chm::....htm", but it has a different name,
     // so file links don't work after saving it to HTML.

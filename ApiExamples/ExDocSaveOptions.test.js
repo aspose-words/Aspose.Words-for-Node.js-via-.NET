@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -28,9 +28,10 @@ describe("ExDocSaveOptions", () => {
     //ExFor:DocSaveOptions
     //ExFor:DocSaveOptions.#ctor
     //ExFor:DocSaveOptions.#ctor(SaveFormat)
-    //ExFor:aw.Saving.DocSaveOptions.password
-    //ExFor:aw.Saving.DocSaveOptions.saveFormat
-    //ExFor:aw.Saving.DocSaveOptions.saveRoutingSlip
+    //ExFor:DocSaveOptions.password
+    //ExFor:DocSaveOptions.saveFormat
+    //ExFor:DocSaveOptions.saveRoutingSlip
+    //ExFor:IncorrectPasswordException
     //ExSummary:Shows how to set save options for older Microsoft Word formats.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -60,7 +61,7 @@ describe("ExDocSaveOptions", () => {
 
   test('TempFolder', () => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.tempFolder
+    //ExFor:SaveOptions.tempFolder
     //ExSummary:Shows how to use the hard drive instead of memory when saving a document.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -84,7 +85,7 @@ describe("ExDocSaveOptions", () => {
 
   test('PictureBullets', () => {
     //ExStart
-    //ExFor:aw.Saving.DocSaveOptions.savePictureBullet
+    //ExFor:DocSaveOptions.savePictureBullet
     //ExSummary:Shows how to omit PictureBullet data from the document when saving.
     let doc = new aw.Document(base.myDir + "Image bullet points.docx");
     expect(doc.lists.at(0).listLevels.at(0).imageData).not.toBe(null);
@@ -106,10 +107,10 @@ describe("ExDocSaveOptions", () => {
   test.each([true,
     false])('UpdateLastPrintedProperty', (isUpdateLastPrintedProperty) => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.updateLastPrintedProperty
+    //ExFor:SaveOptions.updateLastPrintedProperty
     //ExSummary:Shows how to update a document's "Last printed" property when saving.
     let doc = new aw.Document();
-    doc.builtInDocumentProperties.lastPrinted =new Date(2019, 12, 20);
+    doc.builtInDocumentProperties.lastPrinted = new Date(2019, 12, 20);
 
     // This flag determines whether the last printed date, which is a built-in property, is updated.
     // If so, then the date of the document's most recent save operation
@@ -134,7 +135,7 @@ describe("ExDocSaveOptions", () => {
   test.each([true,
     false])('UpdateCreatedTimeProperty', (isUpdateCreatedTimeProperty) => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.updateLastPrintedProperty
+    //ExFor:SaveOptions.updateCreatedTimeProperty
     //ExSummary:Shows how to update a document's "CreatedTime" property when saving.
     let doc = new aw.Document();
     doc.builtInDocumentProperties.createdTime = new Date(2019, 12, 20);
@@ -160,7 +161,7 @@ describe("ExDocSaveOptions", () => {
   test.each([false,
     true])('AlwaysCompressMetafiles', (compressAllMetafiles) => {
     //ExStart
-    //ExFor:aw.Saving.DocSaveOptions.alwaysCompressMetafiles
+    //ExFor:DocSaveOptions.alwaysCompressMetafiles
     //ExSummary:Shows how to change metafiles compression in a document while saving.
     // Open a document that contains a Microsoft Equation 3.0 formula.
     let doc = new aw.Document(base.myDir + "Microsoft equation object.docx");

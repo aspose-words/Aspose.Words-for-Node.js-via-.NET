@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -71,7 +71,7 @@ describe("ExLoadOptions", () => {
   test.each([true,
     false])('ConvertShapeToOfficeMath', (isConvertShapeToOfficeMath) => {
     //ExStart
-    //ExFor:aw.Loading.LoadOptions.convertShapeToOfficeMath
+    //ExFor:LoadOptions.convertShapeToOfficeMath
     //ExSummary:Shows how to convert EquationXML shapes to Office Math objects.
     let loadOptions = new aw.Loading.LoadOptions();
 
@@ -97,7 +97,7 @@ describe("ExLoadOptions", () => {
 
   test('SetEncoding', () => {
     //ExStart
-    //ExFor:aw.Loading.LoadOptions.encoding
+    //ExFor:LoadOptions.encoding
     //ExSummary:Shows how to set the encoding with which to open a document.
     let loadOptions = new aw.Loading.LoadOptions();
     loadOptions.encoding = "ascii";
@@ -112,7 +112,7 @@ describe("ExLoadOptions", () => {
 
   test('FontSettings', () => {
     //ExStart
-    //ExFor:aw.Loading.LoadOptions.fontSettings
+    //ExFor:LoadOptions.fontSettings
     //ExSummary:Shows how to apply font substitution settings while loading a document. 
     // Create a FontSettings object that will substitute the "Times New Roman" font
     // with the font "Arvo" from our "MyFonts" folder.
@@ -134,7 +134,7 @@ describe("ExLoadOptions", () => {
 
   test('LoadOptionsMswVersion', () => {
     //ExStart
-    //ExFor:aw.Loading.LoadOptions.mswVersion
+    //ExFor:LoadOptions.mswVersion
     //ExSummary:Shows how to emulate the loading procedure of a specific Microsoft Word version during document loading.
     // By default, Aspose.words load documents according to Microsoft Word 2019 specification.
     let loadOptions = new aw.Loading.LoadOptions();
@@ -212,7 +212,7 @@ describe("ExLoadOptions", () => {
 
   test('TempFolder', () => {
     //ExStart
-    //ExFor:aw.Loading.LoadOptions.tempFolder
+    //ExFor:LoadOptions.tempFolder
     //ExSummary:Shows how to use the hard drive instead of memory when loading a document.
     // When we load a document, various elements are temporarily stored in memory as the save operation occurs.
     // We can use this option to use a temporary folder in the local file system instead,
@@ -236,8 +236,8 @@ describe("ExLoadOptions", () => {
   test('AddEditingLanguage', () => {
     //ExStart
     //ExFor:LanguagePreferences
-    //ExFor:aw.Loading.LanguagePreferences.addEditingLanguage(EditingLanguage)
-    //ExFor:aw.Loading.LoadOptions.languagePreferences
+    //ExFor:LanguagePreferences.addEditingLanguage(EditingLanguage)
+    //ExFor:LoadOptions.languagePreferences
     //ExFor:EditingLanguage
     //ExSummary:Shows how to apply language preferences when loading a document.
     let loadOptions = new aw.Loading.LoadOptions();
@@ -261,7 +261,7 @@ describe("ExLoadOptions", () => {
 
   test('SetEditingLanguageAsDefault', () => {
     //ExStart
-    //ExFor:aw.Loading.LanguagePreferences.defaultEditingLanguage
+    //ExFor:LanguagePreferences.defaultEditingLanguage
     //ExSummary:Shows how set a default language when loading a document.
     let loadOptions = new aw.Loading.LoadOptions();
     loadOptions.languagePreferences.defaultEditingLanguage = aw.Loading.EditingLanguage.Russian;
@@ -284,7 +284,7 @@ describe("ExLoadOptions", () => {
 
   test('ConvertMetafilesToPng', () => {
     //ExStart
-    //ExFor:aw.Loading.LoadOptions.convertMetafilesToPng
+    //ExFor:LoadOptions.convertMetafilesToPng
     //ExSummary:Shows how to convert WMF/EMF to PNG during loading document.
     let doc = new aw.Document();
 
@@ -388,7 +388,7 @@ describe("ExLoadOptions", () => {
 
   test('IgnoreOleData', () => {
     //ExStart
-    //ExFor:aw.Loading.LoadOptions.ignoreOleData
+    //ExFor:LoadOptions.ignoreOleData
     //ExSummary:Shows how to ingore OLE data while loading.
     // Ignoring OLE data may reduce memory consumption and increase performance
     // without data lost in a case when destination format does not support OLE objects.

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -25,7 +25,7 @@ describe("ExPlainTextDocument", () => {
     //ExStart
     //ExFor:PlainTextDocument
     //ExFor:PlainTextDocument.#ctor(String)
-    //ExFor:aw.PlainTextDocument.text
+    //ExFor:PlainTextDocument.text
     //ExSummary:Shows how to load the contents of a Microsoft Word document in plaintext.
     let doc = new aw.Document(); 
     let builder = new aw.DocumentBuilder(doc);
@@ -106,7 +106,7 @@ describe("ExPlainTextDocument", () => {
 
   test('BuiltInProperties', () => {
     //ExStart
-    //ExFor:aw.PlainTextDocument.builtInDocumentProperties
+    //ExFor:PlainTextDocument.builtInDocumentProperties
     //ExSummary:Shows how to load the contents of a Microsoft Word document in plaintext and then access the original document's built-in properties.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -126,7 +126,7 @@ describe("ExPlainTextDocument", () => {
 
   test('CustomDocumentProperties', () => {
     //ExStart
-    //ExFor:aw.PlainTextDocument.customDocumentProperties
+    //ExFor:PlainTextDocument.customDocumentProperties
     //ExSummary:Shows how to load the contents of a Microsoft Word document in plaintext and then access the original document's custom properties.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

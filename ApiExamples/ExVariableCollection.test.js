@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -20,16 +20,18 @@ describe("ExVariableCollection", () => {
 
   test('Primer', () => {
     //ExStart
-    //ExFor:aw.Document.variables
+    //ExFor:Document.variables
     //ExFor:VariableCollection
-    //ExFor:aw.VariableCollection.add
-    //ExFor:aw.VariableCollection.clear
-    //ExFor:aw.VariableCollection.contains
-    //ExFor:aw.VariableCollection.count
-    //ExFor:aw.VariableCollection.getEnumerator
-    //ExFor:aw.VariableCollection.indexOfKey
-    //ExFor:aw.VariableCollection.remove
-    //ExFor:aw.VariableCollection.removeAt
+    //ExFor:VariableCollection.add
+    //ExFor:VariableCollection.clear
+    //ExFor:VariableCollection.contains
+    //ExFor:VariableCollection.count
+    //ExFor:VariableCollection.getEnumerator
+    //ExFor:VariableCollection.indexOfKey
+    //ExFor:VariableCollection.remove
+    //ExFor:VariableCollection.removeAt
+    //ExFor:VariableCollection.item(Int32)
+    //ExFor:VariableCollection.item(String)
     //ExSummary:Shows how to work with a document's variable collection.
     let doc = new aw.Document();
     let variables = doc.variables;
@@ -66,6 +68,9 @@ describe("ExVariableCollection", () => {
     expect(variables.indexOfKey("Bedrooms")).toEqual(0);
     expect(variables.indexOfKey("City")).toEqual(1);
     expect(variables.indexOfKey("Home address")).toEqual(2);
+
+    expect(variables.at(0)).toEqual("3");
+    expect(variables.at("City")).toEqual("London");
 
     // Enumerate over the collection of variables.
     for (var i = 0; i < variables.count; i++) {

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,8 +21,8 @@ describe("ExPclSaveOptions", () => {
   test('RasterizeElements', () => {
     //ExStart
     //ExFor:PclSaveOptions
-    //ExFor:aw.Saving.PclSaveOptions.saveFormat
-    //ExFor:aw.Saving.PclSaveOptions.rasterizeTransformedElements
+    //ExFor:PclSaveOptions.saveFormat
+    //ExFor:PclSaveOptions.rasterizeTransformedElements
     //ExSummary:Shows how to rasterize complex elements while saving a document to PCL.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -37,7 +37,7 @@ describe("ExPclSaveOptions", () => {
 
   test('FallbackFontName', () => {
     //ExStart
-    //ExFor:aw.Saving.PclSaveOptions.fallbackFontName
+    //ExFor:PclSaveOptions.fallbackFontName
     //ExSummary:Shows how to declare a font that a printer will apply to printed text as a substitute should its original font be unavailable.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -57,7 +57,7 @@ describe("ExPclSaveOptions", () => {
 
   test('AddPrinterFont', () => {
     //ExStart
-    //ExFor:aw.Saving.PclSaveOptions.addPrinterFont(string, string)
+    //ExFor:PclSaveOptions.addPrinterFont(string, string)
     //ExSummary:Shows how to get a printer to substitute all instances of a specific font with a different font. 
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

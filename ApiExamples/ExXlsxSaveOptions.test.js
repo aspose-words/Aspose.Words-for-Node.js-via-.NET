@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,12 +23,15 @@ describe("ExXlsxSaveOptions", () => {
 
   test('CompressXlsx', () => {
     //ExStart
-    //ExFor:aw.Saving.XlsxSaveOptions.compressionLevel
+    //ExFor:XlsxSaveOptions
+    //ExFor:XlsxSaveOptions.compressionLevel
+    //ExFor:XlsxSaveOptions.saveFormat
     //ExSummary:Shows how to compress XLSX document.
     let doc = new aw.Document(base.myDir + "Shape with linked chart.docx");
 
     let xlsxSaveOptions = new aw.Saving.XlsxSaveOptions();
-    xlsxSaveOptions.compressionLevel = aw.Saving.CompressionLevel.Maximum; 
+    xlsxSaveOptions.compressionLevel = aw.Saving.CompressionLevel.Maximum;
+    xlsxSaveOptions.saveFormat = aw.SaveFormat.Xlsx;
 
     doc.save(base.artifactsDir + "XlsxSaveOptions.CompressXlsx.xlsx", xlsxSaveOptions);
     //ExEnd
@@ -38,7 +41,8 @@ describe("ExXlsxSaveOptions", () => {
   test('SelectionMode', () => {
     //ExStart:SelectionMode
     //GistId:470c0da51e4317baae82ad9495747fed
-    //ExFor:aw.Saving.XlsxSaveOptions.sectionMode
+    //ExFor:XlsxSaveOptions.sectionMode
+    //ExFor:XlsxSectionMode
     //ExSummary:Shows how to save document as a separate worksheets.
     let doc = new aw.Document(base.myDir + "Big document.docx");
 
@@ -55,7 +59,7 @@ describe("ExXlsxSaveOptions", () => {
   test('DateTimeParsingMode', () => {
     //ExStart:DateTimeParsingMode
     //GistId:ac8ba4eb35f3fbb8066b48c999da63b0
-    //ExFor:aw.Saving.XlsxSaveOptions.dateTimeParsingMode
+    //ExFor:XlsxSaveOptions.dateTimeParsingMode
     //ExFor:XlsxDateTimeParsingMode
     //ExSummary:Shows how to specify autodetection of the date time format.
     let doc = new aw.Document(base.myDir + "Xlsx DateTime.docx");

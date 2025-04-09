@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,8 +22,9 @@ describe("ExHtmlLoadOptions", () => {
 
   test.each([true, false])('SupportVml(%o)', (supportVml) => {
     //ExStart
+    //ExFor:HtmlLoadOptions
     //ExFor:HtmlLoadOptions.#ctor
-    //ExFor:aw.Loading.HtmlLoadOptions.supportVml
+    //ExFor:HtmlLoadOptions.supportVml
     //ExSummary:Shows how to support conditional comments while loading an HTML document.
     let loadOptions = new aw.Loading.HtmlLoadOptions();
 
@@ -51,12 +52,13 @@ describe("ExHtmlLoadOptions", () => {
   });
 
 
-    /*//ExStart
+    /*//Commented
+    //ExStart
     //ExFor:HtmlLoadOptions.WebRequestTimeout
     //ExSummary:Shows how to set a time limit for web requests when loading a document with external resources linked by URLs.
     [NonParallelizable]
   test('WebRequestTimeout', () => {
-    // Create a new aw.Loading.HtmlLoadOptions object and verify its timeout threshold for a web request.
+    // Create a new HtmlLoadOptions object and verify its timeout threshold for a web request.
     let options = new aw.Loading.HtmlLoadOptions();
 
     // When loading an Html document with resources externally linked by a web address URL,
@@ -161,14 +163,15 @@ describe("ExHtmlLoadOptions", () => {
     string outputFileName = base.myDir + "HtmlLoadOptions.EncryptedHtml.html";
     aw.DigitalSignatures.DigitalSignatureUtil.sign(inputFileName, outputFileName, certificateHolder, signOptions);
     //ExEnd
-  });*/
+  });
+  //EndCommented*/
 
 
   test('BaseUri', () => {
     //ExStart
     //ExFor:HtmlLoadOptions.#ctor(LoadFormat,String,String)
     //ExFor:LoadOptions.#ctor(LoadFormat, String, String)
-    //ExFor:aw.Loading.LoadOptions.loadFormat
+    //ExFor:LoadOptions.loadFormat
     //ExFor:LoadFormat
     //ExSummary:Shows how to specify a base URI when opening an html document.
     // Suppose we want to load an .html document that contains an image linked by a relative URI
@@ -196,7 +199,8 @@ describe("ExHtmlLoadOptions", () => {
 
   test('GetSelectAsSdt', () => {
     //ExStart
-    //ExFor:aw.Loading.HtmlLoadOptions.preferredControlType
+    //ExFor:HtmlLoadOptions.preferredControlType
+    //ExFor:HtmlControlType
     //ExSummary:Shows how to set preferred type of document nodes that will represent imported <input> and <select> elements.
     const html = String.raw`
       <html>
@@ -248,7 +252,7 @@ describe("ExHtmlLoadOptions", () => {
   test.each([true,
     false])('IgnoreNoscriptElements', (bool ignoreNoscriptElements) => {
     //ExStart
-    //ExFor:aw.Loading.HtmlLoadOptions.ignoreNoscriptElements
+    //ExFor:HtmlLoadOptions.ignoreNoscriptElements
     //ExSummary:Shows how to ignore <noscript> HTML elements.
     const string html = @"
       <html>
@@ -289,7 +293,7 @@ describe("ExHtmlLoadOptions", () => {
   test.each([aw.Loading.BlockImportMode.Preserve,
     aw.Loading.BlockImportMode.Merge])('BlockImport(%o)', (blockImportMode) => {
     //ExStart
-    //ExFor:aw.Loading.HtmlLoadOptions.blockImportMode
+    //ExFor:HtmlLoadOptions.blockImportMode
     //ExFor:BlockImportMode
     //ExSummary:Shows how properties of block-level elements are imported from HTML-based documents.
     const html = String.raw`
@@ -317,7 +321,7 @@ describe("ExHtmlLoadOptions", () => {
   test('FontFaceRules', () => {
     //ExStart:FontFaceRules
     //GistId:5f20ac02cb42c6b08481aa1c5b0cd3db
-    //ExFor:aw.Loading.HtmlLoadOptions.supportFontFaceRules
+    //ExFor:HtmlLoadOptions.supportFontFaceRules
     //ExSummary:Shows how to load declared "@font-face" rules.
     let loadOptions = new aw.Loading.HtmlLoadOptions();
     loadOptions.supportFontFaceRules = true;

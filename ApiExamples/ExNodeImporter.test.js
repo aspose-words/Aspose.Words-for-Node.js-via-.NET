@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -25,7 +25,7 @@ describe("ExNodeImporter", () => {
   test.each([false,
     true])('KeepSourceNumbering', (keepSourceNumbering) => {
     //ExStart
-    //ExFor:aw.ImportFormatOptions.keepSourceNumbering
+    //ExFor:ImportFormatOptions.keepSourceNumbering
     //ExFor:NodeImporter.#ctor(DocumentBase, DocumentBase, ImportFormatMode, ImportFormatOptions)
     //ExSummary:Shows how to resolve list numbering clashes in source and destination documents.
     // Open a document with a custom list numbering scheme, and then clone it.

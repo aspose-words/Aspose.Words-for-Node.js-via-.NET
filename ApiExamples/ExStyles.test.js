@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -24,16 +24,16 @@ describe("ExStyles", () => {
 
   test('Styles', () => {
     //ExStart
-    //ExFor:aw.DocumentBase.styles
-    //ExFor:aw.Style.document
-    //ExFor:aw.Style.name
-    //ExFor:aw.Style.isHeading
-    //ExFor:aw.Style.isQuickStyle
-    //ExFor:aw.Style.nextParagraphStyleName
-    //ExFor:aw.Style.styles
-    //ExFor:aw.Style.type
-    //ExFor:aw.StyleCollection.document
-    //ExFor:aw.StyleCollection.getEnumerator
+    //ExFor:DocumentBase.styles
+    //ExFor:Style.document
+    //ExFor:Style.name
+    //ExFor:Style.isHeading
+    //ExFor:Style.isQuickStyle
+    //ExFor:Style.nextParagraphStyleName
+    //ExFor:Style.styles
+    //ExFor:Style.type
+    //ExFor:StyleCollection.document
+    //ExFor:StyleCollection.getEnumerator
     //ExSummary:Shows how to access a document's style collection.
     let doc = new aw.Document();
 
@@ -55,10 +55,10 @@ describe("ExStyles", () => {
 
   test('CreateStyle', () => {
     //ExStart
-    //ExFor:aw.Style.font
+    //ExFor:Style.font
     //ExFor:Style
-    //ExFor:aw.Style.remove
-    //ExFor:aw.Style.automaticallyUpdate
+    //ExFor:Style.remove
+    //ExFor:Style.automaticallyUpdate
     //ExSummary:Shows how to create and apply a custom style.
     let doc = new aw.Document();
 
@@ -95,12 +95,12 @@ describe("ExStyles", () => {
 
   test('StyleCollection', () => {
     //ExStart
-    //ExFor:aw.StyleCollection.add(StyleType,String)
-    //ExFor:aw.StyleCollection.count
-    //ExFor:aw.StyleCollection.defaultFont
-    //ExFor:aw.StyleCollection.defaultParagraphFormat
-    //ExFor:aw.StyleCollection.item(StyleIdentifier)
-    //ExFor:aw.StyleCollection.item(Int32)
+    //ExFor:StyleCollection.add(StyleType,String)
+    //ExFor:StyleCollection.count
+    //ExFor:StyleCollection.defaultFont
+    //ExFor:StyleCollection.defaultParagraphFormat
+    //ExFor:StyleCollection.item(StyleIdentifier)
+    //ExFor:StyleCollection.item(Int32)
     //ExSummary:Shows how to add a Style to a document's styles collection.
     let doc = new aw.Document();
 
@@ -121,7 +121,7 @@ describe("ExStyles", () => {
 
   test('RemoveStylesFromStyleGallery', () => {
     //ExStart
-    //ExFor:aw.StyleCollection.clearQuickStyleGallery
+    //ExFor:StyleCollection.clearQuickStyleGallery
     //ExSummary:Shows how to remove styles from Style Gallery panel.
     let doc = new aw.Document();
     // Note that remove styles work only with DOCX format for now.
@@ -135,12 +135,12 @@ describe("ExStyles", () => {
   test('ChangeTocsTabStops', () => {
     //ExStart
     //ExFor:TabStop
-    //ExFor:aw.ParagraphFormat.tabStops
-    //ExFor:aw.Style.styleIdentifier
-    //ExFor:aw.TabStopCollection.removeByPosition
-    //ExFor:aw.TabStop.alignment
-    //ExFor:aw.TabStop.position
-    //ExFor:aw.TabStop.leader
+    //ExFor:ParagraphFormat.tabStops
+    //ExFor:Style.styleIdentifier
+    //ExFor:TabStopCollection.removeByPosition
+    //ExFor:TabStop.alignment
+    //ExFor:TabStop.position
+    //ExFor:TabStop.leader
     //ExSummary:Shows how to modify the position of the right tab stop in TOC related paragraphs.
     let doc = new aw.Document(base.myDir + "Table of contents.docx");
 
@@ -180,8 +180,8 @@ describe("ExStyles", () => {
 
   test('CopyStyleSameDocument', () => {
     //ExStart
-    //ExFor:aw.StyleCollection.addCopy(Style)
-    //ExFor:aw.Style.name
+    //ExFor:StyleCollection.addCopy(Style)
+    //ExFor:Style.name
     //ExSummary:Shows how to clone a document's style.
     let doc = new aw.Document();
 
@@ -209,7 +209,7 @@ describe("ExStyles", () => {
 
   test('CopyStyleDifferentDocument', () => {
     //ExStart
-    //ExFor:aw.StyleCollection.addCopy(Style)
+    //ExFor:StyleCollection.addCopy(Style)
     //ExSummary:Shows how to import a style from one document into a different document.
     let srcDoc = new aw.Document();
 
@@ -249,13 +249,13 @@ describe("ExStyles", () => {
   test('ParagraphStyleBulletedList', () => {
     //ExStart
     //ExFor:StyleCollection
-    //ExFor:aw.DocumentBase.styles
+    //ExFor:DocumentBase.styles
     //ExFor:Style
     //ExFor:Font
-    //ExFor:aw.Style.font
-    //ExFor:aw.Style.paragraphFormat
-    //ExFor:aw.Style.listFormat
-    //ExFor:aw.ParagraphFormat.style
+    //ExFor:Style.font
+    //ExFor:Style.paragraphFormat
+    //ExFor:Style.listFormat
+    //ExFor:ParagraphFormat.style
     //ExSummary:Shows how to create and use a paragraph style with list formatting.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -294,10 +294,10 @@ describe("ExStyles", () => {
 
   test('StyleAliases', () => {
     //ExStart
-    //ExFor:aw.Style.aliases
-    //ExFor:aw.Style.baseStyleName
-    //ExFor:aw.Style.equals(Style)
-    //ExFor:aw.Style.linkedStyleName
+    //ExFor:Style.aliases
+    //ExFor:Style.baseStyleName
+    //ExFor:Style.equals(Style)
+    //ExFor:Style.linkedStyleName
     //ExSummary:Shows how to use style aliases.
     let doc = new aw.Document(base.myDir + "Style with alias.docx");
 
@@ -348,7 +348,7 @@ describe("ExStyles", () => {
   test('LockStyle', () => {
     //ExStart:LockStyle
     //GistId:3428e84add5beb0d46a8face6e5fc858
-    //ExFor:aw.Style.locked
+    //ExFor:Style.locked
     //ExSummary:Shows how to lock style.
     let doc = new aw.Document();
 
@@ -367,9 +367,9 @@ describe("ExStyles", () => {
   test('StylePriority', () => {
     //ExStart:StylePriority
     //GistId:a775441ecb396eea917a2717cb9e8f8f
-    //ExFor:aw.Style.priority
-    //ExFor:aw.Style.unhideWhenUsed
-    //ExFor:aw.Style.semiHidden
+    //ExFor:Style.priority
+    //ExFor:Style.unhideWhenUsed
+    //ExFor:Style.semiHidden
     //ExSummary:Shows how to prioritize and hide a style.
     let doc = new aw.Document();
     let styleTitle = doc.styles.at(aw.StyleIdentifier.Subtitle);
@@ -391,7 +391,7 @@ describe("ExStyles", () => {
   test('LinkedStyleName', () => {
     //ExStart:LinkedStyleName
     //GistId:5f20ac02cb42c6b08481aa1c5b0cd3db
-    //ExFor:aw.Style.linkedStyleName
+    //ExFor:Style.linkedStyleName
     //ExSummary:Shows how to link styles among themselves.
     let doc = new aw.Document();
 
