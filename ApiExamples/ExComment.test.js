@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -9,6 +9,7 @@ const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
 var moment = require('moment');
+
 
 
 describe("ExComment", () => {
@@ -23,8 +24,8 @@ describe("ExComment", () => {
   test('AddCommentWithReply', () => {
     //ExStart
     //ExFor:Comment
-    //ExFor:aw.Comment.setText(String)
-    //ExFor:aw.Comment.addReply(String, String, DateTime, String)
+    //ExFor:Comment.setText(String)
+    //ExFor:Comment.addReply(String, String, DateTime, String)
     //ExSummary:Shows how to add a comment to a document, and then reply to it.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -65,10 +66,11 @@ describe("ExComment", () => {
 
   test('PrintAllComments', () => {
     //ExStart
-    //ExFor:aw.Comment.ancestor
-    //ExFor:aw.Comment.author
-    //ExFor:aw.Comment.replies
-    //ExFor:aw.CompositeNode.getChildNodes(NodeType, Boolean)
+    //ExFor:Comment.ancestor
+    //ExFor:Comment.author
+    //ExFor:Comment.replies
+    //ExFor:CompositeNode.getEnumerator
+    //ExFor:CompositeNode.getChildNodes(NodeType, Boolean)
     //ExSummary:Shows how to print all of a document's comments and their replies.
     let doc = new aw.Document(base.myDir + "Comments.docx");
 
@@ -95,9 +97,9 @@ describe("ExComment", () => {
 
   test('RemoveCommentReplies', () => {
     //ExStart
-    //ExFor:aw.Comment.removeAllReplies
-    //ExFor:aw.Comment.removeReply(Comment)
-    //ExFor:aw.CommentCollection.item(Int32)
+    //ExFor:Comment.removeAllReplies
+    //ExFor:Comment.removeReply(Comment)
+    //ExFor:CommentCollection.item(Int32)
     //ExSummary:Shows how to remove comment replies.
     let doc = new aw.Document();
 
@@ -127,7 +129,7 @@ describe("ExComment", () => {
 
   test('Done', () => {
     //ExStart
-    //ExFor:aw.Comment.done
+    //ExFor:Comment.done
     //ExFor:CommentCollection
     //ExSummary:Shows how to mark a comment as "done".
     let doc = new aw.Document();
@@ -164,11 +166,14 @@ describe("ExComment", () => {
     expect(doc.firstSection.body.firstParagraph.runs.at(0).text).toEqual("Hello world!");
   });
 
-/* TODO DocumentVisitor not supported
+
+/* TODO DocumentVisitor not supported  
   //ExStart
   //ExFor:Comment.Done
   //ExFor:Comment.#ctor(DocumentBase)
   //ExFor:Comment.Accept(DocumentVisitor)
+  //ExFor:Comment.AcceptStart(DocumentVisitor)
+  //ExFor:Comment.AcceptEnd(DocumentVisitor)
   //ExFor:Comment.DateTime
   //ExFor:Comment.Id
   //ExFor:Comment.Initial
@@ -214,7 +219,7 @@ describe("ExComment", () => {
     let commentVisitor = new CommentInfoPrinter();
 
       // Iterate over all top-level comments. Unlike reply-type comments, top-level comments have no ancestor.
-    foreach (Comment comment in comments.Where(c => ((Comment)c).Ancestor == null))
+    foreach (Comment comment in comments.Where(c => ((Comment)c).Ancestor == null).ToList())
     {
         // First, visit the start of the comment range.
       let commentRangeStart = (CommentRangeStart)comment.previousSibling.previousSibling.previousSibling;
@@ -222,6 +227,10 @@ describe("ExComment", () => {
 
         // Then, visit the comment, and any replies that it may have.
       comment.accept(commentVisitor);
+        // Visit only start of the comment.
+      comment.acceptStart(commentVisitor);
+        // Visit only end of the comment.
+      comment.acceptEnd(commentVisitor);
 
       for (let reply of comment.replies)
         reply.accept(commentVisitor);
@@ -338,7 +347,7 @@ describe("ExComment", () => {
   test('UtcDateTime', () => {
     //ExStart:UtcDateTime
     //GistId:65919861586e42e24f61a3ccb65f8f4e
-    //ExFor:aw.Comment.dateTimeUtc
+    //ExFor:Comment.dateTimeUtc
     //ExSummary:Shows how to get UTC date and time.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

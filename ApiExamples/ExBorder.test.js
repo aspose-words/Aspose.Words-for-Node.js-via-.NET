@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -7,6 +7,7 @@
 
 const base = require('./ApiExampleBase').ApiExampleBase;
 const aw = require('@aspose/words');
+
 
 describe("ExBorder", () => {
   beforeAll(() => {
@@ -24,14 +25,14 @@ describe("ExBorder", () => {
   test('FontBorder', () => {
     //ExStart
     //ExFor:Border
-    //ExFor:aw.Border.color
-    //ExFor:aw.Border.lineWidth
-    //ExFor:aw.Border.lineStyle
-    //ExFor:aw.Font.border
+    //ExFor:Border.color
+    //ExFor:Border.lineWidth
+    //ExFor:Border.lineStyle
+    //ExFor:Font.border
     //ExFor:LineStyle
     //ExFor:Font
-    //ExFor:aw.DocumentBuilder.font
-    //ExFor:aw.DocumentBuilder.write(String)
+    //ExFor:DocumentBuilder.font
+    //ExFor:DocumentBuilder.write(String)
     //ExSummary:Shows how to insert a string surrounded by a border into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -56,11 +57,11 @@ describe("ExBorder", () => {
   test('ParagraphTopBorder', () => {
     //ExStart
     //ExFor:BorderCollection
-    //ExFor:aw.Border.themeColor
-    //ExFor:aw.Border.tintAndShade
+    //ExFor:Border.themeColor
+    //ExFor:Border.tintAndShade
     //ExFor:Border
     //ExFor:BorderType
-    //ExFor:aw.ParagraphFormat.borders
+    //ExFor:ParagraphFormat.borders
     //ExSummary:Shows how to insert a paragraph with a top border.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -88,8 +89,8 @@ describe("ExBorder", () => {
 
   test('ClearFormatting', () => {
     //ExStart
-    //ExFor:aw.Border.clearFormatting
-    //ExFor:aw.Border.isVisible
+    //ExFor:Border.clearFormatting
+    //ExFor:Border.isVisible
     //ExSummary:Shows how to remove borders from a paragraph.
     let doc = new aw.Document(base.myDir + "Borders.docx");
 
@@ -128,12 +129,12 @@ describe("ExBorder", () => {
 
   test('SharedElements', () => {
     //ExStart
-    //ExFor:aw.Border.equals(Object)
-    //ExFor:aw.Border.equals(Border)
-    //ExFor:aw.Border.getHashCode
-    //ExFor:aw.BorderCollection.count
-    //ExFor:aw.BorderCollection.equals(BorderCollection)
-    //ExFor:aw.BorderCollection.item(Int32)
+    //ExFor:Border.equals(Object)
+    //ExFor:Border.equals(Border)
+    //ExFor:Border.getHashCode
+    //ExFor:BorderCollection.count
+    //ExFor:BorderCollection.equals(BorderCollection)
+    //ExFor:BorderCollection.item(Int32)
     //ExSummary:Shows how border collections can share elements.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -181,7 +182,7 @@ describe("ExBorder", () => {
 
   test('HorizontalBorders', () => {
     //ExStart
-    //ExFor:aw.BorderCollection.horizontal
+    //ExFor:BorderCollection.horizontal
     //ExSummary:Shows how to apply settings to horizontal borders to a paragraph's format.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -212,9 +213,9 @@ describe("ExBorder", () => {
 
   test('VerticalBorders', () => {
     //ExStart
-    //ExFor:aw.BorderCollection.horizontal
-    //ExFor:aw.BorderCollection.vertical
-    //ExFor:aw.Tables.Cell.lastParagraph
+    //ExFor:BorderCollection.horizontal
+    //ExFor:BorderCollection.vertical
+    //ExFor:Cell.lastParagraph
     //ExSummary:Shows how to apply settings to vertical borders to a table row's format.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

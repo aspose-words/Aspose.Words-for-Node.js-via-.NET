@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -37,7 +37,7 @@ describe("ExFile", () => {
 
   test('DetectEncoding', () => {
     //ExStart
-    //ExFor:aw.FileFormatInfo.encoding
+    //ExFor:FileFormatInfo.encoding
     //ExFor:FileFormatUtil
     //ExSummary:Shows how to detect encoding in an html file.
     let info = aw.FileFormatUtil.detectFileFormat(base.myDir + "Document.html");
@@ -57,8 +57,8 @@ describe("ExFile", () => {
 
   test('FileFormatToString', () => {
     //ExStart
-    //ExFor:aw.FileFormatUtil.contentTypeToLoadFormat(String)
-    //ExFor:aw.FileFormatUtil.contentTypeToSaveFormat(String)
+    //ExFor:FileFormatUtil.contentTypeToLoadFormat(String)
+    //ExFor:FileFormatUtil.contentTypeToSaveFormat(String)
     //ExSummary:Shows how to find the corresponding Aspose load/save format from each media type string.
     // The ContentTypeToSaveFormat/ContentTypeToLoadFormat methods only accept official IANA media type names, also known as MIME types. 
     // All valid media types are listed here: https://www.iana.org/assignments/media-types/media-types.xhtml.
@@ -106,10 +106,10 @@ describe("ExFile", () => {
 
   test('DetectDocumentEncryption', () => {
     //ExStart
-    //ExFor:aw.FileFormatUtil.detectFileFormat(String)
+    //ExFor:FileFormatUtil.detectFileFormat(String)
     //ExFor:FileFormatInfo
-    //ExFor:aw.FileFormatInfo.loadFormat
-    //ExFor:aw.FileFormatInfo.isEncrypted
+    //ExFor:FileFormatInfo.loadFormat
+    //ExFor:FileFormatInfo.isEncrypted
     //ExSummary:Shows how to use the FileFormatUtil class to detect the document format and encryption.
     let doc = new aw.Document();
 
@@ -132,10 +132,10 @@ describe("ExFile", () => {
     [AotTests.IgnoreAot("CertificateHolder.Create and DigitalSignatureUtil.Sign are not used in AW.NET directly.")]
   test('AddDigitalSignature', () => {
     //ExStart
-    //ExFor:aw.FileFormatUtil.detectFileFormat(String)
+    //ExFor:FileFormatUtil.detectFileFormat(String)
     //ExFor:FileFormatInfo
-    //ExFor:aw.FileFormatInfo.loadFormat
-    //ExFor:aw.FileFormatInfo.hasDigitalSignature
+    //ExFor:FileFormatInfo.loadFormat
+    //ExFor:FileFormatInfo.hasDigitalSignature
     //ExSummary:Shows how to add a digital signature to a document.
     string signedFile = base.myDir + "File.DetectDigitalSignatures.docx";
     if (fs.existsSync(signedFile))
@@ -156,10 +156,10 @@ describe("ExFile", () => {
 
   test('DetectDigitalSignatures', () => {
     //ExStart
-    //ExFor:aw.FileFormatUtil.detectFileFormat(String)
+    //ExFor:FileFormatUtil.detectFileFormat(String)
     //ExFor:FileFormatInfo
-    //ExFor:aw.FileFormatInfo.loadFormat
-    //ExFor:aw.FileFormatInfo.hasDigitalSignature
+    //ExFor:FileFormatInfo.loadFormat
+    //ExFor:FileFormatInfo.hasDigitalSignature
     //ExSummary:Shows how to use the FileFormatUtil class to detect the document format and presence of digital signatures.
     // Use a FileFormatInfo instance to verify that a document is not digitally signed.
     let info = aw.FileFormatUtil.detectFileFormat(base.myDir + "Document.docx");
@@ -186,13 +186,13 @@ describe("ExFile", () => {
 
   test('SaveToDetectedFileFormat', () => {
     //ExStart
-    //ExFor:aw.FileFormatUtil.detectFileFormat(Stream)
-    //ExFor:aw.FileFormatUtil.loadFormatToExtension(LoadFormat)
-    //ExFor:aw.FileFormatUtil.extensionToSaveFormat(String)
-    //ExFor:aw.FileFormatUtil.saveFormatToExtension(SaveFormat)
-    //ExFor:aw.FileFormatUtil.loadFormatToSaveFormat(LoadFormat)
-    //ExFor:aw.Document.originalFileName
-    //ExFor:aw.FileFormatInfo.loadFormat
+    //ExFor:FileFormatUtil.detectFileFormat(Stream)
+    //ExFor:FileFormatUtil.loadFormatToExtension(LoadFormat)
+    //ExFor:FileFormatUtil.extensionToSaveFormat(String)
+    //ExFor:FileFormatUtil.saveFormatToExtension(SaveFormat)
+    //ExFor:FileFormatUtil.loadFormatToSaveFormat(LoadFormat)
+    //ExFor:Document.originalFileName
+    //ExFor:FileFormatInfo.loadFormat
     //ExFor:LoadFormat
     //ExSummary:Shows how to use the FileFormatUtil methods to detect the format of a document.
     // Load a document from a file that is missing a file extension, and then detect its file format.
@@ -216,7 +216,7 @@ describe("ExFile", () => {
 
   test('DetectFileFormat_SaveFormatToLoadFormat', () => {
     //ExStart
-    //ExFor:aw.FileFormatUtil.saveFormatToLoadFormat(SaveFormat)
+    //ExFor:FileFormatUtil.saveFormatToLoadFormat(SaveFormat)
     //ExSummary:Shows how to convert a save format to its corresponding load format.
     expect(aw.FileFormatUtil.saveFormatToLoadFormat(aw.SaveFormat.Html)).toEqual(aw.LoadFormat.Html);
 
@@ -230,13 +230,13 @@ describe("ExFile", () => {
   test('ExtractImages', () => {
     //ExStart
     //ExFor:Shape
-    //ExFor:aw.Drawing.Shape.imageData
-    //ExFor:aw.Drawing.Shape.hasImage
+    //ExFor:Shape.imageData
+    //ExFor:Shape.hasImage
     //ExFor:ImageData
-    //ExFor:aw.FileFormatUtil.imageTypeToExtension(ImageType)
-    //ExFor:aw.Drawing.ImageData.imageType
-    //ExFor:aw.Drawing.ImageData.save(String)
-    //ExFor:aw.CompositeNode.getChildNodes(NodeType, bool)
+    //ExFor:FileFormatUtil.imageTypeToExtension(ImageType)
+    //ExFor:ImageData.imageType
+    //ExFor:ImageData.save(String)
+    //ExFor:CompositeNode.getChildNodes(NodeType, bool)
     //ExSummary:Shows how to extract images from a document, and save them to the local file system as individual files.
     let doc = new aw.Document(base.myDir + "Images.docx");
 

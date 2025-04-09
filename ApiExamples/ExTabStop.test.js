@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,8 +22,8 @@ describe("ExTabStop", () => {
 
   test('AddTabStops', () => {
     //ExStart
-    //ExFor:aw.TabStopCollection.add(TabStop)
-    //ExFor:aw.TabStopCollection.add(Double, TabAlignment, TabLeader)
+    //ExFor:TabStopCollection.add(TabStop)
+    //ExFor:TabStopCollection.add(Double, TabAlignment, TabLeader)
     //ExSummary:Shows how to add custom tab stops to a document.
     let doc = new aw.Document();
     let paragraph = doc.getParagraph(0, true);
@@ -65,18 +65,18 @@ describe("ExTabStop", () => {
     //ExStart            
     //ExFor:TabStop.#ctor(Double)
     //ExFor:TabStop.#ctor(Double,TabAlignment,TabLeader)
-    //ExFor:aw.TabStop.equals(TabStop)
-    //ExFor:aw.TabStop.isClear
+    //ExFor:TabStop.equals(TabStop)
+    //ExFor:TabStop.isClear
     //ExFor:TabStopCollection
-    //ExFor:aw.TabStopCollection.after(Double)
-    //ExFor:aw.TabStopCollection.before(Double)
-    //ExFor:aw.TabStopCollection.clear
-    //ExFor:aw.TabStopCollection.count
-    //ExFor:aw.TabStopCollection.equals(TabStopCollection)
-    //ExFor:aw.TabStopCollection.equals(Object)
-    //ExFor:aw.TabStopCollection.getHashCode
-    //ExFor:aw.TabStopCollection.item(Double)
-    //ExFor:aw.TabStopCollection.item(Int32)
+    //ExFor:TabStopCollection.after(Double)
+    //ExFor:TabStopCollection.before(Double)
+    //ExFor:TabStopCollection.clear
+    //ExFor:TabStopCollection.count
+    //ExFor:TabStopCollection.equals(TabStopCollection)
+    //ExFor:TabStopCollection.equals(Object)
+    //ExFor:TabStopCollection.getHashCode
+    //ExFor:TabStopCollection.item(Double)
+    //ExFor:TabStopCollection.item(Int32)
     //ExSummary:Shows how to work with a document's collection of tab stops.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -128,7 +128,7 @@ describe("ExTabStop", () => {
 
   test('RemoveByIndex', () => {
     //ExStart
-    //ExFor:aw.TabStopCollection.removeByIndex
+    //ExFor:TabStopCollection.removeByIndex
     //ExSummary:Shows how to select a tab stop in a document by its index and remove it.
     let doc = new aw.Document();
     let tabStops = doc.firstSection.body.paragraphs.at(0).paragraphFormat.tabStops;
@@ -154,7 +154,7 @@ describe("ExTabStop", () => {
 
   test('GetPositionByIndex', () => {
     //ExStart
-    //ExFor:aw.TabStopCollection.getPositionByIndex
+    //ExFor:TabStopCollection.getPositionByIndex
     //ExSummary:Shows how to find a tab, stop by its index and verify its position.
     let doc = new aw.Document();
     let tabStops = doc.firstSection.body.paragraphs.at(0).paragraphFormat.tabStops;
@@ -170,7 +170,7 @@ describe("ExTabStop", () => {
 
   test('GetIndexByPosition', () => {
     //ExStart
-    //ExFor:aw.TabStopCollection.getIndexByPosition
+    //ExFor:TabStopCollection.getIndexByPosition
     //ExSummary:Shows how to look up a position to see if a tab stop exists there and obtain its index.
     let doc = new aw.Document();
     let tabStops = doc.firstSection.body.paragraphs.at(0).paragraphFormat.tabStops;

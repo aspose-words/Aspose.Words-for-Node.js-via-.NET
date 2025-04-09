@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,28 +21,28 @@ describe("ExThemes", () => {
 
   test('CustomColorsAndFonts', () => {
     //ExStart
-    //ExFor:aw.Document.theme
+    //ExFor:Document.theme
     //ExFor:Theme
-    //ExFor:aw.Themes.Theme.colors
-    //ExFor:aw.Themes.Theme.majorFonts
-    //ExFor:aw.Themes.Theme.minorFonts
+    //ExFor:Theme.colors
+    //ExFor:Theme.majorFonts
+    //ExFor:Theme.minorFonts
     //ExFor:ThemeColors
-    //ExFor:aw.Themes.ThemeColors.accent1
-    //ExFor:aw.Themes.ThemeColors.accent2
-    //ExFor:aw.Themes.ThemeColors.accent3
-    //ExFor:aw.Themes.ThemeColors.accent4
-    //ExFor:aw.Themes.ThemeColors.accent5
-    //ExFor:aw.Themes.ThemeColors.accent6
-    //ExFor:aw.Themes.ThemeColors.dark1
-    //ExFor:aw.Themes.ThemeColors.dark2
-    //ExFor:aw.Themes.ThemeColors.followedHyperlink
-    //ExFor:aw.Themes.ThemeColors.hyperlink
-    //ExFor:aw.Themes.ThemeColors.light1
-    //ExFor:aw.Themes.ThemeColors.light2
+    //ExFor:ThemeColors.accent1
+    //ExFor:ThemeColors.accent2
+    //ExFor:ThemeColors.accent3
+    //ExFor:ThemeColors.accent4
+    //ExFor:ThemeColors.accent5
+    //ExFor:ThemeColors.accent6
+    //ExFor:ThemeColors.dark1
+    //ExFor:ThemeColors.dark2
+    //ExFor:ThemeColors.followedHyperlink
+    //ExFor:ThemeColors.hyperlink
+    //ExFor:ThemeColors.light1
+    //ExFor:ThemeColors.light2
     //ExFor:ThemeFonts
-    //ExFor:aw.Themes.ThemeFonts.complexScript
-    //ExFor:aw.Themes.ThemeFonts.eastAsian
-    //ExFor:aw.Themes.ThemeFonts.latin
+    //ExFor:ThemeFonts.complexScript
+    //ExFor:ThemeFonts.eastAsian
+    //ExFor:ThemeFonts.latin
     //ExSummary:Shows how to set custom colors and fonts for themes.
     let doc = new aw.Document(base.myDir + "Theme colors.docx");
 

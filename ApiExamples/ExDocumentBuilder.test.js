@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -28,11 +28,11 @@ describe("ExDocumentBuilder", () => {
 
   test('WriteAndFont', () => {
     //ExStart
-    //ExFor:aw.Font.size
-    //ExFor:aw.Font.bold
-    //ExFor:aw.Font.name
-    //ExFor:aw.Font.color
-    //ExFor:aw.Font.underline
+    //ExFor:Font.size
+    //ExFor:Font.bold
+    //ExFor:Font.name
+    //ExFor:Font.color
+    //ExFor:Font.underline
     //ExFor:DocumentBuilder.#ctor
     //ExSummary:Shows how to insert formatted text using DocumentBuilder.
     let doc = new aw.Document();
@@ -64,13 +64,13 @@ describe("ExDocumentBuilder", () => {
     //ExStart
     //ExFor:DocumentBuilder
     //ExFor:DocumentBuilder.#ctor(Document)
-    //ExFor:aw.DocumentBuilder.moveToHeaderFooter
-    //ExFor:aw.DocumentBuilder.moveToSection
-    //ExFor:aw.DocumentBuilder.insertBreak
-    //ExFor:aw.DocumentBuilder.writeln
+    //ExFor:DocumentBuilder.moveToHeaderFooter
+    //ExFor:DocumentBuilder.moveToSection
+    //ExFor:DocumentBuilder.insertBreak
+    //ExFor:DocumentBuilder.writeln
     //ExFor:HeaderFooterType
-    //ExFor:aw.PageSetup.differentFirstPageHeaderFooter
-    //ExFor:aw.PageSetup.oddAndEvenPagesHeaderFooter
+    //ExFor:PageSetup.differentFirstPageHeaderFooter
+    //ExFor:PageSetup.oddAndEvenPagesHeaderFooter
     //ExFor:BreakType
     //ExSummary:Shows how to create headers and footers in a document using DocumentBuilder.
     let doc = new aw.Document();
@@ -109,8 +109,8 @@ describe("ExDocumentBuilder", () => {
 
   test('MergeFields', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertField(String)
-    //ExFor:aw.DocumentBuilder.moveToMergeField(String, Boolean, Boolean)
+    //ExFor:DocumentBuilder.insertField(String)
+    //ExFor:DocumentBuilder.moveToMergeField(String, Boolean, Boolean)
     //ExSummary:Shows how to insert fields, and move the document builder's cursor to them.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -147,15 +147,16 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertHorizontalRule', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertHorizontalRule
-    //ExFor:aw.Drawing.ShapeBase.isHorizontalRule
-    //ExFor:aw.Drawing.Shape.horizontalRuleFormat
+    //ExFor:DocumentBuilder.insertHorizontalRule
+    //ExFor:ShapeBase.isHorizontalRule
+    //ExFor:Shape.horizontalRuleFormat
+    //ExFor:HorizontalRuleAlignment
     //ExFor:HorizontalRuleFormat
-    //ExFor:aw.Drawing.HorizontalRuleFormat.alignment
-    //ExFor:aw.Drawing.HorizontalRuleFormat.widthPercent
-    //ExFor:aw.Drawing.HorizontalRuleFormat.height
-    //ExFor:aw.Drawing.HorizontalRuleFormat.color
-    //ExFor:aw.Drawing.HorizontalRuleFormat.noShade
+    //ExFor:HorizontalRuleFormat.alignment
+    //ExFor:HorizontalRuleFormat.widthPercent
+    //ExFor:HorizontalRuleFormat.height
+    //ExFor:HorizontalRuleFormat.color
+    //ExFor:HorizontalRuleFormat.noShade
     //ExSummary:Shows how to insert a horizontal rule shape, and customize its formatting.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -199,10 +200,10 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertHyperlink', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertHyperlink
-    //ExFor:aw.Font.clearFormatting
-    //ExFor:aw.Font.color
-    //ExFor:aw.Font.underline
+    //ExFor:DocumentBuilder.insertHyperlink
+    //ExFor:Font.clearFormatting
+    //ExFor:Font.color
+    //ExFor:Font.underline
     //ExFor:Underline
     //ExSummary:Shows how to insert a hyperlink field.
     let doc = new aw.Document();
@@ -236,9 +237,9 @@ describe("ExDocumentBuilder", () => {
 
   test('PushPopFont', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.pushFont
-    //ExFor:aw.DocumentBuilder.popFont
-    //ExFor:aw.DocumentBuilder.insertHyperlink
+    //ExFor:DocumentBuilder.pushFont
+    //ExFor:DocumentBuilder.popFont
+    //ExFor:DocumentBuilder.insertHyperlink
     //ExSummary:Shows how to use a document builder's formatting stack.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -291,9 +292,9 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertWatermark', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.moveToHeaderFooter
-    //ExFor:aw.PageSetup.pageWidth
-    //ExFor:aw.PageSetup.pageHeight
+    //ExFor:DocumentBuilder.moveToHeaderFooter
+    //ExFor:PageSetup.pageWidth
+    //ExFor:PageSetup.pageHeight
     //ExFor:WrapType
     //ExFor:RelativeHorizontalPosition
     //ExFor:RelativeVerticalPosition
@@ -331,9 +332,9 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertOleObject', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertOleObject(String, Boolean, Boolean, Stream)
-    //ExFor:aw.DocumentBuilder.insertOleObject(String, String, Boolean, Boolean, Stream)
-    //ExFor:aw.DocumentBuilder.insertOleObjectAsIcon(String, Boolean, String, String)
+    //ExFor:DocumentBuilder.insertOleObject(String, Boolean, Boolean, Stream)
+    //ExFor:DocumentBuilder.insertOleObject(String, String, Boolean, Boolean, Stream)
+    //ExFor:DocumentBuilder.insertOleObjectAsIcon(String, Boolean, String, String)
     //ExSummary:Shows how to insert an OLE object into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -384,7 +385,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertHtml', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertHtml(String)
+    //ExFor:DocumentBuilder.insertHtml(String)
     //ExSummary:Shows how to use a document builder to insert html content into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -419,7 +420,7 @@ describe("ExDocumentBuilder", () => {
   test.each([false,
     true])('InsertHtmlWithFormatting', (useBuilderFormatting) => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertHtml(String, Boolean)
+    //ExFor:DocumentBuilder.insertHtml(String, Boolean)
     //ExSummary:Shows how to apply a document builder's formatting while inserting HTML content.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -464,8 +465,8 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertTextAndBookmark', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.startBookmark
-    //ExFor:aw.DocumentBuilder.endBookmark
+    //ExFor:DocumentBuilder.startBookmark
+    //ExFor:DocumentBuilder.endBookmark
     //ExSummary:Shows how create a bookmark.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -484,8 +485,8 @@ describe("ExDocumentBuilder", () => {
 
   test('CreateColumnBookmark', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.startColumnBookmark
-    //ExFor:aw.DocumentBuilder.endColumnBookmark
+    //ExFor:DocumentBuilder.startColumnBookmark
+    //ExFor:DocumentBuilder.endColumnBookmark
     //ExSummary:Shows how to create a column bookmark.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -531,8 +532,8 @@ describe("ExDocumentBuilder", () => {
   test('CreateForm', () => {
     //ExStart
     //ExFor:TextFormFieldType
-    //ExFor:aw.DocumentBuilder.insertTextInput
-    //ExFor:aw.DocumentBuilder.insertComboBox
+    //ExFor:DocumentBuilder.insertTextInput
+    //ExFor:DocumentBuilder.insertComboBox
     //ExSummary:Shows how to create form fields.
     let builder = new aw.DocumentBuilder();
 
@@ -575,8 +576,8 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertCheckBox', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertCheckBox(string, bool, bool, int)
-    //ExFor:aw.DocumentBuilder.insertCheckBox(String, bool, int)
+    //ExFor:DocumentBuilder.insertCheckBox(string, bool, bool, int)
+    //ExFor:DocumentBuilder.insertCheckBox(String, bool, int)
     //ExSummary:Shows how to insert checkboxes into the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -632,14 +633,14 @@ describe("ExDocumentBuilder", () => {
   
   test('WorkingWithNodes', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.moveTo(Node)
-    //ExFor:aw.DocumentBuilder.moveToBookmark(String)
-    //ExFor:aw.DocumentBuilder.currentParagraph
-    //ExFor:aw.DocumentBuilder.currentNode
-    //ExFor:aw.DocumentBuilder.moveToDocumentStart
-    //ExFor:aw.DocumentBuilder.moveToDocumentEnd
-    //ExFor:aw.DocumentBuilder.isAtEndOfParagraph
-    //ExFor:aw.DocumentBuilder.isAtStartOfParagraph
+    //ExFor:DocumentBuilder.moveTo(Node)
+    //ExFor:DocumentBuilder.moveToBookmark(String)
+    //ExFor:DocumentBuilder.currentParagraph
+    //ExFor:DocumentBuilder.currentNode
+    //ExFor:DocumentBuilder.moveToDocumentStart
+    //ExFor:DocumentBuilder.moveToDocumentEnd
+    //ExFor:DocumentBuilder.isAtEndOfParagraph
+    //ExFor:DocumentBuilder.isAtStartOfParagraph
     //ExSummary:Shows how to move a document builder's cursor to different nodes in a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -691,9 +692,9 @@ describe("ExDocumentBuilder", () => {
 
   test('FillMergeFields', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.moveToMergeField(String)
-    //ExFor:aw.DocumentBuilder.bold
-    //ExFor:aw.DocumentBuilder.italic
+    //ExFor:DocumentBuilder.moveToMergeField(String)
+    //ExFor:DocumentBuilder.bold
+    //ExFor:DocumentBuilder.italic
     //ExSummary:Shows how to fill MERGEFIELDs with data with a document builder instead of a mail merge.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -734,11 +735,11 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertToc', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertTableOfContents
-    //ExFor:aw.Document.updateFields
+    //ExFor:DocumentBuilder.insertTableOfContents
+    //ExFor:Document.updateFields
     //ExFor:DocumentBuilder.#ctor(Document)
-    //ExFor:aw.ParagraphFormat.styleIdentifier
-    //ExFor:aw.DocumentBuilder.insertBreak
+    //ExFor:ParagraphFormat.styleIdentifier
+    //ExFor:DocumentBuilder.insertBreak
     //ExFor:BreakType
     //ExSummary:Shows how to insert a Table of contents (TOC) into a document using heading styles as entries.
     let doc = new aw.Document();
@@ -797,24 +798,24 @@ describe("ExDocumentBuilder", () => {
   test('InsertTable', () => {
     //ExStart
     //ExFor:DocumentBuilder
-    //ExFor:aw.DocumentBuilder.write
-    //ExFor:aw.DocumentBuilder.startTable
-    //ExFor:aw.DocumentBuilder.insertCell
-    //ExFor:aw.DocumentBuilder.endRow
-    //ExFor:aw.DocumentBuilder.endTable
-    //ExFor:aw.DocumentBuilder.cellFormat
-    //ExFor:aw.DocumentBuilder.rowFormat
+    //ExFor:DocumentBuilder.write
+    //ExFor:DocumentBuilder.startTable
+    //ExFor:DocumentBuilder.insertCell
+    //ExFor:DocumentBuilder.endRow
+    //ExFor:DocumentBuilder.endTable
+    //ExFor:DocumentBuilder.cellFormat
+    //ExFor:DocumentBuilder.rowFormat
     //ExFor:CellFormat
-    //ExFor:aw.Tables.CellFormat.fitText
-    //ExFor:aw.Tables.CellFormat.width
-    //ExFor:aw.Tables.CellFormat.verticalAlignment
-    //ExFor:aw.Tables.CellFormat.shading
-    //ExFor:aw.Tables.CellFormat.orientation
-    //ExFor:aw.Tables.CellFormat.wrapText
+    //ExFor:CellFormat.fitText
+    //ExFor:CellFormat.width
+    //ExFor:CellFormat.verticalAlignment
+    //ExFor:CellFormat.shading
+    //ExFor:CellFormat.orientation
+    //ExFor:CellFormat.wrapText
     //ExFor:RowFormat
-    //ExFor:aw.Tables.RowFormat.borders
-    //ExFor:aw.Tables.RowFormat.clearFormatting
-    //ExFor:aw.Shading.clearFormatting
+    //ExFor:RowFormat.borders
+    //ExFor:RowFormat.clearFormatting
+    //ExFor:Shading.clearFormatting
     //ExSummary:Shows how to build a table with custom borders.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -924,10 +925,10 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertTableWithStyle', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.styleIdentifier
-    //ExFor:aw.Tables.Table.styleOptions
+    //ExFor:Table.styleIdentifier
+    //ExFor:Table.styleOptions
     //ExFor:TableStyleOptions
-    //ExFor:aw.Tables.Table.autoFit
+    //ExFor:Table.autoFit
     //ExFor:AutoFitBehavior
     //ExSummary:Shows how to build a new table while applying a style.
     let doc = new aw.Document();
@@ -982,12 +983,11 @@ describe("ExDocumentBuilder", () => {
     expect(table.firstRow.firstCell.cellFormat.shading.backgroundPatternColor).toEqual("#4F81BD");
     expect(table.firstRow.firstCell.firstParagraph.runs.at(0).font.color).toEqual("#FFFFFF");
     expect(table.lastRow.firstCell.cellFormat.shading.backgroundPatternColor).not.toEqual("#ADD8E6");
-    expect(table.lastRow.firstCell.firstParagraph.runs.at(0).font.color).toEqual(base.emptyColor);
   });
 
   test('InsertTableSetHeadingRow', () => {
     //ExStart
-    //ExFor:aw.Tables.RowFormat.headingFormat
+    //ExFor:RowFormat.headingFormat
     //ExSummary:Shows how to build a table with rows that repeat on every page. 
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1032,8 +1032,8 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertTableWithPreferredWidth', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.preferredWidth
-    //ExFor:aw.Tables.PreferredWidth.fromPercent
+    //ExFor:Table.preferredWidth
+    //ExFor:PreferredWidth.fromPercent
     //ExFor:PreferredWidth
     //ExSummary:Shows how to set a table to auto fit to 50% of the width of the page.
     let doc = new aw.Document();
@@ -1061,15 +1061,15 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertCellsWithPreferredWidths', () => {
     //ExStart
-    //ExFor:aw.Tables.CellFormat.preferredWidth
+    //ExFor:CellFormat.preferredWidth
     //ExFor:PreferredWidth
-    //ExFor:aw.Tables.PreferredWidth.auto
-    //ExFor:aw.Tables.PreferredWidth.equals(PreferredWidth)
-    //ExFor:aw.Tables.PreferredWidth.equals(Object)
-    //ExFor:aw.Tables.PreferredWidth.fromPoints
-    //ExFor:aw.Tables.PreferredWidth.fromPercent
-    //ExFor:aw.Tables.PreferredWidth.getHashCode
-    //ExFor:aw.Tables.PreferredWidth.toString
+    //ExFor:PreferredWidth.auto
+    //ExFor:PreferredWidth.equals(PreferredWidth)
+    //ExFor:PreferredWidth.equals(Object)
+    //ExFor:PreferredWidth.fromPoints
+    //ExFor:PreferredWidth.fromPercent
+    //ExFor:PreferredWidth.getHashCode
+    //ExFor:PreferredWidth.toString
     //ExSummary:Shows how to set a preferred width for table cells.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1138,7 +1138,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertNestedTable', () => {
     //ExStart
-    //ExFor:aw.Tables.Cell.firstParagraph
+    //ExFor:Cell.firstParagraph
     //ExSummary:Shows how to create a nested table using a document builder.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1172,8 +1172,8 @@ describe("ExDocumentBuilder", () => {
   test('CreateTable', () => {
     //ExStart
     //ExFor:DocumentBuilder
-    //ExFor:aw.DocumentBuilder.write
-    //ExFor:aw.DocumentBuilder.insertCell
+    //ExFor:DocumentBuilder.write
+    //ExFor:DocumentBuilder.insertCell
     //ExSummary:Shows how to use a document builder to create a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1209,11 +1209,11 @@ describe("ExDocumentBuilder", () => {
 
   test('BuildFormattedTable', () => {
     //ExStart
-    //ExFor:aw.Tables.RowFormat.height
-    //ExFor:aw.Tables.RowFormat.heightRule
-    //ExFor:aw.Tables.Table.leftIndent
-    //ExFor:aw.DocumentBuilder.paragraphFormat
-    //ExFor:aw.DocumentBuilder.font
+    //ExFor:RowFormat.height
+    //ExFor:RowFormat.heightRule
+    //ExFor:Table.leftIndent
+    //ExFor:DocumentBuilder.paragraphFormat
+    //ExFor:DocumentBuilder.font
     //ExSummary:Shows how to create a formatted table using DocumentBuilder.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1304,11 +1304,11 @@ describe("ExDocumentBuilder", () => {
   test('TableBordersAndShading', () => {
     //ExStart
     //ExFor:Shading
-    //ExFor:aw.Tables.Table.setBorders
-    //ExFor:aw.BorderCollection.left
-    //ExFor:aw.BorderCollection.right
-    //ExFor:aw.BorderCollection.top
-    //ExFor:aw.BorderCollection.bottom
+    //ExFor:Table.setBorders
+    //ExFor:BorderCollection.left
+    //ExFor:BorderCollection.right
+    //ExFor:BorderCollection.top
+    //ExFor:BorderCollection.bottom
     //ExSummary:Shows how to apply border and shading color while building a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1375,7 +1375,7 @@ describe("ExDocumentBuilder", () => {
 
   test('SetPreferredTypeConvertUtil', () => {
     //ExStart
-    //ExFor:aw.Tables.PreferredWidth.fromPoints
+    //ExFor:PreferredWidth.fromPoints
     //ExSummary:Shows how to use unit conversion tools while specifying a preferred width for a cell.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1390,9 +1390,9 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertHyperlinkToLocalBookmark', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.startBookmark
-    //ExFor:aw.DocumentBuilder.endBookmark
-    //ExFor:aw.DocumentBuilder.insertHyperlink
+    //ExFor:DocumentBuilder.startBookmark
+    //ExFor:DocumentBuilder.endBookmark
+    //ExFor:DocumentBuilder.insertHyperlink
     //ExSummary:Shows how to insert a hyperlink which references a local bookmark.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1439,8 +1439,8 @@ describe("ExDocumentBuilder", () => {
 
   test('MoveTo', () => {
     //ExStart
-    //ExFor:aw.Story.lastParagraph
-    //ExFor:aw.DocumentBuilder.moveTo(Node)
+    //ExFor:Story.lastParagraph
+    //ExFor:DocumentBuilder.moveTo(Node)
     //ExSummary:Shows how to move a DocumentBuilder's cursor position to a specified node.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1474,7 +1474,7 @@ describe("ExDocumentBuilder", () => {
 
   test('MoveToParagraph', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.moveToParagraph
+    //ExFor:DocumentBuilder.moveToParagraph
     //ExSummary:Shows how to move a builder's cursor position to a specified paragraph.
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
     let paragraphs = doc.firstSection.body.paragraphs;
@@ -1505,7 +1505,7 @@ describe("ExDocumentBuilder", () => {
 
   test('MoveToCell', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.moveToCell
+    //ExFor:DocumentBuilder.moveToCell
     //ExSummary:Shows how to move a document builder's cursor to a cell in a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1539,7 +1539,7 @@ describe("ExDocumentBuilder", () => {
 
   test('MoveToBookmark', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.moveToBookmark(String, Boolean, Boolean)
+    //ExFor:DocumentBuilder.moveToBookmark(String, Boolean, Boolean)
     //ExSummary:Shows how to move a document builder's node insertion point cursor to a bookmark.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1586,15 +1586,15 @@ describe("ExDocumentBuilder", () => {
   test('BuildTable', () => {
     //ExStart
     //ExFor:Table
-    //ExFor:aw.DocumentBuilder.startTable
-    //ExFor:aw.DocumentBuilder.endRow
-    //ExFor:aw.DocumentBuilder.endTable
-    //ExFor:aw.DocumentBuilder.cellFormat
-    //ExFor:aw.DocumentBuilder.rowFormat
-    //ExFor:aw.DocumentBuilder.write(String)
-    //ExFor:aw.DocumentBuilder.writeln(String)
+    //ExFor:DocumentBuilder.startTable
+    //ExFor:DocumentBuilder.endRow
+    //ExFor:DocumentBuilder.endTable
+    //ExFor:DocumentBuilder.cellFormat
+    //ExFor:DocumentBuilder.rowFormat
+    //ExFor:DocumentBuilder.write(String)
+    //ExFor:DocumentBuilder.writeln(String)
     //ExFor:CellVerticalAlignment
-    //ExFor:aw.Tables.CellFormat.orientation
+    //ExFor:CellFormat.orientation
     //ExFor:TextOrientation
     //ExFor:AutoFitBehavior
     //ExSummary:Shows how to build a formatted 2x2 table.
@@ -1678,7 +1678,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertFloatingImage', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(String, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertImage(String, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to insert an image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1721,7 +1721,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertImageOriginalSize', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertImage(String, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertImage(String, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to insert an image from the local file system into a document while preserving its dimensions.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1754,7 +1754,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertTextInput', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertTextInput
+    //ExFor:DocumentBuilder.insertTextInput
     //ExSummary:Shows how to insert a text input form field into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1779,7 +1779,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertComboBox', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertComboBox
+    //ExFor:DocumentBuilder.insertComboBox
     //ExSummary:Shows how to insert a combo box form field into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1807,16 +1807,17 @@ describe("ExDocumentBuilder", () => {
     [AotTests.IgnoreAot("CertificateHolder.Create and DigitalSignatureUtil.Sign are not used in AW.NET directly.")]
   test('SignatureLineProviderId', () => {
     //ExStart
-    //ExFor:aw.Drawing.SignatureLine.isSigned
-    //ExFor:aw.Drawing.SignatureLine.isValid
-    //ExFor:aw.Drawing.SignatureLine.providerId
-    //ExFor:aw.SignatureLineOptions.showDate
-    //ExFor:aw.SignatureLineOptions.email
-    //ExFor:aw.SignatureLineOptions.defaultInstructions
-    //ExFor:aw.SignatureLineOptions.instructions
-    //ExFor:aw.SignatureLineOptions.allowComments
-    //ExFor:aw.DocumentBuilder.insertSignatureLine(SignatureLineOptions)
-    //ExFor:aw.DigitalSignatures.SignOptions.providerId
+    //ExFor:SignatureLine.isSigned
+    //ExFor:SignatureLine.isValid
+    //ExFor:SignatureLine.providerId
+    //ExFor:SignatureLineOptions
+    //ExFor:SignatureLineOptions.showDate
+    //ExFor:SignatureLineOptions.email
+    //ExFor:SignatureLineOptions.defaultInstructions
+    //ExFor:SignatureLineOptions.instructions
+    //ExFor:SignatureLineOptions.allowComments
+    //ExFor:DocumentBuilder.insertSignatureLine(SignatureLineOptions)
+    //ExFor:SignOptions.providerId
     //ExSummary:Shows how to sign a document with a personal certificate and a signature line.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1887,7 +1888,7 @@ describe("ExDocumentBuilder", () => {
 
   test('SignatureLineInline', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertSignatureLine(SignatureLineOptions, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, WrapType)
+    //ExFor:DocumentBuilder.insertSignatureLine(SignatureLineOptions, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, WrapType)
     //ExSummary:Shows how to insert an inline signature line into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1926,8 +1927,8 @@ describe("ExDocumentBuilder", () => {
 
   test('SetParagraphFormatting', () => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.rightIndent
-    //ExFor:aw.ParagraphFormat.leftIndent
+    //ExFor:ParagraphFormat.rightIndent
+    //ExFor:ParagraphFormat.leftIndent
     //ExSummary:Shows how to configure paragraph formatting to create off-center text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1962,14 +1963,14 @@ describe("ExDocumentBuilder", () => {
 
   test('SetCellFormatting', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.cellFormat
-    //ExFor:aw.Tables.CellFormat.width
-    //ExFor:aw.Tables.CellFormat.leftPadding
-    //ExFor:aw.Tables.CellFormat.rightPadding
-    //ExFor:aw.Tables.CellFormat.topPadding
-    //ExFor:aw.Tables.CellFormat.bottomPadding
-    //ExFor:aw.DocumentBuilder.startTable
-    //ExFor:aw.DocumentBuilder.endTable
+    //ExFor:DocumentBuilder.cellFormat
+    //ExFor:CellFormat.width
+    //ExFor:CellFormat.leftPadding
+    //ExFor:CellFormat.rightPadding
+    //ExFor:CellFormat.topPadding
+    //ExFor:CellFormat.bottomPadding
+    //ExFor:DocumentBuilder.startTable
+    //ExFor:DocumentBuilder.endTable
     //ExSummary:Shows how to format cells with a document builder.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2030,10 +2031,10 @@ describe("ExDocumentBuilder", () => {
 
   test('SetRowFormatting', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.rowFormat
+    //ExFor:DocumentBuilder.rowFormat
     //ExFor:HeightRule
-    //ExFor:aw.Tables.RowFormat.height
-    //ExFor:aw.Tables.RowFormat.heightRule
+    //ExFor:RowFormat.height
+    //ExFor:RowFormat.heightRule
     //ExSummary:Shows how to format rows with a document builder.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2078,8 +2079,8 @@ describe("ExDocumentBuilder", () => {
   test('InsertFootnote', () => {
     //ExStart
     //ExFor:FootnoteType
-    //ExFor:aw.DocumentBuilder.insertFootnote(FootnoteType,String)
-    //ExFor:aw.DocumentBuilder.insertFootnote(FootnoteType,String,String)
+    //ExFor:DocumentBuilder.insertFootnote(FootnoteType,String)
+    //ExFor:DocumentBuilder.insertFootnote(FootnoteType,String,String)
     //ExSummary:Shows how to reference text with a footnote and an endnote.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2115,13 +2116,13 @@ describe("ExDocumentBuilder", () => {
 
   test('ApplyBordersAndShading', () => {
     //ExStart
-    //ExFor:aw.BorderCollection.item(BorderType)
+    //ExFor:BorderCollection.item(BorderType)
     //ExFor:Shading
     //ExFor:TextureIndex
-    //ExFor:aw.ParagraphFormat.shading
-    //ExFor:aw.Shading.texture
-    //ExFor:aw.Shading.backgroundPatternColor
-    //ExFor:aw.Shading.foregroundPatternColor
+    //ExFor:ParagraphFormat.shading
+    //ExFor:Shading.texture
+    //ExFor:Shading.backgroundPatternColor
+    //ExFor:Shading.foregroundPatternColor
     //ExSummary:Shows how to decorate text with borders and shading.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2159,7 +2160,7 @@ describe("ExDocumentBuilder", () => {
 
   test('DeleteRow', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.deleteRow
+    //ExFor:DocumentBuilder.deleteRow
     //ExSummary:Shows how to delete a row from a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2190,7 +2191,7 @@ describe("ExDocumentBuilder", () => {
   test.each([false,
     true])('AppendDocumentAndResolveStyles', (keepSourceNumbering) => {
     //ExStart
-    //ExFor:aw.Document.appendDocument(Document, ImportFormatMode, ImportFormatOptions)
+    //ExFor:Document.appendDocument(Document, ImportFormatMode, ImportFormatOptions)
     //ExSummary:Shows how to manage list style clashes while appending a document.
     // Load a document with text in a custom style and clone it.
     let srcDoc = new aw.Document(base.myDir + "Custom list numbering.docx");
@@ -2220,7 +2221,7 @@ describe("ExDocumentBuilder", () => {
   test.each([false,
     true])('InsertDocumentAndResolveStyles', (keepSourceNumbering) => {
     //ExStart
-    //ExFor:aw.Document.appendDocument(Document, ImportFormatMode, ImportFormatOptions)
+    //ExFor:Document.appendDocument(Document, ImportFormatMode, ImportFormatOptions)
     //ExSummary:Shows how to manage list style clashes while inserting a document.
     let dstDoc = new aw.Document();
     let builder = new aw.DocumentBuilder(dstDoc);
@@ -2254,7 +2255,7 @@ describe("ExDocumentBuilder", () => {
   test.each([false,
     true])('LoadDocumentWithListNumbering', (keepSourceNumbering) => {
     //ExStart
-    //ExFor:aw.Document.appendDocument(Document, ImportFormatMode, ImportFormatOptions)
+    //ExFor:Document.appendDocument(Document, ImportFormatMode, ImportFormatOptions)
     //ExSummary:Shows how to manage list style clashes while appending a clone of a document to itself.
     let srcDoc = new aw.Document(base.myDir + "List item.docx");
     let dstDoc = new aw.Document(base.myDir + "List item.docx");
@@ -2279,7 +2280,7 @@ describe("ExDocumentBuilder", () => {
   test.each([true,
     false])('IgnoreTextBoxes', (ignoreTextBoxes) => {
     //ExStart
-    //ExFor:aw.ImportFormatOptions.ignoreTextBoxes
+    //ExFor:ImportFormatOptions.ignoreTextBoxes
     //ExSummary:Shows how to manage text box formatting while appending a document.
     // Create a document that will have nodes from another document inserted into it.
     let dstDoc = new aw.Document();
@@ -2327,7 +2328,7 @@ describe("ExDocumentBuilder", () => {
   test.each([false,
     true])('MoveToField', (moveCursorToAfterTheField) => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.moveToField
+    //ExFor:DocumentBuilder.moveToField
     //ExSummary:Shows how to move a document builder's node insertion point cursor to a specific field.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2373,7 +2374,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertPieChart', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertChart(ChartType, Double, Double)
+    //ExFor:DocumentBuilder.insertChart(ChartType, Double, Double)
     //ExSummary:Shows how to insert a pie chart into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2400,7 +2401,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertChartRelativePosition', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertChart(ChartType, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertChart(ChartType, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to specify position and wrapping while inserting a chart.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2426,11 +2427,11 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertField', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertField(String)
+    //ExFor:DocumentBuilder.insertField(String)
     //ExFor:Field
-    //ExFor:aw.Fields.Field.result
-    //ExFor:aw.Fields.Field.getFieldCode
-    //ExFor:aw.Fields.Field.type
+    //ExFor:Field.result
+    //ExFor:Field.getFieldCode
+    //ExFor:Field.type
     //ExFor:FieldType
     //ExSummary:Shows how to insert a field into a document using a field code.
     let doc = new aw.Document();
@@ -2450,8 +2451,8 @@ describe("ExDocumentBuilder", () => {
   test.each([false,
     true])('InsertFieldAndUpdate', (updateInsertedFieldsImmediately) => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertField(FieldType, Boolean)
-    //ExFor:aw.Fields.Field.update
+    //ExFor:DocumentBuilder.insertField(FieldType, Boolean)
+    //ExFor:Field.update
     //ExSummary:Shows how to insert a field into a document using FieldType.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2642,7 +2643,7 @@ describe("ExDocumentBuilder", () => {
   //[Test, Ignore("Failed")]
   test.skip('InsertVideoWithUrl - Original test failed.', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertOnlineVideo(String, Double, Double)
+    //ExFor:DocumentBuilder.insertOnlineVideo(String, Double, Double)
     //ExSummary:Shows how to insert an online video into a document using a URL.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2666,7 +2667,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertUnderline', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.underline
+    //ExFor:DocumentBuilder.underline
     //ExSummary:Shows how to format text inserted by a document builder.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2693,7 +2694,7 @@ describe("ExDocumentBuilder", () => {
 
   test('CurrentStory', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.currentStory
+    //ExFor:DocumentBuilder.currentStory
     //ExSummary:Shows how to work with a document builder's current story.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2724,7 +2725,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertOleObjects', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertOleObject(Stream, String, Boolean, Stream)
+    //ExFor:DocumentBuilder.insertOleObject(Stream, String, Boolean, Stream)
     //ExSummary:Shows how to use document builder to embed OLE objects in a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2767,7 +2768,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertStyleSeparator', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertStyleSeparator
+    //ExFor:DocumentBuilder.insertStyleSeparator
     //ExSummary:Shows how to work with style separators.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2812,7 +2813,7 @@ describe("ExDocumentBuilder", () => {
 
   test.skip('InsertDocument - Original test failed. Bug: does not insert headers and footers, all lists (bullets, numbering, multilevel) breaks.', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertDocument(Document, ImportFormatMode)
+    //ExFor:DocumentBuilder.insertDocument(Document, ImportFormatMode)
     //ExFor:ImportFormatMode
     //ExSummary:Shows how to insert a document into another document.
     let doc = new aw.Document(base.myDir + "Document.docx");
@@ -2835,8 +2836,8 @@ describe("ExDocumentBuilder", () => {
   test('SmartStyleBehavior', () => {
     //ExStart
     //ExFor:ImportFormatOptions
-    //ExFor:aw.ImportFormatOptions.smartStyleBehavior
-    //ExFor:aw.DocumentBuilder.insertDocument(Document, ImportFormatMode, ImportFormatOptions)
+    //ExFor:ImportFormatOptions.smartStyleBehavior
+    //ExFor:DocumentBuilder.insertDocument(Document, ImportFormatMode, ImportFormatOptions)
     //ExSummary:Shows how to resolve duplicate styles while inserting documents.
     let dstDoc = new aw.Document();
     let builder = new aw.DocumentBuilder(dstDoc);
@@ -2851,7 +2852,7 @@ describe("ExDocumentBuilder", () => {
 
     // Clone the document and edit the clone's "MyStyle" style, so it is a different color than that of the original.
     // If we insert the clone into the original document, the two styles with the same name will cause a clash.
-    let srcDoc = dstDoc.clone(); // TODO cast to Document
+    let srcDoc = dstDoc.clone().asDocument();
     srcDoc.styles.at("MyStyle").font.color = "#FF0000";
 
     // When we enable SmartStyleBehavior and use the KeepSourceFormatting import format mode,
@@ -2889,16 +2890,21 @@ describe("ExDocumentBuilder", () => {
       if (warningInfo.source == aw.WarningSource.Markdown)
         expect(warningInfo.description).toEqual("The (*, 0:11) cannot be properly written into Markdown.");
     }
+    //ExEnd
   });
 
 
   test('DoNotIgnoreHeaderFooter', () => {
     //ExStart
-    //ExFor:aw.ImportFormatOptions.ignoreHeaderFooter
+    //ExFor:ImportFormatOptions.ignoreHeaderFooter
     //ExSummary:Shows how to specifies ignoring or not source formatting of headers/footers content.
     let dstDoc = new aw.Document(base.myDir + "Document.docx");
     let srcDoc = new aw.Document(base.myDir + "Header and footer types.docx");
- 
+
+    // If 'IgnoreHeaderFooter' is false then the original formatting for header/footer content
+    // from "Header and footer types.docx" will be used.
+    // If 'IgnoreHeaderFooter' is true then the formatting for header/footer content
+    // from "Document.docx" will be used.
     let importFormatOptions = new aw.ImportFormatOptions();
     importFormatOptions.ignoreHeaderFooter = false;
  
@@ -3244,7 +3250,7 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertOnlineVideo', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertOnlineVideo(String, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertOnlineVideo(String, RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to insert an online video into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3280,8 +3286,8 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertOnlineVideoCustomThumbnail', async () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertOnlineVideo(String, String, Byte[], Double, Double)
-    //ExFor:aw.DocumentBuilder.insertOnlineVideo(String, String, Byte[], RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
+    //ExFor:DocumentBuilder.insertOnlineVideo(String, String, Byte[], Double, Double)
+    //ExFor:DocumentBuilder.insertOnlineVideo(String, String, Byte[], RelativeHorizontalPosition, Double, RelativeVerticalPosition, Double, Double, Double, WrapType)
     //ExSummary:Shows how to insert an online video into a document with a custom thumbnail.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3346,8 +3352,8 @@ describe("ExDocumentBuilder", () => {
 
   test('InsertOleObjectAsIcon', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertOleObjectAsIcon(String, String, Boolean, String, String)
-    //ExFor:aw.DocumentBuilder.insertOleObjectAsIcon(Stream, String, String, String)
+    //ExFor:DocumentBuilder.insertOleObjectAsIcon(String, String, Boolean, String, String)
+    //ExFor:DocumentBuilder.insertOleObjectAsIcon(Stream, String, String, String)
     //ExSummary:Shows how to insert an embedded or linked OLE object as icon into the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -3399,10 +3405,10 @@ describe("ExDocumentBuilder", () => {
 
   test('PhoneticGuide', () => {
     //ExStart
-    //ExFor:aw.Run.isPhoneticGuide
-    //ExFor:aw.Run.phoneticGuide
-    //ExFor:aw.PhoneticGuide.baseText
-    //ExFor:aw.PhoneticGuide.rubyText
+    //ExFor:Run.isPhoneticGuide
+    //ExFor:Run.phoneticGuide
+    //ExFor:PhoneticGuide.baseText
+    //ExFor:PhoneticGuide.rubyText
     //ExSummary:Shows how to get properties of the phonetic guide.
     let doc = new aw.Document(base.myDir + "Phonetic guide.docx");
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,9 +22,9 @@ describe("ExRtfSaveOptions", () => {
   test.skip.each([false, true])('ExportImages(%o) - TODO: WORDSNODEJS-81', (exportImagesForOldReaders) => {
     //ExStart
     //ExFor:RtfSaveOptions
-    //ExFor:aw.Saving.RtfSaveOptions.exportCompactSize
-    //ExFor:aw.Saving.RtfSaveOptions.exportImagesForOldReaders
-    //ExFor:aw.Saving.RtfSaveOptions.saveFormat
+    //ExFor:RtfSaveOptions.exportCompactSize
+    //ExFor:RtfSaveOptions.exportImagesForOldReaders
+    //ExFor:RtfSaveOptions.saveFormat
     //ExSummary:Shows how to save a document to .rtf with custom options.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -61,7 +61,7 @@ describe("ExRtfSaveOptions", () => {
 
   test.each([false, true])('SaveImagesAsWmf(%o)', (saveImagesAsWmf) => {
     //ExStart
-    //ExFor:aw.Saving.RtfSaveOptions.saveImagesAsWmf
+    //ExFor:RtfSaveOptions.saveImagesAsWmf
     //ExSummary:Shows how to convert all images in a document to the Windows Metafile format as we save the document as an RTF.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -45,13 +45,13 @@ describe("ExParagraph", () => {
 
   test('DocumentBuilderInsertParagraph', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertParagraph
-    //ExFor:aw.ParagraphFormat.firstLineIndent
-    //ExFor:aw.ParagraphFormat.alignment
-    //ExFor:aw.ParagraphFormat.keepTogether
-    //ExFor:aw.ParagraphFormat.addSpaceBetweenFarEastAndAlpha
-    //ExFor:aw.ParagraphFormat.addSpaceBetweenFarEastAndDigit
-    //ExFor:aw.Paragraph.isEndOfDocument
+    //ExFor:DocumentBuilder.insertParagraph
+    //ExFor:ParagraphFormat.firstLineIndent
+    //ExFor:ParagraphFormat.alignment
+    //ExFor:ParagraphFormat.keepTogether
+    //ExFor:ParagraphFormat.addSpaceBetweenFarEastAndAlpha
+    //ExFor:ParagraphFormat.addSpaceBetweenFarEastAndDigit
+    //ExFor:Paragraph.isEndOfDocument
     //ExSummary:Shows how to insert a paragraph into the document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -99,9 +99,9 @@ describe("ExParagraph", () => {
 
   test('AppendField', () => {
     //ExStart
-    //ExFor:aw.Paragraph.appendField(FieldType, Boolean)
-    //ExFor:aw.Paragraph.appendField(String)
-    //ExFor:aw.Paragraph.appendField(String, String)
+    //ExFor:Paragraph.appendField(FieldType, Boolean)
+    //ExFor:Paragraph.appendField(String)
+    //ExFor:Paragraph.appendField(String, String)
     //ExSummary:Shows various ways of appending fields to a paragraph.
     let doc = new aw.Document();
     let paragraph = doc.firstSection.body.firstParagraph;
@@ -140,9 +140,9 @@ describe("ExParagraph", () => {
 
   test('InsertField', () => {
     //ExStart
-    //ExFor:aw.Paragraph.insertField(string, Node, bool)
-    //ExFor:aw.Paragraph.insertField(FieldType, bool, Node, bool)
-    //ExFor:aw.Paragraph.insertField(string, string, Node, bool)
+    //ExFor:Paragraph.insertField(string, Node, bool)
+    //ExFor:Paragraph.insertField(FieldType, bool, Node, bool)
+    //ExFor:Paragraph.insertField(string, string, Node, bool)
     //ExSummary:Shows various ways of adding fields to a paragraph.
     let doc = new aw.Document();
     let para = doc.firstSection.body.firstParagraph;
@@ -297,12 +297,12 @@ describe("ExParagraph", () => {
 
   test('CompositeNodeChildren', () => {
     //ExStart
-    //ExFor:aw.CompositeNode.count
-    //ExFor:aw.CompositeNode.getChildNodes(NodeType, Boolean)
-    //ExFor:aw.CompositeNode.insertAfter``1(``0, Node)
-    //ExFor:aw.CompositeNode.insertBefore``1(``0, Node)
-    //ExFor:aw.CompositeNode.prependChild``1(``0)
-    //ExFor:aw.Paragraph.getText
+    //ExFor:CompositeNode.count
+    //ExFor:CompositeNode.getChildNodes(NodeType, Boolean)
+    //ExFor:CompositeNode.insertAfter``1(``0, Node)
+    //ExFor:CompositeNode.insertBefore``1(``0, Node)
+    //ExFor:CompositeNode.prependChild``1(``0)
+    //ExFor:Paragraph.getText
     //ExFor:Run
     //ExSummary:Shows how to add, update and delete child nodes in a CompositeNode's collection of children.
     let doc = new aw.Document();
@@ -356,11 +356,11 @@ describe("ExParagraph", () => {
 
   test('MoveRevisions', () => {
     //ExStart
-    //ExFor:aw.Paragraph.isMoveFromRevision
-    //ExFor:aw.Paragraph.isMoveToRevision
+    //ExFor:Paragraph.isMoveFromRevision
+    //ExFor:Paragraph.isMoveToRevision
     //ExFor:ParagraphCollection
-    //ExFor:aw.ParagraphCollection.item(Int32)
-    //ExFor:aw.Story.paragraphs
+    //ExFor:ParagraphCollection.item(Int32)
+    //ExFor:Story.paragraphs
     //ExSummary:Shows how to check whether a paragraph is a move revision.
     let doc = new aw.Document(base.myDir + "Revisions.docx");
 
@@ -392,7 +392,7 @@ describe("ExParagraph", () => {
 
   test('RangeRevisions', () => {
     //ExStart
-    //ExFor:aw.Range.revisions
+    //ExFor:Range.revisions
     //ExSummary:Shows how to work with revisions in range.
     let doc = new aw.Document(base.myDir + "Revisions.docx");
 
@@ -411,7 +411,7 @@ describe("ExParagraph", () => {
 
   test('GetFormatRevision', () => {
     //ExStart
-    //ExFor:aw.Paragraph.isFormatRevision
+    //ExFor:Paragraph.isFormatRevision
     //ExSummary:Shows how to check whether a paragraph is a format revision.
     let doc = new aw.Document(base.myDir + "Format revision.docx");
 
@@ -424,20 +424,20 @@ describe("ExParagraph", () => {
 
   test('GetFrameProperties', () => {
     //ExStart
-    //ExFor:aw.Paragraph.frameFormat
+    //ExFor:Paragraph.frameFormat
     //ExFor:FrameFormat
-    //ExFor:aw.FrameFormat.isFrame
-    //ExFor:aw.FrameFormat.width
-    //ExFor:aw.FrameFormat.height
-    //ExFor:aw.FrameFormat.heightRule
-    //ExFor:aw.FrameFormat.horizontalAlignment
-    //ExFor:aw.FrameFormat.verticalAlignment
-    //ExFor:aw.FrameFormat.horizontalPosition
-    //ExFor:aw.FrameFormat.relativeHorizontalPosition
-    //ExFor:aw.FrameFormat.horizontalDistanceFromText
-    //ExFor:aw.FrameFormat.verticalPosition
-    //ExFor:aw.FrameFormat.relativeVerticalPosition
-    //ExFor:aw.FrameFormat.verticalDistanceFromText
+    //ExFor:FrameFormat.isFrame
+    //ExFor:FrameFormat.width
+    //ExFor:FrameFormat.height
+    //ExFor:FrameFormat.heightRule
+    //ExFor:FrameFormat.horizontalAlignment
+    //ExFor:FrameFormat.verticalAlignment
+    //ExFor:FrameFormat.horizontalPosition
+    //ExFor:FrameFormat.relativeHorizontalPosition
+    //ExFor:FrameFormat.horizontalDistanceFromText
+    //ExFor:FrameFormat.verticalPosition
+    //ExFor:FrameFormat.relativeVerticalPosition
+    //ExFor:FrameFormat.verticalDistanceFromText
     //ExSummary:Shows how to get information about formatting properties of paragraphs that are frames.
     let doc = new aw.Document(base.myDir + "Paragraph frame.docx");
     let paragraphFrame = doc.firstSection.body.paragraphs.toArray().filter(p => p.frameFormat.isFrame).at(0);
@@ -458,8 +458,8 @@ describe("ExParagraph", () => {
 
   test('IsRevision', () => {
     //ExStart
-    //ExFor:aw.Paragraph.isDeleteRevision
-    //ExFor:aw.Paragraph.isInsertRevision
+    //ExFor:Paragraph.isDeleteRevision
+    //ExFor:Paragraph.isInsertRevision
     //ExSummary:Shows how to work with revision paragraphs.
     let doc = new aw.Document();
     let body = doc.firstSection.body;
@@ -503,7 +503,7 @@ describe("ExParagraph", () => {
 
   test('BreakIsStyleSeparator', () => {
     //ExStart
-    //ExFor:aw.Paragraph.breakIsStyleSeparator
+    //ExFor:Paragraph.breakIsStyleSeparator
     //ExSummary:Shows how to write text to the same line as a TOC heading and have it not show up in the TOC.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -541,7 +541,9 @@ describe("ExParagraph", () => {
 
   test('TabStops', () => {
     //ExStart
-    //ExFor:aw.Paragraph.getEffectiveTabStops
+    //ExFor:TabLeader
+    //ExFor:TabAlignment
+    //ExFor:Paragraph.getEffectiveTabStops
     //ExSummary:Shows how to set custom tab stops for a paragraph.
     let doc = new aw.Document();
     let para = doc.firstSection.body.firstParagraph;
@@ -579,7 +581,7 @@ describe("ExParagraph", () => {
 
   test('JoinRuns', () => {
     //ExStart
-    //ExFor:aw.Paragraph.joinRunsWithSameFormatting
+    //ExFor:Paragraph.joinRunsWithSameFormatting
     //ExSummary:Shows how to simplify paragraphs by merging superfluous runs.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);

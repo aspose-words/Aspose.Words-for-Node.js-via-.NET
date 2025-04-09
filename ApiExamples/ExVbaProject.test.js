@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,12 +21,12 @@ describe("ExVbaProject", () => {
   test('CreateNewVbaProject', () => {
     //ExStart
     //ExFor:VbaProject.#ctor
-    //ExFor:aw.Vba.VbaProject.name
+    //ExFor:VbaProject.name
     //ExFor:VbaModule.#ctor
-    //ExFor:aw.Vba.VbaModule.name
-    //ExFor:aw.Vba.VbaModule.type
-    //ExFor:aw.Vba.VbaModule.sourceCode
-    //ExFor:aw.Vba.VbaModuleCollection.add(VbaModule)
+    //ExFor:VbaModule.name
+    //ExFor:VbaModule.type
+    //ExFor:VbaModule.sourceCode
+    //ExFor:VbaModuleCollection.add(VbaModule)
     //ExFor:VbaModuleType
     //ExSummary:Shows how to create a VBA project using macros.
     let doc = new aw.Document();
@@ -68,8 +68,8 @@ describe("ExVbaProject", () => {
 
   test('CloneVbaProject', () => {
     //ExStart
-    //ExFor:aw.Vba.VbaProject.clone
-    //ExFor:aw.Vba.VbaModule.clone
+    //ExFor:VbaProject.clone
+    //ExFor:VbaModule.clone
     //ExSummary:Shows how to deep clone a VBA project and module.
     let doc = new aw.Document(base.myDir + "VBA project.docm");
     let destDoc = new aw.Document();
@@ -105,12 +105,15 @@ describe("ExVbaProject", () => {
 
   //ExStart
   //ExFor:VbaReference
+  //ExFor:VbaReference.Type
   //ExFor:VbaReference.LibId
   //ExFor:VbaReferenceCollection
+  //ExFor:VbaReferenceCollection.Item(Int32)
   //ExFor:VbaReferenceCollection.Count
   //ExFor:VbaReferenceCollection.RemoveAt(int)
   //ExFor:VbaReferenceCollection.Remove(VbaReference)
   //ExFor:VbaReferenceType
+  //ExFor:VbaProject.References
   //ExSummary:Shows how to get/remove an element from the VBA reference collection.
   test('RemoveVbaReference', () => {
     const brokenPath = "X:\\broken.dll";
@@ -182,7 +185,7 @@ describe("ExVbaProject", () => {
   test('IsProtected', () => {
     //ExStart:IsProtected
     //GistId:ac8ba4eb35f3fbb8066b48c999da63b0
-    //ExFor:aw.Vba.VbaProject.isProtected
+    //ExFor:VbaProject.isProtected
     //ExSummary:Shows whether the VbaProject is password protected.
     let doc = new aw.Document(base.myDir + "Vba protected.docm");
     expect(doc.vbaProject.isProtected).toEqual(true);

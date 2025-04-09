@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -8,6 +8,7 @@
 const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
+
 
 describe("ExBorderCollection", () => {
   beforeAll(() => {
@@ -20,7 +21,7 @@ describe("ExBorderCollection", () => {
 
   test('GetBordersEnumerator', () => {
     //ExStart
-    //ExFor:aw.BorderCollection.getEnumerator
+    //ExFor:BorderCollection.getEnumerator
     //ExSummary:Shows how to iterate over and edit all of the borders in a paragraph format object.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -51,7 +52,7 @@ describe("ExBorderCollection", () => {
 
   test('RemoveAllBorders', () => {
     //ExStart
-    //ExFor:aw.BorderCollection.clearFormatting
+    //ExFor:BorderCollection.clearFormatting
     //ExSummary:Shows how to remove all borders from all paragraphs in a document.
     let doc = new aw.Document(base.myDir + "Borders.docx");
 
@@ -66,7 +67,8 @@ describe("ExBorderCollection", () => {
     for (let paragraph of doc.firstSection.body.paragraphs.toArray()) {
       paragraph.paragraphFormat.borders.clearFormatting();
 
-      for (let border of paragraph.paragraphFormat.borders) {
+      for (let border of paragraph.paragraphFormat.borders)
+      {
         expect(border.color).toEqual(base.emptyColor);
         expect(border.lineStyle).toEqual(aw.LineStyle.None);
         expect(border.lineWidth).toEqual(0.0);
@@ -78,7 +80,8 @@ describe("ExBorderCollection", () => {
 
     doc = new aw.Document(base.artifactsDir + "BorderCollection.RemoveAllBorders.docx");
 
-    for (let border of doc.firstSection.body.firstParagraph.paragraphFormat.borders) {
+    for (let border of doc.firstSection.body.firstParagraph.paragraphFormat.borders)
+    {
       expect(border.color).toEqual(base.emptyColor);
       expect(border.lineStyle).toEqual(aw.LineStyle.None);
       expect(border.lineWidth).toEqual(0.0);

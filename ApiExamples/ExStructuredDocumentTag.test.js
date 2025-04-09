@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,7 +23,8 @@ describe("ExStructuredDocumentTag", () => {
 
   test('RepeatingSection', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.sdtType
+    //ExFor:StructuredDocumentTag.sdtType
+    //ExFor:IStructuredDocumentTag.sdtType
     //ExSummary:Shows how to get the type of a structured document tag.
     let doc = new aw.Document(base.myDir + "Structured document tags.docx");
 
@@ -38,7 +39,8 @@ describe("ExStructuredDocumentTag", () => {
 
   test('FlatOpcContent', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.wordOpenXML
+    //ExFor:StructuredDocumentTag.wordOpenXML
+    //ExFor:IStructuredDocumentTag.wordOpenXML
     //ExSummary:Shows how to get XML contained within the node in the FlatOpc format.
     let doc = new aw.Document(base.myDir + "Structured document tags.docx");
 
@@ -53,10 +55,10 @@ describe("ExStructuredDocumentTag", () => {
   test('ApplyStyle', () => {
     //ExStart
     //ExFor:StructuredDocumentTag
-    //ExFor:aw.Markup.StructuredDocumentTag.nodeType
-    //ExFor:aw.Markup.StructuredDocumentTag.style
-    //ExFor:aw.Markup.StructuredDocumentTag.styleName
-    //ExFor:aw.Markup.StructuredDocumentTag.wordOpenXMLMinimal
+    //ExFor:StructuredDocumentTag.nodeType
+    //ExFor:StructuredDocumentTag.style
+    //ExFor:StructuredDocumentTag.styleName
+    //ExFor:StructuredDocumentTag.wordOpenXMLMinimal
     //ExFor:MarkupLevel
     //ExFor:SdtType
     //ExSummary:Shows how to work with styles for content control elements.
@@ -96,9 +98,9 @@ describe("ExStructuredDocumentTag", () => {
   test('CheckBox', () => {
     //ExStart
     //ExFor:StructuredDocumentTag.#ctor(DocumentBase, SdtType, MarkupLevel)
-    //ExFor:aw.Markup.StructuredDocumentTag.checked
-    //ExFor:aw.Markup.StructuredDocumentTag.setCheckedSymbol(Int32, String)
-    //ExFor:aw.Markup.StructuredDocumentTag.setUncheckedSymbol(Int32, String)
+    //ExFor:StructuredDocumentTag.checked
+    //ExFor:StructuredDocumentTag.setCheckedSymbol(Int32, String)
+    //ExFor:StructuredDocumentTag.setUncheckedSymbol(Int32, String)
     //ExSummary:Show how to create a structured document tag in the form of a check box.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -126,11 +128,13 @@ describe("ExStructuredDocumentTag", () => {
 
   test('Date', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.calendarType
-    //ExFor:aw.Markup.StructuredDocumentTag.dateDisplayFormat
-    //ExFor:aw.Markup.StructuredDocumentTag.dateDisplayLocale
-    //ExFor:aw.Markup.StructuredDocumentTag.dateStorageFormat
-    //ExFor:aw.Markup.StructuredDocumentTag.fullDate
+    //ExFor:StructuredDocumentTag.calendarType
+    //ExFor:StructuredDocumentTag.dateDisplayFormat
+    //ExFor:StructuredDocumentTag.dateDisplayLocale
+    //ExFor:StructuredDocumentTag.dateStorageFormat
+    //ExFor:StructuredDocumentTag.fullDate
+    //ExFor:SdtCalendarType
+    //ExFor:SdtDateStorageFormat
     //ExSummary:Shows how to prompt the user to enter a date with a structured document tag.
     let doc = new aw.Document();
 
@@ -165,16 +169,17 @@ describe("ExStructuredDocumentTag", () => {
 
   test('PlainText', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.color
-    //ExFor:aw.Markup.StructuredDocumentTag.contentsFont
-    //ExFor:aw.Markup.StructuredDocumentTag.endCharacterFont
-    //ExFor:aw.Markup.StructuredDocumentTag.id
-    //ExFor:aw.Markup.StructuredDocumentTag.level
-    //ExFor:aw.Markup.StructuredDocumentTag.multiline
-    //ExFor:aw.Markup.StructuredDocumentTag.tag
-    //ExFor:aw.Markup.StructuredDocumentTag.title
-    //ExFor:aw.Markup.StructuredDocumentTag.removeSelfOnly
-    //ExFor:aw.Markup.StructuredDocumentTag.appearance
+    //ExFor:StructuredDocumentTag.color
+    //ExFor:StructuredDocumentTag.contentsFont
+    //ExFor:StructuredDocumentTag.endCharacterFont
+    //ExFor:StructuredDocumentTag.id
+    //ExFor:StructuredDocumentTag.level
+    //ExFor:StructuredDocumentTag.multiline
+    //ExFor:IStructuredDocumentTag.tag
+    //ExFor:StructuredDocumentTag.tag
+    //ExFor:StructuredDocumentTag.title
+    //ExFor:StructuredDocumentTag.removeSelfOnly
+    //ExFor:StructuredDocumentTag.appearance
     //ExSummary:Shows how to create a structured document tag in a plain text box and modify its appearance.
     let doc = new aw.Document();
 
@@ -242,7 +247,7 @@ describe("ExStructuredDocumentTag", () => {
   test.each([false,
     true])('IsTemporary', (isTemporary) => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.isTemporary
+    //ExFor:StructuredDocumentTag.isTemporary
     //ExSummary:Shows how to make single-use controls.
     let doc = new aw.Document();
 
@@ -285,9 +290,12 @@ describe("ExStructuredDocumentTag", () => {
   test.each([false,
     true])('PlaceholderBuildingBlock', (isShowingPlaceholderText) => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.isShowingPlaceholderText
-    //ExFor:aw.Markup.StructuredDocumentTag.placeholder
-    //ExFor:aw.Markup.StructuredDocumentTag.placeholderName
+    //ExFor:StructuredDocumentTag.isShowingPlaceholderText
+    //ExFor:IStructuredDocumentTag.isShowingPlaceholderText
+    //ExFor:StructuredDocumentTag.placeholder
+    //ExFor:StructuredDocumentTag.placeholderName
+    //ExFor:IStructuredDocumentTag.placeholder
+    //ExFor:IStructuredDocumentTag.placeholderName
     //ExSummary:Shows how to use a building block's contents as a custom placeholder text for a structured document tag. 
     let doc = new aw.Document();
 
@@ -340,8 +348,10 @@ describe("ExStructuredDocumentTag", () => {
 
   test('Lock', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.lockContentControl
-    //ExFor:aw.Markup.StructuredDocumentTag.lockContents
+    //ExFor:StructuredDocumentTag.lockContentControl
+    //ExFor:StructuredDocumentTag.lockContents
+    //ExFor:IStructuredDocumentTag.lockContentControl
+    //ExFor:IStructuredDocumentTag.lockContents
     //ExSummary:Shows how to apply editing restrictions to structured document tags.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -385,17 +395,17 @@ describe("ExStructuredDocumentTag", () => {
     //ExFor:SdtListItem
     //ExFor:SdtListItem.#ctor(String)
     //ExFor:SdtListItem.#ctor(String,String)
-    //ExFor:aw.Markup.SdtListItem.displayText
-    //ExFor:aw.Markup.SdtListItem.value
+    //ExFor:SdtListItem.displayText
+    //ExFor:SdtListItem.value
     //ExFor:SdtListItemCollection
-    //ExFor:aw.Markup.SdtListItemCollection.add(SdtListItem)
-    //ExFor:aw.Markup.SdtListItemCollection.clear
-    //ExFor:aw.Markup.SdtListItemCollection.count
-    //ExFor:aw.Markup.SdtListItemCollection.getEnumerator
-    //ExFor:aw.Markup.SdtListItemCollection.item(Int32)
-    //ExFor:aw.Markup.SdtListItemCollection.removeAt(Int32)
-    //ExFor:aw.Markup.SdtListItemCollection.selectedValue
-    //ExFor:aw.Markup.StructuredDocumentTag.listItems
+    //ExFor:SdtListItemCollection.add(SdtListItem)
+    //ExFor:SdtListItemCollection.clear
+    //ExFor:SdtListItemCollection.count
+    //ExFor:SdtListItemCollection.getEnumerator
+    //ExFor:SdtListItemCollection.item(Int32)
+    //ExFor:SdtListItemCollection.removeAt(Int32)
+    //ExFor:SdtListItemCollection.selectedValue
+    //ExFor:StructuredDocumentTag.listItems
     //ExSummary:Shows how to work with drop down-list structured document tags.
     let doc = new aw.Document();
     let tag = new aw.Markup.StructuredDocumentTag(doc, aw.Markup.SdtType.DropDownList, aw.Markup.MarkupLevel.Block);
@@ -449,23 +459,24 @@ describe("ExStructuredDocumentTag", () => {
   test('CreatingCustomXml', () => {
     //ExStart
     //ExFor:CustomXmlPart
-    //ExFor:aw.Markup.CustomXmlPart.clone
-    //ExFor:aw.Markup.CustomXmlPart.data
-    //ExFor:aw.Markup.CustomXmlPart.id
-    //ExFor:aw.Markup.CustomXmlPart.schemas
+    //ExFor:CustomXmlPart.clone
+    //ExFor:CustomXmlPart.data
+    //ExFor:CustomXmlPart.id
+    //ExFor:CustomXmlPart.schemas
     //ExFor:CustomXmlPartCollection
-    //ExFor:aw.Markup.CustomXmlPartCollection.add(CustomXmlPart)
-    //ExFor:aw.Markup.CustomXmlPartCollection.add(String, String)
-    //ExFor:aw.Markup.CustomXmlPartCollection.clear
-    //ExFor:aw.Markup.CustomXmlPartCollection.clone
-    //ExFor:aw.Markup.CustomXmlPartCollection.count
-    //ExFor:aw.Markup.CustomXmlPartCollection.getById(String)
-    //ExFor:aw.Markup.CustomXmlPartCollection.getEnumerator
-    //ExFor:aw.Markup.CustomXmlPartCollection.item(Int32)
-    //ExFor:aw.Markup.CustomXmlPartCollection.removeAt(Int32)
-    //ExFor:aw.Document.customXmlParts
-    //ExFor:aw.Markup.StructuredDocumentTag.xmlMapping
-    //ExFor:aw.Markup.XmlMapping.setMapping(CustomXmlPart, String, String)
+    //ExFor:CustomXmlPartCollection.add(CustomXmlPart)
+    //ExFor:CustomXmlPartCollection.add(String, String)
+    //ExFor:CustomXmlPartCollection.clear
+    //ExFor:CustomXmlPartCollection.clone
+    //ExFor:CustomXmlPartCollection.count
+    //ExFor:CustomXmlPartCollection.getById(String)
+    //ExFor:CustomXmlPartCollection.getEnumerator
+    //ExFor:CustomXmlPartCollection.item(Int32)
+    //ExFor:CustomXmlPartCollection.removeAt(Int32)
+    //ExFor:Document.customXmlParts
+    //ExFor:StructuredDocumentTag.xmlMapping
+    //ExFor:IStructuredDocumentTag.xmlMapping
+    //ExFor:XmlMapping.setMapping(CustomXmlPart, String, String)
     //ExSummary:Shows how to create a structured document tag with custom XML data.
     let doc = new aw.Document();
 
@@ -540,7 +551,7 @@ describe("ExStructuredDocumentTag", () => {
 
   test('DataChecksum', () => {
     //ExStart
-    //ExFor:aw.Markup.CustomXmlPart.dataChecksum
+    //ExFor:CustomXmlPart.dataChecksum
     //ExSummary:Shows how the checksum is calculated in a runtime.
     let doc = new aw.Document();
 
@@ -569,11 +580,11 @@ describe("ExStructuredDocumentTag", () => {
   test('XmlMapping', () => {
     //ExStart
     //ExFor:XmlMapping
-    //ExFor:aw.Markup.XmlMapping.customXmlPart
-    //ExFor:aw.Markup.XmlMapping.delete
-    //ExFor:aw.Markup.XmlMapping.isMapped
-    //ExFor:aw.Markup.XmlMapping.prefixMappings
-    //ExFor:aw.Markup.XmlMapping.xPath
+    //ExFor:XmlMapping.customXmlPart
+    //ExFor:XmlMapping.delete
+    //ExFor:XmlMapping.isMapped
+    //ExFor:XmlMapping.prefixMappings
+    //ExFor:XmlMapping.xPath
     //ExSummary:Shows how to set XML mappings for custom XML parts.
     let doc = new aw.Document();
 
@@ -617,7 +628,7 @@ describe("ExStructuredDocumentTag", () => {
 
   test('StructuredDocumentTagRangeStartXmlMapping', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.xmlMapping
+    //ExFor:StructuredDocumentTagRangeStart.xmlMapping
     //ExSummary:Shows how to set XML mappings for the range start of a structured document tag.
     let doc = new aw.Document(base.myDir + "Multi-section structured document tags.docx");
 
@@ -653,15 +664,15 @@ describe("ExStructuredDocumentTag", () => {
   test('CustomXmlSchemaCollection', () => {
     //ExStart
     //ExFor:CustomXmlSchemaCollection
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.add(String)
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.clear
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.clone
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.count
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.getEnumerator
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.indexOf(String)
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.item(Int32)
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.remove(String)
-    //ExFor:aw.Markup.CustomXmlSchemaCollection.removeAt(Int32)
+    //ExFor:CustomXmlSchemaCollection.add(String)
+    //ExFor:CustomXmlSchemaCollection.clear
+    //ExFor:CustomXmlSchemaCollection.clone
+    //ExFor:CustomXmlSchemaCollection.count
+    //ExFor:CustomXmlSchemaCollection.getEnumerator
+    //ExFor:CustomXmlSchemaCollection.indexOf(String)
+    //ExFor:CustomXmlSchemaCollection.item(Int32)
+    //ExFor:CustomXmlSchemaCollection.remove(String)
+    //ExFor:CustomXmlSchemaCollection.removeAt(Int32)
     //ExSummary:Shows how to work with an XML schema collection.
     let doc = new aw.Document();
 
@@ -703,7 +714,7 @@ describe("ExStructuredDocumentTag", () => {
 
   test('CustomXmlPartStoreItemIdReadOnly', () => {
     //ExStart
-    //ExFor:aw.Markup.XmlMapping.storeItemId
+    //ExFor:XmlMapping.storeItemId
     //ExSummary:Shows how to get the custom XML data identifier of an XML part.
     let doc = new aw.Document(base.myDir + "Custom XML part in structured document tag.docx");
 
@@ -733,7 +744,7 @@ describe("ExStructuredDocumentTag", () => {
 
   test('ClearTextFromStructuredDocumentTags', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.clear
+    //ExFor:StructuredDocumentTag.clear
     //ExSummary:Shows how to delete contents of structured document tag elements.
     let doc = new aw.Document();
 
@@ -799,8 +810,8 @@ describe("ExStructuredDocumentTag", () => {
 
   test('BuildingBlockCategories', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTag.buildingBlockCategory
-    //ExFor:aw.Markup.StructuredDocumentTag.buildingBlockGallery
+    //ExFor:StructuredDocumentTag.buildingBlockCategory
+    //ExFor:StructuredDocumentTag.buildingBlockGallery
     //ExSummary:Shows how to insert a structured document tag as a building block, and set its category and gallery.
     let doc = new aw.Document();
 
@@ -953,20 +964,23 @@ describe("ExStructuredDocumentTag", () => {
   test('MultiSectionTags', () => {
     //ExStart
     //ExFor:StructuredDocumentTagRangeStart
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.id
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.title
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.placeholderName
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.isShowingPlaceholderText
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.lockContentControl
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.lockContents
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.level
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.rangeEnd
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.color
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.sdtType
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.wordOpenXML
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.tag
+    //ExFor:IStructuredDocumentTag.id
+    //ExFor:StructuredDocumentTagRangeStart.id
+    //ExFor:StructuredDocumentTagRangeStart.title
+    //ExFor:StructuredDocumentTagRangeStart.placeholderName
+    //ExFor:StructuredDocumentTagRangeStart.isShowingPlaceholderText
+    //ExFor:StructuredDocumentTagRangeStart.lockContentControl
+    //ExFor:StructuredDocumentTagRangeStart.lockContents
+    //ExFor:IStructuredDocumentTag.level
+    //ExFor:StructuredDocumentTagRangeStart.level
+    //ExFor:StructuredDocumentTagRangeStart.rangeEnd
+    //ExFor:IStructuredDocumentTag.color
+    //ExFor:StructuredDocumentTagRangeStart.color
+    //ExFor:StructuredDocumentTagRangeStart.sdtType
+    //ExFor:StructuredDocumentTagRangeStart.wordOpenXML
+    //ExFor:StructuredDocumentTagRangeStart.tag
     //ExFor:StructuredDocumentTagRangeEnd
-    //ExFor:aw.Markup.StructuredDocumentTagRangeEnd.id
+    //ExFor:StructuredDocumentTagRangeEnd.id
     //ExSummary:Shows how to get the properties of multi-section structured document tags.
     let doc = new aw.Document(base.myDir + "Multi-section structured document tags.docx");
 
@@ -1001,7 +1015,7 @@ describe("ExStructuredDocumentTag", () => {
 
   test('SdtChildNodes', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.getChildNodes(NodeType, bool)
+    //ExFor:StructuredDocumentTagRangeStart.getChildNodes(NodeType, bool)
     //ExSummary:Shows how to get child nodes of StructuredDocumentTagRangeStart.
     let doc = new aw.Document(base.myDir + "Multi-section structured document tags.docx");
     let tag = doc.getChildNodes(aw.NodeType.StructuredDocumentTagRangeStart, true).at(0).asStructuredDocumentTagRangeStart();
@@ -1070,8 +1084,9 @@ describe("ExStructuredDocumentTag", () => {
 
   test('GetSdt', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTagCollection.remove(int)
-    //ExFor:aw.Markup.StructuredDocumentTagCollection.removeAt(int)
+    //ExFor:Range.structuredDocumentTags
+    //ExFor:StructuredDocumentTagCollection.remove(int)
+    //ExFor:StructuredDocumentTagCollection.removeAt(int)
     //ExSummary:Shows how to remove structured document tag.
     let doc = new aw.Document(base.myDir + "Structured document tags.docx");
 
@@ -1095,10 +1110,11 @@ describe("ExStructuredDocumentTag", () => {
 
   test('RangeSdt', () => {
     //ExStart
-    //ExFor:aw.Markup.StructuredDocumentTagCollection.getById(int)
-    //ExFor:aw.Markup.StructuredDocumentTagCollection.getByTitle(String)
-    //ExFor:aw.Markup.IStructuredDocumentTag.isMultiSection
-    //ExFor:aw.Markup.IStructuredDocumentTag.title
+    //ExFor:StructuredDocumentTagCollection
+    //ExFor:StructuredDocumentTagCollection.getById(int)
+    //ExFor:StructuredDocumentTagCollection.getByTitle(String)
+    //ExFor:IStructuredDocumentTag.isMultiSection
+    //ExFor:IStructuredDocumentTag.title
     //ExSummary:Shows how to get structured document tag.
     let doc = new aw.Document(base.myDir + "Structured document tags by id.docx");
 
@@ -1154,7 +1170,7 @@ describe("ExStructuredDocumentTag", () => {
 
   test('IgnoreStructuredDocumentTags', () => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.ignoreStructuredDocumentTags
+    //ExFor:FindReplaceOptions.ignoreStructuredDocumentTags
     //ExSummary:Shows how to ignore content of tags from replacement.
     let doc = new aw.Document(base.myDir + "Structured document tags.docx");
 
@@ -1201,7 +1217,7 @@ describe("ExStructuredDocumentTag", () => {
   test('RangeStartWordOpenXmlMinimal', () => {
     //ExStart:RangeStartWordOpenXmlMinimal
     //GistId:470c0da51e4317baae82ad9495747fed
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.wordOpenXMLMinimal
+    //ExFor:StructuredDocumentTagRangeStart.wordOpenXMLMinimal
     //ExSummary:Shows how to get minimal XML contained within the node in the FlatOpc format.
     let doc = new aw.Document(base.myDir + "Multi-section structured document tags.docx");
     let tag = doc.getChild(aw.NodeType.StructuredDocumentTagRangeStart, 0, true).asStructuredDocumentTagRangeStart();
@@ -1216,8 +1232,9 @@ describe("ExStructuredDocumentTag", () => {
   test('RemoveSelfOnly', () => {
     //ExStart:RemoveSelfOnly
     //GistId:e386727403c2341ce4018bca370a5b41
-    //ExFor:aw.Markup.IStructuredDocumentTag.getChildNodes(NodeType, bool)
-    //ExFor:aw.Markup.IStructuredDocumentTag.removeSelfOnly
+    //ExFor:IStructuredDocumentTag
+    //ExFor:IStructuredDocumentTag.getChildNodes(NodeType, bool)
+    //ExFor:IStructuredDocumentTag.removeSelfOnly
     //ExSummary:Shows how to remove structured document tag, but keeps content inside.
     let doc = new aw.Document(base.myDir + "Structured document tags.docx");
 
@@ -1242,7 +1259,8 @@ describe("ExStructuredDocumentTag", () => {
     //ExStart:Appearance
     //GistId:a775441ecb396eea917a2717cb9e8f8f
     //ExFor:SdtAppearance
-    //ExFor:aw.Markup.StructuredDocumentTagRangeStart.appearance
+    //ExFor:StructuredDocumentTagRangeStart.appearance
+    //ExFor:IStructuredDocumentTag.appearance
     //ExSummary:Shows how to show tag around content.
     let doc = new aw.Document(base.myDir + "Multi-section structured document tags.docx");
     let tag = doc.getChild(aw.NodeType.StructuredDocumentTagRangeStart, 0, true).asStructuredDocumentTagRangeStart();
@@ -1251,5 +1269,27 @@ describe("ExStructuredDocumentTag", () => {
       tag.appearance = aw.Markup.SdtAppearance.Tags;
     //ExEnd:Appearance
   });
+
+
+  test('InsertStructuredDocumentTag', () => {
+    //ExStart:InsertStructuredDocumentTag
+    //GistId:e06aa7a168b57907a5598e823a22bf0a
+    //ExFor:DocumentBuilder.insertStructuredDocumentTag(SdtType)
+    //ExSummary:Shows how to simply insert structured document tag.
+    let doc = new aw.Document(base.myDir + "Rendering.docx");
+    let builder = new aw.DocumentBuilder(doc);
+
+    builder.moveTo(doc.firstSection.body.paragraphs.at(3));
+    // Note, that only following StructuredDocumentTag types are allowed for insertion:
+    // SdtType.PlainText, SdtType.RichText, SdtType.Checkbox, SdtType.DropDownList,
+    // SdtType.ComboBox, SdtType.Picture, SdtType.date.
+    // Markup level of inserted StructuredDocumentTag will be detected automatically and depends on position being inserted at.
+    // Added StructuredDocumentTag will inherit paragraph and font formatting from cursor position.
+    let sdtPlain = builder.insertStructuredDocumentTag(aw.Markup.SdtType.PlainText);
+
+    doc.save(base.artifactsDir + "StructuredDocumentTag.insertStructuredDocumentTag.docx");
+    //ExEnd:InsertStructuredDocumentTag
+  });
+
 
 });

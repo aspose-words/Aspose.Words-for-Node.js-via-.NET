@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -24,13 +24,13 @@ describe("ExLists", () => {
 
   test('ApplyDefaultBulletsAndNumbers', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.listFormat
-    //ExFor:aw.Lists.ListFormat.applyNumberDefault
-    //ExFor:aw.Lists.ListFormat.applyBulletDefault
-    //ExFor:aw.Lists.ListFormat.listIndent
-    //ExFor:aw.Lists.ListFormat.listOutdent
-    //ExFor:aw.Lists.ListFormat.removeNumbers
-    //ExFor:aw.Lists.ListFormat.listLevelNumber
+    //ExFor:DocumentBuilder.listFormat
+    //ExFor:ListFormat.applyNumberDefault
+    //ExFor:ListFormat.applyBulletDefault
+    //ExFor:ListFormat.listIndent
+    //ExFor:ListFormat.listOutdent
+    //ExFor:ListFormat.removeNumbers
+    //ExFor:ListFormat.listLevelNumber
     //ExSummary:Shows how to create bulleted and numbered lists.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -122,12 +122,12 @@ describe("ExLists", () => {
     //ExFor:ListCollection
     //ExFor:List
     //ExFor:ListFormat
-    //ExFor:aw.Lists.ListFormat.isListItem
-    //ExFor:aw.Lists.ListFormat.listLevelNumber
-    //ExFor:aw.Lists.ListFormat.list
+    //ExFor:ListFormat.isListItem
+    //ExFor:ListFormat.listLevelNumber
+    //ExFor:ListFormat.list
     //ExFor:ListTemplate
-    //ExFor:aw.DocumentBase.lists
-    //ExFor:aw.Lists.ListCollection.add(ListTemplate)
+    //ExFor:DocumentBase.lists
+    //ExFor:ListCollection.add(ListTemplate)
     //ExSummary:Shows how to work with list levels.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -182,11 +182,11 @@ describe("ExLists", () => {
 
   test('NestedLists', () => {
     //ExStart
-    //ExFor:aw.Lists.ListFormat.list
-    //ExFor:aw.ParagraphFormat.clearFormatting
-    //ExFor:aw.ParagraphFormat.dropCapPosition
-    //ExFor:aw.ParagraphFormat.isListItem
-    //ExFor:aw.Paragraph.isListItem
+    //ExFor:ListFormat.list
+    //ExFor:ParagraphFormat.clearFormatting
+    //ExFor:ParagraphFormat.dropCapPosition
+    //ExFor:ParagraphFormat.isListItem
+    //ExFor:Paragraph.isListItem
     //ExSummary:Shows how to nest a list inside another list.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -245,23 +245,23 @@ describe("ExLists", () => {
   test('CreateCustomList', () => {
     //ExStart
     //ExFor:List
-    //ExFor:aw.Lists.List.listLevels
-    //ExFor:aw.Lists.ListFormat.listLevel
+    //ExFor:List.listLevels
+    //ExFor:ListFormat.listLevel
     //ExFor:ListLevelCollection
-    //ExFor:aw.Lists.ListLevelCollection.item
+    //ExFor:ListLevelCollection.item
     //ExFor:ListLevel
-    //ExFor:aw.Lists.ListLevel.alignment
-    //ExFor:aw.Lists.ListLevel.font
-    //ExFor:aw.Lists.ListLevel.numberStyle
-    //ExFor:aw.Lists.ListLevel.startAt
-    //ExFor:aw.Lists.ListLevel.trailingCharacter
+    //ExFor:ListLevel.alignment
+    //ExFor:ListLevel.font
+    //ExFor:ListLevel.numberStyle
+    //ExFor:ListLevel.startAt
+    //ExFor:ListLevel.trailingCharacter
     //ExFor:ListLevelAlignment
     //ExFor:NumberStyle
     //ExFor:ListTrailingCharacter
-    //ExFor:aw.Lists.ListLevel.numberFormat
-    //ExFor:aw.Lists.ListLevel.numberPosition
-    //ExFor:aw.Lists.ListLevel.textPosition
-    //ExFor:aw.Lists.ListLevel.tabPosition
+    //ExFor:ListLevel.numberFormat
+    //ExFor:ListLevel.numberPosition
+    //ExFor:ListLevel.textPosition
+    //ExFor:ListLevel.tabPosition
     //ExSummary:Shows how to apply custom list formatting to paragraphs when using DocumentBuilder.
     let doc = new aw.Document();
 
@@ -337,9 +337,9 @@ describe("ExLists", () => {
     //ExStart
     //ExFor:List
     //ExFor:ListCollection
-    //ExFor:aw.Lists.ListCollection.add(ListTemplate)
-    //ExFor:aw.Lists.ListCollection.addCopy(List)
-    //ExFor:aw.Lists.ListLevel.startAt
+    //ExFor:ListCollection.add(ListTemplate)
+    //ExFor:ListCollection.addCopy(List)
+    //ExFor:ListLevel.startAt
     //ExFor:ListTemplate
     //ExSummary:Shows how to restart numbering in a list by copying a list.
     let doc = new aw.Document();
@@ -396,17 +396,17 @@ describe("ExLists", () => {
 
   test('CreateAndUseListStyle', () => {
     //ExStart
-    //ExFor:aw.StyleCollection.add(StyleType,String)
-    //ExFor:aw.Style.list
+    //ExFor:StyleCollection.add(StyleType,String)
+    //ExFor:Style.list
     //ExFor:StyleType
-    //ExFor:aw.Lists.List.isListStyleDefinition
-    //ExFor:aw.Lists.List.isListStyleReference
-    //ExFor:aw.Lists.List.isMultiLevel
-    //ExFor:aw.Lists.List.style
+    //ExFor:List.isListStyleDefinition
+    //ExFor:List.isListStyleReference
+    //ExFor:List.isMultiLevel
+    //ExFor:List.style
     //ExFor:ListLevelCollection
-    //ExFor:aw.Lists.ListLevelCollection.count
-    //ExFor:aw.Lists.ListLevelCollection.item
-    //ExFor:aw.Lists.ListCollection.add(Style)
+    //ExFor:ListLevelCollection.count
+    //ExFor:ListLevelCollection.item
+    //ExFor:ListCollection.add(Style)
     //ExSummary:Shows how to create a list style and use it in a document.
     let doc = new aw.Document();
 
@@ -491,10 +491,10 @@ describe("ExLists", () => {
 
   test('DetectBulletedParagraphs', () => {
     //ExStart
-    //ExFor:aw.Paragraph.listFormat
-    //ExFor:aw.Lists.ListFormat.isListItem
-    //ExFor:aw.CompositeNode.getText
-    //ExFor:aw.Lists.List.listId
+    //ExFor:Paragraph.listFormat
+    //ExFor:ListFormat.isListItem
+    //ExFor:CompositeNode.getText
+    //ExFor:List.listId
     //ExSummary:Shows how to output all paragraphs in a document that are list items.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -530,7 +530,7 @@ describe("ExLists", () => {
 
   test('RemoveBulletsFromParagraphs', () => {
     //ExStart
-    //ExFor:aw.Lists.ListFormat.removeNumbers
+    //ExFor:ListFormat.removeNumbers
     //ExSummary:Shows how to remove list formatting from all paragraphs in the main text of a section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -554,7 +554,7 @@ describe("ExLists", () => {
 
   test('ApplyExistingListToParagraphs', () => {
     //ExStart
-    //ExFor:aw.Lists.ListCollection.item(Int32)
+    //ExFor:ListCollection.item(Int32)
     //ExSummary:Shows how to apply list formatting of an existing list to a collection of paragraphs.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -590,7 +590,7 @@ describe("ExLists", () => {
 
   test('ApplyNewListToParagraphs', () => {
     //ExStart
-    //ExFor:aw.Lists.ListCollection.add(ListTemplate)
+    //ExFor:ListCollection.add(ListTemplate)
     //ExSummary:Shows how to create a list by applying a new list format to a collection of paragraphs.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -765,12 +765,12 @@ describe("ExLists", () => {
 
   test('ListDocument', () => {
     //ExStart
-    //ExFor:aw.Lists.ListCollection.document
-    //ExFor:aw.Lists.ListCollection.count
-    //ExFor:aw.Lists.ListCollection.item(Int32)
-    //ExFor:aw.Lists.ListCollection.getListByListId
-    //ExFor:aw.Lists.List.document
-    //ExFor:aw.Lists.List.listId
+    //ExFor:ListCollection.document
+    //ExFor:ListCollection.count
+    //ExFor:ListCollection.item(Int32)
+    //ExFor:ListCollection.getListByListId
+    //ExFor:List.document
+    //ExFor:List.listId
     //ExSummary:Shows how to verify owner document properties of lists.
     let doc = new aw.Document();
 
@@ -798,11 +798,11 @@ describe("ExLists", () => {
 
   test('CreateListRestartAfterHigher', () => {
     //ExStart
-    //ExFor:aw.Lists.ListLevel.numberStyle
-    //ExFor:aw.Lists.ListLevel.numberFormat
-    //ExFor:aw.Lists.ListLevel.isLegal
-    //ExFor:aw.Lists.ListLevel.restartAfterLevel
-    //ExFor:aw.Lists.ListLevel.linkedStyle
+    //ExFor:ListLevel.numberStyle
+    //ExFor:ListLevel.numberFormat
+    //ExFor:ListLevel.isLegal
+    //ExFor:ListLevel.restartAfterLevel
+    //ExFor:ListLevel.linkedStyle
     //ExSummary:Shows advances ways of customizing list labels.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -877,12 +877,12 @@ describe("ExLists", () => {
 
   test('GetListLabels', () => {
     //ExStart
-    //ExFor:aw.Document.updateListLabels()
-    //ExFor:aw.Node.toString(SaveFormat)
+    //ExFor:Document.updateListLabels()
+    //ExFor:Node.toString(SaveFormat)
     //ExFor:ListLabel
-    //ExFor:aw.Paragraph.listLabel
-    //ExFor:aw.Lists.ListLabel.labelValue
-    //ExFor:aw.Lists.ListLabel.labelString
+    //ExFor:Paragraph.listLabel
+    //ExFor:ListLabel.labelValue
+    //ExFor:ListLabel.labelString
     //ExSummary:Shows how to extract the list labels of all paragraphs that are list items.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
     doc.updateListLabels();
@@ -918,8 +918,8 @@ describe("ExLists", () => {
 
   test('CreatePictureBullet', () => {
     //ExStart
-    //ExFor:aw.Lists.ListLevel.createPictureBullet
-    //ExFor:aw.Lists.ListLevel.deletePictureBullet
+    //ExFor:ListLevel.createPictureBullet
+    //ExFor:ListLevel.deletePictureBullet
     //ExSummary:Shows how to set a custom image icon for list item labels.
     let doc = new aw.Document();
 
@@ -953,8 +953,8 @@ describe("ExLists", () => {
 
   test('GetCustomNumberStyleFormat', () => {
     //ExStart
-    //ExFor:aw.Lists.ListLevel.customNumberStyleFormat
-    //ExFor:aw.Lists.ListLevel.getEffectiveValue(Int32, NumberStyle, String)
+    //ExFor:ListLevel.customNumberStyleFormat
+    //ExFor:ListLevel.getEffectiveValue(Int32, NumberStyle, String)
     //ExSummary:Shows how to get the format for a list with the custom number style.
     let doc = new aw.Document(base.myDir + "List with leading zero.docx");
 
@@ -983,7 +983,7 @@ describe("ExLists", () => {
 
   test('HasSameTemplate', () => {
     //ExStart
-    //ExFor:aw.Lists.List.hasSameTemplate(List)
+    //ExFor:List.hasSameTemplate(List)
     //ExSummary:Shows how to define lists with the same ListDefId.
     let doc = new aw.Document(base.myDir + "Different lists.docx");
 
@@ -996,7 +996,7 @@ describe("ExLists", () => {
   test('SetCustomNumberStyleFormat', () => {
     //ExStart:SetCustomNumberStyleFormat
     //GistId:ac8ba4eb35f3fbb8066b48c999da63b0
-    //ExFor:aw.Lists.ListLevel.customNumberStyleFormat
+    //ExFor:ListLevel.customNumberStyleFormat
     //ExSummary:Shows how to set customer number style format.
     let doc = new aw.Document(base.myDir + "List with leading zero.docx");
 
@@ -1016,4 +1016,39 @@ describe("ExLists", () => {
     expect(paras.at(2).listLabel.labelString).toEqual("002.");
     //ExEnd:SetCustomNumberStyleFormat
   });
+
+  
+  test('AddSingleLevelList', () => {
+    //ExStart:AddSingleLevelList
+    //GistId:95fdae949cefbf2ce485acc95cccc495
+    //ExFor:ListCollection.addSingleLevelList(ListTemplate)
+    //ExSummary:Shows how to create a new single level list based on the predefined template.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+    let listCollection = doc.lists;
+
+    // Creates the bulleted list from BulletCircle template.
+    let bulletedList = listCollection.addSingleLevelList(aw.Lists.ListTemplate.BulletCircle);
+
+    // Writes the bulleted list to the resulting document.
+    builder.writeln("Bulleted list starts below:");
+    builder.listFormat.list = bulletedList;
+    builder.writeln("Item 1");
+    builder.writeln("Item 2");
+    builder.listFormat.removeNumbers();
+
+    // Creates the numbered list from NumberUppercaseLetterDot template.
+    let numberedList = listCollection.addSingleLevelList(aw.Lists.ListTemplate.NumberUppercaseLetterDot);
+
+    // Writes the numbered list to the resulting document.
+    builder.writeln("Numbered list starts below:");
+    builder.listFormat.list = numberedList;
+    builder.writeln("Item 1");
+    builder.writeln("Item 2");
+
+    doc.save(base.artifactsDir + "Lists.addSingleLevelList.docx");
+    //ExEnd:AddSingleLevelList
+  });
+
+
 });

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -22,7 +22,7 @@ describe("ExFontSettings", () => {
 
   test('DefaultFontInstance', () => {
     //ExStart
-    //ExFor:aw.Fonts.FontSettings.defaultInstance
+    //ExFor:FontSettings.defaultInstance
     //ExSummary:Shows how to configure the default font settings instance.
     // Configure the default font settings instance to use the "Courier New" font
     // as a backup substitute when we attempt to use an unknown font.
@@ -48,7 +48,7 @@ describe("ExFontSettings", () => {
 
   test.skip('DefaultFontName: Aspose.Words.Fonts.FontSourceBase.GetAvailableFonts() skipped', () => {
     //ExStart
-    //ExFor:aw.Fonts.DefaultFontSubstitutionRule.defaultFontName
+    //ExFor:DefaultFontSubstitutionRule.defaultFontName
     //ExSummary:Shows how to specify a default font.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -77,7 +77,8 @@ describe("ExFontSettings", () => {
   });
 
 
-  /*test('UpdatePageLayoutWarnings', () => {
+  /*//Commented
+  test('UpdatePageLayoutWarnings', () => {
     // Store the font sources currently used so we can restore them later
     let originalFontSources = aw.Fonts.FontSettings.defaultInstance.getFontsSources();
 
@@ -164,7 +165,7 @@ describe("ExFontSettings", () => {
     expect(callback.FontSubstitutionWarnings.at(0).warningType == aw.WarningType.FontSubstitution).toEqual(true);
     Assert.true(callback.FontSubstitutionWarnings.at(0).description
       .Equals(
-        "Font 'Times New Roman' has not been found. Using 'Fanwood' font instead. Reason: first available font.", StringComparison.ordinal));
+        "Font 'Times New Roman' has not been found. Using 'Fanwood' font instead. Reason: first available font."));
   });
 
 
@@ -294,7 +295,7 @@ describe("ExFontSettings", () => {
 
     Assert.true(callback.FontWarnings.at(0).description
       .Equals(
-        "Font \'SymbolPS\' has not been found. Using \'Wingdings\' font instead. Reason: font info substitution.", StringComparison.ordinal));
+        "Font \'SymbolPS\' has not been found. Using \'Wingdings\' font instead. Reason: font info substitution."));
   });
 
 
@@ -371,7 +372,8 @@ describe("ExFontSettings", () => {
       substitutionWarningHandler.FontWarnings.at(0).description);
 
     aw.Fonts.FontSettings.defaultInstance.setFontsSources(originalFontSources);
-  });*/
+  });
+  //EndCommented*/
 
 
   test('FontSourceFile', () => {
@@ -379,11 +381,11 @@ describe("ExFontSettings", () => {
     //ExFor:FileFontSource
     //ExFor:FileFontSource.#ctor(String)
     //ExFor:FileFontSource.#ctor(String, Int32)
-    //ExFor:aw.Fonts.FileFontSource.filePath
-    //ExFor:aw.Fonts.FileFontSource.type
+    //ExFor:FileFontSource.filePath
+    //ExFor:FileFontSource.type
     //ExFor:FontSourceBase
-    //ExFor:aw.Fonts.FontSourceBase.priority
-    //ExFor:aw.Fonts.FontSourceBase.type
+    //ExFor:FontSourceBase.priority
+    //ExFor:FontSourceBase.type
     //ExFor:FontSourceType
     //ExSummary:Shows how to use a font file in the local file system as a font source.
     let fileFontSource = new aw.Fonts.FileFontSource(base.myDir + "Alte DIN 1451 Mittelschrift.ttf", 0);
@@ -404,9 +406,9 @@ describe("ExFontSettings", () => {
     //ExFor:FolderFontSource
     //ExFor:FolderFontSource.#ctor(String, Boolean)
     //ExFor:FolderFontSource.#ctor(String, Boolean, Int32)
-    //ExFor:aw.Fonts.FolderFontSource.folderPath
-    //ExFor:aw.Fonts.FolderFontSource.scanSubfolders
-    //ExFor:aw.Fonts.FolderFontSource.type
+    //ExFor:FolderFontSource.folderPath
+    //ExFor:FolderFontSource.scanSubfolders
+    //ExFor:FolderFontSource.type
     //ExSummary:Shows how to use a local system folder which contains fonts as a font source.
 
     // Create a font source from a folder that contains font files.
@@ -427,7 +429,7 @@ describe("ExFontSettings", () => {
   test.skip.each([false, true])('SetFontsFolder(recursive = %o): Aspose.Words.Fonts.FontSourceBase.GetAvailableFonts() skipped', (recursive) => {
     //ExStart
     //ExFor:FontSettings
-    //ExFor:aw.Fonts.FontSettings.setFontsFolder(String, Boolean)
+    //ExFor:FontSettings.setFontsFolder(String, Boolean)
     //ExSummary:Shows how to set a font source directory.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -485,7 +487,7 @@ describe("ExFontSettings", () => {
   test.skip.each([false, true])('SetFontsFolders(recursive = %o): Aspose.Words.Fonts.FontSourceBase.GetAvailableFonts() skipped', (recursive) => {
     //ExStart
     //ExFor:FontSettings
-    //ExFor:aw.Fonts.FontSettings.setFontsFolders(String[], Boolean)
+    //ExFor:FontSettings.setFontsFolders(String[], Boolean)
     //ExSummary:Shows how to set multiple font source directories.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -543,8 +545,8 @@ describe("ExFontSettings", () => {
   test.skip('AddFontSource: Aspose.Words.Fonts.FontSourceBase.GetAvailableFonts() skipped', () => {
     //ExStart
     //ExFor:FontSettings
-    //ExFor:aw.Fonts.FontSettings.getFontsSources()
-    //ExFor:aw.Fonts.FontSettings.setFontsSources(FontSourceBase[])
+    //ExFor:FontSettings.getFontsSources()
+    //ExFor:FontSettings.setFontsSources(FontSourceBase[])
     //ExSummary:Shows how to add a font source to our existing font sources.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -608,8 +610,8 @@ describe("ExFontSettings", () => {
 
   test.skip('TableSubstitution: Aspose.Words.Fonts.FontSourceBase.GetAvailableFonts() skipped', () => {
     //ExStart
-    //ExFor:aw.Document.fontSettings
-    //ExFor:aw.Fonts.TableSubstitutionRule.setSubstitutes(String, String[])
+    //ExFor:Document.fontSettings
+    //ExFor:TableSubstitutionRule.setSubstitutes(String, String[])
     //ExSummary:Shows how set font substitution rules.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -687,8 +689,8 @@ describe("ExFontSettings", () => {
     //ExFor:MemoryFontSource
     //ExFor:MemoryFontSource.#ctor(Byte[])
     //ExFor:MemoryFontSource.#ctor(Byte[], Int32)
-    //ExFor:aw.Fonts.MemoryFontSource.fontData
-    //ExFor:aw.Fonts.MemoryFontSource.type
+    //ExFor:MemoryFontSource.fontData
+    //ExFor:MemoryFontSource.type
     //ExSummary:Shows how to use a byte array with data from a font file as a font source.
 
     let fontBytes = Array.from(fs.readFileSync(base.myDir + "Alte DIN 1451 Mittelschrift.ttf"));
@@ -706,17 +708,18 @@ describe("ExFontSettings", () => {
 
   test.skip('FontSourceSystem: WORDSNODEJS-124', () => {
     //ExStart
-    //ExFor:aw.Fonts.TableSubstitutionRule.addSubstitutes(String, String[])
-    //ExFor:aw.Fonts.FontSubstitutionRule.enabled
-    //ExFor:aw.Fonts.TableSubstitutionRule.getSubstitutes(String)
-    //ExFor:aw.Fonts.FontSettings.resetFontSources
-    //ExFor:aw.Fonts.FontSettings.substitutionSettings
+    //ExFor:TableSubstitutionRule.addSubstitutes(String, String[])
+    //ExFor:FontSubstitutionRule.enabled
+    //ExFor:TableSubstitutionRule.getSubstitutes(String)
+    //ExFor:FontSettings.resetFontSources
+    //ExFor:FontSettings.substitutionSettings
     //ExFor:FontSubstitutionSettings
+    //ExFor:FontSubstitutionSettings.fontNameSubstitution
     //ExFor:SystemFontSource
     //ExFor:SystemFontSource.#ctor
     //ExFor:SystemFontSource.#ctor(Int32)
-    //ExFor:aw.Fonts.SystemFontSource.getSystemFontFolders
-    //ExFor:aw.Fonts.SystemFontSource.type
+    //ExFor:SystemFontSource.getSystemFontFolders
+    //ExFor:SystemFontSource.type
     //ExSummary:Shows how to access a document's system font source and set font substitutes.
     console.log(os.platform());
     let doc = new aw.Document();
@@ -765,8 +768,8 @@ describe("ExFontSettings", () => {
 
   test('LoadFontFallbackSettingsFromFile', () => {
     //ExStart
-    //ExFor:aw.Fonts.FontFallbackSettings.load(String)
-    //ExFor:aw.Fonts.FontFallbackSettings.save(String)
+    //ExFor:FontFallbackSettings.load(String)
+    //ExFor:FontFallbackSettings.save(String)
     //ExSummary:Shows how to load and save font fallback settings to/from an XML document in the local file system.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -785,8 +788,8 @@ describe("ExFontSettings", () => {
 
   test.skip('LoadFontFallbackSettingsFromStream: WORDSNODEJS-125', () => {
     //ExStart
-    //ExFor:aw.Fonts.FontFallbackSettings.load(Stream)
-    //ExFor:aw.Fonts.FontFallbackSettings.save(Stream)
+    //ExFor:FontFallbackSettings.load(Stream)
+    //ExFor:FontFallbackSettings.save(Stream)
     //ExSummary:Shows how to load and save font fallback settings to/from a stream.
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
@@ -832,7 +835,7 @@ describe("ExFontSettings", () => {
 
   test('LoadNotoFontsFallbackSettings', () => {
     //ExStart
-    //ExFor:aw.Fonts.FontFallbackSettings.loadNotoFallbackSettings
+    //ExFor:FontFallbackSettings.loadNotoFallbackSettings
     //ExSummary:Shows how to add predefined font fallback settings for Google Noto fonts.
     let fontSettings = new aw.Fonts.FontSettings();
 
@@ -857,8 +860,8 @@ describe("ExFontSettings", () => {
   test('DefaultFontSubstitutionRule', () => {
     //ExStart
     //ExFor:DefaultFontSubstitutionRule
-    //ExFor:aw.Fonts.DefaultFontSubstitutionRule.defaultFontName
-    //ExFor:aw.Fonts.FontSubstitutionSettings.defaultFontSubstitution
+    //ExFor:DefaultFontSubstitutionRule.defaultFontName
+    //ExFor:FontSubstitutionSettings.defaultFontSubstitution
     //ExSummary:Shows how to set the default font substitution rule.
     let doc = new aw.Document();
     let fontSettings = new aw.Fonts.FontSettings();
@@ -890,12 +893,12 @@ describe("ExFontSettings", () => {
   test('FontConfigSubstitution', () => {
     //ExStart
     //ExFor:FontConfigSubstitutionRule
-    //ExFor:aw.Fonts.FontConfigSubstitutionRule.enabled
-    //ExFor:aw.Fonts.FontConfigSubstitutionRule.isFontConfigAvailable
-    //ExFor:aw.Fonts.FontConfigSubstitutionRule.resetCache
+    //ExFor:FontConfigSubstitutionRule.enabled
+    //ExFor:FontConfigSubstitutionRule.isFontConfigAvailable
+    //ExFor:FontConfigSubstitutionRule.resetCache
     //ExFor:FontSubstitutionRule
-    //ExFor:aw.Fonts.FontSubstitutionRule.enabled
-    //ExFor:aw.Fonts.FontSubstitutionSettings.fontConfigSubstitution
+    //ExFor:FontSubstitutionRule.enabled
+    //ExFor:FontSubstitutionSettings.fontConfigSubstitution
     //ExSummary:Shows operating system-dependent font config substitution.
     let fontSettings = new aw.Fonts.FontSettings();
     let fontConfigSubstitution = fontSettings.substitutionSettings.fontConfigSubstitution;
@@ -926,8 +929,8 @@ describe("ExFontSettings", () => {
 
   test.skip('FallbackSettings: usage of XmlDocument and XmlNamespaceManager', () => {
     //ExStart
-    //ExFor:aw.Fonts.FontFallbackSettings.loadMsOfficeFallbackSettings
-    //ExFor:aw.Fonts.FontFallbackSettings.loadNotoFallbackSettings
+    //ExFor:FontFallbackSettings.loadMsOfficeFallbackSettings
+    //ExFor:FontFallbackSettings.loadNotoFallbackSettings
     //ExSummary:Shows how to load pre-defined fallback font settings.
     let doc = new aw.Document();
 
@@ -965,9 +968,9 @@ describe("ExFontSettings", () => {
 
   test.skip('FallbackSettingsCustom: usage of XmlDocument and XmlNamespaceManager', () => {
     //ExStart
-    //ExFor:aw.Fonts.FontSettings.fallbackSettings
+    //ExFor:FontSettings.fallbackSettings
     //ExFor:FontFallbackSettings
-    //ExFor:aw.Fonts.FontFallbackSettings.buildAutomatic
+    //ExFor:FontFallbackSettings.buildAutomatic
     //ExSummary:Shows how to distribute fallback fonts across Unicode character code ranges.
     let doc = new aw.Document();
 
@@ -1044,10 +1047,10 @@ describe("ExFontSettings", () => {
   test.skip('TableSubstitutionRule: usage of XmlDocument and XmlNamespaceManager', () => {
     //ExStart
     //ExFor:TableSubstitutionRule
-    //ExFor:aw.Fonts.TableSubstitutionRule.loadLinuxSettings
-    //ExFor:aw.Fonts.TableSubstitutionRule.loadWindowsSettings
-    //ExFor:aw.Fonts.TableSubstitutionRule.save(Stream)
-    //ExFor:aw.Fonts.TableSubstitutionRule.save(String)
+    //ExFor:TableSubstitutionRule.loadLinuxSettings
+    //ExFor:TableSubstitutionRule.loadWindowsSettings
+    //ExFor:TableSubstitutionRule.save(Stream)
+    //ExFor:TableSubstitutionRule.save(String)
     //ExSummary:Shows how to access font substitution tables for Windows and Linux.
     let doc = new aw.Document();
     let fontSettings = new aw.Fonts.FontSettings();
@@ -1095,12 +1098,12 @@ describe("ExFontSettings", () => {
 
   test.skip('TableSubstitutionRuleCustom: WORDSNODEJS-126', () => {
     //ExStart
-    //ExFor:aw.Fonts.FontSubstitutionSettings.tableSubstitution
-    //ExFor:aw.Fonts.TableSubstitutionRule.addSubstitutes(String,String[])
-    //ExFor:aw.Fonts.TableSubstitutionRule.getSubstitutes(String)
-    //ExFor:aw.Fonts.TableSubstitutionRule.load(Stream)
-    //ExFor:aw.Fonts.TableSubstitutionRule.load(String)
-    //ExFor:aw.Fonts.TableSubstitutionRule.setSubstitutes(String,String[])
+    //ExFor:FontSubstitutionSettings.tableSubstitution
+    //ExFor:TableSubstitutionRule.addSubstitutes(String,String[])
+    //ExFor:TableSubstitutionRule.getSubstitutes(String)
+    //ExFor:TableSubstitutionRule.load(Stream)
+    //ExFor:TableSubstitutionRule.load(String)
+    //ExFor:TableSubstitutionRule.setSubstitutes(String,String[])
     //ExSummary:Shows how to work with custom font substitution tables.
     let doc = new aw.Document();
     let fontSettings = new aw.Fonts.FontSettings();
@@ -1156,7 +1159,7 @@ describe("ExFontSettings", () => {
 
   test('ResolveFontsBeforeLoadingDocument', () => {
     //ExStart
-    //ExFor:aw.Loading.LoadOptions.fontSettings
+    //ExFor:LoadOptions.fontSettings
     //ExSummary:Shows how to designate font substitutes during loading.
     let loadOptions = new aw.Loading.LoadOptions();
     loadOptions.fontSettings = new aw.Fonts.FontSettings();
@@ -1214,6 +1217,9 @@ describe("ExFontSettings", () => {
     //ExFor:MemoryFontSource.#ctor(Byte[], Int32, String)
     //ExFor:FontSettings.SaveSearchCache(Stream)
     //ExFor:FontSettings.SetFontsSources(FontSourceBase[], Stream)
+    //ExFor:FileFontSource.CacheKey
+    //ExFor:MemoryFontSource.CacheKey
+    //ExFor:StreamFontSource.CacheKey
     //ExSummary:Shows how to speed up the font cache initialization process.
   test('LoadFontSearchCache', () => {
     const string cacheKey1 = "Arvo";

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -29,8 +29,8 @@ describe("ExShape", () => {
 
   test('AltText', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.alternativeText
-    //ExFor:aw.Drawing.ShapeBase.name
+    //ExFor:ShapeBase.alternativeText
+    //ExFor:ShapeBase.name
     //ExSummary:Shows how to use a shape's alternative text.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -71,8 +71,8 @@ describe("ExShape", () => {
 
   test.each([false, true])('Font(%o)', (hideShape) => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.font
-    //ExFor:aw.Drawing.ShapeBase.parentParagraph
+    //ExFor:ShapeBase.font
+    //ExFor:ShapeBase.parentParagraph
     //ExSummary:Shows how to insert a text box, and set the font of its contents.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -130,8 +130,8 @@ describe("ExShape", () => {
 
   test('Rotate', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.canHaveImage
-    //ExFor:aw.Drawing.ShapeBase.rotation
+    //ExFor:ShapeBase.canHaveImage
+    //ExFor:ShapeBase.rotation
     //ExSummary:Shows how to insert and rotate an image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -159,10 +159,10 @@ describe("ExShape", () => {
 
   test('Coordinates', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.distanceBottom
-    //ExFor:aw.Drawing.ShapeBase.distanceLeft
-    //ExFor:aw.Drawing.ShapeBase.distanceRight
-    //ExFor:aw.Drawing.ShapeBase.distanceTop
+    //ExFor:ShapeBase.distanceBottom
+    //ExFor:ShapeBase.distanceLeft
+    //ExFor:ShapeBase.distanceRight
+    //ExFor:ShapeBase.distanceTop
     //ExSummary:Shows how to set the wrapping distance for a text that surrounds a shape.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -204,9 +204,9 @@ describe("ExShape", () => {
 
   test('GroupShape', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.bounds
-    //ExFor:aw.Drawing.ShapeBase.coordOrigin
-    //ExFor:aw.Drawing.ShapeBase.coordSize
+    //ExFor:ShapeBase.bounds
+    //ExFor:ShapeBase.coordOrigin
+    //ExFor:ShapeBase.coordSize
     //ExSummary:Shows how to create and populate a group shape.
     let doc = new aw.Document();
 
@@ -307,7 +307,7 @@ describe("ExShape", () => {
 
   test('IsTopLevel', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.isTopLevel
+    //ExFor:ShapeBase.isTopLevel
     //ExSummary:Shows how to tell whether a shape is a part of a group shape.
     let doc = new aw.Document();
 
@@ -330,9 +330,9 @@ describe("ExShape", () => {
 
   test('LocalToParent', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.coordOrigin
-    //ExFor:aw.Drawing.ShapeBase.coordSize
-    //ExFor:aw.Drawing.ShapeBase.localToParent(PointF)
+    //ExFor:ShapeBase.coordOrigin
+    //ExFor:ShapeBase.coordSize
+    //ExFor:ShapeBase.localToParent(PointF)
     //ExSummary:Shows how to translate the x and y coordinate location on a shape's coordinate plane to a location on the parent shape's coordinate plane.
     let doc = new aw.Document();
 
@@ -391,7 +391,7 @@ describe("ExShape", () => {
 
   test.each([false, true])('AnchorLocked(%o)', (anchorLocked) => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.anchorLocked
+    //ExFor:ShapeBase.anchorLocked
     //ExSummary:Shows how to lock or unlock a shape's paragraph anchor.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -470,7 +470,7 @@ describe("ExShape", () => {
 
   test('IsInline', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.isInline
+    //ExFor:ShapeBase.isInline
     //ExSummary:Shows how to determine whether a shape is inline or floating.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -524,8 +524,8 @@ describe("ExShape", () => {
 
   test('Bounds', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.bounds
-    //ExFor:aw.Drawing.ShapeBase.boundsInPoints
+    //ExFor:ShapeBase.bounds
+    //ExFor:ShapeBase.boundsInPoints
     //ExSummary:Shows how to verify shape containing block boundaries.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -610,7 +610,7 @@ describe("ExShape", () => {
 
   test('FlipShapeOrientation', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.flipOrientation
+    //ExFor:ShapeBase.flipOrientation
     //ExFor:FlipOrientation
     //ExSummary:Shows how to flip a shape on an axis.
     let doc = new aw.Document();
@@ -675,11 +675,11 @@ describe("ExShape", () => {
 
   test.skip('Fill: WORDSNODEJS-86', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.fill
-    //ExFor:aw.Drawing.Shape.fillColor
-    //ExFor:aw.Drawing.Shape.strokeColor
+    //ExFor:ShapeBase.fill
+    //ExFor:Shape.fillColor
+    //ExFor:Shape.strokeColor
     //ExFor:Fill
-    //ExFor:aw.Drawing.Fill.opacity
+    //ExFor:Fill.opacity
     //ExSummary:Shows how to fill a shape with a solid color.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -722,7 +722,8 @@ describe("ExShape", () => {
 
   test('TextureFill', () => {
     //ExStart
-    //ExFor:aw.Drawing.Fill.textureAlignment
+    //ExFor:Fill.presetTexture
+    //ExFor:Fill.textureAlignment
     //ExFor:TextureAlignment
     //ExSummary:Shows how to fill and tiling the texture inside the shape.
     let doc = new aw.Document();
@@ -740,25 +741,27 @@ describe("ExShape", () => {
     saveOptions.compliance = aw.Saving.OoxmlCompliance.Iso29500_2008_Strict;
 
     doc.save(base.artifactsDir + "Shape.TextureFill.docx", saveOptions);
-    //ExEnd
 
     doc = new aw.Document(base.artifactsDir + "Shape.TextureFill.docx");
 
     shape = doc.getShape(0, true);
 
     expect(shape.fill.textureAlignment).toEqual(aw.Drawing.TextureAlignment.TopRight);
+    expect(shape.fill.presetTexture).toEqual(aw.Drawing.PresetTexture.Canvas);
+    //ExEnd
   });
 
 
   test('GradientFill', () => {
     //ExStart
-    //ExFor:aw.Drawing.Fill.oneColorGradient(Color, GradientStyle, GradientVariant, Double)
-    //ExFor:aw.Drawing.Fill.oneColorGradient(GradientStyle, GradientVariant, Double)
-    //ExFor:aw.Drawing.Fill.twoColorGradient(Color, Color, GradientStyle, GradientVariant)
-    //ExFor:aw.Drawing.Fill.twoColorGradient(GradientStyle, GradientVariant)
-    //ExFor:aw.Drawing.Fill.gradientStyle
-    //ExFor:aw.Drawing.Fill.gradientVariant
-    //ExFor:aw.Drawing.Fill.gradientAngle
+    //ExFor:Fill.oneColorGradient(Color, GradientStyle, GradientVariant, Double)
+    //ExFor:Fill.oneColorGradient(GradientStyle, GradientVariant, Double)
+    //ExFor:Fill.twoColorGradient(Color, Color, GradientStyle, GradientVariant)
+    //ExFor:Fill.twoColorGradient(GradientStyle, GradientVariant)
+    //ExFor:Fill.backColor
+    //ExFor:Fill.gradientStyle
+    //ExFor:Fill.gradientVariant
+    //ExFor:Fill.gradientAngle
     //ExFor:GradientStyle
     //ExFor:GradientVariant
     //ExSummary:Shows how to fill a shape with a gradients.
@@ -779,7 +782,7 @@ describe("ExShape", () => {
     shape.fill.twoColorGradient(aw.Drawing.GradientStyle.FromCorner, aw.Drawing.GradientVariant.Variant4);
     // Change BackColor of gradient fill.
     shape.fill.backColor = "#FFFF00";
-    // Note that changes "GradientAngle" for "GradientStyle.FromCorner/aw.Drawing.GradientStyle.FromCenter"
+    // Note that changes "GradientAngle" for "GradientStyle.FromCorner/GradientStyle.FromCenter"
     // gradient fill don't get any effect, it will work only for linear gradient.
     shape.fill.gradientAngle = 15;
 
@@ -815,21 +818,22 @@ describe("ExShape", () => {
 
   test('GradientStops', () => {
     //ExStart
-    //ExFor:aw.Drawing.Fill.gradientStops
+    //ExFor:Fill.gradientStops
     //ExFor:GradientStopCollection
-    //ExFor:aw.Drawing.GradientStopCollection.insert(Int32, GradientStop)
-    //ExFor:aw.Drawing.GradientStopCollection.add(GradientStop)
-    //ExFor:aw.Drawing.GradientStopCollection.removeAt(Int32)
-    //ExFor:aw.Drawing.GradientStopCollection.remove(GradientStop)
-    //ExFor:aw.Drawing.GradientStopCollection.item(Int32)
-    //ExFor:aw.Drawing.GradientStopCollection.count
+    //ExFor:GradientStopCollection.insert(Int32, GradientStop)
+    //ExFor:GradientStopCollection.add(GradientStop)
+    //ExFor:GradientStopCollection.removeAt(Int32)
+    //ExFor:GradientStopCollection.remove(GradientStop)
+    //ExFor:GradientStopCollection.item(Int32)
+    //ExFor:GradientStopCollection.count
+    //ExFor:GradientStop
     //ExFor:GradientStop.#ctor(Color, Double)
     //ExFor:GradientStop.#ctor(Color, Double, Double)
-    //ExFor:aw.Drawing.GradientStop.baseColor
-    //ExFor:aw.Drawing.GradientStop.color
-    //ExFor:aw.Drawing.GradientStop.position
-    //ExFor:aw.Drawing.GradientStop.transparency
-    //ExFor:aw.Drawing.GradientStop.remove
+    //ExFor:GradientStop.baseColor
+    //ExFor:GradientStop.color
+    //ExFor:GradientStop.position
+    //ExFor:GradientStop.transparency
+    //ExFor:GradientStop.remove
     //ExSummary:Shows how to add gradient stops to the gradient fill.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -896,8 +900,10 @@ describe("ExShape", () => {
 
   test('FillPattern', () => {
     //ExStart
-    //ExFor:aw.Drawing.Fill.patterned(PatternType)
-    //ExFor:aw.Drawing.Fill.patterned(PatternType, Color, Color)
+    //ExFor:PatternType
+    //ExFor:Fill.pattern
+    //ExFor:Fill.patterned(PatternType)
+    //ExFor:Fill.patterned(PatternType, Color, Color)
     //ExSummary:Shows how to set pattern for a shape.
     let doc = new aw.Document(base.myDir + "Shape stroke pattern border.docx");
 
@@ -920,9 +926,9 @@ describe("ExShape", () => {
 
   test('FillThemeColor', () => {
     //ExStart
-    //ExFor:aw.Drawing.Fill.foreThemeColor
-    //ExFor:aw.Drawing.Fill.backThemeColor
-    //ExFor:aw.Drawing.Fill.backTintAndShade
+    //ExFor:Fill.foreThemeColor
+    //ExFor:Fill.backThemeColor
+    //ExFor:Fill.backTintAndShade
     //ExSummary:Shows how to set theme color for foreground/background shape color.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -944,7 +950,7 @@ describe("ExShape", () => {
 
   test('FillTintAndShade', () => {
     //ExStart
-    //ExFor:aw.Drawing.Fill.foreTintAndShade
+    //ExFor:Fill.foreTintAndShade
     //ExSummary:Shows how to manage lightening and darkening foreground font color.
     let doc = new aw.Document(base.myDir + "Big document.docx");
 
@@ -960,7 +966,7 @@ describe("ExShape", () => {
 
   test('Title', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.title
+    //ExFor:ShapeBase.title
     //ExSummary:Shows how to set the title of a shape.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -991,10 +997,10 @@ describe("ExShape", () => {
   test('ReplaceTextboxesWithImages', () => {
     //ExStart
     //ExFor:WrapSide
-    //ExFor:aw.Drawing.ShapeBase.wrapSide
+    //ExFor:ShapeBase.wrapSide
     //ExFor:NodeCollection
-    //ExFor:aw.CompositeNode.insertAfter``1(``0,Node)
-    //ExFor:aw.NodeCollection.toArray
+    //ExFor:CompositeNode.insertAfter``1(``0,Node)
+    //ExFor:NodeCollection.toArray
     //ExSummary:Shows how to replace all textbox shapes with image shapes.
     let doc = new aw.Document(base.myDir + "Textboxes in drawing canvas.docx");
 
@@ -1043,9 +1049,9 @@ describe("ExShape", () => {
   test('CreateTextBox', () => {
     //ExStart
     //ExFor:Shape.#ctor(DocumentBase, ShapeType)
-    //ExFor:aw.Story.firstParagraph
-    //ExFor:aw.Drawing.Shape.firstParagraph
-    //ExFor:aw.Drawing.ShapeBase.wrapType
+    //ExFor:Story.firstParagraph
+    //ExFor:Shape.firstParagraph
+    //ExFor:ShapeBase.wrapType
     //ExSummary:Shows how to create and format a text box.
     let doc = new aw.Document();
 
@@ -1085,7 +1091,7 @@ describe("ExShape", () => {
 
   test('ZOrder', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.zOrder
+    //ExFor:ShapeBase.zOrder
     //ExSummary:Shows how to manipulate the order of shapes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1126,16 +1132,16 @@ describe("ExShape", () => {
   test('GetActiveXControlProperties', () => {
     //ExStart
     //ExFor:OleControl
-    //ExFor:aw.Drawing.Ole.OleControl.isForms2OleControl
-    //ExFor:aw.Drawing.Ole.OleControl.name
-    //ExFor:aw.Drawing.OleFormat.oleControl
+    //ExFor:OleControl.isForms2OleControl
+    //ExFor:OleControl.name
+    //ExFor:OleFormat.oleControl
     //ExFor:Forms2OleControl
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.caption
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.value
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.enabled
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.type
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.childNodes
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.groupName
+    //ExFor:Forms2OleControl.caption
+    //ExFor:Forms2OleControl.value
+    //ExFor:Forms2OleControl.enabled
+    //ExFor:Forms2OleControl.type
+    //ExFor:Forms2OleControl.childNodes
+    //ExFor:Forms2OleControl.groupName
     //ExSummary:Shows how to verify the properties of an ActiveX control.
     let doc = new aw.Document(base.myDir + "ActiveX controls.docx");
 
@@ -1172,7 +1178,7 @@ describe("ExShape", () => {
 
   test('GetOleObjectRawData', () => {
     //ExStart
-    //ExFor:aw.Drawing.OleFormat.getRawData
+    //ExFor:OleFormat.getRawData
     //ExSummary:Shows how to access the raw data of an embedded OLE object.
     let doc = new aw.Document(base.myDir + "OLE objects.docx");
 
@@ -1193,7 +1199,7 @@ describe("ExShape", () => {
 
   test('LinkedChartSourceFullName', () => {
     //ExStart
-    //ExFor:aw.Drawing.Charts.Chart.sourceFullName
+    //ExFor:Chart.sourceFullName
     //ExSummary:Shows how to get/set the full name of the external xls/xlsx document if the chart is linked.
     let doc = new aw.Document(base.myDir + "Shape with linked chart.docx");
 
@@ -1208,12 +1214,12 @@ describe("ExShape", () => {
   test.skip('OleControl: WORDSNODEJS-87', async () => {
     //ExStart
     //ExFor:OleFormat
-    //ExFor:aw.Drawing.OleFormat.autoUpdate
-    //ExFor:aw.Drawing.OleFormat.isLocked
-    //ExFor:aw.Drawing.OleFormat.progId
-    //ExFor:aw.Drawing.OleFormat.save(Stream)
-    //ExFor:aw.Drawing.OleFormat.save(String)
-    //ExFor:aw.Drawing.OleFormat.suggestedExtension
+    //ExFor:OleFormat.autoUpdate
+    //ExFor:OleFormat.isLocked
+    //ExFor:OleFormat.progId
+    //ExFor:OleFormat.save(Stream)
+    //ExFor:OleFormat.save(String)
+    //ExFor:OleFormat.suggestedExtension
     //ExSummary:Shows how to extract embedded OLE objects into files.
     let doc = new aw.Document(base.myDir + "OLE spreadsheet.docm");
     let shape = doc.getShape(0, true);
@@ -1248,12 +1254,12 @@ describe("ExShape", () => {
 
   test.skip('OleLinks: Aspose.Words.Drawing.OleFormat.GetOleEntry(System.String) is skipped', () => {
     //ExStart
-    //ExFor:aw.Drawing.OleFormat.iconCaption
-    //ExFor:aw.Drawing.OleFormat.getOleEntry(String)
-    //ExFor:aw.Drawing.OleFormat.isLink
-    //ExFor:aw.Drawing.OleFormat.oleIcon
-    //ExFor:aw.Drawing.OleFormat.sourceFullName
-    //ExFor:aw.Drawing.OleFormat.sourceItem
+    //ExFor:OleFormat.iconCaption
+    //ExFor:OleFormat.getOleEntry(String)
+    //ExFor:OleFormat.isLink
+    //ExFor:OleFormat.oleIcon
+    //ExFor:OleFormat.sourceFullName
+    //ExFor:OleFormat.sourceItem
     //ExSummary:Shows how to insert linked and unlinked OLE objects.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1300,10 +1306,10 @@ describe("ExShape", () => {
 
   test('OleControlCollection', () => {
     //ExStart
-    //ExFor:aw.Drawing.OleFormat.clsid
+    //ExFor:OleFormat.clsid
     //ExFor:Forms2OleControlCollection
-    //ExFor:aw.Drawing.Ole.Forms2OleControlCollection.count
-    //ExFor:aw.Drawing.Ole.Forms2OleControlCollection.item(Int32)
+    //ExFor:Forms2OleControlCollection.count
+    //ExFor:Forms2OleControlCollection.item(Int32)
     //ExSummary:Shows how to access an OLE control embedded in a document and its child controls.
     let doc = new aw.Document(base.myDir + "OLE ActiveX controls.docm");
 
@@ -1333,7 +1339,7 @@ describe("ExShape", () => {
 
   test.skip('SuggestedFileName: WORDSNODEJS-87', async () => {
     //ExStart
-    //ExFor:aw.Drawing.OleFormat.suggestedFileName
+    //ExFor:OleFormat.suggestedFileName
     //ExSummary:Shows how to get an OLE object's suggested file name.
     let doc = new aw.Document(base.myDir + "OLE shape.rtf");
 
@@ -1362,9 +1368,9 @@ describe("ExShape", () => {
 
   test('RenderOfficeMath', async () => {
     //ExStart
-    //ExFor:aw.Saving.ImageSaveOptions.scale
-    //ExFor:aw.Math.OfficeMath.getMathRenderer
-    //ExFor:aw.Rendering.NodeRendererBase.save(String, ImageSaveOptions)
+    //ExFor:ImageSaveOptions.scale
+    //ExFor:OfficeMath.getMathRenderer
+    //ExFor:NodeRendererBase.save(String, ImageSaveOptions)
     //ExSummary:Shows how to render an Office Math object into an image file in the local file system.
     let doc = new aw.Document(base.myDir + "Office math.docx");
 
@@ -1408,10 +1414,10 @@ describe("ExShape", () => {
   test('OfficeMath', () => {
     //ExStart
     //ExFor:OfficeMath
-    //ExFor:aw.Math.OfficeMath.displayType
-    //ExFor:aw.Math.OfficeMath.justification
-    //ExFor:aw.Math.OfficeMath.nodeType
-    //ExFor:aw.Math.OfficeMath.parentParagraph
+    //ExFor:OfficeMath.displayType
+    //ExFor:OfficeMath.justification
+    //ExFor:OfficeMath.nodeType
+    //ExFor:OfficeMath.parentParagraph
     //ExFor:OfficeMathDisplayType
     //ExFor:OfficeMathJustification
     //ExSummary:Shows how to set office math display formatting.
@@ -1482,7 +1488,7 @@ describe("ExShape", () => {
 
   test.each([true, false])('AspectRatio(%o)', (lockAspectRatio) => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.aspectRatioLocked
+    //ExFor:ShapeBase.aspectRatioLocked
     //ExSummary:Shows how to lock/unlock a shape's aspect ratio.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1510,8 +1516,8 @@ describe("ExShape", () => {
 
   test('MarkupLanguageByDefault', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.markupLanguage
-    //ExFor:aw.Drawing.ShapeBase.sizeInPoints
+    //ExFor:ShapeBase.markupLanguage
+    //ExFor:ShapeBase.sizeInPoints
     //ExSummary:Shows how to verify a shape's size and markup language.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1548,11 +1554,11 @@ describe("ExShape", () => {
   test('Stroke', () => {
     //ExStart
     //ExFor:Stroke
-    //ExFor:aw.Drawing.Stroke.on
-    //ExFor:aw.Drawing.Stroke.weight
-    //ExFor:aw.Drawing.Stroke.joinStyle
-    //ExFor:aw.Drawing.Stroke.lineStyle
-    //ExFor:aw.Drawing.Stroke.fill
+    //ExFor:Stroke.on
+    //ExFor:Stroke.weight
+    //ExFor:Stroke.joinStyle
+    //ExFor:Stroke.lineStyle
+    //ExFor:Stroke.fill
     //ExFor:ShapeLineStyle
     //ExSummary:Shows how change stroke properties.
     let doc = new aw.Document();
@@ -1607,9 +1613,9 @@ describe("ExShape", () => {
   test.skip('InsertOlePackage: WORDSNODEJS-93', () => {
     //ExStart
     //ExFor:OlePackage
-    //ExFor:aw.Drawing.OleFormat.olePackage
-    //ExFor:aw.Drawing.OlePackage.fileName
-    //ExFor:aw.Drawing.OlePackage.displayName
+    //ExFor:OleFormat.olePackage
+    //ExFor:OlePackage.fileName
+    //ExFor:OlePackage.displayName
     //ExSummary:Shows how insert an OLE object into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1718,7 +1724,7 @@ describe("ExShape", () => {
 
   test.each([false, true])('IsLayoutInCell(%o)', (isLayoutInCell) => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.isLayoutInCell
+    //ExFor:ShapeBase.isLayoutInCell
     //ExSummary:Shows how to determine how to display a shape in a table cell.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1767,10 +1773,10 @@ describe("ExShape", () => {
 
   test('ShapeInsertion', () => {
     //ExStart
-    //ExFor:aw.DocumentBuilder.insertShape(ShapeType, RelativeHorizontalPosition, double, RelativeVerticalPosition, double, double, double, WrapType)
-    //ExFor:aw.DocumentBuilder.insertShape(ShapeType, double, double)
+    //ExFor:DocumentBuilder.insertShape(ShapeType, RelativeHorizontalPosition, double, RelativeVerticalPosition, double, double, double, WrapType)
+    //ExFor:DocumentBuilder.insertShape(ShapeType, double, double)
     //ExFor:OoxmlCompliance
-    //ExFor:aw.Saving.OoxmlSaveOptions.compliance
+    //ExFor:OoxmlSaveOptions.compliance
     //ExSummary:Shows how to insert DML shapes into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1800,7 +1806,8 @@ describe("ExShape", () => {
   });
 
 
-  /*//ExStart
+  /*//Commented
+  //ExStart
   //ExFor:Shape.Accept(DocumentVisitor)
   //ExFor:Shape.Chart
   //ExFor:Shape.ExtrusionEnabled
@@ -1927,20 +1934,21 @@ describe("ExShape", () => {
     private int mTextIndentLevel;
     private readonly StringBuilder mStringBuilder;
   }
-  //ExEnd*/
+  //ExEnd
+  //EndCommented*/
 
   test('SignatureLine', () => {
     //ExStart
-    //ExFor:aw.Drawing.Shape.signatureLine
-    //ExFor:aw.Drawing.ShapeBase.isSignatureLine
+    //ExFor:Shape.signatureLine
+    //ExFor:ShapeBase.isSignatureLine
     //ExFor:SignatureLine
-    //ExFor:aw.Drawing.SignatureLine.allowComments
-    //ExFor:aw.Drawing.SignatureLine.defaultInstructions
-    //ExFor:aw.Drawing.SignatureLine.email
-    //ExFor:aw.Drawing.SignatureLine.instructions
-    //ExFor:aw.Drawing.SignatureLine.showDate
-    //ExFor:aw.Drawing.SignatureLine.signer
-    //ExFor:aw.Drawing.SignatureLine.signerTitle
+    //ExFor:SignatureLine.allowComments
+    //ExFor:SignatureLine.defaultInstructions
+    //ExFor:SignatureLine.email
+    //ExFor:SignatureLine.instructions
+    //ExFor:SignatureLine.showDate
+    //ExFor:SignatureLine.signer
+    //ExFor:SignatureLine.signerTitle
     //ExSummary:Shows how to create a line for a signature and insert it into a document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2004,10 +2012,10 @@ describe("ExShape", () => {
     aw.Drawing.LayoutFlow.TopToBottom,
     aw.Drawing.LayoutFlow.TopToBottomIdeographic])('TextBoxLayoutFlow(%o)', (layoutFlow) => {
     //ExStart
-    //ExFor:aw.Drawing.Shape.textBox
-    //ExFor:aw.Drawing.Shape.lastParagraph
+    //ExFor:Shape.textBox
+    //ExFor:Shape.lastParagraph
     //ExFor:TextBox
-    //ExFor:aw.Drawing.TextBox.layoutFlow
+    //ExFor:TextBox.layoutFlow
     //ExSummary:Shows how to set the orientation of text inside a text box.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2057,7 +2065,7 @@ describe("ExShape", () => {
   test('TextBoxFitShapeToText', () => {
     //ExStart
     //ExFor:TextBox
-    //ExFor:aw.Drawing.TextBox.fitShapeToText
+    //ExFor:TextBox.fitShapeToText
     //ExSummary:Shows how to get a text box to resize itself to fit its contents tightly.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2088,10 +2096,10 @@ describe("ExShape", () => {
   test('TextBoxMargins', () => {
     //ExStart
     //ExFor:TextBox
-    //ExFor:aw.Drawing.TextBox.internalMarginBottom
-    //ExFor:aw.Drawing.TextBox.internalMarginLeft
-    //ExFor:aw.Drawing.TextBox.internalMarginRight
-    //ExFor:aw.Drawing.TextBox.internalMarginTop
+    //ExFor:TextBox.internalMarginBottom
+    //ExFor:TextBox.internalMarginLeft
+    //ExFor:TextBox.internalMarginRight
+    //ExFor:TextBox.internalMarginTop
     //ExSummary:Shows how to set internal margins for a text box.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2122,7 +2130,7 @@ describe("ExShape", () => {
   test.each([aw.Drawing.TextBoxWrapMode.None,
     aw.Drawing.TextBoxWrapMode.Square])('TextBoxContentsWrapMode(%o)', (textBoxWrapMode) => {
     //ExStart
-    //ExFor:aw.Drawing.TextBox.textBoxWrapMode
+    //ExFor:TextBox.textBoxWrapMode
     //ExFor:TextBoxWrapMode
     //ExSummary:Shows how to set a wrapping mode for the contents of a text box.
     let doc = new aw.Document();
@@ -2174,10 +2182,10 @@ describe("ExShape", () => {
 
   test('CreateLinkBetweenTextBoxes', () => {
     //ExStart
-    //ExFor:aw.Drawing.TextBox.isValidLinkTarget(TextBox)
-    //ExFor:aw.Drawing.TextBox.next
-    //ExFor:aw.Drawing.TextBox.previous
-    //ExFor:aw.Drawing.TextBox.breakForwardLink
+    //ExFor:TextBox.isValidLinkTarget(TextBox)
+    //ExFor:TextBox.next
+    //ExFor:TextBox.previous
+    //ExFor:TextBox.breakForwardLink
     //ExSummary:Shows how to link text boxes.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2224,7 +2232,6 @@ describe("ExShape", () => {
 
       // Break the forward link between textBox2 and textBox3, and then verify that they are no longer linked.
       textBox3.previous.breakForwardLink();
-
       expect(textBox2.next == null).toEqual(true);
       expect(textBox3.previous == null).toEqual(true);
     }
@@ -2258,9 +2265,9 @@ describe("ExShape", () => {
     aw.Drawing.TextBoxAnchor.Bottom])('VerticalAnchor(%o)', (verticalAnchor) => {
     //ExStart
     //ExFor:CompatibilityOptions
-    //ExFor:aw.Settings.CompatibilityOptions.optimizeFor(MsWordVersion)
+    //ExFor:CompatibilityOptions.optimizeFor(MsWordVersion)
     //ExFor:TextBoxAnchor
-    //ExFor:aw.Drawing.TextBox.verticalAnchor
+    //ExFor:TextBox.verticalAnchor
     //ExSummary:Shows how to vertically align the text contents of a text box.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2316,6 +2323,7 @@ describe("ExShape", () => {
     //ExFor:TextPath.Trim
     //ExFor:TextPath.Underline
     //ExFor:TextPath.XScale
+    //ExFor:TextPath.Size
     //ExFor:TextPathAlignment
     //ExSummary:Shows how to work with WordArt.
   test('InsertTextPaths', () => {
@@ -2452,8 +2460,8 @@ describe("ExShape", () => {
 
   test('ShapeRevision', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.isDeleteRevision
-    //ExFor:aw.Drawing.ShapeBase.isInsertRevision
+    //ExFor:ShapeBase.isDeleteRevision
+    //ExFor:ShapeBase.isInsertRevision
     //ExSummary:Shows how to work with revision shapes.
     let doc = new aw.Document();
 
@@ -2498,8 +2506,8 @@ describe("ExShape", () => {
 
   test('MoveRevisions', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.isMoveFromRevision
-    //ExFor:aw.Drawing.ShapeBase.isMoveToRevision
+    //ExFor:ShapeBase.isMoveFromRevision
+    //ExFor:ShapeBase.isMoveToRevision
     //ExSummary:Shows how to identify move revision shapes.
     // A move revision is when we move an element in the document body by cut-and-pasting it in Microsoft Word while
     // tracking changes. If we involve an inline shape in such a text movement, that shape will also be a revision.
@@ -2529,8 +2537,8 @@ describe("ExShape", () => {
 
   test('AdjustWithEffects', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.adjustWithEffects(RectangleF)
-    //ExFor:aw.Drawing.ShapeBase.boundsWithEffects
+    //ExFor:ShapeBase.adjustWithEffects(RectangleF)
+    //ExFor:ShapeBase.boundsWithEffects
     //ExSummary:Shows how to check how a shape's bounds are affected by shape effects.
     let doc = new aw.Document(base.myDir + "Shape shadow effect.docx");
 
@@ -2597,8 +2605,8 @@ describe("ExShape", () => {
 
   test('RenderAllShapes', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.getShapeRenderer
-    //ExFor:aw.Rendering.NodeRendererBase.save(Stream, ImageSaveOptions)
+    //ExFor:ShapeBase.getShapeRenderer
+    //ExFor:NodeRendererBase.save(Stream, ImageSaveOptions)
     //ExSummary:Shows how to use a shape renderer to export shapes to files in the local file system.
     let doc = new aw.Document(base.myDir + "Various shapes.docx");
     let shapes = doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape())
@@ -2621,7 +2629,7 @@ describe("ExShape", () => {
 
   test('DocumentHasSmartArtObject', () => {
     //ExStart
-    //ExFor:aw.Drawing.Shape.hasSmartArt
+    //ExFor:Shape.hasSmartArt
     //ExSummary:Shows how to count the number of shapes in a document with SmartArt objects.
     let doc = new aw.Document(base.myDir + "SmartArt.docx");
 
@@ -2636,15 +2644,15 @@ describe("ExShape", () => {
   test('OfficeMathRenderer', () => {
     //ExStart
     //ExFor:NodeRendererBase
-    //ExFor:aw.Rendering.NodeRendererBase.boundsInPoints
-    //ExFor:aw.Rendering.NodeRendererBase.getBoundsInPixels(Single, Single)
-    //ExFor:aw.Rendering.NodeRendererBase.getBoundsInPixels(Single, Single, Single)
-    //ExFor:aw.Rendering.NodeRendererBase.getOpaqueBoundsInPixels(Single, Single)
-    //ExFor:aw.Rendering.NodeRendererBase.getOpaqueBoundsInPixels(Single, Single, Single)
-    //ExFor:aw.Rendering.NodeRendererBase.getSizeInPixels(Single, Single)
-    //ExFor:aw.Rendering.NodeRendererBase.getSizeInPixels(Single, Single, Single)
-    //ExFor:aw.Rendering.NodeRendererBase.opaqueBoundsInPoints
-    //ExFor:aw.Rendering.NodeRendererBase.sizeInPoints
+    //ExFor:NodeRendererBase.boundsInPoints
+    //ExFor:NodeRendererBase.getBoundsInPixels(Single, Single)
+    //ExFor:NodeRendererBase.getBoundsInPixels(Single, Single, Single)
+    //ExFor:NodeRendererBase.getOpaqueBoundsInPixels(Single, Single)
+    //ExFor:NodeRendererBase.getOpaqueBoundsInPixels(Single, Single, Single)
+    //ExFor:NodeRendererBase.getSizeInPixels(Single, Single)
+    //ExFor:NodeRendererBase.getSizeInPixels(Single, Single, Single)
+    //ExFor:NodeRendererBase.opaqueBoundsInPoints
+    //ExFor:NodeRendererBase.sizeInPoints
     //ExFor:OfficeMathRenderer
     //ExFor:OfficeMathRenderer.#ctor(OfficeMath)
     //ExSummary:Shows how to measure and scale shapes.
@@ -2725,7 +2733,7 @@ describe("ExShape", () => {
 
   test('IsDecorative', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.isDecorative
+    //ExFor:ShapeBase.isDecorative
     //ExSummary:Shows how to set that the shape is decorative.
     let doc = new aw.Document(base.myDir + "Decorative shapes.docx");
 
@@ -2751,7 +2759,9 @@ describe("ExShape", () => {
 
   test.skip('FillImage - TODO: WORDSNODEJS-92 - Method Aspose.Words.Drawing.Fill.SetImage(Stream) can\'t be call', () => {
     //ExStart
-    //ExFor:aw.Drawing.Fill.setImage(String)
+    //ExFor:Fill.setImage(String)
+    //ExFor:Fill.setImage(Byte[])
+    //ExFor:Fill.setImage(Stream)
     //ExSummary:Shows how to set shape fill type as image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2776,8 +2786,8 @@ describe("ExShape", () => {
 
   test('ShadowFormat', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShadowFormat.visible
-    //ExFor:aw.Drawing.ShadowFormat.clear()
+    //ExFor:ShadowFormat.visible
+    //ExFor:ShadowFormat.clear()
     //ExFor:ShadowType
     //ExSummary:Shows how to work with a shadow formatting for the shape.
     let doc = new aw.Document(base.myDir + "Shape stroke pattern border.docx");
@@ -2794,7 +2804,7 @@ describe("ExShape", () => {
 
   test('NoTextRotation', () => {
     //ExStart
-    //ExFor:aw.Drawing.TextBox.noTextRotation
+    //ExFor:TextBox.noTextRotation
     //ExSummary:Shows how to disable text rotation when the shape is rotate.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2814,12 +2824,12 @@ describe("ExShape", () => {
 
   test('RelativeSizeAndPosition', () => {
     //ExStart
-    //ExFor:aw.Drawing.ShapeBase.relativeHorizontalSize
-    //ExFor:aw.Drawing.ShapeBase.relativeVerticalSize
-    //ExFor:aw.Drawing.ShapeBase.widthRelative
-    //ExFor:aw.Drawing.ShapeBase.heightRelative
-    //ExFor:aw.Drawing.ShapeBase.topRelative
-    //ExFor:aw.Drawing.ShapeBase.leftRelative
+    //ExFor:ShapeBase.relativeHorizontalSize
+    //ExFor:ShapeBase.relativeVerticalSize
+    //ExFor:ShapeBase.widthRelative
+    //ExFor:ShapeBase.heightRelative
+    //ExFor:ShapeBase.topRelative
+    //ExFor:ShapeBase.leftRelative
     //ExFor:RelativeHorizontalSize
     //ExFor:RelativeVerticalSize
     //ExSummary:Shows how to set relative size and position.
@@ -2828,7 +2838,7 @@ describe("ExShape", () => {
 
     // Adding a simple shape with absolute size and position.
     let shape = builder.insertShape(aw.Drawing.ShapeType.Rectangle, 100, 40);
-    // Set WrapType to aw.Drawing.WrapType.None since Inline shapes are automatically converted to absolute units.
+    // Set WrapType to WrapType.None since Inline shapes are automatically converted to absolute units.
     shape.wrapType = aw.Drawing.WrapType.None;
 
     // Checking and setting the relative horizontal size.
@@ -2875,8 +2885,8 @@ describe("ExShape", () => {
   test.skip('FillBaseColor: WORDSNODEJS-86', () => {
     //ExStart:FillBaseColor
     //GistId:3428e84add5beb0d46a8face6e5fc858
-    //ExFor:aw.Drawing.Fill.baseForeColor
-    //ExFor:aw.Drawing.Stroke.baseForeColor
+    //ExFor:Fill.baseForeColor
+    //ExFor:Stroke.baseForeColor
     //ExSummary:Shows how to get foreground color without modifiers.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder();
@@ -2902,7 +2912,7 @@ describe("ExShape", () => {
   test('FitImageToShape', () => {
     //ExStart:FitImageToShape
     //GistId:3428e84add5beb0d46a8face6e5fc858
-    //ExFor:aw.Drawing.ImageData.fitImageToShape
+    //ExFor:ImageData.fitImageToShape
     //ExSummary:Shows hot to fit the image data to Shape frame.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2920,8 +2930,8 @@ describe("ExShape", () => {
   test('StrokeForeThemeColors', () => {
     //ExStart:StrokeForeThemeColors
     //GistId:eeeec1fbf118e95e7df3f346c91ed726
-    //ExFor:aw.Drawing.Stroke.foreThemeColor
-    //ExFor:aw.Drawing.Stroke.foreTintAndShade
+    //ExFor:Stroke.foreThemeColor
+    //ExFor:Stroke.foreTintAndShade
     //ExSummary:Shows how to set fore theme color and tint and shade.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -2945,8 +2955,8 @@ describe("ExShape", () => {
   test('StrokeBackThemeColors', () => {
     //ExStart:StrokeBackThemeColors
     //GistId:eeeec1fbf118e95e7df3f346c91ed726
-    //ExFor:aw.Drawing.Stroke.backThemeColor
-    //ExFor:aw.Drawing.Stroke.backTintAndShade
+    //ExFor:Stroke.backThemeColor
+    //ExFor:Stroke.backTintAndShade
     //ExSummary:Shows how to set back theme color and tint and shade.
     let doc = new aw.Document(base.myDir + "Stroke gradient outline.docx");
 
@@ -2970,7 +2980,8 @@ describe("ExShape", () => {
     //ExStart:TextBoxOleControl
     //GistId:eeeec1fbf118e95e7df3f346c91ed726
     //ExFor:TextBoxControl
-    //ExFor:aw.Drawing.Ole.TextBoxControl.text
+    //ExFor:TextBoxControl.text
+    //ExFor:TextBoxControl.type
     //ExSummary:Shows how to change text of the TextBox OLE control.
     let doc = new aw.Document(base.myDir + "Textbox control.docm");
 
@@ -2980,6 +2991,7 @@ describe("ExShape", () => {
 
     textBoxControl.text = "Updated text";
     expect(textBoxControl.text).toEqual("Updated text");
+    expect(textBoxControl.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.Textbox);
     //ExEnd:TextBoxOleControl
   });
 
@@ -2987,11 +2999,12 @@ describe("ExShape", () => {
   test.skip('Glow: WORDSNODEJS-86', () => {
     //ExStart:Glow
     //GistId:5f20ac02cb42c6b08481aa1c5b0cd3db
-    //ExFor:aw.Drawing.ShapeBase.glow
-    //ExFor:aw.Drawing.GlowFormat.color
-    //ExFor:aw.Drawing.GlowFormat.radius
-    //ExFor:aw.Drawing.GlowFormat.transparency
-    //ExFor:aw.Drawing.GlowFormat.remove()
+    //ExFor:ShapeBase.glow
+    //ExFor:GlowFormat
+    //ExFor:GlowFormat.color
+    //ExFor:GlowFormat.radius
+    //ExFor:GlowFormat.transparency
+    //ExFor:GlowFormat.remove()
     //ExSummary:Shows how to interact with glow shape effect.
     let doc = new aw.Document(base.myDir + "Various shapes.docx");
     let shape = doc.getShape(0, true);
@@ -3021,12 +3034,13 @@ describe("ExShape", () => {
   test('Reflection', () => {
     //ExStart:Reflection
     //GistId:5f20ac02cb42c6b08481aa1c5b0cd3db
-    //ExFor:aw.Drawing.ShapeBase.reflection
-    //ExFor:aw.Drawing.ReflectionFormat.size
-    //ExFor:aw.Drawing.ReflectionFormat.blur
-    //ExFor:aw.Drawing.ReflectionFormat.transparency
-    //ExFor:aw.Drawing.ReflectionFormat.distance
-    //ExFor:aw.Drawing.ReflectionFormat.remove()
+    //ExFor:ShapeBase.reflection
+    //ExFor:ReflectionFormat
+    //ExFor:ReflectionFormat.size
+    //ExFor:ReflectionFormat.blur
+    //ExFor:ReflectionFormat.transparency
+    //ExFor:ReflectionFormat.distance
+    //ExFor:ReflectionFormat.remove()
     //ExSummary:Shows how to interact with reflection shape effect.
     let doc = new aw.Document(base.myDir + "Various shapes.docx");
     let shape = doc.getShape(0, true);
@@ -3041,17 +3055,18 @@ describe("ExShape", () => {
     doc = new aw.Document(base.artifactsDir + "Shape.reflection.docx");
     shape = doc.getShape(0, true);
 
-    expect(shape.reflection.transparency).toBeCloseTo(0.37, 2);
-    expect(shape.reflection.size).toBeCloseTo(0.48, 2);
-    expect(shape.reflection.blur).toBeCloseTo(17.5, 2);
-    expect(shape.reflection.distance).toBeCloseTo(9.2, 2);
+    let reflectionFormat = shape.reflection;
+    expect(reflectionFormat.transparency).toBeCloseTo(0.37, 2);
+    expect(reflectionFormat.size).toBeCloseTo(0.48, 2);
+    expect(reflectionFormat.blur).toBeCloseTo(17.5, 2);
+    expect(reflectionFormat.distance).toBeCloseTo(9.2, 2);
 
-    shape.reflection.remove();
+    reflectionFormat.remove();
 
-    expect(shape.reflection.transparency).toEqual(0);
-    expect(shape.reflection.size).toEqual(0);
-    expect(shape.reflection.blur).toEqual(0);
-    expect(shape.reflection.distance).toEqual(0);
+    expect(reflectionFormat.transparency).toEqual(0);
+    expect(reflectionFormat.size).toEqual(0);
+    expect(reflectionFormat.blur).toEqual(0);
+    expect(reflectionFormat.distance).toEqual(0);
     //ExEnd:Reflection
   });
 
@@ -3059,9 +3074,10 @@ describe("ExShape", () => {
   test('SoftEdge', () => {
     //ExStart:SoftEdge
     //GistId:6e4482e7434754c31c6f2f6e4bf48bb1
-    //ExFor:aw.Drawing.ShapeBase.softEdge
-    //ExFor:aw.Drawing.SoftEdgeFormat.radius
-    //ExFor:aw.Drawing.SoftEdgeFormat.remove
+    //ExFor:ShapeBase.softEdge
+    //ExFor:SoftEdgeFormat
+    //ExFor:SoftEdgeFormat.radius
+    //ExFor:SoftEdgeFormat.remove
     //ExSummary:Shows how to work with soft edge formatting.
     let builder = new aw.DocumentBuilder();
     let shape = builder.insertShape(aw.Drawing.ShapeType.Rectangle, 200, 200);
@@ -3074,15 +3090,16 @@ describe("ExShape", () => {
     // Load document with rectangle shape with soft edge.
     let doc = new aw.Document(base.artifactsDir + "Shape.softEdge.docx");
     shape = doc.getShape(0, true);
+    let softEdgeFormat = shape.softEdge;
 
     // Check soft edge radius.
-    expect(shape.softEdge.radius).toEqual(30);
+    expect(softEdgeFormat.radius).toEqual(30);
 
     // Remove soft edge from the shape.
-    shape.softEdge.remove();
+    softEdgeFormat.remove();
 
     // Check radius of the removed soft edge.
-    expect(shape.softEdge.radius).toEqual(0);
+    expect(softEdgeFormat.radius).toEqual(0);
     //ExEnd:SoftEdge
   });
 
@@ -3090,11 +3107,13 @@ describe("ExShape", () => {
   test('Adjustments', () => {
     //ExStart:Adjustments
     //GistId:6e4482e7434754c31c6f2f6e4bf48bb1
-    //ExFor:aw.Drawing.Shape.adjustments
+    //ExFor:Shape.adjustments
     //ExFor:AdjustmentCollection
+    //ExFor:AdjustmentCollection.count
+    //ExFor:AdjustmentCollection.item(Int32)
     //ExFor:Adjustment
-    //ExFor:aw.Drawing.Adjustment.name
-    //ExFor:aw.Drawing.Adjustment.value
+    //ExFor:Adjustment.name
+    //ExFor:Adjustment.value
     //ExSummary:Shows how to work with adjustment raw values.
     let doc = new aw.Document(base.myDir + "Rounded rectangle shape.docx");
     let shape = doc.getShape(0, true);
@@ -3126,7 +3145,10 @@ describe("ExShape", () => {
   test('ShadowFormatColor', () => {
     //ExStart:ShadowFormatColor
     //GistId:65919861586e42e24f61a3ccb65f8f4e
-    //ExFor:aw.Drawing.ShadowFormat.color
+    //ExFor:ShapeBase.shadowFormat
+    //ExFor:ShadowFormat
+    //ExFor:ShadowFormat.color
+    //ExFor:ShadowFormat.type
     //ExSummary:Shows how to get shadow color.
     let doc = new aw.Document(base.myDir + "Shadow color.docx");
     let shape = doc.getShape(0, true);
@@ -3139,10 +3161,10 @@ describe("ExShape", () => {
   test('SetActiveXProperties', () => {
     //ExStart:SetActiveXProperties
     //GistId:ac8ba4eb35f3fbb8066b48c999da63b0
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.foreColor
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.backColor
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.height
-    //ExFor:aw.Drawing.Ole.Forms2OleControl.width
+    //ExFor:Forms2OleControl.foreColor
+    //ExFor:Forms2OleControl.backColor
+    //ExFor:Forms2OleControl.height
+    //ExFor:Forms2OleControl.width
     //ExSummary:Shows how to set properties for ActiveX control.
     let doc = new aw.Document(base.myDir + "ActiveX controls.docx");
 
@@ -3164,7 +3186,9 @@ describe("ExShape", () => {
   test('SelectRadioControl', () => {
     //ExStart:SelectRadioControl
     //GistId:ac8ba4eb35f3fbb8066b48c999da63b0
-    //ExFor:aw.Drawing.Ole.OptionButtonControl.selected
+    //ExFor:OptionButtonControl
+    //ExFor:OptionButtonControl.selected
+    //ExFor:OptionButtonControl.type
     //ExSummary:Shows how to select radio button.
     let doc = new aw.Document(base.myDir + "Radio buttons.docx");
 
@@ -3178,6 +3202,9 @@ describe("ExShape", () => {
     // Select second option button.
     optionButton2.selected = true;
 
+    expect(optionButton1.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.OptionButton);
+    expect(optionButton2.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.OptionButton);
+
     doc.save(base.artifactsDir + "Shape.SelectRadioControl.docx");
     //ExEnd:SelectRadioControl
   });
@@ -3186,7 +3213,10 @@ describe("ExShape", () => {
   test('CheckedCheckBox', () => {
     //ExStart:CheckedCheckBox
     //GistId:ac8ba4eb35f3fbb8066b48c999da63b0
-    //ExFor:aw.Drawing.Ole.CheckBoxControl.checked
+    //ExFor:CheckBoxControl
+    //ExFor:CheckBoxControl.checked
+    //ExFor:CheckBoxControl.type
+    //ExFor:Forms2OleControlType
     //ExSummary:Shows how to change state of the CheckBox control.
     let doc = new aw.Document(base.myDir + "ActiveX controls.docx");
 
@@ -3194,8 +3224,134 @@ describe("ExShape", () => {
     let checkBoxControl = shape.oleFormat.oleControl.asCheckBoxControl();
 
     checkBoxControl.checked = true;
-    //ExEnd:CheckedCheckBox
+            
     expect(checkBoxControl.checked).toEqual(true);
+    expect(checkBoxControl.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.CheckBox);
+    //ExEnd:CheckedCheckBox
+  });
+
+
+  test.skip('InsertGroupShape: WORDSNODEJS-141', () => {
+    //ExStart:InsertGroupShape
+    //GistId:e06aa7a168b57907a5598e823a22bf0a
+    //ExFor:DocumentBuilder.insertGroupShape(double, double, double, double, ShapeBase[])
+    //ExFor:DocumentBuilder.insertGroupShape(ShapeBase[])
+    //ExSummary:Shows how to insert DML group shape.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    let shape1 = builder.insertShape(aw.Drawing.ShapeType.Rectangle, 200, 250);
+    shape1.left = 20;
+    shape1.top = 20;
+    shape1.stroke.color = "#FF0000";
+
+    let shape2 = builder.insertShape(aw.Drawing.ShapeType.Ellipse, 150, 200);
+    shape2.left = 40;
+    shape2.top = 50;
+    shape2.stroke.color = "#008000";
+
+    // Dimensions for the new GroupShape node.
+    let left = 10;
+    let top = 10;
+    let width = 200;
+    let height = 300;
+    // Insert GroupShape node for the specified size which is inserted into the specified position.
+    let groupShape1 = builder.insertGroupShape(left, top, width, height, [ shape1, shape2 ]);
+
+    // Insert GroupShape node which position and dimension will be calculated automatically.
+    let shape3 = shape1.clone(true).asShape();
+    let groupShape2 = builder.insertGroupShape(shape3);
+
+    doc.save(base.artifactsDir + "Shape.insertGroupShape.docx");
+    //ExEnd:InsertGroupShape
+  });
+
+
+  test.skip('CombineGroupShape: WORDSNODEJS-141', () => {
+    //ExStart:CombineGroupShape
+    //GistId:bb594993b5fe48692541e16f4d354ac2
+    //ExFor:DocumentBuilder.insertGroupShape(ShapeBase[])
+    //ExSummary:Shows how to combine group shape with the shape.
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    let shape1 = builder.insertShape(aw.Drawing.ShapeType.Rectangle, 200, 250);
+    shape1.left = 20;
+    shape1.top = 20;
+    shape1.stroke.color = "#FF0000";
+
+    let shape2 = builder.insertShape(aw.Drawing.ShapeType.Ellipse, 150, 200);
+    shape2.left = 40;
+    shape2.top = 50;
+    shape2.stroke.color = "#008000";
+
+    // Combine shapes into a GroupShape node which is inserted into the specified position.
+    let groupShape1 = builder.insertGroupShape(shape1, shape2);
+
+    // Combine Shape and GroupShape nodes.
+    let shape3 = shape1.clone(true).asShape();
+    let groupShape2 = builder.insertGroupShape(groupShape1, shape3);
+
+    doc.save(base.artifactsDir + "Shape.CombineGroupShape.docx");
+    //ExEnd:CombineGroupShape
+
+    doc = new aw.Document(base.artifactsDir + "Shape.CombineGroupShape.docx");
+
+    let shapes = doc.getChildNodes(aw.NodeType.Shape, true);
+    for (let item of shapes)
+    {
+      let shape = item.asShape();
+      expect(shape.width).not.toEqual(0);
+      expect(shape.height).not.toEqual(0);
+    }
+  });
+
+
+  test('InsertCommandButton', () => {
+    //ExStart:InsertCommandButton
+    //GistId:bb594993b5fe48692541e16f4d354ac2
+    //ExFor:CommandButtonControl
+    //ExFor:CommandButtonControl.#ctor
+    //ExFor:CommandButtonControl.type
+    //ExFor:DocumentBuilder.insertForms2OleControl(Forms2OleControl)
+    //ExSummary:Shows how to insert ActiveX control.
+    let builder = new aw.DocumentBuilder();
+
+    let button1 = new aw.Drawing.Ole.CommandButtonControl();
+    let shape = builder.insertForms2OleControl(button1);
+    expect(button1.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.CommandButton);
+    //ExEnd:InsertCommandButton
+  });
+
+
+  test('Hidden', () => {
+    //ExStart:Hidden
+    //GistId:bb594993b5fe48692541e16f4d354ac2
+    //ExFor:ShapeBase.hidden
+    //ExSummary:Shows how to hide the shape.
+    let doc = new aw.Document(base.myDir + "Shadow color.docx");
+
+    let shape = doc.getShape(0, true);
+    if (!shape.hidden)
+      shape.hidden = true;
+
+    doc.save(base.artifactsDir + "Shape.hidden.docx");
+    //ExEnd:Hidden
+  });
+
+
+  test('CommandButtonCaption', () => {
+    //ExStart:CommandButtonCaption
+    //GistId:366eb64fd56dec3c2eaa40410e594182
+    //ExFor:Forms2OleControl.caption
+    //ExSummary:Shows how to set caption for ActiveX control.
+    let builder = new aw.DocumentBuilder();
+
+    let button1 = new aw.Drawing.Ole.CommandButtonControl();
+    button1.caption = "Button caption";
+    let shape = builder.insertForms2OleControl(button1);
+    expect(button1.caption).toEqual("Button caption");
+    //ExEnd:CommandButtonCaption
   });
 
 });

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,8 +23,8 @@ describe("ExDigitalSignatureUtil", () => {
   test('Load', () => {
     //ExStart
     //ExFor:DigitalSignatureUtil
-    //ExFor:aw.DigitalSignatures.DigitalSignatureUtil.loadSignatures(String)
-    //ExFor:aw.DigitalSignatures.DigitalSignatureUtil.loadSignatures(Stream)
+    //ExFor:DigitalSignatureUtil.loadSignatures(String)
+    //ExFor:DigitalSignatureUtil.loadSignatures(Stream)
     //ExSummary:Shows how to load signatures from a digitally signed document.
     // There are two ways of loading a signed document's collection of digital signatures using the DigitalSignatureUtil class.
     // 1 -  Load from a document from a local file system filename:
@@ -45,9 +45,9 @@ describe("ExDigitalSignatureUtil", () => {
   test('Remove', async () => {
     //ExStart
     //ExFor:DigitalSignatureUtil
-    //ExFor:aw.DigitalSignatures.DigitalSignatureUtil.loadSignatures(String)
-    //ExFor:aw.DigitalSignatures.DigitalSignatureUtil.removeAllSignatures(Stream, Stream)
-    //ExFor:aw.DigitalSignatures.DigitalSignatureUtil.removeAllSignatures(String, String)
+    //ExFor:DigitalSignatureUtil.loadSignatures(String)
+    //ExFor:DigitalSignatureUtil.removeAllSignatures(Stream, Stream)
+    //ExFor:DigitalSignatureUtil.removeAllSignatures(String, String)
     //ExSummary:Shows how to remove digital signatures from a digitally signed document.
     // There are two ways of using the DigitalSignatureUtil class to remove digital signatures
     // from a signed document by saving an unsigned copy of it somewhere else in the local file system.
@@ -82,10 +82,11 @@ describe("ExDigitalSignatureUtil", () => {
   test('SignDocument', () => {
     //ExStart
     //ExFor:CertificateHolder
-    //ExFor:aw.DigitalSignatures.CertificateHolder.create(String, String)
-    //ExFor:aw.DigitalSignatures.DigitalSignatureUtil.sign(Stream, Stream, CertificateHolder, SignOptions)
-    //ExFor:aw.DigitalSignatures.SignOptions.comments
-    //ExFor:aw.DigitalSignatures.SignOptions.signTime
+    //ExFor:CertificateHolder.create(String, String)
+    //ExFor:DigitalSignatureUtil.sign(Stream, Stream, CertificateHolder, SignOptions)
+    //ExFor:DigitalSignatures.signOptions
+    //ExFor:SignOptions.comments
+    //ExFor:SignOptions.signTime
     //ExSummary:Shows how to digitally sign documents.
     // Create an X.509 certificate from a PKCS#12 store, which should contain a private key.
     let certificateHolder = aw.DigitalSignatures.CertificateHolder.create(base.myDir + "morzal.pfx", "aw");
@@ -128,8 +129,8 @@ describe("ExDigitalSignatureUtil", () => {
   test('DecryptionPassword', () => {
     //ExStart
     //ExFor:CertificateHolder
-    //ExFor:aw.DigitalSignatures.SignOptions.decryptionPassword
-    //ExFor:aw.Loading.LoadOptions.password
+    //ExFor:SignOptions.decryptionPassword
+    //ExFor:LoadOptions.password
     //ExSummary:Shows how to sign encrypted document file.
     // Create an X.509 certificate from a PKCS#12 store, which should contain a private key.
     let certificateHolder = aw.DigitalSignatures.CertificateHolder.create(base.myDir + "morzal.pfx", "aw");
@@ -220,4 +221,22 @@ describe("ExDigitalSignatureUtil", () => {
     expect(() => aw.DigitalSignatures.DigitalSignatureUtil.sign(doc.originalFileName, outputFileName, null, signOptions))
       .toThrow("Value cannot be null.");
   });
+
+
+  test('XmlDsig', () => {
+    //ExStart:XmlDsig
+    //GistId:e06aa7a168b57907a5598e823a22bf0a
+    //ExFor:SignOptions.xmlDsigLevel
+    //ExFor:XmlDsigLevel
+    //ExSummary:Shows how to sign document based on XML-DSig standard.
+    let certificateHolder = aw.DigitalSignatures.CertificateHolder.create(base.myDir + "morzal.pfx", "aw");
+    let signOptions = new aw.DigitalSignatures.SignOptions();
+    signOptions.xmlDsigLevel = aw.DigitalSignatures.XmlDsigLevel.XAdEsEpes;
+
+    let inputFileName = base.myDir + "Document.docx";
+    let outputFileName = base.artifactsDir + "DigitalSignatureUtil.xmlDsig.docx";
+    aw.DigitalSignatures.DigitalSignatureUtil.sign(inputFileName, outputFileName, certificateHolder, signOptions);
+    //ExEnd:XmlDsig
+  });
+
 });

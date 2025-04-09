@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -63,10 +63,10 @@ describe("ExTable", () => {
 
   test('Padding', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.leftPadding
-    //ExFor:aw.Tables.Table.rightPadding
-    //ExFor:aw.Tables.Table.topPadding
-    //ExFor:aw.Tables.Table.bottomPadding
+    //ExFor:Table.leftPadding
+    //ExFor:Table.rightPadding
+    //ExFor:Table.topPadding
+    //ExFor:Table.bottomPadding
     //ExSummary:Shows how to configure content padding in a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -101,11 +101,11 @@ describe("ExTable", () => {
 
   test('RowCellFormat', () => {
     //ExStart
-    //ExFor:aw.Tables.Row.rowFormat
+    //ExFor:Row.rowFormat
     //ExFor:RowFormat
-    //ExFor:aw.Tables.Cell.cellFormat
+    //ExFor:Cell.cellFormat
     //ExFor:CellFormat
-    //ExFor:aw.Tables.CellFormat.shading
+    //ExFor:CellFormat.shading
     //ExSummary:Shows how to modify the format of rows and cells in a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -157,17 +157,17 @@ describe("ExTable", () => {
     //ExStart
     //ExFor:Cell
     //ExFor:CellCollection
-    //ExFor:aw.Tables.CellCollection.item(Int32)
-    //ExFor:aw.Tables.CellCollection.toArray
+    //ExFor:CellCollection.item(Int32)
+    //ExFor:CellCollection.toArray
     //ExFor:Row
-    //ExFor:aw.Tables.Row.cells
+    //ExFor:Row.cells
     //ExFor:RowCollection
-    //ExFor:aw.Tables.RowCollection.item(Int32)
-    //ExFor:aw.Tables.RowCollection.toArray
+    //ExFor:RowCollection.item(Int32)
+    //ExFor:RowCollection.toArray
     //ExFor:Table
-    //ExFor:aw.Tables.Table.rows
-    //ExFor:aw.Tables.TableCollection.item(Int32)
-    //ExFor:aw.Tables.TableCollection.toArray
+    //ExFor:Table.rows
+    //ExFor:TableCollection.item(Int32)
+    //ExFor:TableCollection.toArray
     //ExSummary:Shows how to iterate through all tables in the document and print the contents of each cell.
     let doc = new aw.Document(base.myDir + "Tables.docx");
     let tables = doc.firstSection.body.tables;
@@ -281,7 +281,7 @@ describe("ExTable", () => {
   
   test('EnsureTableMinimum', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.ensureMinimum
+    //ExFor:Table.ensureMinimum
     //ExSummary:Shows how to ensure that a table node contains the nodes we need to add content.
     let doc = new aw.Document();
     let table = new aw.Tables.Table(doc);
@@ -304,7 +304,7 @@ describe("ExTable", () => {
 
   test('EnsureRowMinimum', () => {
     //ExStart
-    //ExFor:aw.Tables.Row.ensureMinimum
+    //ExFor:Row.ensureMinimum
     //ExSummary:Shows how to ensure a row node contains the nodes we need to begin adding content to it.
     let doc = new aw.Document();
     let table = new aw.Tables.Table(doc);
@@ -328,7 +328,7 @@ describe("ExTable", () => {
 
   test('EnsureCellMinimum', () => {
     //ExStart
-    //ExFor:aw.Tables.Cell.ensureMinimum
+    //ExFor:Cell.ensureMinimum
     //ExSummary:Shows how to ensure a cell node contains the nodes we need to begin adding content to it.
     let doc = new aw.Document();
     let table = new aw.Tables.Table(doc);
@@ -354,13 +354,13 @@ describe("ExTable", () => {
 
   test('SetOutlineBorders', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.alignment
+    //ExFor:Table.alignment
     //ExFor:TableAlignment
-    //ExFor:aw.Tables.Table.clearBorders
-    //ExFor:aw.Tables.Table.clearShading
-    //ExFor:aw.Tables.Table.setBorder
+    //ExFor:Table.clearBorders
+    //ExFor:Table.clearShading
+    //ExFor:Table.setBorder
     //ExFor:TextureIndex
-    //ExFor:aw.Tables.Table.setShading
+    //ExFor:Table.setShading
     //ExSummary:Shows how to apply an outline border to a table.
     let doc = new aw.Document(base.myDir + "Tables.docx");
     let table = doc.firstSection.body.tables.at(0);
@@ -403,7 +403,7 @@ describe("ExTable", () => {
 
   test('SetBorders', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.setBorders
+    //ExFor:Table.setBorders
     //ExSummary:Shows how to format of all of a table's borders at once.
     let doc = new aw.Document(base.myDir + "Tables.docx");
     let table = doc.firstSection.body.tables.at(0);
@@ -432,7 +432,7 @@ describe("ExTable", () => {
   test('RowFormat', () => {
     //ExStart
     //ExFor:RowFormat
-    //ExFor:aw.Tables.Row.rowFormat
+    //ExFor:Row.rowFormat
     //ExSummary:Shows how to modify formatting of a table row.
     let doc = new aw.Document(base.myDir + "Tables.docx");
     let table = doc.firstSection.body.tables.at(0);
@@ -458,7 +458,7 @@ describe("ExTable", () => {
   test('CellFormat', () => {
     //ExStart
     //ExFor:CellFormat
-    //ExFor:aw.Tables.Cell.cellFormat
+    //ExFor:Cell.cellFormat
     //ExSummary:Shows how to modify formatting of a table cell.
     let doc = new aw.Document(base.myDir + "Tables.docx");
     let table = doc.firstSection.body.tables.at(0);
@@ -483,10 +483,10 @@ describe("ExTable", () => {
 
   test('DistanceBetweenTableAndText', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.distanceBottom
-    //ExFor:aw.Tables.Table.distanceLeft
-    //ExFor:aw.Tables.Table.distanceRight
-    //ExFor:aw.Tables.Table.distanceTop
+    //ExFor:Table.distanceBottom
+    //ExFor:Table.distanceLeft
+    //ExFor:Table.distanceRight
+    //ExFor:Table.distanceTop
     //ExSummary:Shows how to set distance between table boundaries and text.
     let doc = new aw.Document(base.myDir + "Table wrapped by text.docx");
 
@@ -509,7 +509,7 @@ describe("ExTable", () => {
 
   test('Borders', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.clearBorders
+    //ExFor:Table.clearBorders
     //ExSummary:Shows how to remove all borders from a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -529,7 +529,7 @@ describe("ExTable", () => {
 
     // Clear the borders of all cells in the table, and then save the document.
     table.clearBorders();
-    expect(topBorder.color).not.toEqual(""); //ExSkip
+    expect(topBorder.color).not.toEqual("");
     doc.save(base.artifactsDir + "Table.clearBorders.docx");
 
     // Verify the values of the table's properties after re-opening the document.
@@ -546,7 +546,7 @@ describe("ExTable", () => {
 
   test('ReplaceCellText', () => {
     //ExStart
-    //ExFor:aw.Range.replace(String, String, FindReplaceOptions)
+    //ExFor:Range.replace(String, String, FindReplaceOptions)
     //ExSummary:Shows how to replace all instances of String of text in a table and cell.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -582,7 +582,7 @@ describe("ExTable", () => {
   test.skip.each([true,
     false])('RemoveParagraphTextAndMark - TODO: Regex not supported yet', (isSmartParagraphBreakReplacement) => {
     //ExStart
-    //ExFor:aw.Replacing.FindReplaceOptions.smartParagraphBreakReplacement
+    //ExFor:FindReplaceOptions.smartParagraphBreakReplacement
     //ExSummary:Shows how to remove paragraph from a table cell with a nested table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -618,7 +618,7 @@ describe("ExTable", () => {
 
     let table = doc.firstSection.body.tables.at(0);
 
-    // The range text will include control characters such as "\u0007" for a cell.
+    // The range text will include control characters such as "\a" for a cell.
     // You can call ToString on the desired node to retrieve the plain text content.
 
     // Print the plain text range of the table to the screen.
@@ -666,7 +666,7 @@ describe("ExTable", () => {
   test.each([false,
     true])('AllowBreakAcrossPages', (allowBreakAcrossPages) => {
     //ExStart
-    //ExFor:aw.Tables.RowFormat.allowBreakAcrossPages
+    //ExFor:RowFormat.allowBreakAcrossPages
     //ExSummary:Shows how to disable rows breaking across pages for every row in a table.
     let doc = new aw.Document(base.myDir + "Table spanning two pages.docx");
     let table = doc.firstSection.body.tables.at(0);
@@ -691,7 +691,7 @@ describe("ExTable", () => {
   test.each([false,
     true])('AllowAutoFitOnTable', (allowAutoFit) => {
     //ExStart
-    //ExFor:aw.Tables.Table.allowAutoFit
+    //ExFor:Table.allowAutoFit
     //ExSummary:Shows how to enable/disable automatic table cell resizing.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -741,12 +741,12 @@ describe("ExTable", () => {
 
   test('KeepTableTogether', () => {
     //ExStart
-    //ExFor:aw.ParagraphFormat.keepWithNext
-    //ExFor:aw.Tables.Row.isLastRow
-    //ExFor:aw.Paragraph.isEndOfCell
-    //ExFor:aw.Paragraph.isInCell
-    //ExFor:aw.Tables.Cell.parentRow
-    //ExFor:aw.Tables.Cell.paragraphs
+    //ExFor:ParagraphFormat.keepWithNext
+    //ExFor:Row.isLastRow
+    //ExFor:Paragraph.isEndOfCell
+    //ExFor:Paragraph.isInCell
+    //ExFor:Cell.parentRow
+    //ExFor:Cell.paragraphs
     //ExSummary:Shows how to set a table to stay together on the same page.
     let doc = new aw.Document(base.myDir + "Table spanning two pages.docx");
     let table = doc.firstSection.body.tables.at(0);
@@ -782,7 +782,7 @@ describe("ExTable", () => {
 
   test('GetIndexOfTableElements', () => {
     //ExStart
-    //ExFor:aw.NodeCollection.indexOf(Node)
+    //ExFor:NodeCollection.indexOf(Node)
     //ExSummary:Shows how to get the index of a node in a collection.
     let doc = new aw.Document(base.myDir + "Tables.docx");
 
@@ -805,8 +805,8 @@ describe("ExTable", () => {
   test('GetPreferredWidthTypeAndValue', () => {
     //ExStart
     //ExFor:PreferredWidthType
-    //ExFor:aw.Tables.PreferredWidth.type
-    //ExFor:aw.Tables.PreferredWidth.value
+    //ExFor:PreferredWidth.type
+    //ExFor:PreferredWidth.value
     //ExSummary:Shows how to verify the preferred width type and value of a table cell.
     let doc = new aw.Document(base.myDir + "Tables.docx");
 
@@ -822,8 +822,8 @@ describe("ExTable", () => {
   test.each([false,
     true])('AllowCellSpacing', (allowCellSpacing) => {
     //ExStart
-    //ExFor:aw.Tables.Table.allowCellSpacing
-    //ExFor:aw.Tables.Table.cellSpacing
+    //ExFor:Table.allowCellSpacing
+    //ExFor:Table.cellSpacing
     //ExSummary:Shows how to enable spacing between individual cells in a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1054,12 +1054,12 @@ describe("ExTable", () => {
   
   test('CombineTables', () => {
     //ExStart
-    //ExFor:aw.Tables.Cell.cellFormat
-    //ExFor:aw.Tables.CellFormat.borders
-    //ExFor:aw.Tables.Table.rows
-    //ExFor:aw.Tables.Table.firstRow
-    //ExFor:aw.Tables.CellFormat.clearFormatting
-    //ExFor:aw.CompositeNode.hasChildNodes
+    //ExFor:Cell.cellFormat
+    //ExFor:CellFormat.borders
+    //ExFor:Table.rows
+    //ExFor:Table.firstRow
+    //ExFor:CellFormat.clearFormatting
+    //ExFor:CompositeNode.hasChildNodes
     //ExSummary:Shows how to combine the rows from two tables into one.
     let doc = new aw.Document(base.myDir + "Tables.docx");
 
@@ -1123,7 +1123,7 @@ describe("ExTable", () => {
 
   test('WrapText', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.textWrapping
+    //ExFor:Table.textWrapping
     //ExFor:TextWrapping
     //ExSummary:Shows how to work with table text wrapping.
     let doc = new aw.Document();
@@ -1160,10 +1160,10 @@ describe("ExTable", () => {
 
   test('GetFloatingTableProperties', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.horizontalAnchor
-    //ExFor:aw.Tables.Table.verticalAnchor
-    //ExFor:aw.Tables.Table.allowOverlap
-    //ExFor:aw.Drawing.ShapeBase.allowOverlap
+    //ExFor:Table.horizontalAnchor
+    //ExFor:Table.verticalAnchor
+    //ExFor:Table.allowOverlap
+    //ExFor:ShapeBase.allowOverlap
     //ExSummary:Shows how to work with floating tables properties.
     let doc = new aw.Document(base.myDir + "Table wrapped by text.docx");
 
@@ -1189,10 +1189,10 @@ describe("ExTable", () => {
 
   test('ChangeFloatingTableProperties', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.relativeHorizontalAlignment
-    //ExFor:aw.Tables.Table.relativeVerticalAlignment
-    //ExFor:aw.Tables.Table.absoluteHorizontalDistance
-    //ExFor:aw.Tables.Table.absoluteVerticalDistance
+    //ExFor:Table.relativeHorizontalAlignment
+    //ExFor:Table.relativeVerticalAlignment
+    //ExFor:Table.absoluteHorizontalDistance
+    //ExFor:Table.absoluteVerticalDistance
     //ExSummary:Shows how set the location of floating tables.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1235,21 +1235,21 @@ describe("ExTable", () => {
 
   test('TableStyleCreation', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.bidi
-    //ExFor:aw.Tables.Table.cellSpacing
-    //ExFor:aw.Tables.Table.style
-    //ExFor:aw.Tables.Table.styleName
+    //ExFor:Table.bidi
+    //ExFor:Table.cellSpacing
+    //ExFor:Table.style
+    //ExFor:Table.styleName
     //ExFor:TableStyle
-    //ExFor:aw.TableStyle.allowBreakAcrossPages
-    //ExFor:aw.TableStyle.bidi
-    //ExFor:aw.TableStyle.cellSpacing
-    //ExFor:aw.TableStyle.bottomPadding
-    //ExFor:aw.TableStyle.leftPadding
-    //ExFor:aw.TableStyle.rightPadding
-    //ExFor:aw.TableStyle.topPadding
-    //ExFor:aw.TableStyle.shading
-    //ExFor:aw.TableStyle.borders
-    //ExFor:aw.TableStyle.verticalAlignment
+    //ExFor:TableStyle.allowBreakAcrossPages
+    //ExFor:TableStyle.bidi
+    //ExFor:TableStyle.cellSpacing
+    //ExFor:TableStyle.bottomPadding
+    //ExFor:TableStyle.leftPadding
+    //ExFor:TableStyle.rightPadding
+    //ExFor:TableStyle.topPadding
+    //ExFor:TableStyle.shading
+    //ExFor:TableStyle.borders
+    //ExFor:TableStyle.verticalAlignment
     //ExSummary:Shows how to create custom style settings for the table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1318,8 +1318,8 @@ describe("ExTable", () => {
 
   test('SetTableAlignment', () => {
     //ExStart
-    //ExFor:aw.TableStyle.alignment
-    //ExFor:aw.TableStyle.leftIndent
+    //ExFor:TableStyle.alignment
+    //ExFor:TableStyle.leftIndent
     //ExSummary:Shows how to set the position of a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1374,34 +1374,34 @@ describe("ExTable", () => {
   test.skip('ConditionalStyles - TODO: WORDSNODEJS-84.', () => {
     //ExStart
     //ExFor:ConditionalStyle
-    //ExFor:aw.ConditionalStyle.shading
-    //ExFor:aw.ConditionalStyle.borders
-    //ExFor:aw.ConditionalStyle.paragraphFormat
-    //ExFor:aw.ConditionalStyle.bottomPadding
-    //ExFor:aw.ConditionalStyle.leftPadding
-    //ExFor:aw.ConditionalStyle.rightPadding
-    //ExFor:aw.ConditionalStyle.topPadding
-    //ExFor:aw.ConditionalStyle.font
-    //ExFor:aw.ConditionalStyle.type
-    //ExFor:aw.ConditionalStyleCollection.getEnumerator
-    //ExFor:aw.ConditionalStyleCollection.firstRow
-    //ExFor:aw.ConditionalStyleCollection.lastRow
-    //ExFor:aw.ConditionalStyleCollection.lastColumn
-    //ExFor:aw.ConditionalStyleCollection.count
+    //ExFor:ConditionalStyle.shading
+    //ExFor:ConditionalStyle.borders
+    //ExFor:ConditionalStyle.paragraphFormat
+    //ExFor:ConditionalStyle.bottomPadding
+    //ExFor:ConditionalStyle.leftPadding
+    //ExFor:ConditionalStyle.rightPadding
+    //ExFor:ConditionalStyle.topPadding
+    //ExFor:ConditionalStyle.font
+    //ExFor:ConditionalStyle.type
+    //ExFor:ConditionalStyleCollection.getEnumerator
+    //ExFor:ConditionalStyleCollection.firstRow
+    //ExFor:ConditionalStyleCollection.lastRow
+    //ExFor:ConditionalStyleCollection.lastColumn
+    //ExFor:ConditionalStyleCollection.count
     //ExFor:ConditionalStyleCollection
-    //ExFor:aw.ConditionalStyleCollection.bottomLeftCell
-    //ExFor:aw.ConditionalStyleCollection.bottomRightCell
-    //ExFor:aw.ConditionalStyleCollection.evenColumnBanding
-    //ExFor:aw.ConditionalStyleCollection.evenRowBanding
-    //ExFor:aw.ConditionalStyleCollection.firstColumn
-    //ExFor:aw.ConditionalStyleCollection.item(ConditionalStyleType)
-    //ExFor:aw.ConditionalStyleCollection.item(Int32)
-    //ExFor:aw.ConditionalStyleCollection.oddColumnBanding
-    //ExFor:aw.ConditionalStyleCollection.oddRowBanding
-    //ExFor:aw.ConditionalStyleCollection.topLeftCell
-    //ExFor:aw.ConditionalStyleCollection.topRightCell
+    //ExFor:ConditionalStyleCollection.bottomLeftCell
+    //ExFor:ConditionalStyleCollection.bottomRightCell
+    //ExFor:ConditionalStyleCollection.evenColumnBanding
+    //ExFor:ConditionalStyleCollection.evenRowBanding
+    //ExFor:ConditionalStyleCollection.firstColumn
+    //ExFor:ConditionalStyleCollection.item(ConditionalStyleType)
+    //ExFor:ConditionalStyleCollection.item(Int32)
+    //ExFor:ConditionalStyleCollection.oddColumnBanding
+    //ExFor:ConditionalStyleCollection.oddRowBanding
+    //ExFor:ConditionalStyleCollection.topLeftCell
+    //ExFor:ConditionalStyleCollection.topRightCell
     //ExFor:ConditionalStyleType
-    //ExFor:aw.TableStyle.conditionalStyles
+    //ExFor:TableStyle.conditionalStyles
     //ExSummary:Shows how to work with certain area styles of a table.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1485,8 +1485,8 @@ describe("ExTable", () => {
 
   test('ClearTableStyleFormatting', () => {
     //ExStart
-    //ExFor:aw.ConditionalStyle.clearFormatting
-    //ExFor:aw.ConditionalStyleCollection.clearFormatting
+    //ExFor:ConditionalStyle.clearFormatting
+    //ExFor:ConditionalStyleCollection.clearFormatting
     //ExSummary:Shows how to reset conditional table styles.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1524,8 +1524,8 @@ describe("ExTable", () => {
 
   test('AlternatingRowStyles', () => {
     //ExStart
-    //ExFor:aw.TableStyle.columnStripe
-    //ExFor:aw.TableStyle.rowStripe
+    //ExFor:TableStyle.columnStripe
+    //ExFor:TableStyle.rowStripe
     //ExSummary:Shows how to create conditional table styles that alternate between rows.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -1592,8 +1592,8 @@ describe("ExTable", () => {
 
   test('ConvertToHorizontallyMergedCells', () => {
     //ExStart
-    //ExFor:aw.Tables.Table.convertToHorizontallyMergedCells
-    //ExSummary:Shows how to convert cells horizontally merged by width to cells merged by aw.Tables.CellFormat.horizontalMerge.
+    //ExFor:Table.convertToHorizontallyMergedCells
+    //ExSummary:Shows how to convert cells horizontally merged by width to cells merged by CellFormat.horizontalMerge.
     let doc = new aw.Document(base.myDir + "Table with merged cells.docx");
 
     // Microsoft Word does not write merge flags anymore, defining merged cells by width instead.
@@ -1626,10 +1626,10 @@ describe("ExTable", () => {
 
   test('GetTextFromCells', () => {
     //ExStart
-    //ExFor:aw.Tables.Row.nextRow
-    //ExFor:aw.Tables.Row.previousRow
-    //ExFor:aw.Tables.Cell.nextCell
-    //ExFor:aw.Tables.Cell.previousCell
+    //ExFor:Row.nextRow
+    //ExFor:Row.previousRow
+    //ExFor:Cell.nextCell
+    //ExFor:Cell.previousCell
     //ExSummary:Shows how to enumerate through all table cells.
     let doc = new aw.Document(base.myDir + "Tables.docx");
     let table = doc.firstSection.body.tables.at(0);

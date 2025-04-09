@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,9 +23,11 @@ describe("ExImageSaveOptions", () => {
 
   test('OnePage', async () => {
     //ExStart
-    //ExFor:aw.Document.save(String, SaveOptions)
+    //ExFor:Document.save(String, SaveOptions)
     //ExFor:FixedPageSaveOptions
-    //ExFor:aw.Saving.ImageSaveOptions.pageSet
+    //ExFor:ImageSaveOptions.pageSet
+    //ExFor:PageSet
+    //ExFor:PageSet.#ctor(Int32)
     //ExSummary:Shows how to render one page from a document to a JPEG image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -57,7 +59,7 @@ describe("ExImageSaveOptions", () => {
   test.each([false,
     true])('Renderer', (useGdiEmfRenderer) => {
     //ExStart
-    //ExFor:aw.Saving.ImageSaveOptions.useGdiEmfRenderer
+    //ExFor:ImageSaveOptions.useGdiEmfRenderer
     //ExSummary:Shows how to choose a renderer when converting a document to .emf.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -79,7 +81,7 @@ describe("ExImageSaveOptions", () => {
 
   test('PageSet', async () => {
     //ExStart
-    //ExFor:aw.Saving.ImageSaveOptions.pageSet
+    //ExFor:ImageSaveOptions.pageSet
     //ExSummary:Shows how to specify which page in a document to render as an image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -167,8 +169,8 @@ describe("ExImageSaveOptions", () => {
     aw.Saving.MetafileRenderingMode.Bitmap,
     aw.Saving.MetafileRenderingMode.VectorWithFallback])('WindowsMetaFile', async (metafileRenderingMode) => {
     //ExStart
-    //ExFor:aw.Saving.ImageSaveOptions.metafileRenderingOptions
-    //ExFor:aw.Saving.MetafileRenderingOptions.useGdiRasterOperationsEmulation
+    //ExFor:ImageSaveOptions.metafileRenderingOptions
+    //ExFor:MetafileRenderingOptions.useGdiRasterOperationsEmulation
     //ExSummary:Shows how to set the rendering mode when saving documents with Windows Metafile images to other image formats. 
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -194,10 +196,10 @@ describe("ExImageSaveOptions", () => {
 
   test('PageByPage', () => {
     //ExStart
-    //ExFor:aw.Document.save(String, SaveOptions)
+    //ExFor:Document.save(String, SaveOptions)
     //ExFor:FixedPageSaveOptions
-    //ExFor:aw.Saving.ImageSaveOptions.pageSet
-    //ExFor:aw.Saving.ImageSaveOptions.imageSize
+    //ExFor:ImageSaveOptions.pageSet
+    //ExFor:ImageSaveOptions.imageSize
     //ExSummary:Shows how to render every page of a document to a separate TIFF image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -237,7 +239,7 @@ describe("ExImageSaveOptions", () => {
     aw.Saving.ImageColorMode.None])('ColorMode', (imageColorMode) => {
     //ExStart
     //ExFor:ImageColorMode
-    //ExFor:aw.Saving.ImageSaveOptions.imageColorMode
+    //ExFor:ImageSaveOptions.imageColorMode
     //ExSummary:Shows how to set a color mode when rendering documents.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -280,7 +282,7 @@ describe("ExImageSaveOptions", () => {
   test('PaperColor', async () => {
     //ExStart
     //ExFor:ImageSaveOptions
-    //ExFor:aw.Saving.ImageSaveOptions.paperColor
+    //ExFor:ImageSaveOptions.paperColor
     //ExSummary:Renders a page of a Word document into an image with transparent or colored background.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -324,8 +326,8 @@ describe("ExImageSaveOptions", () => {
     aw.Saving.ImagePixelFormat.Format64BppPArgb])('PixelFormat', (imagePixelFormat) => {
     //ExStart
     //ExFor:ImagePixelFormat
-    //ExFor:aw.Saving.ImageSaveOptions.clone
-    //ExFor:aw.Saving.ImageSaveOptions.pixelFormat
+    //ExFor:ImageSaveOptions.clone
+    //ExFor:ImageSaveOptions.pixelFormat
     //ExSummary:Shows how to select a bit-per-pixel rate with which to render a document to an image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -373,8 +375,8 @@ describe("ExImageSaveOptions", () => {
   test('FloydSteinbergDithering', () => {
     //ExStart
     //ExFor:ImageBinarizationMethod
-    //ExFor:aw.Saving.ImageSaveOptions.thresholdForFloydSteinbergDithering
-    //ExFor:aw.Saving.ImageSaveOptions.tiffBinarizationMethod
+    //ExFor:ImageSaveOptions.thresholdForFloydSteinbergDithering
+    //ExFor:ImageSaveOptions.tiffBinarizationMethod
     //ExSummary:Shows how to set the TIFF binarization error threshold when using the Floyd-Steinberg method to render a TIFF image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -405,12 +407,12 @@ describe("ExImageSaveOptions", () => {
     [AotTests.IgnoreAot("Failed on net7")]
   test('EditImage', () => {
     //ExStart
-    //ExFor:aw.Saving.ImageSaveOptions.horizontalResolution
-    //ExFor:aw.Saving.ImageSaveOptions.imageBrightness
-    //ExFor:aw.Saving.ImageSaveOptions.imageContrast
-    //ExFor:aw.Saving.ImageSaveOptions.saveFormat
-    //ExFor:aw.Saving.ImageSaveOptions.scale
-    //ExFor:aw.Saving.ImageSaveOptions.verticalResolution
+    //ExFor:ImageSaveOptions.horizontalResolution
+    //ExFor:ImageSaveOptions.imageBrightness
+    //ExFor:ImageSaveOptions.imageContrast
+    //ExFor:ImageSaveOptions.saveFormat
+    //ExFor:ImageSaveOptions.scale
+    //ExFor:ImageSaveOptions.verticalResolution
     //ExSummary:Shows how to edit the image while Aspose.words converts a document to one.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -455,11 +457,11 @@ describe("ExImageSaveOptions", () => {
 
   test('JpegQuality', () => {
     //ExStart
-    //ExFor:aw.Document.save(String, SaveOptions)
-    //ExFor:aw.Saving.FixedPageSaveOptions.jpegQuality
+    //ExFor:Document.save(String, SaveOptions)
+    //ExFor:FixedPageSaveOptions.jpegQuality
     //ExFor:ImageSaveOptions
     //ExFor:ImageSaveOptions.#ctor
-    //ExFor:aw.Saving.ImageSaveOptions.jpegQuality
+    //ExFor:ImageSaveOptions.jpegQuality
     //ExSummary:Shows how to configure compression while saving a document as a JPEG.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -491,7 +493,7 @@ describe("ExImageSaveOptions", () => {
     TiffCompression.Ccitt4), Category("SkipMono"])('TiffImageCompression', (TiffCompression tiffCompression) => {
     //ExStart
     //ExFor:TiffCompression
-    //ExFor:aw.Saving.ImageSaveOptions.tiffCompression
+    //ExFor:ImageSaveOptions.tiffCompression
     //ExSummary:Shows how to select the compression scheme to apply to a document that we convert into a TIFF image.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -546,7 +548,7 @@ describe("ExImageSaveOptions", () => {
   test('Resolution', () => {
     //ExStart
     //ExFor:ImageSaveOptions
-    //ExFor:aw.Saving.ImageSaveOptions.resolution
+    //ExFor:ImageSaveOptions.resolution
     //ExSummary:Shows how to specify a resolution while rendering a document to PNG.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -578,8 +580,9 @@ describe("ExImageSaveOptions", () => {
   test('ExportVariousPageRanges', () => {
     //ExStart
     //ExFor:PageSet.#ctor(PageRange[])
+    //ExFor:PageRange
     //ExFor:PageRange.#ctor(int, int)
-    //ExFor:aw.Saving.ImageSaveOptions.pageSet
+    //ExFor:ImageSaveOptions.pageSet
     //ExSummary:Shows how to extract pages based on exact page ranges.
     let doc = new aw.Document(base.myDir + "Images.docx");
 
@@ -595,7 +598,7 @@ describe("ExImageSaveOptions", () => {
 
   test('RenderInkObject', () => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.imlRenderingMode
+    //ExFor:SaveOptions.imlRenderingMode
     //ExFor:ImlRenderingMode
     //ExSummary:Shows how to render Ink object.
     let doc = new aw.Document(base.myDir + "Ink object.docx");

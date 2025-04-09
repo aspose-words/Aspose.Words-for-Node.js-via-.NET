@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,7 +23,7 @@ describe("ExOoxmlSaveOptions", () => {
 
   test('Password', () => {
     //ExStart
-    //ExFor:aw.Saving.OoxmlSaveOptions.password
+    //ExFor:OoxmlSaveOptions.password
     //ExSummary:Shows how to create a password encrypted Office Open XML document.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -50,12 +50,12 @@ describe("ExOoxmlSaveOptions", () => {
   test('Iso29500Strict', () => {
     //ExStart
     //ExFor:CompatibilityOptions
-    //ExFor:aw.Settings.CompatibilityOptions.optimizeFor(MsWordVersion)
+    //ExFor:CompatibilityOptions.optimizeFor(MsWordVersion)
     //ExFor:OoxmlSaveOptions
     //ExFor:OoxmlSaveOptions.#ctor
-    //ExFor:aw.Saving.OoxmlSaveOptions.saveFormat
+    //ExFor:OoxmlSaveOptions.saveFormat
     //ExFor:OoxmlCompliance
-    //ExFor:aw.Saving.OoxmlSaveOptions.compliance
+    //ExFor:OoxmlSaveOptions.compliance
     //ExFor:ShapeMarkupLanguage
     //ExSummary:Shows how to set an OOXML compliance specification for a saved document to adhere to.
     let doc = new aw.Document();
@@ -87,9 +87,9 @@ describe("ExOoxmlSaveOptions", () => {
 
   test.each([false, true])('RestartingDocumentList(%o)', (restartListAtEachSection) => {
     //ExStart
-    //ExFor:aw.Lists.List.isRestartAtEachSection
+    //ExFor:List.isRestartAtEachSection
     //ExFor:OoxmlCompliance
-    //ExFor:aw.Saving.OoxmlSaveOptions.compliance
+    //ExFor:OoxmlSaveOptions.compliance
     //ExSummary:Shows how to configure a list to restart numbering at each section.
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
@@ -123,7 +123,7 @@ describe("ExOoxmlSaveOptions", () => {
 
   test.each([false, true])('LastSavedTime(%o)', (updateLastSavedTimeProperty) => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.updateLastSavedTimeProperty
+    //ExFor:SaveOptions.updateLastSavedTimeProperty
     //ExSummary:Shows how to determine whether to preserve the document's "Last saved time" property when saving.
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -153,7 +153,7 @@ describe("ExOoxmlSaveOptions", () => {
 
   test.skip.each([false, true])('KeepLegacyControlChars(%o) - TODO: WORDSNODEJS-80', (keepLegacyControlChars) => {
     //ExStart
-    //ExFor:aw.Saving.OoxmlSaveOptions.keepLegacyControlChars
+    //ExFor:OoxmlSaveOptions.keepLegacyControlChars
     //ExFor:OoxmlSaveOptions.#ctor(SaveFormat)
     //ExSummary:Shows how to support legacy control characters when converting to .docx.
     let doc = new aw.Document(base.myDir + "Legacy control character.doc");
@@ -181,7 +181,7 @@ describe("ExOoxmlSaveOptions", () => {
     aw.Saving.CompressionLevel.Normal,
     aw.Saving.CompressionLevel.SuperFast])('DocumentCompression(%o)', (compressionLevel) => {
     //ExStart
-    //ExFor:aw.Saving.OoxmlSaveOptions.compressionLevel
+    //ExFor:OoxmlSaveOptions.compressionLevel
     //ExFor:CompressionLevel
     //ExSummary:Shows how to specify the compression level to use while saving an OOXML document.
     let doc = new aw.Document(base.myDir + "Big document.docx");
@@ -259,7 +259,7 @@ describe("ExOoxmlSaveOptions", () => {
 
   test('ExportGeneratorName', () => {
     //ExStart
-    //ExFor:aw.Saving.SaveOptions.exportGeneratorName
+    //ExFor:SaveOptions.exportGeneratorName
     //ExSummary:Shows how to disable adding name and version of Aspose.words into produced files.
     let doc = new aw.Document();
 
@@ -272,7 +272,8 @@ describe("ExOoxmlSaveOptions", () => {
   });
 
 
-  /*//ExStart
+  /*//Commented
+  //ExStart
     //ExFor:SaveOptions.ProgressCallback
     //ExFor:IDocumentSavingCallback
     //ExFor:IDocumentSavingCallback.Notify(DocumentSavingArgs)
@@ -332,12 +333,13 @@ describe("ExOoxmlSaveOptions", () => {
       /// </summary>
     private const double MaxDuration = 0.01;
   }
-  //ExEnd*/
+  //ExEnd
+  //EndCommented*/
 
   test('Zip64ModeOption', async () => {
     //ExStart:Zip64ModeOption
     //GistId:e386727403c2341ce4018bca370a5b41
-    //ExFor:aw.Saving.OoxmlSaveOptions.zip64Mode
+    //ExFor:OoxmlSaveOptions.zip64Mode
     //ExFor:Zip64Mode
     //ExSummary:Shows how to use ZIP64 format extensions.
     //let random = new Random();
@@ -361,7 +363,11 @@ describe("ExOoxmlSaveOptions", () => {
   test('DigitalSignature', () => {
     //ExStart:DigitalSignature
     //GistId:5f20ac02cb42c6b08481aa1c5b0cd3db
-    //ExFor:aw.Saving.OoxmlSaveOptions.digitalSignatureDetails
+    //ExFor:OoxmlSaveOptions.digitalSignatureDetails
+    //ExFor:DigitalSignatureDetails
+    //ExFor:DigitalSignatureDetails.#ctor(CertificateHolder, SignOptions)
+    //ExFor:DigitalSignatureDetails.certificateHolder
+    //ExFor:DigitalSignatureDetails.signOptions
     //ExSummary:Shows how to sign OOXML document.
     let doc = new aw.Document(base.myDir + "Document.docx");
 
@@ -372,8 +378,34 @@ describe("ExOoxmlSaveOptions", () => {
     signOptions.signTime = new Date();
     saveOptions.digitalSignatureDetails = new aw.Saving.DigitalSignatureDetails(certificateHolder, signOptions);
 
+    expect(saveOptions.digitalSignatureDetails.certificateHolder).toEqual(certificateHolder);
+    expect(saveOptions.digitalSignatureDetails.signOptions.comments).toEqual("Some comments");
+
     doc.save(base.artifactsDir + "OoxmlSaveOptions.digitalSignature.docx", saveOptions);
     //ExEnd:DigitalSignature
   });
+
+
+  test('UpdateAmbiguousTextFont', () => {
+    //ExStart:UpdateAmbiguousTextFont
+    //GistId:1a265b92fa0019b26277ecfef3c20330
+    //ExFor:SaveOptions.updateAmbiguousTextFont
+    //ExSummary:Shows how to update the font to match the character code being used.
+    let doc = new aw.Document(base.myDir + "Special symbol.docx");
+    let run = doc.firstSection.body.firstParagraph.runs.at(0);
+    console.log(run.text); // ฿
+    console.log(run.font.name); // Arial
+
+    let saveOptions = new aw.Saving.OoxmlSaveOptions();
+    saveOptions.updateAmbiguousTextFont = true;
+    doc.save(base.artifactsDir + "OoxmlSaveOptions.updateAmbiguousTextFont.docx", saveOptions);
+
+    doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.updateAmbiguousTextFont.docx");
+    run = doc.firstSection.body.firstParagraph.runs.at(0);
+    console.log(run.text); // ฿
+    console.log(run.font.name); // Angsana New
+    //ExEnd:UpdateAmbiguousTextFont
+  });
+
 
 });
