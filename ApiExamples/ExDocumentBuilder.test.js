@@ -228,11 +228,15 @@ describe("ExDocumentBuilder", () => {
     let hyperlink = doc.range.fields.at(0).asFieldHyperlink();
     expect(hyperlink.address).toEqual("https://www.google.com");
 
-    let fieldContents = hyperlink.start.nextSibling.asRun();
+    // This field is written as w:hyperlink element therefore field code cannot have formatting.
+    let fieldCode = hyperlink.start.nextSibling.asRun();
+    expect(fieldCode.getText().trim()).toEqual("HYPERLINK \"https://www.google.com\"");
 
-    expect(fieldContents.font.color).toEqual("#0000FF");
-    expect(fieldContents.font.underline).toEqual(aw.Underline.Single);
-    expect(fieldContents.getText().trim()).toEqual("HYPERLINK \"https://www.google.com\"");
+    let fieldResult = hyperlink.separator.nextSibling.asRun();
+
+    expect(fieldResult.font.color).toEqual("#0000FF");
+    expect(fieldResult.font.underline).toEqual(aw.Underline.Single);
+    expect(fieldResult.getText().trim()).toEqual("Google website");
   });
 
   test('PushPopFont', () => {
@@ -2890,7 +2894,6 @@ describe("ExDocumentBuilder", () => {
       if (warningInfo.source == aw.WarningSource.Markdown)
         expect(warningInfo.description).toEqual("The (*, 0:11) cannot be properly written into Markdown.");
     }
-    //ExEnd
   });
 
 

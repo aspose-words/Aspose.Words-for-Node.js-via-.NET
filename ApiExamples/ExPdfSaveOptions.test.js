@@ -1266,7 +1266,6 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.dml3DEffectsRenderingMode = aw.Saving.Dml3DEffectsRenderingMode.Advanced;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.Dml3DEffectsRenderingModeTest.pdf", saveOptions);
-    //ExEnd
 
     expect(warningCallback.count).toEqual(48);
   });

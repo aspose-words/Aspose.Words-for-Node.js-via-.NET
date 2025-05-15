@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@aspose/words": "^25.5.0",
+    "jimp": "^1.6.0",
+    "memorystream": "^0.3.1"
+  },
+
+  "scripts": {
+    "test": "jest"
+  },
+
+  "jest": {
+    "verbose": true,
+    "cache": false,
+    "maxWorkers": 1,
+    "bail": 1,
+    "globalTeardown": "<rootDir>/jestTeardown.js"
+  }
+}
