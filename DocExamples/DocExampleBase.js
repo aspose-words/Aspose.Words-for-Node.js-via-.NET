@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2024 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -9,7 +9,7 @@ const path = require('path');
 const fs = require('fs');
 const aw = require('@aspose/words');
 
-class ApiExampleBase {
+class DocExampleBase {
     static oneTimeSetup() {
         this.setUnlimitedLicense();
         if (!fs.existsSync(this.artifactsDir)) {
@@ -21,7 +21,6 @@ class ApiExampleBase {
     }
 
     static oneTimeTearDown() {
-        // Nothing to do. Also see jestTeardown.js.
     }
 
     static setUnlimitedLicense()
@@ -37,7 +36,7 @@ class ApiExampleBase {
           const wordsLicense = new aw.License();
           wordsLicense.setLicense(testLicenseFileName);
         } else {
-            console.warn(`License file ${testLicenseFileName} not found. Some tests may fail.`);
+            console.log(`License file ${testLicenseFileName} not found. Some tests may fail.`);
         }
     }
 
@@ -54,7 +53,7 @@ class ApiExampleBase {
     /// <summary>
     /// Gets the path to the codebase directory.
     /// </summary>
-    static codeBaseDir;
+    static mainDataDir;
     /// <summary>
     /// Gets the path to the license used by the code examples.
     /// </summary>
@@ -63,11 +62,6 @@ class ApiExampleBase {
     /// Gets the path to the documents used by the code examples. Ends with a back slash.
     /// </summary>
      static artifactsDir;
-    
-    /// <summary>
-    /// Gets the path to the documents used by the code examples. Ends with a back slash.
-    /// </summary>
-    static goldsDir;
     /// <summary>
     /// Gets the path to the documents used by the code examples. Ends with a back slash.
     /// </summary>
@@ -75,7 +69,7 @@ class ApiExampleBase {
     /// <summary>
     /// Gets the path to the images used by the code examples. Ends with a back slash.
     /// </summary>
-    static imageDir;
+    static imagesDir;
     /// <summary>
     /// Gets the path of the demo database. Ends with a back slash.
     /// </summary>
@@ -84,10 +78,6 @@ class ApiExampleBase {
     /// Gets the path of the free fonts. Ends with a back slash.
     /// </summary>
     static fontsDir;
-    /// <summary>
-    /// Gets the URL of the test image.
-    /// </summary>
-    static imageUrl;
 
     static emptyColor = "";
     
@@ -95,14 +85,12 @@ class ApiExampleBase {
         this.codeBaseDir = __dirname;
         const dataDir =  path.join(this.codeBaseDir, "..", "Data");
         this.artifactsDir = path.join(dataDir, "Artifacts") + path.sep;
-        this.licenseDir = path.join(this.codeBaseDir, "..", "..") + path.sep;
-        this.goldsDir = path.join(dataDir, "Golds") + path.sep;
+        this.licenseDir = path.join(dataDir, "License") + path.sep;
         this.myDir = dataDir + path.sep;
-        this.imageDir = path.join(dataDir, "Images") + path.sep;
+        this.imagesDir = path.join(dataDir, "Images") + path.sep;
         this.databaseDir = path.join(dataDir, "Database") + path.sep;
         this.fontsDir = path.join(dataDir, "MyFonts") + path.sep;
-        this.imageUrl = new URL("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
     }
 }
 
-module.exports = { ApiExampleBase };
+module.exports = { DocExampleBase };
