@@ -66,35 +66,4 @@ describe("WorkingWithMarkdownSaveOptions", () => {
     //ExEnd:ImagesFolder
   });
 
-
-  test('CreateMarkdownDocumentWithStyles', () => {
-    //ExStart:CreateMarkdownDocumentWithStyles
-    //GistId:7929f6f818221a9aad44db2039313210
-    let doc = new aw.Document();
-    let builder = new aw.DocumentBuilder(doc);
-    
-    // Specify the "Heading 1" style for the paragraph.
-    builder.insertParagraph();
-    builder.paragraphFormat.styleName = "Heading 1";
-    builder.write("Heading 1");
-    
-    // Specify the Italic emphasis for the paragraph.
-    builder.insertParagraph();
-    // Reset styles from the previous paragraph to not combine styles between paragraphs.
-    builder.paragraphFormat.styleName = "Normal";
-    builder.font.italic = true;
-    builder.write("Italic Text");
-    // Reset styles from the previous paragraph to not combine styles between paragraphs.
-    builder.italic = false;
-    
-    // Specify a Hyperlink for the desired text.
-    builder.insertParagraph();
-    builder.insertHyperlink("Aspose", "https://www.aspose.com", false);
-    builder.write("Aspose");
-                
-    // Save your document as a Markdown file.
-    doc.save(path.join(base.artifactsDir, "example.md"));    
-    //ExEnd:CreateMarkdownDocumentWithStyles
-  });
-
 });

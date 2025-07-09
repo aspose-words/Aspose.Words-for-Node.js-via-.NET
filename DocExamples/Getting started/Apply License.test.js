@@ -7,6 +7,7 @@
 
 const aw = require('@aspose/words');
 const base = require('../DocExampleBase').DocExampleBase;
+const path = require('path');
 
 describe("ApplyLicense", () => {
   beforeAll(() => {
@@ -26,7 +27,7 @@ describe("ApplyLicense", () => {
     // You can also use the additional overload to load a license from a Buffer, this is useful,
     // for instance, when the license is stored as an embedded resource.
     try {
-      license.setLicense("Aspose.Words.NodeJs.NET.lic");
+      license.setLicense(path.join(base.licenseDir, "Aspose.Words.NodeJs.NET.lic"));
                 
       console.log("License set successfully.");
     } catch(err) {
@@ -44,7 +45,7 @@ describe("ApplyLicense", () => {
     let license = new aw.License();
 
     try {
-      license.setLicense(base.loadFileToBuffer("Aspose.Words.NodeJs.NET.lic"));
+      license.setLicense(base.loadFileToBuffer(path.join(base.licenseDir, "Aspose.Words.NodeJs.NET.lic")));
                 
       console.log("License set successfully.");
     } catch(err){

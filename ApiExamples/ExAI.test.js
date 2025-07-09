@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -21,7 +21,7 @@ describe("ExAI", () => {
 
   test('AiSummarize', () => {
     //ExStart:AiSummarize
-    //GistId:366eb64fd56dec3c2eaa40410e594182
+    //GistId:757cf7d3534a39730cf3290d418681ab
     //ExFor:GoogleAiModel
     //ExFor:OpenAiModel
     //ExFor:OpenAiModel.setOrganization(String)
@@ -68,7 +68,7 @@ describe("ExAI", () => {
 
   test('AiTranslate', () => {
     //ExStart:AiTranslate
-    //GistId:695136dbbe4f541a8a0a17b3d3468689
+    //GistId:757cf7d3534a39730cf3290d418681ab
     //ExFor:IAiModelText.translate(Document, AI.language)
     //ExFor:AI.language
     //ExSummary:Shows how to translate text using Google models.
@@ -92,7 +92,7 @@ describe("ExAI", () => {
 
   test('AiGrammar', () => {
     //ExStart:AiGrammar
-    //GistId:f86d49dc0e6781b93e576539a01e6ca2
+    //GistId:757cf7d3534a39730cf3290d418681ab
     //ExFor:IAiModelText.checkGrammar(Document, CheckGrammarOptions)
     //ExFor:CheckGrammarOptions
     //ExSummary:Shows how to check the grammar of a document.

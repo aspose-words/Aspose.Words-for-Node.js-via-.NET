@@ -384,4 +384,34 @@ describe("WorkingWithMarkdown", () => {
     //ExEnd:UseWarningSourceMarkdown
   });
 
+  test('SupportedFeatures', () => {
+    //ExStart:SupportedFeatures
+    //GistId:a2fee7fa3d8e5704ce24f041be9a4821
+    let doc = new aw.Document();
+    let builder = new aw.DocumentBuilder(doc);
+
+    // Specify the "Heading 1" style for the paragraph.
+    builder.insertParagraph();
+    builder.paragraphFormat.styleName = "Heading 1";
+    builder.write("Heading 1");
+
+    // Specify the Italic emphasis for the paragraph.
+    builder.insertParagraph();
+    // Reset styles from the previous paragraph to not combine styles between paragraphs.
+    builder.paragraphFormat.styleName = "Normal";
+    builder.font.italic = true;
+    builder.write("Italic Text");
+    // Reset styles from the previous paragraph to not combine styles between paragraphs.
+    builder.font.italic = false;
+
+    // Specify a Hyperlink for the desired text.
+    builder.insertParagraph();
+    builder.insertHyperlink("Aspose", "https://www.aspose.com", false);
+    builder.write("Aspose");
+
+    // Save your document as a Markdown file.
+    doc.save(path.join(base.artifactsDir, "WorkingWithMarkdown.SupportedFeatures.md"));
+    //ExEnd:SupportedFeatures
+  });
+
 });
