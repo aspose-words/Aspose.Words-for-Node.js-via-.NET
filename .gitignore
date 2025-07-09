@@ -5,4 +5,5 @@ Aspose.Words.node
 Backup-*/**
 ./idea
 *.dll
+*.so
 *.lic

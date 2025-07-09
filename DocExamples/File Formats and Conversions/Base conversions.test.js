@@ -140,6 +140,16 @@ describe("BaseConversions", () => {
     //ExEnd:DocxToXlsx
   });
 
+  test('DocxToJpeg', () => {
+    //ExStart:DocxToJpeg
+    //GistId:05b9bb6f4d96094b4408287596e99a20
+    let doc = new aw.Document(base.myDir + "Document.docx");
+
+    let saveOptions = new aw.Saving.ImageSaveOptions(aw.SaveFormat.Jpeg);
+    doc.save(base.artifactsDir + "BaseConversions.DocxToJpeg.jpeg", saveOptions);
+    //ExEnd:DocxToJpeg
+  });
+
 
   test('TxtToDocx', () => {
     //ExStart:TxtToDocx

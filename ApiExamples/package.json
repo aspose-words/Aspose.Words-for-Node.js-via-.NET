@@ -3,7 +3,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@aspose/words": "^25.5.0",
+    "@aspose/words": "^25.7.0",
     "adm-zip": "^0.5.16",
     "bmp-js": "^0.1.0",
     "download": "^8.0.0",
@@ -19,7 +19,7 @@
     "verbose": true,
     "cache": false,
     "maxWorkers": 1,
-    "bail": 1,
+    "bail": 100,
     "globalTeardown": "<rootDir>/jestTeardown.js"
   }
 }
