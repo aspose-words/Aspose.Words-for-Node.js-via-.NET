@@ -3,7 +3,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@aspose/words": "^25.8.0",
+    "@aspose/words": "^25.9.0",
     "adm-zip": "^0.5.16",
     "bmp-js": "^0.1.0",
     "download": "^8.0.0",
