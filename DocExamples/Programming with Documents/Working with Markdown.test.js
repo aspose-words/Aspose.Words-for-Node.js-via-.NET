@@ -7,9 +7,7 @@
 
 const aw = require('@aspose/words');
 const base = require('../DocExampleBase').DocExampleBase;
-const fs = require('fs');
 const path = require('path');
-const MemoryStream = require('memorystream');
 
 
 describe("WorkingWithMarkdown", () => {

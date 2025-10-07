@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 const aw = require('@aspose/words');
-const base = require('../../DocExampleBase').DocExampleBase;
+const base = require('../DocExampleBase').DocExampleBase;
 
 
 describe("WorkingWithRevisions", () => {
@@ -21,7 +21,7 @@ describe("WorkingWithRevisions", () => {
 
   test('AcceptRevisions', () => {
     //ExStart:AcceptAllRevisions
-    //GistId:51dcef06f98b07177240f294788c9816
+    //GistId:e8d71fde166d275d0fc9471c56c3ad39
     let doc = new aw.Document();
     let body = doc.firstSection.body;
     let para = body.firstParagraph;
@@ -72,9 +72,9 @@ describe("WorkingWithRevisions", () => {
     let paragraphs = doc.firstSection.body.paragraphs;
     for (let i = 0; i < paragraphs.count; i++) {
       if (paragraphs.at(i).isMoveFromRevision)
-        console.log(`The paragraph ${i} has been moved (deleted).`);
+        console.log("The paragraph {0} has been moved (deleted).", i);
       if (paragraphs.at(i).isMoveToRevision)
-        console.log(`The paragraph ${i} has been moved (inserted).`);
+        console.log("The paragraph {0} has been moved (inserted).", i);
     }
     //ExEnd:GetRevisionTypes
   });
@@ -84,7 +84,7 @@ describe("WorkingWithRevisions", () => {
     let doc = new aw.Document(base.myDir + "Revisions.docx");
 
     for (let group of doc.revisions.groups) {
-      console.log(`${group.author}, ${group.revisionType}:`);
+      console.log("{0}, {1}:", group.author, group.revisionType);
       console.log(group.text);
     }
     //ExEnd:GetRevisionGroups
@@ -103,15 +103,20 @@ describe("WorkingWithRevisions", () => {
 
   test('ShowRevisionsInBalloons', () => {
     //ExStart:ShowRevisionsInBalloons
-    //GistId:757cf7d3534a39730cf3290d418681ab
+    //GistId:ce015d9bade4e0294485ffb47462ded4
+    //ExStart:SetMeasurementUnit
+    //ExStart:SetRevisionBarsPosition
     let doc = new aw.Document(base.myDir + "Revisions.docx");
 
+    // Renders insert revisions inline, delete and format revisions in balloons.
     doc.layoutOptions.revisionOptions.showInBalloons = aw.Layout.ShowInBalloons.FormatAndDelete;
     doc.layoutOptions.revisionOptions.measurementUnit = aw.MeasurementUnits.Inches;
     // Renders revision bars on the right side of a page.
     doc.layoutOptions.revisionOptions.revisionBarsPosition = aw.Drawing.HorizontalAlignment.Right;
 
     doc.save(base.artifactsDir + "WorkingWithRevisions.ShowRevisionsInBalloons.pdf");
+    //ExEnd:SetRevisionBarsPosition
+    //ExEnd:SetMeasurementUnit
     //ExEnd:ShowRevisionsInBalloons
   });
 
@@ -143,7 +148,7 @@ describe("WorkingWithRevisions", () => {
 
     for (let revision of doc.revisions) {
       if (revision.parentNode.nodeType == aw.NodeType.Paragraph) {
-        let paragraph = revision.parentNode.asParagraph();
+        let paragraph = revision.parentNode;
         if (paragraph.isListItem) {
           console.log(paragraph.listLabel.labelString);
           console.log(paragraph.listFormat.listLevel);
@@ -155,7 +160,7 @@ describe("WorkingWithRevisions", () => {
 
   test('MoveNodeInTrackedDocument', () => {
     //ExStart:MoveNodeInTrackedDocument
-    //GistId:51dcef06f98b07177240f294788c9816
+    //GistId:e8d71fde166d275d0fc9471c56c3ad39
     let doc = new aw.Document();
     let builder = new aw.DocumentBuilder(doc);
     builder.writeln("Paragraph 1");
@@ -165,7 +170,7 @@ describe("WorkingWithRevisions", () => {
     builder.writeln("Paragraph 5");
     builder.writeln("Paragraph 6");
     let body = doc.firstSection.body;
-    console.log(`Paragraph count: ${body.paragraphs.count}`);
+    console.log("Paragraph count: {0}", body.paragraphs.count);
 
     // Start tracking revisions.
     doc.startTrackRevisions("Author", new Date(2020, 11, 23, 14, 0, 0));
@@ -174,7 +179,7 @@ describe("WorkingWithRevisions", () => {
     let node = body.paragraphs.at(3);
     let endNode = body.paragraphs.at(5).nextSibling;
     let referenceNode = body.paragraphs.at(0);
-    while (!base.compareNodes(node, endNode)) {
+    while (node != endNode && node != null) {
       let nextNode = node.nextSibling;
       body.insertBefore(node, referenceNode);
       node = nextNode;
@@ -184,14 +189,14 @@ describe("WorkingWithRevisions", () => {
     doc.stopTrackRevisions();
 
     // There are 3 additional paragraphs in the move-from range.
-    console.log(`Paragraph count: ${body.paragraphs.count}`);
+    console.log("Paragraph count: {0}", body.paragraphs.count);
     doc.save(base.artifactsDir + "WorkingWithRevisions.MoveNodeInTrackedDocument.docx");
     //ExEnd:MoveNodeInTrackedDocument
   });
 
   test('ShapeRevision', () => {
     //ExStart:ShapeRevision
-    //GistId:51dcef06f98b07177240f294788c9816
+    //GistId:e8d71fde166d275d0fc9471c56c3ad39
     let doc = new aw.Document();
 
     // Insert an inline shape without tracking revisions.
@@ -215,7 +220,7 @@ describe("WorkingWithRevisions", () => {
     expect(shapes.length).toBe(2);
 
     // Remove the first shape.
-    shape0 = shapes.at(0).asShape();
+    let shape0 = shapes.at(0).asShape();
     shape0.remove();
 
     // Because we removed that shape while changes were being tracked, the shape counts as a delete revision.
@@ -223,7 +228,7 @@ describe("WorkingWithRevisions", () => {
     expect(shape0.isDeleteRevision).toBe(true);
 
     // And we inserted another shape while tracking changes, so that shape will count as an insert revision.
-    shape1 = shapes.at(1).asShape();
+    let shape1 = shapes.at(1).asShape();
     expect(shape1.shapeType).toBe(aw.Drawing.ShapeType.Sun);
     expect(shape1.isInsertRevision).toBe(true);
 

@@ -34,8 +34,8 @@ describe("RemoveContent", () => {
   });
 
 
- //ExStart:RemovePageBreaks
- function removePageBreaks(doc) {
+  //ExStart:RemovePageBreaks
+  function removePageBreaks(doc) {
     let paragraphs = doc.getChildNodes(aw.NodeType.Paragraph, true);
 
     for (let item of paragraphs) {
@@ -54,6 +54,7 @@ describe("RemoveContent", () => {
   }
   //ExEnd:RemovePageBreaks
 
+
   //ExStart:RemoveSectionBreaks
   //GistId:1afca4d3da7cb4240fb91c3d93d8c30d
   function removeSectionBreaks(doc) {
@@ -66,6 +67,7 @@ describe("RemoveContent", () => {
     }
   }
   //ExEnd:RemoveSectionBreaks
+
 
   test('RemoveFooters', () => {
     //ExStart:RemoveFooters
@@ -148,4 +150,5 @@ describe("RemoveContent", () => {
     }
   }
   //ExEnd:RemoveToc
+
 });
