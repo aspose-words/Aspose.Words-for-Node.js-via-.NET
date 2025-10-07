@@ -9,7 +9,7 @@ const aw = require('@aspose/words');
 const base = require('../../DocExampleBase').DocExampleBase;
 
 
-describe("WorkingWithPclSaveOptions", () => {
+describe("WorkingWithRtfLoadOptions", () => {
   beforeAll(() => {
     base.oneTimeSetup();
   });
@@ -18,18 +18,15 @@ describe("WorkingWithPclSaveOptions", () => {
     base.oneTimeTearDown();
   });
 
-  
-  test('RasterizeTransformedElements', () => {
-    //ExStart:RasterizeTransformedElements
-    //GistId:757cf7d3534a39730cf3290d418681ab
-    let doc = new aw.Document(base.myDir + "Rendering.docx");
 
-    let saveOptions = new aw.Saving.PclSaveOptions();
-    saveOptions.saveFormat = aw.SaveFormat.Pcl;
-    saveOptions.rasterizeTransformedElements = false;
+  test('RecognizeUtf8Text', () => {
+    //ExStart:RecognizeUtf8Text
+    let loadOptions = new aw.Loading.RtfLoadOptions();
+    loadOptions.recognizeUtf8Text = true;
 
-    doc.save(base.artifactsDir + "WorkingWithPclSaveOptions.rasterizeTransformedElements.pcl", saveOptions);
-    //ExEnd:RasterizeTransformedElements
+    let doc = new aw.Document(base.myDir + "UTF-8 characters.rtf", loadOptions);
+    doc.save(base.artifactsDir + "WorkingWithRtfLoadOptions.RecognizeUtf8Text.rtf");
+    //ExEnd:RecognizeUtf8Text
   });
 
 });
