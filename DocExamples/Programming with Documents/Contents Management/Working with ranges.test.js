@@ -9,7 +9,7 @@ const aw = require('@aspose/words');
 const base = require('../../DocExampleBase').DocExampleBase;
 
 
-describe("WorkingWithPclSaveOptions", () => {
+describe("WorkingWithRanges", () => {
   beforeAll(() => {
     base.oneTimeSetup();
   });
@@ -18,18 +18,19 @@ describe("WorkingWithPclSaveOptions", () => {
     base.oneTimeTearDown();
   });
 
-  
-  test('RasterizeTransformedElements', () => {
-    //ExStart:RasterizeTransformedElements
-    //GistId:757cf7d3534a39730cf3290d418681ab
-    let doc = new aw.Document(base.myDir + "Rendering.docx");
-
-    let saveOptions = new aw.Saving.PclSaveOptions();
-    saveOptions.saveFormat = aw.SaveFormat.Pcl;
-    saveOptions.rasterizeTransformedElements = false;
-
-    doc.save(base.artifactsDir + "WorkingWithPclSaveOptions.rasterizeTransformedElements.pcl", saveOptions);
-    //ExEnd:RasterizeTransformedElements
+  test('RangesDeleteText', () => {
+      //ExStart:RangesDeleteText
+      //GistId:5abf4b66965fca92533f9a266a06c7ed
+      let doc = new aw.Document(base.myDir + "Document.docx");
+      doc.sections.at(0).range.delete();
+      //ExEnd:RangesDeleteText
   });
 
+  test('RangesGetText', () => {
+      //ExStart:RangesGetText
+      //GistId:5abf4b66965fca92533f9a266a06c7ed
+      let doc = new aw.Document(base.myDir + "Document.docx");
+      let text = doc.range.text;
+      //ExEnd:RangesGetText
+  });
 });

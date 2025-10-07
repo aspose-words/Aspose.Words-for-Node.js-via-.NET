@@ -7,7 +7,6 @@
 
 const aw = require('@aspose/words');
 const base = require('../../DocExampleBase').DocExampleBase;
-const fs = require('fs');
 
 
 describe("WorkingWithImageSaveOptions", () => {
@@ -93,6 +92,35 @@ describe("WorkingWithImageSaveOptions", () => {
 
     doc.save(base.artifactsDir + "WorkingWithImageSaveOptions.GetJpegPageRange.jpeg", options);
     //ExEnd:GetJpegPageRange
+  });
+
+  test('HorizontalLayout', () => {
+    //ExStart:HorizontalLayout
+    //GistId:8b11d80215defce56e2f71ca5d0e8e3c
+    let doc = new aw.Document(base.myDir + "Rendering.docx");
+    let options = new aw.Saving.ImageSaveOptions(aw.SaveFormat.Jpeg);
+    options.pageLayout = aw.Saving.MultiPageLayout.horizontal(10);
+    doc.save(base.artifactsDir + "WorkingWithImageSaveOptions.HorizontalLayout.jpg", options);
+    //ExEnd:HorizontalLayout
+  });
+
+  test('GridLayout', () => {
+    //ExStart:GridLayout
+    //GistId:8b11d80215defce56e2f71ca5d0e8e3c
+    let doc = new aw.Document(base.myDir + "Rendering.docx");
+
+    let options = new aw.Saving.ImageSaveOptions(aw.SaveFormat.Jpeg);
+    // Set up a grid layout with:
+    // - 3 columns per row.
+    // - 10pts spacing between pages (horizontal and vertical).
+    options.pageLayout = aw.Saving.MultiPageLayout.grid(3, 10, 10);
+    // Customize the background and border.
+    options.pageLayout.backColor = "#D3D3D3";
+    options.pageLayout.borderColor = "#0000FF";
+    options.pageLayout.borderWidth = 2;
+
+    doc.save(base.artifactsDir + "ImageSaveOptions.GridLayout.jpg", options);
+    //ExEnd:GridLayout
   });
 
 });

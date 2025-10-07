@@ -14,40 +14,54 @@ class DocExampleBase {
         this.setUnlimitedLicense();
         if (!fs.existsSync(this.artifactsDir)) {
             try {
-              fs.mkdirSync(this.artifactsDir);
+                fs.mkdirSync(this.artifactsDir);
             } catch {
-            };
+            }
+            ;
         }
     }
 
     static oneTimeTearDown() {
     }
 
-    static setUnlimitedLicense()
-    {
+    static setUnlimitedLicense() {
         // This is where the test license is on my development machine.
         const testLicenseFileName = path.join(this.licenseDir, "Aspose.Words.NodeJs.NET.lic");
-    
+
         // This shows how to use an Aspose.Words license when you have purchased one.
         // You don't have to specify full path as shown here. You can specify just the 
         // file name if you copy the license file into the same folder as your application
         // binaries or you add the license to your project as an embedded resource.
         if (fs.existsSync(testLicenseFileName)) {
-          const wordsLicense = new aw.License();
-          wordsLicense.setLicense(testLicenseFileName);
+            const wordsLicense = new aw.License();
+            wordsLicense.setLicense(testLicenseFileName);
         } else {
             console.log(`License file ${testLicenseFileName} not found. Some tests may fail.`);
         }
     }
 
-    static loadFileToBuffer(fileName)
-    {
+    static loadFileToBuffer(fileName) {
         return fs.readFileSync(fileName);
     }
 
-    static loadFileToArray(fileName)
-    {
+    static loadFileToArray(fileName) {
         return [...Uint8Array.from(fs.readFileSync(fileName))];
+    }
+
+    /**
+     * Compares two node objects based on their nodeType and text content.
+     * @param {Object} currNode - The current node object to compare.
+     * @param {Object} endNode - The end node object to compare against.
+     * @returns {boolean} - Returns true if both nodeType and text content are equal, false otherwise.
+     */
+    static compareNodes(currNode, endNode) {
+        // Check if both objects exist.
+        if (!currNode || !endNode) {
+            return false;
+        }
+
+        // Perform the comparison as specified.
+        return currNode.nodeType == endNode.nodeType && currNode.getText() == endNode.getText();
     }
 
     /// <summary>
@@ -61,7 +75,7 @@ class DocExampleBase {
     /// <summary>
     /// Gets the path to the documents used by the code examples. Ends with a back slash.
     /// </summary>
-     static artifactsDir;
+    static artifactsDir;
     /// <summary>
     /// Gets the path to the documents used by the code examples. Ends with a back slash.
     /// </summary>
@@ -80,10 +94,10 @@ class DocExampleBase {
     static fontsDir;
 
     static emptyColor = "";
-    
+
     static {
         this.codeBaseDir = __dirname;
-        const dataDir =  path.join(this.codeBaseDir, "..", "Data");
+        const dataDir = path.join(this.codeBaseDir, "..", "Data");
         this.artifactsDir = path.join(dataDir, "Artifacts") + path.sep;
         this.licenseDir = path.join(dataDir, "License") + path.sep;
         this.myDir = dataDir + path.sep;
