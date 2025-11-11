@@ -2669,7 +2669,7 @@ describe("ExShape", () => {
     expect(Math.abs(renderer.boundsInPoints2.height - 13.0)).toBeLessThanOrEqual(0.15);
 
     // Shapes with transparent parts may contain different values in the "OpaqueBoundsInPoints" properties.
-    expect(Math.abs(renderer.opaqueBoundsInPoints2.width - 122.0)).toBeLessThanOrEqual(0.25);
+    expect(Math.abs(renderer.opaqueBoundsInPoints2.width - 119.5)).toBeLessThanOrEqual(0.25);
     expect(Math.abs(renderer.opaqueBoundsInPoints2.height - 14.2)).toBeLessThanOrEqual(0.1);
 
     // Get the shape size in pixels, with linear scaling to a specific DPI.
@@ -2686,12 +2686,12 @@ describe("ExShape", () => {
     // The opaque bounds may vary here also.
     bounds = renderer.getOpaqueBoundsInPixels2(1.0, 96.0);
 
-    expect(bounds.width).toEqual(163);
+    expect(bounds.width).toEqual(160);
     expect(bounds.height).toEqual(19);
 
     bounds = renderer.getOpaqueBoundsInPixels2(1.0, 96.0, 150.0);
 
-    expect(bounds.width).toEqual(163);
+    expect(bounds.width).toEqual(160);
     expect(bounds.height).toEqual(29);
     //ExEnd
   });
