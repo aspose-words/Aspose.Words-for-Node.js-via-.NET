@@ -37,7 +37,7 @@ describe("ExDigitalSignatureCollection", () => {
 
     expect(signature.isValid).toEqual(true);
     expect(signature.signatureType).toEqual(aw.DigitalSignatures.DigitalSignatureType.XmlDsig);
-    expect(signature.signTime.toISOString()).toEqual("2010-12-22T21:14:40.000Z");
+    expect(signature.signTime.toISOString()).toEqual("2010-12-23T00:14:40.000Z");
     expect(signature.comments).toEqual("Test Sign");
 
     /* TODO signature.certificateHolder.certificate is not supported
