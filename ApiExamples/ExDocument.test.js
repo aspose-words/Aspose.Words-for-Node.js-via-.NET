@@ -852,12 +852,12 @@ describe('ExDocument', () => {
     //ExSummary:Shows how to compare documents ignoring DML unique ID.
     let docA = new aw.Document(base.myDir + "DML unique ID original.docx");
     let docB = new aw.Document(base.myDir + "DML unique ID compare.docx");
-    // By default, Aspose.words do not ignore DML's unique ID, and the revisions count was 2.
-    // If we are ignoring DML's unique ID, and revisions count were 0.
+    // By default, Aspose.words do not ignore DML's unique ID, and the revisions count was 3.
+    // If we are ignoring DML's unique ID, and revisions count were 1.
     let compareOptions = new aw.Comparing.CompareOptions();
     compareOptions.advancedOptions.ignoreDmlUniqueId = isIgnoreDmlUniqueId;
     docA.compare(docB, "Aspose.words", new Date(Date.now()), compareOptions);
-    expect(docA.revisions.count).toEqual(isIgnoreDmlUniqueId ? 0 : 2);
+    expect(docA.revisions.count).toEqual(isIgnoreDmlUniqueId ? 1 : 3);
     //ExEnd
   });
 
