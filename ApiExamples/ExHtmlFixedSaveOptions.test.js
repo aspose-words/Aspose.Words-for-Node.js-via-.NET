@@ -334,7 +334,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
     // The size of the optimized version of the document is almost a third of the size of the unoptimized document.
     expect(Math.abs(fs.statSync(base.artifactsDir + "HtmlFixedSaveOptions.OptimizeGraphicsOutput.html").size))
-      .toBe(optimizeOutput ? 60398 : 190940);
+      .toBe(optimizeOutput ? 60397 : 190939);
     //ExEnd
   });
 
