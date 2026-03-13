@@ -237,7 +237,8 @@ describe("WorkingWithRevisions", () => {
     doc = new aw.Document(base.myDir + "Revision shape.docx");
 
     shapes = Array.from(doc.getChildNodes(aw.NodeType.Shape, true));
-    expect(shapes.length).toBe(2);
+    let expected = base.isLicensed ? 2 : 4;
+    expect(shapes.length).toBe(expected);
 
     // This is the move to revision, also the shape at its arrival destination.
     shape0 = shapes.at(0).asShape();
