@@ -35,8 +35,10 @@ class DocExampleBase {
         if (fs.existsSync(testLicenseFileName)) {
             const wordsLicense = new aw.License();
             wordsLicense.setLicense(testLicenseFileName);
+            this.isLicensed = true;
         } else {
             console.log(`License file ${testLicenseFileName} not found. Some tests may fail.`);
+            this.isLicensed = false;
         }
     }
 
@@ -92,6 +94,8 @@ class DocExampleBase {
     /// Gets the path of the free fonts. Ends with a back slash.
     /// </summary>
     static fontsDir;
+
+    static isLicensed = false;
 
     static emptyColor = "";
 

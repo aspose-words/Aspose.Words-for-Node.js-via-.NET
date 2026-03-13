@@ -397,7 +397,8 @@ describe("AddContentUsingDocumentBuilder", () => {
     // Create document with paragraphs.
     doc = new aw.Document(base.myDir + "Paragraphs.docx");
     let paragraphs = doc.firstSection.body.paragraphs;
-    expect(paragraphs.count).toBe(22);
+    let expected = base.isLicensed ? 22 : 23;
+    expect(paragraphs.count).toBe(expected);
 
     // When we create a DocumentBuilder for a document, its cursor is at the very beginning of the document by default,
     // and any content added by the DocumentBuilder will just be prepended to the document.

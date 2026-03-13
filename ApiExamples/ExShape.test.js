@@ -1476,7 +1476,7 @@ describe("ExShape", () => {
 
   test.each([[0, aw.Math.MathObjectType.OMathPara],
     [1, aw.Math.MathObjectType.OMath],
-    [2, aw.Math.MathObjectType.Supercript],
+    [2, aw.Math.MathObjectType.Superscript],
     [3, aw.Math.MathObjectType.Argument],
     [4, aw.Math.MathObjectType.SuperscriptPart]])('WorkWithMathObjectType(%o, %o)', (index, objectType) => {
     let doc = new aw.Document(base.myDir + "Office math.docx");
