@@ -1,12 +1,13 @@
 {
   "dependencies": {
-    "@aspose/words": "^26.4.0",
-    "jimp": "^1.6.0",
+    "@aspose/words": "^26.5.0",
+    "jimp": "^1.6.1",
+    "jest": "^30.3.0",
     "memorystream": "^0.3.1"
   },
 
   "scripts": {
-    "test": "jest"
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
   },
 
   "jest": {
