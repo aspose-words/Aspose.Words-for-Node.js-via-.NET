@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@aspose/words": "^26.8.0",
+    "@aspose/words": "^26.9.0",
     "jimp": "^1.6.1",
     "jest": "^30.3.0",
     "memorystream": "^0.3.1"

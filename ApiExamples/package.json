@@ -3,7 +3,7 @@
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
   },
   "dependencies": {
-    "@aspose/words": "^26.8.0",
+    "@aspose/words": "^26.9.0",
     "adm-zip": "^0.5.16",
     "bmp-js": "^0.1.0",
     "download": "^8.0.0",
