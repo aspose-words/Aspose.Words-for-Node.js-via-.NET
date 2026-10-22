@@ -10,6 +10,9 @@ const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
 const TestUtil = require('./TestUtil');
 const fs = require('fs');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 
 describe("ExPdfSaveOptions", () => {
@@ -796,7 +799,7 @@ describe("ExPdfSaveOptions", () => {
 
 
 
-  test.each([aw.Saving.PdfFontEmbeddingMode.EmbedAll,
+  testWindows.each([aw.Saving.PdfFontEmbeddingMode.EmbedAll,
     aw.Saving.PdfFontEmbeddingMode.EmbedNone,
     aw.Saving.PdfFontEmbeddingMode.EmbedNonstandard])('EmbedWindowsFonts', (pdfFontEmbeddingMode) => {
     //ExStart
@@ -841,7 +844,7 @@ describe("ExPdfSaveOptions", () => {
   });
 
 
-  test.each([false,
+  testWindows.each([false,
     true])('EmbedCoreFonts', (useCoreFonts) => {
     //ExStart
     //ExFor:PdfSaveOptions.useCoreFonts

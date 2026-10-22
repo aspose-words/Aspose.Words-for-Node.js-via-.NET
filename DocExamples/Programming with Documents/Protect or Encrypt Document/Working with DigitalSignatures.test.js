@@ -21,6 +21,7 @@ describe("WorkingWithDigitalSignatures", () => {
 
     test('AccessAndVerifySignature', () => {
         //ExStart:AccessAndVerifySignature
+        //GistId:246abc8bf535665565cc872be9b805ac
         let doc = new aw.Document(base.myDir + "Digitally signed.docx");
 
         for (let signature of doc.digitalSignatures) {

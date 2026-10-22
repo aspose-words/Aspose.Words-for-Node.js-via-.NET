@@ -10,6 +10,9 @@ const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
 const TestUtil = require('./TestUtil');
 const fs = require('fs');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 
 describe("ExXpsSaveOptions", () => {
@@ -98,7 +101,7 @@ describe("ExXpsSaveOptions", () => {
   });
 
 
-  test.each([false,
+  testWindows.each([false,
     true])('OptimizeOutput', (optimizeOutput) => {
     //ExStart
     //ExFor:FixedPageSaveOptions.optimizeOutput

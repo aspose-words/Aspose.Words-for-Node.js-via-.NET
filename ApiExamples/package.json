@@ -3,12 +3,11 @@
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js"
   },
   "dependencies": {
-    "@aspose/words": "^26.9.0",
+    "@aspose/words": "^26.10.0",
     "adm-zip": "^0.5.16",
     "bmp-js": "^0.1.0",
     "download": "^8.0.0",
     "encoding-japanese": "^2.2.0",
-    "jest": "^30.3.0",
     "jimp": "^1.6.1",
     "js-guid": "^1.0.2",
     "memorystream": "^0.3.1",
@@ -21,5 +20,8 @@
     "maxWorkers": 1,
     "bail": 100,
     "globalTeardown": "<rootDir>/jestTeardown.js"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0"
   }
 }

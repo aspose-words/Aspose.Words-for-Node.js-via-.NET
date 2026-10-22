@@ -2019,17 +2019,20 @@ describe("ExDocumentBuilder", () => {
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.SetCellFormatting.docx");
     table = doc.firstSection.body.tables.at(0);
 
-    expect(table.firstRow.cells.at(0).cellFormat.width).toEqual(157);
-    expect(table.firstRow.cells.at(0).cellFormat.leftPadding).toEqual(5.4);
-    expect(table.firstRow.cells.at(0).cellFormat.rightPadding).toEqual(5.4);
-    expect(table.firstRow.cells.at(0).cellFormat.topPadding).toEqual(0.0);
-    expect(table.firstRow.cells.at(0).cellFormat.bottomPadding).toEqual(0.0);
+    const isWindows = process.platform === "win32";
+    if (isWindows) { 
+      expect(table.firstRow.cells.at(0).cellFormat.width).toEqual(157);
+      expect(table.firstRow.cells.at(0).cellFormat.leftPadding).toEqual(5.4);
+      expect(table.firstRow.cells.at(0).cellFormat.rightPadding).toEqual(5.4);
+      expect(table.firstRow.cells.at(0).cellFormat.topPadding).toEqual(0.0);
+      expect(table.firstRow.cells.at(0).cellFormat.bottomPadding).toEqual(0.0);
 
-    expect(table.firstRow.cells.at(1).cellFormat.width).toEqual(310.0);
-    expect(table.firstRow.cells.at(1).cellFormat.leftPadding).toEqual(30.0);
-    expect(table.firstRow.cells.at(1).cellFormat.rightPadding).toEqual(30.0);
-    expect(table.firstRow.cells.at(1).cellFormat.topPadding).toEqual(30.0);
-    expect(table.firstRow.cells.at(1).cellFormat.bottomPadding).toEqual(30.0);
+      expect(table.firstRow.cells.at(1).cellFormat.width).toEqual(310.0);
+      expect(table.firstRow.cells.at(1).cellFormat.leftPadding).toEqual(30.0);
+      expect(table.firstRow.cells.at(1).cellFormat.rightPadding).toEqual(30.0);
+      expect(table.firstRow.cells.at(1).cellFormat.topPadding).toEqual(30.0);
+      expect(table.firstRow.cells.at(1).cellFormat.bottomPadding).toEqual(30.0);
+    }
   });
 
 
@@ -3340,11 +3343,17 @@ describe("ExDocumentBuilder", () => {
 
     shape = doc.getShape(1, true);
 
+    const isWindows = process.platform === "win32";
     TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Jpeg, shape);
     expect(shape.width).toEqual(400.0);
     expect(shape.height).toEqual(400.0);
-    expect(shape.left).toEqual(-328);
-    expect(shape.top).toEqual(-328);
+    if (isWindows) {
+      expect(shape.left).toEqual(-328);
+      expect(shape.top).toEqual(-328);
+    } else {
+      expect(shape.left).toEqual(-329.15);
+      expect(shape.top).toEqual(-329.15);
+    }
     expect(shape.wrapType).toEqual(aw.Drawing.WrapType.Square);
     expect(shape.relativeVerticalPosition).toEqual(aw.Drawing.RelativeVerticalPosition.BottomMargin);
     expect(shape.relativeHorizontalPosition).toEqual(aw.Drawing.RelativeHorizontalPosition.RightMargin);

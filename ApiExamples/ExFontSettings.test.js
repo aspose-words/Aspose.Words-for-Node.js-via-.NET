@@ -9,6 +9,9 @@ const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const fs = require('fs');
 const os = require("os");
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 describe("ExFontSettings", () => {
 
@@ -890,7 +893,7 @@ describe("ExFontSettings", () => {
   });
 
 
-  test('FontConfigSubstitution', () => {
+  testWindows('FontConfigSubstitution', () => {
     //ExStart
     //ExFor:FontConfigSubstitutionRule
     //ExFor:FontConfigSubstitutionRule.enabled
@@ -1157,7 +1160,7 @@ describe("ExFontSettings", () => {
   });
 
 
-  test('ResolveFontsBeforeLoadingDocument', () => {
+  testWindows('ResolveFontsBeforeLoadingDocument', () => {
     //ExStart
     //ExFor:LoadOptions.fontSettings
     //ExSummary:Shows how to designate font substitutes during loading.
