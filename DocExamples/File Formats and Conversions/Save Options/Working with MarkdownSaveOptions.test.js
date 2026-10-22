@@ -51,7 +51,7 @@ describe("WorkingWithMarkdownSaveOptions", () => {
   });
 
 
-  test('ImagesFolder', () => {
+  test('ImagesFolder', async () => {
     //ExStart:ImagesFolder
     //GistId:a2fee7fa3d8e5704ce24f041be9a4821
     let doc = new aw.Document(base.myDir + "Image bullet points.docx");
@@ -61,6 +61,7 @@ describe("WorkingWithMarkdownSaveOptions", () => {
 
     let stream = new MemoryStream()
     doc.save(stream, saveOptions);
+    await new Promise(resolve => stream.on("finish", resolve));
     //ExEnd:ImagesFolder
   });
 

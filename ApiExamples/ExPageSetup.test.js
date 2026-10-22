@@ -10,6 +10,9 @@ const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
 const TestUtil = require('./TestUtil');
 const fs = require('fs');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 
 describe("ExPageSetup", () => {
@@ -196,7 +199,7 @@ describe("ExPageSetup", () => {
   });
 
 
-  test('LinesPerPage', () => {
+  testWindows('LinesPerPage', () => {
     //ExStart
     //ExFor:PageSetup.linesPerPage
     //ExFor:PageSetup.layoutMode
@@ -471,7 +474,7 @@ describe("ExPageSetup", () => {
   });
 
 
-  test('ColumnsSameWidth', () => {
+  testWindows('ColumnsSameWidth', () => {
     //ExStart
     //ExFor:PageSetup.textColumns
     //ExFor:TextColumnCollection
@@ -502,7 +505,7 @@ describe("ExPageSetup", () => {
   });
 
 
-  test('CustomColumnWidth', () => {
+  testWindows('CustomColumnWidth', () => {
     //ExStart
     //ExFor:TextColumnCollection.evenlySpaced
     //ExFor:TextColumnCollection.item
@@ -893,7 +896,7 @@ describe("ExPageSetup", () => {
   });
 
 
-  test('Gutter', () => {
+  testWindows('Gutter', () => {
     //ExStart
     //ExFor:PageSetup.gutter
     //ExFor:PageSetup.rtlGutter

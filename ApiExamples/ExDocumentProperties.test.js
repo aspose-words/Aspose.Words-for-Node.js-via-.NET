@@ -10,6 +10,10 @@ const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
 const TestUtil = require('./TestUtil');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
+
 
 /// <summary>
 /// Counts the lines in a document.
@@ -274,7 +278,7 @@ describe("ExDocumentProperties", () => {
   //ExFor:BuiltInDocumentProperties.Paragraphs
   //ExFor:BuiltInDocumentProperties.Words
   //ExSummary:Shows how to work with document properties in the "Content" category.
-  test('Content', () => {
+  testWindows('Content', () => {
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
     let properties = doc.builtInDocumentProperties;
 

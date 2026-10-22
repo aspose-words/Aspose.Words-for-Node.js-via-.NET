@@ -9,6 +9,10 @@ const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const fs = require('fs');
 const TestUtil = require('./TestUtil');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
+
 
 /// <summary>
 /// Mostly scenarios that deal with image shapes.
@@ -53,7 +57,7 @@ describe("ExImage", () => {
   });
 
 
-  test('FromUrl', () => {
+test('FromUrl', () => {
     //ExStart
     //ExFor:DocumentBuilder.insertImage(String)
     //ExSummary:Shows how to insert a shape with an image into a document.
@@ -234,7 +238,7 @@ describe("ExImage", () => {
   });
 
 
-  test('CreateLinkedImage', () => {
+  testWindows('CreateLinkedImage', () => {
     //ExStart
     //ExFor:Shape.imageData
     //ExFor:ImageData

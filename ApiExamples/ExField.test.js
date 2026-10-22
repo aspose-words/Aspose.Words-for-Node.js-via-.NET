@@ -11,6 +11,11 @@ const DocumentHelper = require('./DocumentHelper');
 const TestUtil = require('./TestUtil');
 const MemoryStream = require('memorystream');
 const moment = require('moment');
+const os = require("os");
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
+
 
 describe("ExField", () => {
 
@@ -306,7 +311,7 @@ describe("ExField", () => {
   });
 
 
-  test.skip.each([true, false])('UpdateDirtyFields(%o) - TODO: WORDSNODEJS-118', (updateDirtyFields) => {
+  test.skip.each([true, false])('UpdateDirtyFields(%o) - TODO: WORDSNODEJS-118', async (updateDirtyFields) => {
     //ExStart
     //ExFor:Field.isDirty
     //ExFor:LoadOptions.updateDirtyFields
@@ -334,6 +339,7 @@ describe("ExField", () => {
     // If we save without calling an update method,
     // the field will keep displaying the out of date value in the output document.
     doc.save(docStream, aw.SaveFormat.Docx);
+    await new Promise(resolve => docStream.on("finish", resolve));
 
     // The LoadOptions object has an option to update all fields
     // marked as "dirty" when loading the document.
@@ -539,7 +545,7 @@ describe("ExField", () => {
     }
   }*/
 
-  test.skip.each([false, true])('PreserveIncludePicture(%o) - TODO: WORDSNODEJS-118', (preserveIncludePictureField) => {
+  test.skip.each([false, true])('PreserveIncludePicture(%o) - TODO: WORDSNODEJS-118', async (preserveIncludePictureField) => {
     //ExStart
     //ExFor:Field.update(bool)
     //ExFor:LoadOptions.preserveIncludePictureField
@@ -553,6 +559,7 @@ describe("ExField", () => {
 
     let docStream = new MemoryStream();
     doc.save(docStream, new aw.Saving.OoxmlSaveOptions(aw.SaveFormat.Docx));
+    await new Promise(resolve => docStream.on("finish", resolve));
 
     // We can set a flag in a LoadOptions object to decide whether to convert all INCLUDEPICTURE fields
     // into image shapes when loading a document that contains them.
@@ -2611,13 +2618,13 @@ describe("ExField", () => {
 
     expect(image.isImage).toBeTruthy();
     expect(image.imageData.imageBytes).toBeNull();
-    expect(image.imageData.sourceFullName.replace("%20", " ")).toEqual(base.imageDir + "Transparent background logo.png");
+    expect(image.imageData.sourceFullName.replaceAll("%20", " ")).toEqual(base.imageDir + "Transparent background logo.png");
 
     image = doc.getShape(1, true);
 
     expect(image.isImage).toBeTruthy();
     expect(image.imageData.imageBytes).toBeNull();
-    expect(image.imageData.sourceFullName.replace("%20", " ")).toEqual(base.imageDir + "Transparent background logo.png");
+    expect(image.imageData.sourceFullName.replaceAll("%20", " ")).toEqual(base.imageDir + "Transparent background logo.png");
   });
 
 
@@ -4609,17 +4616,20 @@ describe("ExField", () => {
 
     field = doc.range.fields.at(1).asFieldDate();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\u", moment(new Date()).format("D/MM/YYYY"), field);
+    const expectedDate = (os.platform() === "win32")
+      ? moment(new Date()).format("D/MM/YYYY")
+      : moment(new Date()).format("MM/DD/YYYY");
+    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\u", expectedDate, field);
     expect(field.useUmAlQuraCalendar).toEqual(true);
 
     field = doc.range.fields.at(2).asFieldDate();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\s", moment(new Date()).format("D/MM/YYYY"), field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\s", expectedDate, field);
     expect(field.useSakaEraCalendar).toEqual(true);
 
     field = doc.range.fields.at(3).asFieldDate();
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\l", moment(new Date()).format("D/MM/YYYY"), field);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\l", expectedDate, field);
     expect(field.useLastFormat).toEqual(true);
   });
 
@@ -5397,7 +5407,7 @@ describe("ExField", () => {
   });
 
 
-  test('FieldNum', () => {
+  testWindows('FieldNum', () => {
     //ExStart
     //ExFor:FieldPage
     //ExFor:FieldNumChars
@@ -5554,7 +5564,11 @@ describe("ExField", () => {
     builder.moveTo(field.separator);
     builder.insertField(aw.Fields.FieldType.FieldDate, true);
 
-    expect(field.getFieldCode()).toEqual(" QUOTE \u0013 DATE \u0014" + moment(new Date()).format("D/MM/YYYY") + "\u0015");
+    const expectedDate = (os.platform() === "win32")
+      ? moment(new Date()).format("D/MM/YYYY")
+      : moment(new Date()).format("MM/DD/YYYY");
+
+    expect(field.getFieldCode()).toEqual(" QUOTE \u0013 DATE \u0014" + expectedDate + "\u0015");
 
     // Update all the fields to display their correct results.
     doc.updateFields();
@@ -5568,8 +5582,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE  \"\\\"Quoted text\\\"\"", "\"Quoted text\"", doc.range.fields.at(0));
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE \u0013 DATE \u0014" + moment(new Date()).format("D/MM/YYYY") + "\u0015", moment(new Date()).format("D/MM/YYYY"), doc.range.fields.at(1));
-
+    TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE \u0013 DATE \u0014" + expectedDate + "\u0015", expectedDate, doc.range.fields.at(1));
   });
 
 
@@ -6072,7 +6085,7 @@ describe("ExField", () => {
     field = doc.range.fields.at(2).asFieldRD();
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldRefDoc, ` RD  ${base.artifactsDir.replaceAll("\\","\\\\")}ReferencedDocument.docx`, '', field);
-    expect(field.fileName).toEqual(base.artifactsDir.replaceAll("\\","\\\\") + "ReferencedDocument.docx");
+    expect(field.fileName).toEqual(base.artifactsDir + "ReferencedDocument.docx");
     expect(field.isPathRelative).toEqual(false);
   });
 

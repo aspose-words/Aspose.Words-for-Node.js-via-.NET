@@ -10,6 +10,9 @@ const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
 const TestUtil = require('./TestUtil');
 const fs = require('fs');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 
 describe("ExTxtLoadOptions", () => {
@@ -75,7 +78,7 @@ describe("ExTxtLoadOptions", () => {
   });
 
 
-  test.each([[aw.Loading.TxtLeadingSpacesOptions.Preserve, aw.Loading.TxtTrailingSpacesOptions.Preserve],
+  testWindows.each([[aw.Loading.TxtLeadingSpacesOptions.Preserve, aw.Loading.TxtTrailingSpacesOptions.Preserve],
     [aw.Loading.TxtLeadingSpacesOptions.ConvertToIndent, aw.Loading.TxtTrailingSpacesOptions.Preserve],
     [aw.Loading.TxtLeadingSpacesOptions.Trim, aw.Loading.TxtTrailingSpacesOptions.Trim]])
     ('TrailSpaces', (txtLeadingSpacesOptions, txtTrailingSpacesOptions) => {

@@ -66,7 +66,7 @@ describe("BaseConversions", () => {
   });
 
 
-  test('DocxToByte', () => {
+  test('DocxToByte', async () => {
     //ExStart:DocxToByte
     //GistId:04839bd5cc7e85e20e0e239b4dcdead3
     let doc = new aw.Document(base.myDir + "Document.docx");
@@ -74,6 +74,7 @@ describe("BaseConversions", () => {
     let outStream = new MemoryStream();
 
     doc.save(outStream, aw.SaveFormat.Docx);
+    await new Promise(resolve => outStream.on("finish", resolve));
 
     //ExEnd:DocxToByte
   });
@@ -98,13 +99,14 @@ describe("BaseConversions", () => {
   });
 
 
-  test('DocxToMhtml', () => {
+  test('DocxToMhtml', async () => {
     //ExStart:DocxToMhtml
     //GistId:8e5415d4997270432815aec11112dd8d
     let doc = new aw.Document(base.myDir + "Document.docx");
 
     let stream = new MemoryStream();
     doc.save(stream, aw.SaveFormat.Mhtml);
+    await new Promise(resolve => stream.on("finish", resolve));
 
     //ExEnd:DocxToMhtml
   });

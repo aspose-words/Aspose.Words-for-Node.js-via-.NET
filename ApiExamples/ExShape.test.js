@@ -12,6 +12,9 @@ const path = require('path');
 const TestUtil = require('./TestUtil');
 const DocumentHelper = require('./DocumentHelper');
 const finished = require('node:stream/promises');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 /// <summary>
 /// Examples using shapes in documents.
@@ -1366,7 +1369,7 @@ describe("ExShape", () => {
   });
 
 
-  test('RenderOfficeMath', async () => {
+  testWindows('RenderOfficeMath', async () => {
     //ExStart
     //ExFor:ImageSaveOptions.scale
     //ExFor:OfficeMath.getMathRenderer
@@ -2641,7 +2644,7 @@ describe("ExShape", () => {
   });
 
 
-  test('OfficeMathRenderer', () => {
+  testWindows('OfficeMathRenderer', () => {
     //ExStart
     //ExFor:NodeRendererBase
     //ExFor:NodeRendererBase.boundsInPoints
