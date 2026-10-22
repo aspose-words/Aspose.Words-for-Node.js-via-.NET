@@ -106,6 +106,8 @@ license.setLicense(data);
 ```
 
 ## Supported Platforms
-The first release only supports Microsoft Windows x64 platform and Node.js 14.17.0 or higher.
+- Microsoft Windows® x64
+- Linux (Ubuntu 24.04 x64, Ubuntu 26.04 x64)
+- Node.js 14.17.0 or higher
 
 [Product Page](https://products.aspose.com/words/nodejs-net/) | [Demos](https://products.aspose.app/words/family) | [Examples](https://github.com/aspose-words/Aspose.Words-for-Node.js-via-.NET/tree/main/ApiExamples) | [Blog](https://blog.aspose.com/category/words/) | [Search](https://search.aspose.com/) | [Free Support](https://forum.aspose.com/c/words) | [Temporary License](https://purchase.aspose.com/temporary-license)
