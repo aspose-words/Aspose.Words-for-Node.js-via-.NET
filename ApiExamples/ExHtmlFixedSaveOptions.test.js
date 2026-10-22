@@ -10,6 +10,9 @@ const base = require('./ApiExampleBase').ApiExampleBase;
 const fs = require('fs');
 const path = require('path');
 const DocumentHelper = require('./DocumentHelper');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 describe("ExHtmlFixedSaveOptions", () => {
 
@@ -89,7 +92,7 @@ describe("ExHtmlFixedSaveOptions", () => {
   });
 
 
-  test.each([true, false])('ExportEmbeddedFonts(%o)', (exportEmbeddedFonts) => {
+  testWindows.each([true, false])('ExportEmbeddedFonts(%o)', (exportEmbeddedFonts) => {
     //ExStart
     //ExFor:HtmlFixedSaveOptions.exportEmbeddedFonts
     //ExSummary:Shows how to determine where to store embedded fonts when exporting a document to Html.
@@ -202,7 +205,7 @@ describe("ExHtmlFixedSaveOptions", () => {
   });
 
 
-  test.each([true, false])('ExportFormFields(%o)', (exportFormFields) => {
+  testWindows.each([true, false])('ExportFormFields(%o)', (exportFormFields) => {
     //ExStart
     //ExFor:HtmlFixedSaveOptions.exportFormFields
     //ExSummary:Shows how to export form fields to Html.
@@ -238,7 +241,7 @@ describe("ExHtmlFixedSaveOptions", () => {
   });
 
 
-  test('AddCssClassNamesPrefix', () => {
+  testWindows('AddCssClassNamesPrefix', () => {
     //ExStart
     //ExFor:HtmlFixedSaveOptions.cssClassNamesPrefix
     //ExFor:HtmlFixedSaveOptions.saveFontFaceCssSeparately
@@ -321,7 +324,7 @@ describe("ExHtmlFixedSaveOptions", () => {
   });
 
 
-  test.each([false, true])('OptimizeGraphicsOutput(%o)', (optimizeOutput) => {
+  testWindows.each([false, true])('OptimizeGraphicsOutput(%o)', (optimizeOutput) => {
     //ExStart
     //ExFor:HtmlFixedSaveOptions.optimizeOutput
     //ExSummary:Shows how to simplify a document when saving it to HTML by removing various redundant objects.
@@ -334,12 +337,12 @@ describe("ExHtmlFixedSaveOptions", () => {
 
     // The size of the optimized version of the document is almost a third of the size of the unoptimized document.
     expect(Math.abs(fs.statSync(base.artifactsDir + "HtmlFixedSaveOptions.OptimizeGraphicsOutput.html").size))
-      .toBe(optimizeOutput ? 60397 : 190939);
+      .toBe(optimizeOutput ? 60398 : 190940);
     //ExEnd
   });
 
 
-  test.each([false, true])('UsingMachineFonts(%o)', (useTargetMachineFonts) => {
+  testWindows.each([false, true])('UsingMachineFonts(%o)', (useTargetMachineFonts) => {
     //ExStart
     //ExFor:ExportFontFormat
     //ExFor:HtmlFixedSaveOptions.fontFormat

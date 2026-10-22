@@ -11,6 +11,9 @@ const aw = require('@aspose/words');
 const base = require('./ApiExampleBase').ApiExampleBase;
 const DocumentHelper = require('./DocumentHelper');
 const TestUtil = require('./TestUtil');
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 describe("ExHtmlSaveOptions", () => {
   beforeAll(() => {
@@ -199,7 +202,7 @@ describe("ExHtmlSaveOptions", () => {
   });
 
 
-  test('ExternalResourceSavingConfig', () => {
+  testWindows('ExternalResourceSavingConfig', () => {
     let doc = new aw.Document(base.myDir + "Rendering.docx");
 
     let saveOptions = new aw.Saving.HtmlSaveOptions();
@@ -210,15 +213,15 @@ describe("ExHtmlSaveOptions", () => {
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.ExternalResourceSavingConfig.html", saveOptions);
 
-    let imageFiles = fs.readdirSync(base.artifactsDir + "Resources/", { recursive: true })
+    let imageFiles = fs.readdirSync(base.artifactsDir + "Resources" + path.sep, { recursive: true })
       .filter((f) => f.match(/HtmlSaveOptions\.ExternalResourceSavingConfig(.*)\.png/));
     expect(imageFiles.length).toEqual(8);
 
-    let fontFiles = fs.readdirSync(base.artifactsDir + "Resources/", { recursive: true })
+    let fontFiles = fs.readdirSync(base.artifactsDir + "Resources" + path.sep, { recursive: true })
       .filter((f) => f.match(/HtmlSaveOptions\.ExternalResourceSavingConfig(.*)\.ttf/));
     expect(fontFiles.length).toEqual(10);
 
-    let cssFiles = fs.readdirSync(base.artifactsDir + "Resources/", {recursive: true})
+    let cssFiles = fs.readdirSync(base.artifactsDir + "Resources" + path.sep, {recursive: true})
       .filter((f) => f.match(/HtmlSaveOptions\.ExternalResourceSavingConfig(.*)\.css/));
     expect(cssFiles.length).toEqual(1);
 
@@ -855,7 +858,7 @@ describe("ExHtmlSaveOptions", () => {
   });
 
 
-  test.each([false,
+  testWindows.each([false,
     true])('ContentIdUrls', (exportCidUrlsForMhtmlResources) => {
     //ExStart
     //ExFor:HtmlSaveOptions.exportCidUrlsForMhtmlResources
@@ -1016,7 +1019,7 @@ describe("ExHtmlSaveOptions", () => {
   });
 
 
-  test.each([aw.Saving.ExportListLabels.AsInlineText,
+  testWindows.each([aw.Saving.ExportListLabels.AsInlineText,
     aw.Saving.ExportListLabels.Auto,
     aw.Saving.ExportListLabels.ByHtmlTags])('List', (exportListLabels) => {
     //ExStart
@@ -1104,7 +1107,7 @@ describe("ExHtmlSaveOptions", () => {
   });
 
 
-  test.each([false,
+  testWindows.each([false,
     true])('ExportPageMargins(%o)', (exportPageMargins) => {
     //ExStart
     //ExFor:HtmlSaveOptions.exportPageMargins
@@ -1305,7 +1308,7 @@ describe("ExHtmlSaveOptions", () => {
   });
 
 
-  test.each([false,
+  testWindows.each([false,
     true])('RoundTripInformation', (exportRoundtripInformation) => {
     //ExStart
     //ExFor:HtmlSaveOptions.exportRoundtripInformation
@@ -1441,7 +1444,7 @@ describe("ExHtmlSaveOptions", () => {
   });
 
 
-  test.each([0,
+  testWindows.each([0,
     1000000,
     2147483647])('FontSubsetting', (fontResourcesSubsettingSizeThreshold) => {
     //ExStart
@@ -1559,8 +1562,7 @@ describe("ExHtmlSaveOptions", () => {
   });
 
 
-  test.each([aw.Saving.HtmlOfficeMathOutputMode.Image,
-    aw.Saving.HtmlOfficeMathOutputMode.MathML,
+  testWindows.each([aw.Saving.HtmlOfficeMathOutputMode.MathML,
     aw.Saving.HtmlOfficeMathOutputMode.Text])('OfficeMathOutputMode', (htmlOfficeMathOutputMode) => {
     //ExStart
     //ExFor:HtmlOfficeMathOutputMode

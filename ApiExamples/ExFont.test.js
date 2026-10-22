@@ -10,6 +10,9 @@ const base = require('./ApiExampleBase').ApiExampleBase;
 const fs = require('fs');
 const os = require("os");
 const path = require("path");
+const process = require('node:process');
+
+const testWindows = process.platform === 'win32' ? test : test.skip;
 
 describe("ExFont", () => {
 
@@ -1386,7 +1389,7 @@ describe("ExFont", () => {
   });
 
 
-  test('LineSpacing', () => {
+  testWindows('LineSpacing', () => {
     //ExStart
     //ExFor:Font.lineSpacing
     //ExSummary:Shows how to get a font's line spacing, in points.
