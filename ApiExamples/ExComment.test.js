@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -53,6 +53,7 @@ describe("ExComment", () => {
     doc.save(base.artifactsDir + "Comment.AddCommentWithReply.docx");
     //ExEnd
 
+    const sourceDocument = doc;
     doc = new aw.Document(base.artifactsDir + "Comment.AddCommentWithReply.docx");
     let docComment = doc.getComment(0, true);
 
@@ -61,6 +62,8 @@ describe("ExComment", () => {
 
     expect(docComment.getText()).toEqual("\u0005My comment.\r");
     expect(docComment.replies.at(0).getText()).toEqual("\u0005New reply\r");
+    doc.close();
+    sourceDocument.close();
   });
 
 
@@ -91,6 +94,7 @@ describe("ExComment", () => {
       }
       console.log();
     }
+    doc.close();
     //ExEnd
   });
 
@@ -123,6 +127,7 @@ describe("ExComment", () => {
     comment.removeAllReplies();
 
     expect(comment.replies.count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -156,14 +161,17 @@ describe("ExComment", () => {
     builder.currentParagraph.appendChild(comment);
 
     doc.save(base.artifactsDir + "Comment.done.docx");
+    //doc.close(); 
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Comment.done.docx");
     comment = doc.getComment(0, true);
 
     expect(comment.done).toEqual(true);
     expect(comment.getText().trim()).toEqual("\u0005Fix the spelling error!");
     expect(doc.firstSection.body.firstParagraph.runs.at(0).text).toEqual("Hello world!");
+    doc.close(); 
   });
 
 
@@ -361,12 +369,14 @@ describe("ExComment", () => {
     builder.currentParagraph.appendChild(comment);
 
     doc.save(base.artifactsDir + "Comment.UtcDateTime.docx");
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Comment.UtcDateTime.docx");
 
     comment = doc.getComment(0, true);
     // DateTimeUtc return data without milliseconds.
     let expected = moment(date).add(date.getTimezoneOffset(), 'm').toDate();
     expect(comment.dateTimeUtc).toEqual(expected);
+    doc.close();
     //ExEnd:UtcDateTime
   });
 });

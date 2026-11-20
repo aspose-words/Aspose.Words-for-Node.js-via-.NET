@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -121,6 +121,7 @@ describe("ExCompatibilityOptions", () => {
     doc.compatibilityOptions.optimizeFor(aw.Settings.MsWordVersion.Word2000);
     console.log("\nOptimized for Word 2000:");
     printCompatibilityOptions(options);
+    doc.close();
   });
 
 
@@ -246,6 +247,7 @@ describe("ExCompatibilityOptions", () => {
     // In the output document, these settings can be accessed in Microsoft Word via
     // File -> Options -> Advanced -> Compatibility options for...
     doc.save(base.artifactsDir + "CompatibilityOptions.tables.docx");
+    doc.close();
   });
 
 
@@ -265,6 +267,7 @@ describe("ExCompatibilityOptions", () => {
     // In the output document, these settings can be accessed in Microsoft Word via
     // File -> Options -> Advanced -> Compatibility options for...
     doc.save(base.artifactsDir + "CompatibilityOptions.Breaks.docx");
+    doc.close();
   });
 
 
@@ -290,6 +293,7 @@ describe("ExCompatibilityOptions", () => {
     // In the output document, these settings can be accessed in Microsoft Word via
     // File -> Options -> Advanced -> Compatibility options for...
     doc.save(base.artifactsDir + "CompatibilityOptions.spacing.docx");
+    doc.close();
   });
 
 
@@ -308,6 +312,7 @@ describe("ExCompatibilityOptions", () => {
     // In the output document, these settings can be accessed in Microsoft Word via
     // File -> Options -> Advanced -> Compatibility options for...
     doc.save(base.artifactsDir + "CompatibilityOptions.WordPerfect.docx");
+    doc.close();
   });
 
 
@@ -325,6 +330,7 @@ describe("ExCompatibilityOptions", () => {
     // In the output document, these settings can be accessed in Microsoft Word via
     // File -> Options -> Advanced -> Compatibility options for...
     doc.save(base.artifactsDir + "CompatibilityOptions.alignment.docx");
+    doc.close();
   });
 
 
@@ -343,6 +349,7 @@ describe("ExCompatibilityOptions", () => {
     // In the output document, these settings can be accessed in Microsoft Word via
     // File -> Options -> Advanced -> Compatibility options for...
     doc.save(base.artifactsDir + "CompatibilityOptions.legacy.docx");
+    doc.close();
   });
 
 
@@ -358,6 +365,7 @@ describe("ExCompatibilityOptions", () => {
     // In the output document, these settings can be accessed in Microsoft Word via
     // File -> Options -> Advanced -> Compatibility options for...
     doc.save(base.artifactsDir + "CompatibilityOptions.list.docx");
+    doc.close();
   });
 
 
@@ -386,5 +394,6 @@ describe("ExCompatibilityOptions", () => {
     // In the output document, these settings can be accessed in Microsoft Word via
     // File -> Options -> Advanced -> Compatibility options for...
     doc.save(base.artifactsDir + "CompatibilityOptions.misc.docx");
+    doc.close();
   });
 });

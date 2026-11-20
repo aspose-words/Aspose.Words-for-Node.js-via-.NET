@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -35,6 +35,7 @@ describe("WorkingWithStylesAndThemes", () => {
         console.log(styleName);
       }
     }
+    doc.close();
     //ExEnd:AccessStyles
   });
 
@@ -48,6 +49,8 @@ describe("WorkingWithStylesAndThemes", () => {
 
     doc.save(base.artifactsDir + "WorkingWithStylesAndThemes.CopyStyles.docx");
     //ExEnd:CopyStyles
+    target.close();
+    doc.close();
   });
 
   test('GetThemeProperties', () => {
@@ -60,6 +63,7 @@ describe("WorkingWithStylesAndThemes", () => {
     console.log(theme.majorFonts.latin);
     console.log(theme.minorFonts.eastAsian);
     console.log(theme.colors.Accent1);
+    doc.close();
     //ExEnd:GetThemeProperties
   });
 
@@ -71,6 +75,7 @@ describe("WorkingWithStylesAndThemes", () => {
     let theme = doc.theme;
     theme.minorFonts.latin = "Times New Roman";
     theme.colors.hyperlink = "#FFD700"; // Gold.
+    doc.close();
     //ExEnd:SetThemeProperties
   });
 
@@ -95,6 +100,7 @@ describe("WorkingWithStylesAndThemes", () => {
     builder.write("This is text with some other formatting ");
 
     doc.save(base.artifactsDir + "WorkingWithStylesAndThemes.InsertStyleSeparator.docx")
+    doc.close();
     //ExEnd:InsertStyleSeparator
   });
 
@@ -115,5 +121,7 @@ describe("WorkingWithStylesAndThemes", () => {
     console.log("Style name:", newStyle.name); // Should be "MyStyle".
     console.log("Style color:", newStyle.font.color); // Should be red color.
     //ExEnd:CopyStyleDifferentDocument
+    dstDoc.close();
+    srcDoc.close();
   });
 });

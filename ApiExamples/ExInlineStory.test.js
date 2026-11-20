@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -54,12 +54,14 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.PositionFootnote.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.PositionFootnote.docx");
 
     expect(doc.footnoteOptions.position).toEqual(footnotePosition);
 
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Footnote, true, '',
       "Footnote contents.", doc.getFootnote(0, true));
+    doc.close();
   });
 
 
@@ -96,12 +98,14 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.PositionEndnote.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.PositionEndnote.docx");
 
     expect(doc.endnoteOptions.position).toEqual(endnotePosition);
 
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Endnote, true, '',
       "Endnote contents.", doc.getFootnote(0, true));
+    doc.close();
   });
 
 
@@ -156,6 +160,7 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.RefMarkNumberStyle.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.RefMarkNumberStyle.docx");
 
     expect(doc.footnoteOptions.numberStyle).toEqual(aw.NumberStyle.UppercaseRoman);
@@ -173,6 +178,7 @@ describe("ExInlineStory", () => {
       "Endnote 2.", doc.getFootnote(4, true));
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Endnote, false, "Custom endnote reference mark",
       "Custom endnote reference mark Endnote 3.", doc.getFootnote(5, true));
+    doc.close();
   });
 
 
@@ -233,6 +239,7 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.NumberingRule.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.NumberingRule.docx");
 
     expect(doc.footnoteOptions.restartRule).toEqual(aw.Notes.FootnoteNumberingRule.RestartPage);
@@ -254,6 +261,7 @@ describe("ExInlineStory", () => {
       "Endnote 3.", doc.getFootnote(6, true));
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Endnote, true, '',
       "Endnote 4.", doc.getFootnote(7, true));
+    doc.close();
   });
 
 
@@ -308,6 +316,7 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.startNumber.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.startNumber.docx");
 
     expect(doc.footnoteOptions.startNumber).toEqual(1);
@@ -327,6 +336,7 @@ describe("ExInlineStory", () => {
       "Endnote 2.", doc.getFootnote(4, true));
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Endnote, true, '',
       "Endnote 3.", doc.getFootnote(5, true));
+    doc.close();
   });
 
 
@@ -381,6 +391,7 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.AddFootnote.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.AddFootnote.docx");
 
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Footnote, true, '', 
@@ -389,6 +400,7 @@ describe("ExInlineStory", () => {
       "Footnote text.", doc.getFootnote(1, true));
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Footnote, true, '', 
       "Footnote text.", doc.getFootnote(2, true));
+    doc.close();
   });
 
 
@@ -423,12 +435,14 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.FootnoteEndnote.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.FootnoteEndnote.docx");
 
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Footnote, true, '',
       "Footnote text, will appear at the bottom of the page that contains the referenced text.", doc.getFootnote(0, true));
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Endnote, true, '',
       "Endnote text, will appear at the very end of the document.", doc.getFootnote(1, true));
+    doc.close();
   });
 
 
@@ -456,6 +470,7 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.AddComment.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.AddComment.docx");
     comment = doc.getComment(0, true);
             
@@ -463,6 +478,7 @@ describe("ExInlineStory", () => {
     expect(comment.author).toEqual("John Doe");
     expect(comment.initial).toEqual("JD");
     expect(comment.dateTime).toEqual(today);
+    doc.close();
   });
 
 
@@ -511,6 +527,7 @@ describe("ExInlineStory", () => {
     // it will stay in the document as a revision until we either accept the revision,
     // which will delete the text for good, or reject the revision, which will keep the text we deleted where it was.
     expect(footnotes.at(3).asFootnote().isDeleteRevision).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -577,6 +594,7 @@ describe("ExInlineStory", () => {
     doc.save(base.artifactsDir + "InlineStory.InsertInlineStoryNodes.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "InlineStory.InsertInlineStoryNodes.docx");
 
     footnote = doc.getFootnote(0, true);
@@ -589,6 +607,7 @@ describe("ExInlineStory", () => {
     comment = doc.getComment(0, true);
 
     expect(comment.toString(aw.SaveFormat.Text).trim()).toEqual("My comment.");
+    doc.close();
   });
 
 
@@ -613,6 +632,7 @@ describe("ExInlineStory", () => {
     doc.firstSection.body.deleteShapes();
 
     expect(doc.getChildNodes(aw.NodeType.Shape, true).count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -630,6 +650,7 @@ describe("ExInlineStory", () => {
     doc.updateActualReferenceMarks();
 
     expect(footnote.actualReferenceMark).toEqual("1");
+    doc.close();
     //ExEnd:UpdateActualReferenceMarks
   });
 
@@ -648,6 +669,7 @@ describe("ExInlineStory", () => {
     //ExEnd:EndnoteSeparator
 
     doc.save(base.artifactsDir + "InlineStory.endnoteSeparator.docx");
+    doc.close();
   });
 
 
@@ -668,6 +690,7 @@ describe("ExInlineStory", () => {
     //ExEnd:FootnoteSeparator
 
     doc.save(base.artifactsDir + "InlineStory.footnoteSeparator.docx");
+    doc.close();
   });
 
 

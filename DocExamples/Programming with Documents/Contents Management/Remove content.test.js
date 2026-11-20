@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -31,6 +31,7 @@ describe("RemoveContent", () => {
     removeSectionBreaks(doc);
 
     doc.save(base.artifactsDir + "RemoveContent.RemovePageBreaks.docx");
+    doc.close();
   });
 
 
@@ -90,6 +91,7 @@ describe("RemoveContent", () => {
     }
 
     doc.save(base.artifactsDir + "RemoveContent.RemoveFooters.docx");
+    doc.close();
     //ExEnd:RemoveFooters
   });
 
@@ -103,6 +105,7 @@ describe("RemoveContent", () => {
     removeTableOfContents(doc, 0);
 
     doc.save(base.artifactsDir + "RemoveContent.RemoveToc.doc");
+    doc.close();
   });
 
 

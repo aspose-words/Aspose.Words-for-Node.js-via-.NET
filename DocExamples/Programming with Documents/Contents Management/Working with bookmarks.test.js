@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -27,6 +27,7 @@ describe("WorkingWithBookmarks", () => {
         let bookmark1 = doc.range.bookmarks.at(0);
         // By name:
         let bookmark2 = doc.range.bookmarks.at("MyBookmark3");
+        doc.close();
         //ExEnd:AccessBookmarks
     });
 
@@ -42,6 +43,7 @@ describe("WorkingWithBookmarks", () => {
 
         bookmark.name = "RenamedBookmark";
         bookmark.text = "This is a new bookmarked text.";
+        doc.close();
         //ExEnd:UpdateBookmarkData
     });
 
@@ -89,6 +91,7 @@ describe("WorkingWithBookmarks", () => {
                 }
             }
         }
+        doc.close();
         //ExEnd:BookmarkTableColumns
     });
 
@@ -107,6 +110,8 @@ describe("WorkingWithBookmarks", () => {
         appendBookmarkedText(importer, srcBookmark, dstNode);
 
         dstDoc.save(base.artifactsDir + "WorkingWithBookmarks.CopyBookmarkedText.docx");
+        dstDoc.close();
+        srcDoc.close();
     });
 
     function appendBookmarkedText(importer, srcBookmark, dstNode) {
@@ -160,6 +165,7 @@ describe("WorkingWithBookmarks", () => {
         options.outlineOptions.bookmarksOutlineLevels.add("Nested Bookmark", 2);
 
         doc.save(base.artifactsDir + "WorkingWithBookmarks.CreateBookmark.pdf", options);
+        doc.close();
         //ExEnd:CreateBookmark
     });
 
@@ -171,6 +177,7 @@ describe("WorkingWithBookmarks", () => {
         ShowHideBookmarkedContent(doc, "MyBookmark1", true);
 
         doc.save(base.artifactsDir + "WorkingWithBookmarks.ShowHideBookmarks.docx");
+        doc.close();
         //ExEnd:ShowHideBookmarks
     });
 
@@ -203,6 +210,7 @@ describe("WorkingWithBookmarks", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithBookmarks.UntangleRowBookmarks.docx");
+        doc.close();
     });
 
     function untangle(doc) {

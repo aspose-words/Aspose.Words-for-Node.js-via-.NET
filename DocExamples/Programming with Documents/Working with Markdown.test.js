@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -30,6 +30,7 @@ describe("WorkingWithMarkdown", () => {
     builder.font.bold = true;
     builder.writeln("This text will be Bold");
     //ExEnd:BoldText
+    builder.document.close();
   });
 
 
@@ -43,6 +44,7 @@ describe("WorkingWithMarkdown", () => {
     builder.font.italic = true;
     builder.writeln("This text will be Italic");
     //ExEnd:ItalicText
+    builder.document.close();
   });
 
 
@@ -56,6 +58,7 @@ describe("WorkingWithMarkdown", () => {
     builder.font.strikeThrough = true;
     builder.writeln("This text will be StrikeThrough");
     //ExEnd:Strikethrough
+    builder.document.close();
   });
 
 
@@ -75,6 +78,7 @@ describe("WorkingWithMarkdown", () => {
     builder.font.style = inlineCode3BackTicks;
     builder.writeln("Text with InlineCode style with 3 backtick");
     //ExEnd:InlineCode
+    builder.document.close();
   });
 
 
@@ -88,6 +92,7 @@ describe("WorkingWithMarkdown", () => {
     builder.insertHyperlink("https://www.aspose.com", "https://www.aspose.com", false);
     builder.insertHyperlink("email@aspose.com", "mailto:email@aspose.com", false);
     //ExEnd:Autolink
+    builder.document.close();
   });
 
 
@@ -100,6 +105,7 @@ describe("WorkingWithMarkdown", () => {
     // Insert hyperlink.
     builder.insertHyperlink("Aspose", "https://www.aspose.com", false);
     //ExEnd:Link
+    builder.document.close();
   });
 
 
@@ -113,6 +119,7 @@ describe("WorkingWithMarkdown", () => {
     let shape = builder.insertImage(base.imagesDir + "Logo.jpg");
     shape.imageData.title = "title";
     //ExEnd:Image
+    builder.document.close();
   });
 
 
@@ -125,6 +132,7 @@ describe("WorkingWithMarkdown", () => {
     // Insert horizontal rule.
     builder.insertHorizontalRule();
     //ExEnd:HorizontalRule
+    builder.document.close();
   });
 
 
@@ -160,6 +168,7 @@ describe("WorkingWithMarkdown", () => {
     builder.writeln("Bold Heading1");
 
     doc.save(base.artifactsDir + "WorkingWithMarkdown.heading.md");
+    doc.close();
     //ExEnd:Heading
   });
 
@@ -198,6 +207,7 @@ describe("WorkingWithMarkdown", () => {
     //ExEnd:SetextHeading
 
     builder.document.save(base.artifactsDir + "WorkingWithMarkdown.setextHeading.md");
+    builder.document.close();
   });
 
 
@@ -211,6 +221,7 @@ describe("WorkingWithMarkdown", () => {
     builder.paragraphFormat.style = indentedCode;
     builder.writeln("This is an indented code");
     //ExEnd:IndentedCode
+    builder.document.close();
   });
 
 
@@ -228,6 +239,7 @@ describe("WorkingWithMarkdown", () => {
     builder.paragraphFormat.style = fencedCodeWithInfo;
     builder.writeln("This is a fenced code with info string");
     //ExEnd:FencedCode
+    builder.document.close();
   });
 
 
@@ -249,6 +261,7 @@ describe("WorkingWithMarkdown", () => {
     builder.writeln("1. Nested blockquote");
 
     doc.save(base.artifactsDir + "WorkingWithMarkdown.quote.md");
+    doc.close();
     //ExEnd:Quote
   });
 
@@ -270,6 +283,7 @@ describe("WorkingWithMarkdown", () => {
     builder.writeln("Item 2a");
     builder.writeln("Item 2b");
     //ExEnd:BulletedList
+    builder.document.close();
   });
 
 
@@ -288,6 +302,7 @@ describe("WorkingWithMarkdown", () => {
 
     builder.writeln("Item 2a");
     builder.writeln("Item 2b");
+    doc.close();
     //ExEnd:OrderedList
   });
 
@@ -312,6 +327,7 @@ describe("WorkingWithMarkdown", () => {
     builder.insertCell();
     builder.writeln("d");
     //ExEnd:Table
+    builder.document.close();
   });
 
 
@@ -325,6 +341,7 @@ describe("WorkingWithMarkdown", () => {
     paragraph.paragraphFormat.style = doc.styles.at("Quote");
 
     doc.save(base.artifactsDir + "WorkingWithMarkdown.ReadMarkdownDocument.md");
+    doc.close();
     //ExEnd:ReadMarkdownDocument
   });
 
@@ -361,6 +378,7 @@ describe("WorkingWithMarkdown", () => {
     builder.write("text.");
 
     builder.document.save(base.artifactsDir + "WorkingWithMarkdown.emphases.md");
+    doc.close();
     //ExEnd:Emphases
   });
 
@@ -379,6 +397,7 @@ describe("WorkingWithMarkdown", () => {
       if (warningInfo.source == aw.WarningSource.Markdown)
         console.log(warningInfo.description);
     }
+    doc.close();
     //ExEnd:UseWarningSourceMarkdown
   });
 
@@ -409,6 +428,7 @@ describe("WorkingWithMarkdown", () => {
 
     // Save your document as a Markdown file.
     doc.save(path.join(base.artifactsDir, "WorkingWithMarkdown.SupportedFeatures.md"));
+    doc.close();
     //ExEnd:SupportedFeatures
   });
 

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -38,6 +38,7 @@ describe("WorkingWithVba", () => {
     doc.vbaProject.modules.add(module);
 
     doc.save(base.artifactsDir + "WorkingWithVba.CreateVbaProject.docm");
+    doc.close();
     //ExEnd:CreateVbaProject
   });
 
@@ -52,6 +53,7 @@ describe("WorkingWithVba", () => {
         console.log(modules.at(i).sourceCode);
       }
     }
+    doc.close();
     //ExEnd:ReadVbaMacros
   });
 
@@ -67,6 +69,7 @@ describe("WorkingWithVba", () => {
     //ExEnd:ModifyVbaMacros
 
     doc.save(base.artifactsDir + "WorkingWithVba.ModifyVbaMacros.docm");
+    doc.close();
     //ExEnd:ModifyVbaMacros
   });
 
@@ -79,6 +82,8 @@ describe("WorkingWithVba", () => {
 
     destDoc.save(base.artifactsDir + "WorkingWithVba.CloneVbaProject.docm");
     //ExEnd:CloneVbaProject
+    destDoc.close();
+    doc.close();
   });
 
   test('CloneVbaModule', () => {
@@ -93,6 +98,8 @@ describe("WorkingWithVba", () => {
 
     destDoc.save(base.artifactsDir + "WorkingWithVba.CloneVbaModule.docm");
     //ExEnd:CloneVbaModule
+    destDoc.close();
+    doc.close();
   });
 
   test('RemoveVbaReferences', () => {
@@ -112,6 +119,7 @@ describe("WorkingWithVba", () => {
     }
 
     doc.save(base.artifactsDir + "WorkingWithVba.RemoveVbaReferences.docm");
+    doc.close();
     //ExEnd:RemoveVbaReferences
   });
 

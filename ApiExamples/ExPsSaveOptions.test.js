@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -46,6 +46,7 @@ describe("ExPsSaveOptions", () => {
     // Once we print this document on both sides of the pages, we can fold all the pages down the middle at once,
     // and the contents will line up in a way that creates a booklet.
     doc.save(base.artifactsDir + "PsSaveOptions.useBookFoldPrintingSettings.ps", saveOptions);
+    doc.close();
     //ExEnd
   });
 

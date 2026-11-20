@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -53,6 +53,7 @@ describe("ExImageSaveOptions", () => {
     //ExEnd
 
     await TestUtil.verifyImage(816, 1056, base.artifactsDir + "ImageSaveOptions.OnePage.jpg");
+    doc.close();
   });
 
 
@@ -75,6 +76,7 @@ describe("ExImageSaveOptions", () => {
     saveOptions.useGdiEmfRenderer = useGdiEmfRenderer;
 
     doc.save(base.artifactsDir + "ImageSaveOptions.Renderer.emf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -111,6 +113,7 @@ describe("ExImageSaveOptions", () => {
     await TestUtil.verifyImage(816, 1056, base.artifactsDir + "ImageSaveOptions.pageIndex.page 2.gif");
     await TestUtil.verifyImage(816, 1056, base.artifactsDir + "ImageSaveOptions.pageIndex.page 3.gif");
     expect(fs.existsSync(base.artifactsDir + "ImageSaveOptions.pageIndex.page 4.gif")).toEqual(false);
+    doc.close();
   });
 
 /*
@@ -191,6 +194,7 @@ describe("ExImageSaveOptions", () => {
     //ExEnd
 
     await TestUtil.verifyImage(816, 1056, base.artifactsDir + "ImageSaveOptions.WindowsMetaFile.png");
+    doc.close();
   });
 
 
@@ -231,6 +235,7 @@ describe("ExImageSaveOptions", () => {
     const imageFileNames = fs.readdirSync(base.artifactsDir)
           .filter(item => item.includes("ImageSaveOptions.PageByPage.") && item.endsWith(".tiff"));
     expect(imageFileNames.length).toEqual(3);
+    doc.close();
   });
 
 
@@ -276,6 +281,7 @@ describe("ExImageSaveOptions", () => {
         expect(testedImageLength < 11000).toEqual(true);
         break;
     }
+    doc.close();
   });
 
 
@@ -311,6 +317,7 @@ describe("ExImageSaveOptions", () => {
 
     expect(await TestUtil.imageContainsTransparency(base.artifactsDir + "ImageSaveOptions.paperColor.transparent.png")).toEqual(true);
     expect(await TestUtil.imageContainsTransparency(base.artifactsDir + "ImageSaveOptions.paperColor.LightCoral.png")).toEqual(false);
+    doc.close();
   });
 
 
@@ -369,6 +376,7 @@ describe("ExImageSaveOptions", () => {
         expect(testedImageLength < 132000).toEqual(true);
         break;
     }
+    doc.close();
   });
 
 /*

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -34,6 +34,7 @@ describe("ExRange", () => {
 
     expect(replacementCount).toEqual(1);
     expect(doc.getText().trim()).toEqual("Greetings, John Doe!");
+    doc.close();
     //ExEnd
   });
 
@@ -60,6 +61,7 @@ describe("ExRange", () => {
     doc.range.replace("Ruby", "Jade", options);
 
     expect(doc.getText().trim()).toEqual(matchCase ? "Jade bought a ruby necklace." : "Jade bought a Jade necklace.");
+    doc.close();
     //ExEnd
   });
 
@@ -87,6 +89,7 @@ describe("ExRange", () => {
 
     expect(doc.getText().trim()).toEqual(
       findWholeWordsOnly ? "Louis will meet you in Jacksonville." : "Louis will meet you in Louisville." );
+    doc.close();
     //ExEnd
   });
 
@@ -123,6 +126,7 @@ describe("ExRange", () => {
 
     expect(doc.getText().trim()).toEqual(
       ignoreTextInsideDeleteRevisions ? "Greetings world!\rHello again!" : "Greetings world!\rGreetings again!");
+    doc.close();
     //ExEnd
   });
 
@@ -159,6 +163,7 @@ describe("ExRange", () => {
       ignoreTextInsideInsertRevisions
         ? "Greetings world!\rHello again!"
         : "Greetings world!\rGreetings again!");
+    doc.close();
     //ExEnd
   });
 
@@ -189,6 +194,7 @@ describe("ExRange", () => {
       ignoreTextInsideFields
         ? "Greetings world!\r\u0013QUOTE\u0014Hello again!\u0015"
         : "Greetings world!\r\u0013QUOTE\u0014Greetings again!\u0015");
+    doc.close();
     //ExEnd
   });
 
@@ -214,6 +220,7 @@ describe("ExRange", () => {
       ignoreFieldCodes
         ? "\u0013INCLUDETEXT\u0014*est I*!\u0015"
         : "\u0013INCLUDE*EX*\u0014*est I*!\u0015", doc.getText().trim());
+    doc.close();
     //ExEnd
   });
 
@@ -259,6 +266,7 @@ describe("ExRange", () => {
       isIgnoreFootnotes
         ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         : "Replaced Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+    doc.close();
   });
 
 
@@ -278,6 +286,7 @@ describe("ExRange", () => {
     builder.document.range.replace("Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", findReplaceOptions);
     expect(builder.document.getText().trim()).toEqual("Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
+    doc.close();
     //ExEnd
   });
 
@@ -305,6 +314,7 @@ describe("ExRange", () => {
 
     expect(doc.range.fields.at(0).result).toEqual("MyCategory");
     expect(doc.range.fields.at(1).result).toEqual('');
+    doc.close();
     //ExEnd
   });
 
@@ -323,6 +333,7 @@ describe("ExRange", () => {
     doc.range.replace("sad", "bad", options);
 
     doc.save(base.artifactsDir + "Range.ReplaceWithString.docx");
+    doc.close();
   });
 
 
@@ -338,6 +349,7 @@ describe("ExRange", () => {
     doc.range.replace(new Regex("gr(a|e)y"), "lavender");
 
     expect(doc.getText().trim()).toEqual("I decided to get the curtains in lavender, ideal for the lavender-accented room.");
+    doc.close();
     //ExEnd
   });
 
@@ -371,6 +383,7 @@ describe("ExRange", () => {
 
     expect(logger.GetLog().trim()).toEqual("\"New York City\" converted to \"Washington\" 20 characters into a Run node.\r\n" +
                             "\"NYC\" converted to \"Washington\" 42 characters into a Run node.");
+    doc.close();
   });
 
 /*
@@ -432,6 +445,7 @@ describe("ExRange", () => {
     expect(doc.getText().trim()).toEqual("Numbers that the find-and-replace operation will convert to hexadecimal and highlight:\r" +
                             "0x7B, 0x1C8, 0x315 and 0x43E3.");
     expect(doc.getChildNodes(aw.NodeType.Run, true).filter(r => r.asRun().font.highlightColor == "#D3D3D3")).toEqual(4);
+    doc.close();
   });
 
 /*
@@ -508,6 +522,7 @@ describe("ExRange", () => {
     expect(doc.getText().trim()).toEqual("Every paragraph that ends with a full stop like this one will be right aligned!\r" +
                             "This one will not!\r" +
                             "This one also will!");
+    doc.close();
     //ExEnd
   });
 
@@ -533,6 +548,7 @@ describe("ExRange", () => {
 
     expect(doc.sections.count).toEqual(1);
     expect(doc.getText().trim()).toEqual("Section 2.");
+    doc.close();
     //ExEnd
   });
 
@@ -548,6 +564,7 @@ describe("ExRange", () => {
     builder.write("Hello world!");
 
     expect(doc.range.text.trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -587,6 +604,7 @@ describe("ExRange", () => {
     Assert.AreEqual(useLegacyOrder ?
       new aw.Lists.List<string> { "[tag 1]", "[tag 3]", "[tag 2]" } :
       new aw.Lists.List<string> { "[tag 1]", "[tag 2]", "[tag 3]" }, callback.Matches); */
+    doc.close();
   });
 
 /*
@@ -633,6 +651,7 @@ describe("ExRange", () => {
       useSubstitutions
         ? "Paul bought a car from John.\rJoe bought a house from Jane."
         : "$3 bought a $2 from $1.\r$3 bought a $2 from $1.", doc.getText().trim()); */
+    doc.close();
     //ExEnd
   });
 
@@ -655,7 +674,10 @@ describe("ExRange", () => {
     mainDoc.range.replace(new Regex("\\[MY_DOCUMENT\\]"), "", options);
     mainDoc.save(base.artifactsDir + "InsertDocument.InsertDocumentAtReplace.docx");
 
-    TestInsertDocumentAtReplace(new aw.Document(base.artifactsDir + "InsertDocument.InsertDocumentAtReplace.docx")); //ExSkip
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "InsertDocument.InsertDocumentAtReplace.docx");
+    TestInsertDocumentAtReplace(loadedDocument1); //ExSkip
+    loadedDocument1.close();
+    mainDoc.close();
   });
 
 /*
@@ -764,6 +786,7 @@ describe("ExRange", () => {
         expect(callback.Matches).toEqual(["Match 4", "Match 3", "Match 2", "Match 1"]);
         break;
     }
+    doc.close();
   });
 
 /*

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -35,6 +35,7 @@ describe("WorkingWithDocumentProperties", () => {
     }
 
     console.log("\nDocument has the following variables: " + variables);
+    doc.close();
     //ExEnd:GetVariables
   });
 
@@ -55,6 +56,7 @@ describe("WorkingWithDocumentProperties", () => {
     for (let prop of doc.customDocumentProperties) {
       console.log("{0} : {1}", prop.name, prop.value);
     }
+    doc.close();
     //ExEnd:EnumerateProperties
   });
 
@@ -65,13 +67,15 @@ describe("WorkingWithDocumentProperties", () => {
 
     let customDocumentProperties = doc.customDocumentProperties;
 
-    if (customDocumentProperties["Authorized"] !== null) return;
+    if (customDocumentProperties["Authorized"] !== null) doc.close();
+    return;
 
     customDocumentProperties.add("Authorized", true);
     customDocumentProperties.add("Authorized By", "John Smith");
     customDocumentProperties.add("Authorized Date", new Date());
     customDocumentProperties.add("Authorized Revision", doc.builtInDocumentProperties.revisionNumber);
     customDocumentProperties.add("Authorized Amount", 123.45);
+    doc.close();
     //ExEnd:AddCustomProperties
   });
 
@@ -80,6 +84,7 @@ describe("WorkingWithDocumentProperties", () => {
     //GistId:9bd62e688457850bceba59bc2c0ead99
     let doc = new aw.Document(base.myDir + "Properties.docx");
     doc.customDocumentProperties.remove("Authorized Date");
+    doc.close();
     //ExEnd:RemoveCustomProperties
   });
 
@@ -90,6 +95,7 @@ describe("WorkingWithDocumentProperties", () => {
     doc.removePersonalInformation = true;
 
     doc.save(base.artifactsDir + "DocumentPropertiesAndVariables.RemovePersonalInformation.docx");
+    doc.close();
     //ExEnd:RemovePersonalInformation
   });
 
@@ -110,6 +116,7 @@ describe("WorkingWithDocumentProperties", () => {
     let isLinkedToContent = customProperty.isLinkToContent;
     let linkSource = customProperty.linkSource;
     let customPropertyValue = customProperty.value;
+    doc.close();
     //ExEnd:ConfiguringLinkToContent
   });
 
@@ -126,6 +133,7 @@ describe("WorkingWithDocumentProperties", () => {
     pageSetup.rightMargin = aw.ConvertUtil.inchToPoint(1.5);
     pageSetup.headerDistance = aw.ConvertUtil.inchToPoint(0.2);
     pageSetup.footerDistance = aw.ConvertUtil.inchToPoint(0.2);
+    doc.close();
     //ExEnd:ConvertBetweenMeasurementUnits
   });
 

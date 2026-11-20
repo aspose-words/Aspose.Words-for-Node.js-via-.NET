@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -48,12 +48,14 @@ describe("ExImage", () => {
     doc.save(base.artifactsDir + "Image.FromFile.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.FromFile.docx");
     shape = doc.getShape(0, true);
 
     TestUtil.verifyImageInShape(1600, 1600, aw.Drawing.ImageType.Wmf, shape);
     expect(shape.height).toEqual(100.0);
     expect(shape.width).toEqual(100.0);
+    doc.close();
   });
 
 
@@ -79,12 +81,14 @@ test('FromUrl', () => {
     doc.save(base.artifactsDir + "Image.FromUrl.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.FromUrl.docx");
     let shapes = doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape());
 
     expect(shapes.length).toEqual(2);
     TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Jpeg, shapes[0]);
     TestUtil.verifyImageInShape(272, 92, aw.Drawing.ImageType.Png, shapes[1]);
+    doc.close();
   });
 
 
@@ -102,9 +106,11 @@ test('FromUrl', () => {
     doc.save(base.artifactsDir + "Image.FromStream.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.FromStream.docx");
 
     TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Jpeg, doc.getChildNodes(aw.NodeType.Shape, true).at(0).asShape());
+    doc.close();
   });
 
 
@@ -140,6 +146,7 @@ test('FromUrl', () => {
     doc.save(base.artifactsDir + "Image.CreateFloatingPageCenter.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.CreateFloatingPageCenter.docx");
     shape = doc.getShape(0, true);
 
@@ -150,6 +157,7 @@ test('FromUrl', () => {
     expect(shape.relativeVerticalPosition).toEqual(aw.Drawing.RelativeVerticalPosition.Page);
     expect(shape.horizontalAlignment).toEqual(aw.Drawing.HorizontalAlignment.Center);
     expect(shape.verticalAlignment).toEqual(aw.Drawing.VerticalAlignment.Center);
+    doc.close();
   });
 
 
@@ -193,6 +201,7 @@ test('FromUrl', () => {
     doc.save(base.artifactsDir + "Image.CreateFloatingPositionSize.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.CreateFloatingPositionSize.docx");
     shape = doc.getShape(0, true);
 
@@ -206,6 +215,7 @@ test('FromUrl', () => {
     expect(shape.width).toEqual(125.0);
     expect(shape.bottom).toEqual(shape.top + shape.height);
     expect(shape.right).toEqual(shape.left + shape.width);
+    doc.close();
   });
 
 
@@ -228,6 +238,7 @@ test('FromUrl', () => {
     doc.save(base.artifactsDir + "Image.InsertImageWithHyperlink.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.InsertImageWithHyperlink.docx");
     shape = doc.getShape(0, true);
 
@@ -235,6 +246,7 @@ test('FromUrl', () => {
     TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Jpeg, shape);
     expect(shape.target).toEqual("New Window");
     expect(shape.screenTip).toEqual("Aspose.words Support Forums");
+    doc.close();
   });
 
 
@@ -280,6 +292,7 @@ test('FromUrl', () => {
     expect(10000 > fs.statSync(base.artifactsDir + "Image.CreateLinkedImage.linked.docx").size).toBeTruthy();
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.CreateLinkedImage.embedded.docx");
 
     shape = doc.getShape(0, true);
@@ -288,6 +301,7 @@ test('FromUrl', () => {
     expect(shape.wrapType).toEqual(aw.Drawing.WrapType.Inline);
     expect(shape.imageData.sourceFullName.replace("%20", " ")).toEqual('');
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.CreateLinkedImage.linked.docx");
 
     shape = doc.getShape(0, true);
@@ -295,6 +309,7 @@ test('FromUrl', () => {
     TestUtil.verifyImageInShape(0, 0, aw.Drawing.ImageType.Wmf, shape);
     expect(shape.wrapType).toEqual(aw.Drawing.WrapType.Inline);
     expect(shape.imageData.sourceFullName.replace("%20", " ")).toEqual(imageFileName);
+    doc.close();
   });
 
 
@@ -314,6 +329,7 @@ test('FromUrl', () => {
 
     shapes = doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape());
     expect(shapes.filter(s => s.hasImage).length).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -341,6 +357,7 @@ test('FromUrl', () => {
     }
 
     expect(doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape()).filter(s => s.hasImage).length).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -391,6 +408,7 @@ test('FromUrl', () => {
     doc.save(base.artifactsDir + "Image.ScaleImage.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.ScaleImage.docx");
     shape = doc.getShape(0, true);
 
@@ -401,6 +419,7 @@ test('FromUrl', () => {
 
     expect(imageSize.widthPoints).toEqual(300.0);
     expect(imageSize.heightPoints).toEqual(300.0);
+    doc.close();
   });
 
 
@@ -415,6 +434,7 @@ test('FromUrl', () => {
     builder.insertImage(base.imageDir + "WebP image.webp");
 
     doc.save(base.artifactsDir + "Image.InsertWebpImage.docx");
+    doc.close();
     //ExEnd:InsertWebpImage
   });
 
@@ -428,6 +448,7 @@ test('FromUrl', () => {
 
     let shape = doc.getShape(0, true);
     expect(shape.imageData.imageType).toEqual(aw.Drawing.ImageType.WebP);
+    doc.close();
     //ExEnd:ReadWebpImage
   });
 

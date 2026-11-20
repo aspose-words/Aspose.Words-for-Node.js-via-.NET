@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -29,6 +29,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.writeln("Hello World!");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.CreateNewDocument.docx");
+    doc.close();
     //ExEnd:CreateNewDocument
   });
 
@@ -42,6 +43,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.endBookmark("FineBookmark");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertBookmark.docx");
+    doc.close();
     //ExEnd:InsertBookmark
   });
 
@@ -76,6 +78,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     table.autoFit(aw.Tables.AutoFitBehavior.FixedColumnWidths);
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.BuildTable.docx");
+    doc.close();
     //ExEnd:BuildTable
   });
 
@@ -89,6 +92,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.insertHorizontalRule();
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertHorizontalRule.docx");
+    doc.close();
     //ExEnd:InsertHorizontalRule
   });
 
@@ -108,6 +112,7 @@ describe("AddContentUsingDocumentBuilder", () => {
 
     builder.document.save(base.artifactsDir + "AddContentUsingDocumentBuilder.HorizontalRuleFormat.docx");
     //ExEnd:HorizontalRuleFormat
+    builder.document.close();
   });
 
   test('InsertBreak', () => {
@@ -124,6 +129,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.writeln("This is page 3.");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertBreak.docx");
+    doc.close();
     //ExEnd:InsertBreak
   });
 
@@ -136,6 +142,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.insertTextInput("TextInput", aw.Fields.TextFormFieldType.Regular, "", "Hello", 0);
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertTextInputFormField.docx");
+    doc.close();
     //ExEnd:InsertTextInputFormField
   });
 
@@ -148,6 +155,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.insertCheckBox("CheckBox", true, true, 0);
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertCheckBoxFormField.docx");
+    doc.close();
     //ExEnd:InsertCheckBoxFormField
   });
 
@@ -162,6 +170,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.insertComboBox("DropDown", items, 0);
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertComboBoxFormField.docx");
+    doc.close();
     //ExEnd:InsertComboBoxFormField
   });
 
@@ -178,6 +187,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     );
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertHtml.docx");
+    doc.close();
     //ExEnd:InsertHtml
   });
 
@@ -196,6 +206,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.write(" for more information.");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertHyperlink.docx");
+    doc.close();
     //ExEnd:InsertHyperlink
   });
 
@@ -247,6 +258,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     //ExEnd:UpdateFields
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertTableOfContents.docx");
+    doc.close();
     //ExEnd:InsertTableOfContents
   });
 
@@ -259,6 +271,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.insertImage(base.imagesDir + "Transparent background logo.png");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertInlineImage.docx");
+    doc.close();
     //ExEnd:InsertInlineImage
   });
 
@@ -278,6 +291,7 @@ describe("AddContentUsingDocumentBuilder", () => {
         "Square");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertFloatingImage.docx");
+    doc.close();
     //ExEnd:InsertFloatingImage
   });
 
@@ -302,6 +316,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.writeln("A whole paragraph.");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertParagraph.docx");
+    doc.close();
     //ExEnd:InsertParagraph
   });
 
@@ -314,6 +329,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.insertField("TC \"Entry Text\" \\f t");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.InsertTcField.docx");
+    doc.close();
     //ExEnd:InsertTcField
   });
 
@@ -327,6 +343,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     //ExEnd:CursorPosition
 
     console.log("\nCursor move to paragraph: " + curParagraph.getText());
+    doc.close();
   });
 
   test('MoveToNode', () => {
@@ -364,6 +381,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     expect(builder.isAtEndOfParagraph).toBe(true);
     builder.moveToDocumentStart();
     expect(builder.isAtStartOfParagraph).toBe(true);
+    doc.close();
     //ExEnd:MoveToNode
   });
 
@@ -380,6 +398,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     // Move the cursor position to the end of your document.
     builder.moveToDocumentEnd();
     console.log("\nThis is the end of the document.");
+    doc.close();
     //ExEnd:MoveToDocumentStartEnd
   });
 
@@ -395,6 +414,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.writeln("Text added to the 2nd section.");
 
     // Create document with paragraphs.
+    doc.close();
     doc = new aw.Document(base.myDir + "Paragraphs.docx");
     let paragraphs = doc.firstSection.body.paragraphs;
     expect(paragraphs.count).toBe(22);
@@ -409,6 +429,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     expect(paragraphs.indexOf(builder.currentParagraph)).toBe(2);
     builder.writeln("This is a new third paragraph. ");
     expect(paragraphs.indexOf(builder.currentParagraph)).toBe(3);
+    doc.close();
     //ExEnd:MoveToSection
   });
 
@@ -437,6 +458,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     builder.writeln("Page2");
 
     doc.save(base.artifactsDir + "AddContentUsingDocumentBuilder.MoveToHeadersFooters.docx");
+    doc.close();
     //ExEnd:MoveToHeadersFooters
   });
 
@@ -447,6 +469,7 @@ describe("AddContentUsingDocumentBuilder", () => {
 
     builder.moveToParagraph(2, 0);
     builder.writeln("This is the 3rd paragraph.");
+    doc.close();
     //ExEnd:MoveToParagraph
   });
 
@@ -462,6 +485,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     let table = doc.getChild(aw.NodeType.Table, 0, true).asTable();
 
     expect(table.rows.at(2).cells.at(3).getText().trim()).toMatch("Cell contents added by DocumentBuilderCell 3 contents");
+    doc.close();
     //ExEnd:MoveToTableCell
   });
 
@@ -473,6 +497,7 @@ describe("AddContentUsingDocumentBuilder", () => {
 
     builder.moveToBookmark("MyBookmark1", false, true);
     builder.writeln("This is a bookmark.");
+    doc.close();
     //ExEnd:MoveToBookmarkEnd
   });
 
@@ -496,6 +521,7 @@ describe("AddContentUsingDocumentBuilder", () => {
     // we will need to move it to a field's FieldStart or FieldSeparator node using the DocumentBuilder.MoveTo() method.
     expect(builder.currentNode.previousSibling).toEqual(field.end);
     builder.write(" Text immediately after the field.");
+    doc.close();
     //ExEnd:MoveToMergeField
   });
 });

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -31,6 +31,7 @@ describe("FindAndReplace", () => {
     console.log("Document text after replace: " + doc.range.text);
 
     doc.save(base.artifactsDir + "FindAndReplace.SimpleFindReplace.docx");
+    doc.close();
   });
 
   test('FindAndHighlight', () => {
@@ -44,6 +45,7 @@ describe("FindAndReplace", () => {
     doc.range.replace("your document", "i", options);
 
     doc.save(base.artifactsDir + "FindAndReplace.FindAndHighlight.docx");
+    doc.close();
     //ExEnd:FindAndHighlight
   });
 
@@ -72,6 +74,7 @@ describe("FindAndReplace", () => {
     doc.range.replace("This is Line 1&mThis is Line 2", "Page break is replaced with new text.");
 
     doc.save(base.artifactsDir + "FindAndReplace.MetaCharactersInSearchPattern.docx");
+    doc.close();
     //ExEnd:MetaCharactersInSearchPattern
   });
 
@@ -99,6 +102,7 @@ describe("FindAndReplace", () => {
     count = doc.range.replace("{insert-section}", "&b", findReplaceOptions);
 
     doc.save(base.artifactsDir + "FindAndReplace.ReplaceTextContainingMetaCharacters.docx");
+    doc.close();
     //ExEnd:ReplaceTextContainingMetaCharacters
   });
 
@@ -111,6 +115,7 @@ describe("FindAndReplace", () => {
     options.applyFont.highlightColor = "#FF8C00";
 
     doc.range.replace("header", "footer", options);
+    doc.close();
     //ExEnd:HighlightColor
   });
 
@@ -133,6 +138,7 @@ describe("FindAndReplace", () => {
     doc.range.replace("e", "*", options);
 
     console.log(doc.getText());
+    doc.close();
     //ExEnd:IgnoreTextInsideFields
   });
 
@@ -162,6 +168,7 @@ describe("FindAndReplace", () => {
     doc.range.replace("e", "*", options);
 
     console.log(doc.getText());
+    doc.close();
     //ExEnd:IgnoreTextInsideDeleteRevisions
   });
 
@@ -189,6 +196,7 @@ describe("FindAndReplace", () => {
     doc.range.replace("e", "*", options);
 
     console.log(doc.getText());
+    doc.close();
     //ExEnd:IgnoreTextInsideInsertRevisions
   });
 
@@ -207,6 +215,7 @@ describe("FindAndReplace", () => {
     footer.range.replace("(C) 2006 Aspose Pty Ltd.", "Copyright (C) 2020 by Aspose Pty Ltd.", options);
 
     doc.save(base.artifactsDir + "FindAndReplace.ReplaceTextInFooter.docx");
+    doc.close();
     //ExEnd:ReplaceTextInFooter
   });
 
@@ -223,6 +232,7 @@ describe("FindAndReplace", () => {
     doc.range.replace("_CustomerName_", "James Bond", options);
 
     doc.save(base.artifactsDir + "FindAndReplace.ReplaceWithString.docx");
+    doc.close();
     //ExEnd:ReplaceWithString
   });
 
@@ -244,6 +254,7 @@ describe("FindAndReplace", () => {
     doc.range.replace("[tag 1]", "", options);
 
     doc.save(base.artifactsDir + "FindAndReplace.UsingLegacyOrder.docx");
+    doc.close();
     //ExEnd:UsingLegacyOrder
   });
 
@@ -261,6 +272,7 @@ describe("FindAndReplace", () => {
     table.lastRow.lastCell.range.replace("50", "20", options);
 
     doc.save(base.artifactsDir + "FindAndReplace.ReplaceTextInTable.docx");
+    doc.close();
     //ExEnd:ReplaceText
   });
 });

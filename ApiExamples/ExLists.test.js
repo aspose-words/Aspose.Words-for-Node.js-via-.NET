@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -109,11 +109,13 @@ describe("ExLists", () => {
     doc.save(base.artifactsDir + "Lists.ApplyDefaultBulletsAndNumbers.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Lists.ApplyDefaultBulletsAndNumbers.docx");
 
     TestUtil.verifyListLevel("\u0000.", 18.0, aw.NumberStyle.Arabic, doc.lists.at(1).listLevels.at(0));
     TestUtil.verifyListLevel("\u0001.", 54.0, aw.NumberStyle.LowercaseLetter, doc.lists.at(1).listLevels.at(1));
     TestUtil.verifyListLevel("\uf0b7", 18.0, aw.NumberStyle.Bullet, doc.lists.at(0).listLevels.at(0));
+    doc.close();
   });
 
 
@@ -174,9 +176,11 @@ describe("ExLists", () => {
     doc.save(base.artifactsDir + "Lists.SpecifyListLevel.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Lists.SpecifyListLevel.docx");
 
     TestUtil.verifyListLevel("\u0000.", 18.0, aw.NumberStyle.Arabic, doc.lists.at(0).listLevels.at(0));
+    doc.close();
   });
 
 
@@ -234,11 +238,13 @@ describe("ExLists", () => {
     builder.document.save(base.artifactsDir + "Lists.NestedLists.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Lists.NestedLists.docx");
 
     TestUtil.verifyListLevel("\u0000)", 0.0, aw.NumberStyle.Arabic, doc.lists.at(0).listLevels.at(0));
     TestUtil.verifyListLevel("\u0000.", 18.0, aw.NumberStyle.Arabic, doc.lists.at(1).listLevels.at(0));
     TestUtil.verifyListLevel("\uf0b7", 18.0, aw.NumberStyle.Bullet, doc.lists.at(2).listLevels.at(0));
+    doc.close();
   });
 
 
@@ -314,6 +320,7 @@ describe("ExLists", () => {
     builder.document.save(base.artifactsDir + "Lists.CreateCustomList.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Lists.CreateCustomList.docx");
 
     listLevel = doc.lists.at(0).listLevels.at(0);
@@ -330,6 +337,7 @@ describe("ExLists", () => {
     expect(listLevel.font.size).toEqual(24.0);
     expect(listLevel.startAt).toEqual(1);
     expect(listLevel.trailingCharacter).toEqual(aw.Lists.ListTrailingCharacter.Space);
+    doc.close();
   });
 
 
@@ -378,6 +386,7 @@ describe("ExLists", () => {
     doc.save(base.artifactsDir + "Lists.RestartNumberingUsingListCopy.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Lists.RestartNumberingUsingListCopy.docx");
 
     list1 = doc.lists.at(0);
@@ -391,6 +400,7 @@ describe("ExLists", () => {
     expect(list2.listLevels.at(0).font.color).toEqual("#0000FF");
     expect(list2.listLevels.at(0).font.size).toEqual(10.0);
     expect(list2.listLevels.at(0).startAt).toEqual(10);
+    doc.close();
   });
 
 
@@ -461,6 +471,7 @@ describe("ExLists", () => {
     builder.document.save(base.artifactsDir + "Lists.CreateAndUseListStyle.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Lists.CreateAndUseListStyle.docx");
 
     list1 = doc.lists.at(0);
@@ -486,6 +497,7 @@ describe("ExLists", () => {
     expect(list3.isListStyleDefinition).toEqual(false);
     expect(list3.isListStyleReference).toEqual(true);
     expect(list3.isMultiLevel).toEqual(true);
+    doc.close();
   });
 
 
@@ -521,10 +533,13 @@ describe("ExLists", () => {
     }
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
     paras = doc.getChildNodes(aw.NodeType.Paragraph, true).toArray();
 
     expect(paras.filter(n => n.asParagraph().listFormat.isListItem).length).toEqual(6);
+    doc.close();
   });
 
 
@@ -548,6 +563,7 @@ describe("ExLists", () => {
       n.asParagraph().listFormat.removeNumbers();
 
     expect(paras.filter(n => n.asParagraph().listFormat.isListItem).length).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -580,11 +596,14 @@ describe("ExLists", () => {
     expect(paras.filter(n => n.asParagraph().listFormat.isListItem).length).toEqual(3);
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument2 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument2;
     paras = doc.getChildNodes(aw.NodeType.Paragraph, true).toArray();
 
     expect(paras.filter(n => n.asParagraph().listFormat.isListItem).length).toEqual(3);
     expect(paras.filter(n => n.asParagraph().listFormat.listLevelNumber == 2).length).toEqual(3);
+    doc.close();
   });
 
 
@@ -615,11 +634,14 @@ describe("ExLists", () => {
     expect(paras.filter(n => n.asParagraph().listFormat.isListItem).length).toEqual(3);
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument3 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument3;
     paras = doc.getChildNodes(aw.NodeType.Paragraph, true).toArray();
 
     expect(paras.filter(n => n.asParagraph().listFormat.isListItem).length).toEqual(3);
     expect(paras.filter(n => n.asParagraph().listFormat.listLevelNumber == 1).length).toEqual(3);
+    doc.close();
   });
 
 
@@ -645,7 +667,10 @@ describe("ExLists", () => {
     addOutlineHeadingParagraphs(builder, list, "Aspose.words Outline - \"Chapters\"");
 
     doc.save(base.artifactsDir + "Lists.OutlineHeadingTemplates.docx");
-    testOutlineHeadingTemplates(new aw.Document(base.artifactsDir + "Lists.OutlineHeadingTemplates.docx")); //ExSkip
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "Lists.OutlineHeadingTemplates.docx");
+    testOutlineHeadingTemplates(loadedDocument1); //ExSkip
+    loadedDocument1.close();
+    doc.close();
   });
   //ExEnd
 
@@ -734,7 +759,11 @@ describe("ExLists", () => {
     }
 
     dstDoc.save(base.artifactsDir + "Lists.PrintOutAllLists.docx");
-    testPrintOutAllLists(srcDoc, new aw.Document(base.artifactsDir + "Lists.PrintOutAllLists.docx")); //ExSkip
+    const loadedDocument2 = new aw.Document(base.artifactsDir + "Lists.PrintOutAllLists.docx");
+    testPrintOutAllLists(srcDoc, loadedDocument2); //ExSkip
+    loadedDocument2.close();
+    dstDoc.close();
+    srcDoc.close();
   });
 
   function addListSample(builder, list) {
@@ -786,13 +815,16 @@ describe("ExLists", () => {
     console.log("List is the same by ListId: " + (lists.getListByListId(1).equals(list)));
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument4 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument4;
     lists = doc.lists;
             
     expect(lists.document.referenceEquals(doc)).toBe(true);
     expect(lists.count).toEqual(1);
     expect(lists.at(0).listId).toEqual(1);
     expect(lists.getListByListId(1)).toEqual(lists.at(0));
+    doc.close();
   });
 
 
@@ -857,6 +889,7 @@ describe("ExLists", () => {
     doc.save(base.artifactsDir + "Lists.CreateListRestartAfterHigher.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Lists.CreateListRestartAfterHigher.docx");
 
     let listLevel = doc.lists.at(0).listLevels.at(0);
@@ -872,6 +905,7 @@ describe("ExLists", () => {
     expect(listLevel.isLegal).toEqual(true);
     expect(listLevel.restartAfterLevel).toEqual(0);
     expect(listLevel.linkedStyle).toBe(null);
+    doc.close();
   });
 
 
@@ -913,6 +947,7 @@ describe("ExLists", () => {
     //ExEnd
 
     expect(paras.filter(p => p.asParagraph().listFormat.isListItem).length).toEqual(10);
+    doc.close();
   });
 
 
@@ -945,9 +980,11 @@ describe("ExLists", () => {
     expect(list.listLevels.at(0).imageData).toBe(null);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Lists.createPictureBullet.docx");
 
     expect(doc.lists.at(0).listLevels.at(0).imageData.hasImage).toEqual(true);
+    doc.close();
   });
 
 
@@ -978,6 +1015,7 @@ describe("ExLists", () => {
       "Specified argument must not be null or empty if the number style is custom. (Parameter 'customNumberStyleFormat')");
     expect(() => aw.Lists.ListLevel.getEffectiveValue(5, aw.NumberStyle.Custom, "....")).toThrow(
       "Unexpected custom number format style: '....'");
+    doc.close();
   });
 
 
@@ -989,6 +1027,7 @@ describe("ExLists", () => {
 
     expect(doc.lists.at(0).hasSameTemplate(doc.lists.at(1))).toEqual(true);
     expect(doc.lists.at(1).hasSameTemplate(doc.lists.at(2))).toEqual(false);
+    doc.close();
     //ExEnd
   });
 
@@ -1014,6 +1053,7 @@ describe("ExLists", () => {
     expect(paras.at(0).listLabel.labelString).toEqual("001.");
     expect(paras.at(1).listLabel.labelString).toEqual("001.");
     expect(paras.at(2).listLabel.labelString).toEqual("002.");
+    doc.close();
     //ExEnd:SetCustomNumberStyleFormat
   });
 
@@ -1047,6 +1087,7 @@ describe("ExLists", () => {
     builder.writeln("Item 2");
 
     doc.save(base.artifactsDir + "Lists.addSingleLevelList.docx");
+    doc.close();
     //ExEnd:AddSingleLevelList
   });
 

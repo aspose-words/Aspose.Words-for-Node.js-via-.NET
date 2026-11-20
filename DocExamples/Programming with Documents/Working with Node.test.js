@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -24,6 +24,7 @@ describe("WorkingWithNode", () => {
     //GistId:581adffafc4abd2deaf7d140c4698990
     let doc = new aw.Document();
     let type = doc.nodeType;
+    doc.close();
     //ExEnd:GetNodeType
   });
 
@@ -35,6 +36,7 @@ describe("WorkingWithNode", () => {
     let section = doc.firstChild;
     // The section's parent node is the document.
     console.log("Section parent is the document: " + (doc == section.parentNode));
+    doc.close();
     //ExEnd:GetParentNode
   });
 
@@ -57,6 +59,7 @@ describe("WorkingWithNode", () => {
 
     // The paragraph node is now a child of the Body node.
     console.log("Paragraph has a parent node: " + (para.parentNode != null));
+    doc.close();
     //ExEnd:OwnerDocument
   });
 
@@ -74,6 +77,7 @@ describe("WorkingWithNode", () => {
         console.log(run.text);
       }
     }
+    doc.close();
     //ExEnd:EnumerateChildNodes
   });
 
@@ -83,6 +87,7 @@ describe("WorkingWithNode", () => {
     let doc = new aw.Document(base.myDir + "Paragraphs.docx");
     // Invoke the recursive function that will walk the tree.
     traverseAllNodes(doc);
+    doc.close();
   });
 
   /// <summary>
@@ -116,6 +121,7 @@ describe("WorkingWithNode", () => {
       // Quick typed access to the last row of the table.
       table.lastRow?.remove();
     }
+    doc.close();
     //ExEnd:TypedAccess
   });
 
@@ -127,6 +133,7 @@ describe("WorkingWithNode", () => {
 
     let section = doc.lastSection;
     section.body.appendChild(para);
+    doc.close();
     //ExEnd:CreateAndAddParagraphNode
   });
 

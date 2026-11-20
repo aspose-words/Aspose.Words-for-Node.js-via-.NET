@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -41,6 +41,7 @@ describe("ExBorderCollection", () => {
     doc.save(base.artifactsDir + "BorderCollection.GetBordersEnumerator.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "BorderCollection.GetBordersEnumerator.docx");
 
     for (let border of doc.firstSection.body.firstParagraph.paragraphFormat.borders) {
@@ -48,6 +49,7 @@ describe("ExBorderCollection", () => {
       expect(border.lineStyle).toEqual(aw.LineStyle.Wave);
       expect(border.lineWidth).toEqual(3.0);
     }
+    doc.close();
   });
 
   test('RemoveAllBorders', () => {
@@ -78,6 +80,7 @@ describe("ExBorderCollection", () => {
     doc.save(base.artifactsDir + "BorderCollection.RemoveAllBorders.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "BorderCollection.RemoveAllBorders.docx");
 
     for (let border of doc.firstSection.body.firstParagraph.paragraphFormat.borders)
@@ -86,5 +89,6 @@ describe("ExBorderCollection", () => {
       expect(border.lineStyle).toEqual(aw.LineStyle.None);
       expect(border.lineWidth).toEqual(0.0);
     }
+    doc.close();
   });
 });

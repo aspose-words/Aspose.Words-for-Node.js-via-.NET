@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -59,12 +59,14 @@ describe("ExHeaderFooter", () => {
     doc.save(base.artifactsDir + "HeaderFooter.create.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HeaderFooter.create.docx");
 
     expect(doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.HeaderPrimary)
       .range.text.includes("My header.")).toEqual(true);
     expect(doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.FooterPrimary)
       .range.text.includes("My footer.")).toEqual(true);
+    doc.close();
   });
 
 
@@ -138,11 +140,13 @@ describe("ExHeaderFooter", () => {
     doc.save(base.artifactsDir + "HeaderFooter.link.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HeaderFooter.link.docx");
 
     expect(doc.sections.at(0).headersFooters.count).toEqual(2);
     expect(doc.sections.at(1).headersFooters.count).toEqual(0);
     expect(doc.sections.at(2).headersFooters.count).toEqual(5);
+    doc.close();
   });
 
 
@@ -178,11 +182,13 @@ describe("ExHeaderFooter", () => {
     doc.save(base.artifactsDir + "HeaderFooter.RemoveFooters.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HeaderFooter.RemoveFooters.docx");
 
     expect(doc.sections.count).toEqual(1);
     expect(doc.firstSection.headersFooters.toArray().filter((hf) => !hf.isHeader).length).toEqual(0);
     expect(doc.firstSection.headersFooters.toArray().filter((hf) => hf.isHeader).length).toEqual(3);
+    doc.close();
   });
 
 
@@ -206,9 +212,11 @@ describe("ExHeaderFooter", () => {
     doc.save(base.artifactsDir + "HeaderFooter.ExportMode.html", saveOptions);
 
     // Open our saved document and verify that it does not contain the header's text
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HeaderFooter.ExportMode.html");
 
     expect(doc.range.text.includes("First header")).toEqual(false);
+    doc.close();
     //ExEnd
   });
 
@@ -236,9 +244,11 @@ describe("ExHeaderFooter", () => {
     doc.save(base.artifactsDir + "HeaderFooter.ReplaceText.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HeaderFooter.ReplaceText.docx");
 
     expect(doc.range.text.includes(`Copyright (C) ${currentYear} by Aspose Pty Ltd.`)).toEqual(true);
+    doc.close();
   });
 
 

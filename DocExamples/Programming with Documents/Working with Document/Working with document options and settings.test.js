@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -27,6 +27,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
     doc.compatibilityOptions.optimizeFor(aw.Settings.MsWordVersion.Word2016);
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.optimizeFor.docx");
+    doc.close();
     //ExEnd:OptimizeFor
   });
 
@@ -39,6 +40,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
     doc.showSpellingErrors = true;
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.ShowGrammaticalAndSpellingErrors.docx");
+    doc.close();
     //ExEnd:ShowGrammaticalAndSpellingErrors
   });
 
@@ -64,6 +66,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
             `Count of lists after Cleanup is the same: ${doc.lists.count}`);
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.CleanupUnusedStylesAndLists.docx");
+    doc.close();
     //ExEnd:CleanupUnusedStylesAndLists
   });
 
@@ -85,6 +88,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
     console.log(doc.styles.count);
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.CleanupDuplicateStyle.docx");
+    doc.close();
     //ExEnd:CleanupDuplicateStyle
   });
 
@@ -98,6 +102,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
     doc.viewOptions.zoomPercent = 50;
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.viewOptions.docx");
+    doc.close();
     //ExEnd:SetViewOption
   });
 
@@ -115,6 +120,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
     doc.firstSection.pageSetup.linesPerPage = 10;
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.DocumentPageSetup.docx");
+    doc.close();
     //ExEnd:DocumentPageSetup
   });
 
@@ -134,6 +140,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
       localeIdFarEast == aw.Loading.EditingLanguage.Japanese
         ? "The document either has no any FarEast language set in defaults or it was set to Japanese originally."
         : "The document default FarEast language was set to another than Japanese language originally, so it is not overridden.");
+    doc.close();
   });
 
 
@@ -150,6 +157,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
       localeId == aw.Loading.EditingLanguage.Russian
         ? "The document either has no any language set in defaults or it was set to Russian originally."
         : "The document default language was set to another than Russian language originally, so it is not overridden.");
+    doc.close();
     //ExEnd:SetRussianAsDefaultEditingLanguage
   });
 
@@ -165,6 +173,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
     builder.pageSetup.paperSize = aw.PaperSize.Paper10x14;
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.PageSetupAndSectionFormatting.docx");
+    doc.close();
     //ExEnd:PageSetupAndSectionFormatting
   });
 
@@ -185,6 +194,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
     border.distanceFromText = 0;
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.PageBorderProperties.docx");
+    doc.close();
     //ExEnd:PageBorderProperties
   });
 
@@ -206,6 +216,7 @@ describe("WorkingWithDocumentOptionsAndSettings", () => {
       builder.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ");
 
     doc.save(base.artifactsDir + "WorkingWithDocumentOptionsAndSettings.linesPerPage.docx");
+    doc.close();
     //ExEnd:LineGridSectionLayoutMode
   });
 

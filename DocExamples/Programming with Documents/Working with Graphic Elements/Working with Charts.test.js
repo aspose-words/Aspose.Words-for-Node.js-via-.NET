@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -48,6 +48,7 @@ describe("WorkingWithCharts", () => {
     series1.dataLabels.at(2).numberFormat.isLinkedToSource = true;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.FormatNumberOfDataLabel.docx");
+    doc.close();
     //ExEnd:FormatNumberOfDataLabel
   });
 
@@ -70,6 +71,7 @@ describe("WorkingWithCharts", () => {
     chart.legend.overlay = true;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.CreateChartUsingShape.docx");
+    doc.close();
     //ExEnd:CreateChartUsingShape
   });
 
@@ -104,6 +106,7 @@ describe("WorkingWithCharts", () => {
     seriesColl.add("Aspose Series 5", categories, [9, 10]);
 
     doc.save(base.artifactsDir + "WorkingWithCharts.InsertSimpleColumnChart.docx");
+    doc.close();
     //ExEnd:InsertSimpleColumnChart
   });
 
@@ -119,6 +122,7 @@ describe("WorkingWithCharts", () => {
     chart.series.add("Aspose Series 1", ["Category 1", "Category 2"], [1, 2]);
 
     doc.save(base.artifactsDir + "WorkingWithCharts.InsertColumnChart.docx");
+    doc.close();
     //ExEnd:InsertColumnChart
   });
 
@@ -141,6 +145,7 @@ describe("WorkingWithCharts", () => {
         [32, 32, 28, 12, 15]);
 
     doc.save(base.artifactsDir + "WorkingWithCharts.InsertAreaChart.docx");
+    doc.close();
     //ExEnd:InsertAreaChart
   });
 
@@ -157,6 +162,7 @@ describe("WorkingWithCharts", () => {
         [10, 4, 8]);
 
     doc.save(base.artifactsDir + "WorkingWithCharts.InsertBubbleChart.docx");
+    doc.close();
     //ExEnd:InsertBubbleChart
   });
 
@@ -172,6 +178,7 @@ describe("WorkingWithCharts", () => {
     chart.series.add("Aspose Series 1", [0.7, 1.8, 2.6], [2.7, 3.2, 0.8]);
 
     doc.save(base.artifactsDir + "WorkingWithCharts.InsertScatterChart.docx");
+    doc.close();
     //ExEnd:InsertScatterChart
   });
 
@@ -215,6 +222,7 @@ describe("WorkingWithCharts", () => {
     yAxis.scaling.maximum = new aw.Drawing.Charts.AxisBound(700);
 
     doc.save(base.artifactsDir + "WorkingWithCharts.DefineAxisProperties.docx");
+    doc.close();
     //ExEnd:DefineAxisProperties
   });
 
@@ -247,6 +255,7 @@ describe("WorkingWithCharts", () => {
     xAxis.minorTickMark = aw.Drawing.Charts.AxisTickMark.Outside;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.DateTimeValuesToAxis.docx");
+    doc.close();
     //ExEnd:DateTimeValuesToAxis
   });
 
@@ -269,6 +278,7 @@ describe("WorkingWithCharts", () => {
     chart.axisY.numberFormat.formatCode = "#,##0";
 
     doc.save(base.artifactsDir + "WorkingWithCharts.NumberFormatForAxis.docx");
+    doc.close();
     //ExEnd:NumberFormatForAxis
   });
 
@@ -292,6 +302,7 @@ describe("WorkingWithCharts", () => {
     chart.axisY.scaling.maximum = new aw.Drawing.Charts.AxisBound(6);
 
     doc.save(base.artifactsDir + "WorkingWithCharts.BoundsOfAxis.docx");
+    doc.close();
     //ExEnd:BoundsOfAxis
   });
 
@@ -314,6 +325,7 @@ describe("WorkingWithCharts", () => {
     chart.axisX.tickLabels.spacing = 2;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.IntervalUnitBetweenLabelsOnAxis.docx");
+    doc.close();
     //ExEnd:IntervalUnitBetweenLabelsOnAxis
   });
 
@@ -336,6 +348,7 @@ describe("WorkingWithCharts", () => {
     chart.axisY.hidden = true;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.HideChartAxis.docx");
+    doc.close();
     //ExEnd:HideChartAxis
   });
 
@@ -352,6 +365,7 @@ describe("WorkingWithCharts", () => {
     axis.tickLabels.alignment = aw.ParagraphAlignment.Right;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.TickMultiLineLabelAlignment.docx");
+    doc.close();
     //ExEnd:TickMultiLineLabelAlignment
   });
 
@@ -380,6 +394,7 @@ describe("WorkingWithCharts", () => {
     labels.showValue = true;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.ChartDataLabel.docx");
+    doc.close();
     //ExEnd:WorkWithChartDataLabel
   });
 
@@ -406,6 +421,7 @@ describe("WorkingWithCharts", () => {
     labels.separator = " - ";
 
     doc.save(base.artifactsDir + "WorkingWithCharts.DefaultOptionsForDataLabels.docx");
+    doc.close();
     //ExEnd:DefaultOptionsForDataLabels
   });
 
@@ -438,6 +454,7 @@ describe("WorkingWithCharts", () => {
     dataPoint12.marker.size = 20;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.SingleChartDataPoint.docx");
+    doc.close();
     //ExEnd:WorkWithSingleChartDataPoint
   });
 
@@ -476,6 +493,7 @@ describe("WorkingWithCharts", () => {
 
     doc.save(base.artifactsDir + "WorkingWithCharts.SingleChartSeries.docx");
 
+    doc.close();
   });
 
   test('FillFormatting', () => {
@@ -506,6 +524,7 @@ describe("WorkingWithCharts", () => {
     series3.format.fill.foreColor = "#0000FF";
 
     doc.save(base.artifactsDir + "WorkingWithCharts.FillFormatting.docx");
+    doc.close();
     //ExEnd:FillFormatting
   });
 
@@ -536,6 +555,7 @@ describe("WorkingWithCharts", () => {
     series2.format.stroke.weight = 5;
 
     doc.save(base.artifactsDir + "WorkingWithCharts.StrokeFormatting.docx");
+    doc.close();
     //ExEnd:StrokeFormatting
   });
 });

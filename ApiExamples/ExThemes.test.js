@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -84,6 +84,7 @@ describe("ExThemes", () => {
     doc.save(base.artifactsDir + "Themes.CustomColorsAndFonts.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Themes.CustomColorsAndFonts.docx");
 
     expect(doc.theme.colors.accent1).toEqual("#FF4500");
@@ -99,6 +100,7 @@ describe("ExThemes", () => {
     expect(doc.theme.minorFonts.complexScript).toEqual('');
     expect(doc.theme.minorFonts.eastAsian).toEqual('');
     expect(doc.theme.minorFonts.latin).toEqual("Agency FB");
+    doc.close();
   });
 
 });

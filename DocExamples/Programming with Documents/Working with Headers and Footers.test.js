@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -38,6 +38,7 @@ describe("WorkingWithHeadersAndFooters", () => {
     builder.write("Footer for page.");
 
     doc.save(base.artifactsDir + "WorkingWithHeadersAndFooters.CreateHeaderFooter.docx");
+    doc.close();
     //ExEnd:CreateHeaderFooter
   });
 
@@ -61,6 +62,7 @@ describe("WorkingWithHeadersAndFooters", () => {
     builder.writeln("Page 2");
 
     doc.save(base.artifactsDir + "WorkingWithHeadersAndFooters.DifferentFirstPage.docx");
+    doc.close();
     //ExEnd:DifferentFirstPage
   });
 
@@ -88,6 +90,7 @@ describe("WorkingWithHeadersAndFooters", () => {
     builder.writeln("Page 2");
 
     doc.save(base.artifactsDir + "WorkingWithHeadersAndFooters.OddEvenPages.docx");
+    doc.close();
     //ExEnd:OddEvenPages
   });
 
@@ -102,6 +105,7 @@ describe("WorkingWithHeadersAndFooters", () => {
         aw.Drawing.RelativeVerticalPosition.Page, 10, 50, 50, aw.Drawing.WrapType.Through);
 
     doc.save(base.artifactsDir + "WorkingWithHeadersAndFooters.InsertImage.docx");
+    doc.close();
     //ExEnd:InsertImage
   });
 
@@ -119,6 +123,7 @@ describe("WorkingWithHeadersAndFooters", () => {
     builder.write("Header for page.");
 
     doc.save(base.artifactsDir + "WorkingWithHeadersAndFooters.FontProps.docx");
+    doc.close();
     //ExEnd:FontProps
   });
 
@@ -136,6 +141,7 @@ describe("WorkingWithHeadersAndFooters", () => {
     builder.insertField("NUMPAGES", "");
 
     doc.save(base.artifactsDir + "WorkingWithHeadersAndFooters.PageNumbers.docx");
+    doc.close();
     //ExEnd:PageNumbers
   });
 
@@ -177,6 +183,7 @@ describe("WorkingWithHeadersAndFooters", () => {
     builder.write("New Header for the first page.");
 
     doc.save(base.artifactsDir + "WorkingWithHeadersAndFooters.LinkToPreviousHeaderFooter.docx");
+    doc.close();
     //ExEnd:LinkToPreviousHeaderFooter
   });
 
@@ -209,6 +216,7 @@ describe("WorkingWithHeadersAndFooters", () => {
     builder.write("Header for odd page.");
 
     doc.save(base.artifactsDir + "WorkingWithHeadersAndFooters.SectionsWithDifferentHeaders.docx");
+    doc.close();
     //ExEnd:SectionsWithDifferentHeaders
   });
 

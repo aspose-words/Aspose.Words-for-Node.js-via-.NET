@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -28,6 +28,7 @@ describe("DocumentProtection", () => {
         doc.protect(aw.ProtectionType.NoProtection, "password");
 
         doc.save(base.artifactsDir + "DocumentProtection.PasswordProtection.docx");
+        doc.close();
         //ExEnd:PasswordProtection
     });
 
@@ -44,6 +45,7 @@ describe("DocumentProtection", () => {
 
         // Save the protected document.
         doc.save(base.artifactsDir + "DocumentProtection.AllowOnlyFormFieldsProtect.docx");
+        doc.close();
         //ExEnd:AllowOnlyFormFieldsProtect
     });
 
@@ -61,6 +63,7 @@ describe("DocumentProtection", () => {
         doc.unprotect("newPassword");
 
         doc.save(base.artifactsDir + "DocumentProtection.RemoveDocumentProtection.docx");
+        doc.close();
         //ExEnd:RemoveDocumentProtection
     });
 
@@ -89,6 +92,7 @@ describe("DocumentProtection", () => {
         builder.writeln("This paragraph is outside any editable ranges, and cannot be edited.");
 
         doc.save(base.artifactsDir + "DocumentProtection.UnrestrictedEditableRegions.docx");
+        doc.close();
         //ExEnd:UnrestrictedEditableRegions
     });
 
@@ -110,9 +114,11 @@ describe("DocumentProtection", () => {
         doc.sections.at(0).protectedForForms = false;
         doc.save(base.artifactsDir + "DocumentProtection.UnrestrictedSection.docx");
 
+        doc.close();
         doc = new aw.Document(base.artifactsDir + "DocumentProtection.UnrestrictedSection.docx");
         expect(doc.sections.at(0).protectedForForms).toBe(false);
         expect(doc.sections.at(1).protectedForForms).toBe(true);
+        doc.close();
         //ExEnd:UnrestrictedSection
     });
 
@@ -120,6 +126,7 @@ describe("DocumentProtection", () => {
         //ExStart:GetProtectionType
         let doc = new aw.Document(base.myDir + "Document.docx");
         let protectionType = doc.protectionType;
+        doc.close();
         //ExEnd:GetProtectionType
     });
 
@@ -140,6 +147,7 @@ describe("DocumentProtection", () => {
         // Apply write protection as read-only.
         doc.protect(aw.ProtectionType.ReadOnly);
         doc.save(base.artifactsDir + "DocumentProtection.ReadOnlyProtection.docx");
+        doc.close();
         //ExEnd:ReadOnlyProtection
     });
 
@@ -157,6 +165,7 @@ describe("DocumentProtection", () => {
         // Apply write protection without any protection.
         doc.protect(aw.ProtectionType.NoProtection);
         doc.save(base.artifactsDir + "DocumentProtection.RemoveReadOnlyRestriction.docx");
+        doc.close();
         //ExEnd:RemoveReadOnlyRestriction
     });
 });

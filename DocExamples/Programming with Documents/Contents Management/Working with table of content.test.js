@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -24,6 +24,7 @@ describe("WorkingWithTableOfContent", () => {
         let doc = new aw.Document();
         // Retrieve the style used for the first level of the TOC and change the formatting of the style.
         doc.styles.at(aw.StyleIdentifier.Toc1).font.bold = true;
+        doc.close();
         //ExEnd:ChangeStyleOfTocLevel
     });
 
@@ -53,6 +54,7 @@ describe("WorkingWithTableOfContent", () => {
             }
         }
         doc.save(base.artifactsDir + "WorkingWithTableOfContent.ChangeTocTabStops.docx");
+        doc.close();
         //ExEnd:ChangeTocTabStops
     });
 
@@ -77,6 +79,7 @@ describe("WorkingWithTableOfContent", () => {
                 }
             }
         }
+        doc.close();
         //ExEnd:ExtractToc
     });
 });

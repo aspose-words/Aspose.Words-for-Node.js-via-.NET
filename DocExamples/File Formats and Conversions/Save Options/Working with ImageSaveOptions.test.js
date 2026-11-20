@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -31,6 +31,7 @@ describe("WorkingWithImageSaveOptions", () => {
     saveOptions.thresholdForFloydSteinbergDithering = 254;
 
     doc.save(base.artifactsDir + "WorkingWithImageSaveOptions.ExposeThresholdControl.tiff", saveOptions);
+    doc.close();
     //ExEnd:ExposeThresholdControl
   });
 
@@ -51,6 +52,7 @@ describe("WorkingWithImageSaveOptions", () => {
     saveOptions.resolution = 160;
 
     doc.save(base.artifactsDir + "WorkingWithImageSaveOptions.GetTiffPageRange.tiff", saveOptions);
+    doc.close();
     //ExEnd:SaveAsTIFFUsingImageSaveOptions
     //ExEnd:GetTiffPageRange
   });
@@ -67,6 +69,7 @@ describe("WorkingWithImageSaveOptions", () => {
     saveOptions.pixelFormat = aw.Saving.ImagePixelFormat.Format1bppIndexed;
 
     doc.save(base.artifactsDir + "WorkingWithImageSaveOptions.Format1BppIndexed.png", saveOptions);
+    doc.close();
     //ExEnd:Format1BppIndexed
   });
 
@@ -91,6 +94,7 @@ describe("WorkingWithImageSaveOptions", () => {
     options.horizontalResolution = 72;
 
     doc.save(base.artifactsDir + "WorkingWithImageSaveOptions.GetJpegPageRange.jpeg", options);
+    doc.close();
     //ExEnd:GetJpegPageRange
   });
 
@@ -101,6 +105,7 @@ describe("WorkingWithImageSaveOptions", () => {
     let options = new aw.Saving.ImageSaveOptions(aw.SaveFormat.Jpeg);
     options.pageLayout = aw.Saving.MultiPageLayout.horizontal(10);
     doc.save(base.artifactsDir + "WorkingWithImageSaveOptions.HorizontalLayout.jpg", options);
+    doc.close();
     //ExEnd:HorizontalLayout
   });
 
@@ -120,6 +125,7 @@ describe("WorkingWithImageSaveOptions", () => {
     options.pageLayout.borderWidth = 2;
 
     doc.save(base.artifactsDir + "ImageSaveOptions.GridLayout.jpg", options);
+    doc.close();
     //ExEnd:GridLayout
   });
 

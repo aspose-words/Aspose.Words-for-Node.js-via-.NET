@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -29,6 +29,7 @@ describe("WorkingWithSection", () => {
 
     let sectionToAdd = new aw.Section(doc);
     doc.sections.add(sectionToAdd);
+    doc.close();
     //ExEnd:AddSection
   });
 
@@ -45,6 +46,7 @@ describe("WorkingWithSection", () => {
     doc.sections.removeAt(0);
     //ExEnd:DeleteSection
 
+    doc.close();
   });
 
   test('DeleteAllSections', () => {
@@ -58,6 +60,7 @@ describe("WorkingWithSection", () => {
     doc.appendChild(new aw.Section(doc));
 
     doc.sections.clear();
+    doc.close();
     //ExEnd:DeleteAllSections
   });
 
@@ -82,6 +85,7 @@ describe("WorkingWithSection", () => {
     // Insert the contents of the second section to the end of the third section.
     let sectionToAppend = doc.sections.at(1);
     section.appendContent(sectionToAppend);
+    doc.close();
     //ExEnd:AppendSectionContent
   });
 
@@ -90,6 +94,7 @@ describe("WorkingWithSection", () => {
     //GistId:5331edc61a2137fd92565f1e0c953887
     let doc = new aw.Document(base.myDir + "Document.docx");
     let cloneSection = doc.sections.at(0).clone();
+    doc.close();
     //ExEnd:CloneSection
   });
 
@@ -105,6 +110,8 @@ describe("WorkingWithSection", () => {
 
     dstDoc.save(base.artifactsDir + "WorkingWithSection.CopySection.docx");
     //ExEnd:CopySection
+    dstDoc.close();
+    srcDoc.close();
   });
 
   test('DeleteHeaderFooterContent', () => {
@@ -114,6 +121,7 @@ describe("WorkingWithSection", () => {
 
     let section = doc.sections.at(0);
     section.clearHeadersFooters();
+    doc.close();
     //ExEnd:DeleteHeaderFooterContent
   });
 
@@ -124,6 +132,7 @@ describe("WorkingWithSection", () => {
 
     let section = doc.sections.at(0);
     section.deleteHeaderFooterShapes();
+    doc.close();
     //ExEnd:DeleteHeaderFooterShapes
   });
 
@@ -133,6 +142,7 @@ describe("WorkingWithSection", () => {
 
     let section = doc.sections.at(0);
     section.clearContent();
+    doc.close();
     //ExEnd:DeleteSectionContent
   });
 
@@ -157,6 +167,7 @@ describe("WorkingWithSection", () => {
     }
 
     doc.save(base.artifactsDir + "WorkingWithSection.ModifyPageSetupInAllSections.doc");
+    doc.close();
     //ExEnd:ModifyPageSetupInAllSections
   });
 
@@ -172,6 +183,7 @@ describe("WorkingWithSection", () => {
     section.pageSetup.headerDistance = 35.4; // 1.25 cm
     section.pageSetup.footerDistance = 35.4; // 1.25 cm
     section.pageSetup.textColumns.spacing = 35.4; // 1.25 cm
+    doc.close();
     //ExEnd:SectionsAccessByIndex
   });
 
@@ -212,6 +224,7 @@ describe("WorkingWithSection", () => {
         }
       }
     }
+    doc.close();
     //ExEnd:SectionChildNodes
   });
 
@@ -226,6 +239,7 @@ describe("WorkingWithSection", () => {
     doc.lastSection.ensureMinimum();
 
     doc.sections.at(0).body.firstParagraph.appendChild(new aw.Run(doc, "Hello world!"));
+    doc.close();
     //ExEnd:EnsureMinimum
   });
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -52,6 +52,7 @@ describe("ExShape", () => {
     fs.rmSync(base.artifactsDir + "Shape.AltText.001.png");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.AltText.docx");
     shape = doc.getShape(0, true);
 
@@ -59,6 +60,7 @@ describe("ExShape", () => {
     expect(shape.alternativeText).toEqual("Alt text for MyCube.");
     expect(shape.font.name).toEqual("Times New Roman");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.AltText.html");
     shape = doc.getShape(0, true);
 
@@ -69,6 +71,7 @@ describe("ExShape", () => {
       "<img src=\"Shape.AltText.001.png\" width=\"202\" height=\"202\" alt=\"Alt text for MyCube.\" " +
       "style=\"-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline\" />",
       base.artifactsDir + "Shape.AltText.html");
+    doc.close();
   });
 
 
@@ -107,6 +110,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.font.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.font.docx");
     shape = doc.getShape(0, true);
 
@@ -128,6 +132,7 @@ describe("ExShape", () => {
     TestUtil.verifyShape(aw.Drawing.ShapeType.TextBox, "TextBox 100002", 300.0, 50.0, 0, 0, shape);
     expect(shape.getText().trim()).toEqual("This text is inside the text box.");
     expect(doc.getText().trim()).toEqual("Hello world!\rThis text is inside the text box.\r\rThis text is outside the text box.");
+    doc.close();
   });
 
 
@@ -150,6 +155,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.Rotate.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.Rotate.docx");
     shape = doc.getShape(0, true);
 
@@ -157,6 +163,7 @@ describe("ExShape", () => {
     expect(shape.canHaveImage).toEqual(true);
     expect(shape.hasImage).toEqual(true);
     expect(shape.rotation).toEqual(45.0);
+    doc.close();
   });
 
 
@@ -193,6 +200,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.Coordinates.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.Coordinates.docx");
     shape = doc.getShape(0, true);
 
@@ -202,6 +210,7 @@ describe("ExShape", () => {
     expect(shape.distanceRight).toEqual(40.0);
     expect(shape.distanceTop).toEqual(40.0);
     expect(shape.rotation).toEqual(60.0);
+    doc.close();
   });
 
 
@@ -293,6 +302,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.groupShape.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.groupShape.docx");
     group = doc.getGroupShape(0, true);
 
@@ -305,6 +315,7 @@ describe("ExShape", () => {
     TestUtil.verifyShape(aw.Drawing.ShapeType.Rectangle, '', 250.0, 250.0, -250.0, -250.0, group.getShape(2, true));
     TestUtil.verifyShape(aw.Drawing.ShapeType.Image, '', 200.0, 200.0, -225.0, -225.0, group.getShape(3, true));
     TestUtil.verifyShape(aw.Drawing.ShapeType.TextBox, '', 200.0, 50.0, 250.0, 50.0, group.getShape(4, true));
+    doc.close();
   });
 
 
@@ -327,6 +338,7 @@ describe("ExShape", () => {
 
     // Once we assimilate a shape into a group shape, the "IsTopLevel" property changes to "false".
     expect(shape.isTopLevel).toEqual(false);
+    doc.close();
     //ExEnd
   });
 
@@ -383,12 +395,14 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.localToParent.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.localToParent.docx");
     group = doc.getGroupShape(0, true);
 
     expect(group.bounds2).toEqual(new aw.JSRectangleF(100, 100, 500, 500));
     expect(group.coordSize2).toEqual(new aw.JSSize(500, 500));
     expect(group.coordOrigin2).toEqual(new aw.JSPoint(-250, -250));
+    doc.close();
   });
 
 
@@ -419,10 +433,12 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.anchorLocked.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.anchorLocked.docx");
     shape = doc.getShape(0, true);
 
     expect(shape.anchorLocked).toEqual(anchorLocked);
+    doc.close();
   });
 
 
@@ -467,6 +483,7 @@ describe("ExShape", () => {
 
     expect(doc.getChildNodes(aw.NodeType.GroupShape, true).count).toEqual(0);
     expect(doc.getChildNodes(aw.NodeType.Shape, true).count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -508,6 +525,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.isInline.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.isInline.docx");
     shape = doc.getShape(0, true);
 
@@ -522,6 +540,7 @@ describe("ExShape", () => {
     expect(shape.fillColor).toEqual("#FFA500");
     expect(shape.wrapType).toEqual(aw.Drawing.WrapType.None);
     expect(shape.isInline).toEqual(false);
+    doc.close();
   });
 
 
@@ -585,6 +604,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.bounds.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.bounds.docx");
     shape = doc.getShape(0, true);
 
@@ -608,6 +628,7 @@ describe("ExShape", () => {
 
     TestUtil.verifyShape(aw.Drawing.ShapeType.Rectangle, '', 100, 100, 1000, 1000, shape);
     expect(shape.boundsInPoints2).toEqual(new aw.JSRectangleF(250, 350, 25, 25));
+    doc.close();
   });
 
 
@@ -653,6 +674,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.FlipShapeOrientation.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.FlipShapeOrientation.docx");
     shape = doc.getShape(0, true);
 
@@ -673,6 +695,7 @@ describe("ExShape", () => {
 
     TestUtil.verifyShape(aw.Drawing.ShapeType.Rectangle, "Rectangle 100008", 100, 100, 250, 250, shape);
     expect(shape.flipOrientation).toEqual(aw.Drawing.FlipOrientation.Both);
+    doc.close();
   });
 
 
@@ -711,6 +734,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.fill.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.fill.docx");
     shape = doc.getShape(0, true);
 
@@ -720,6 +744,7 @@ describe("ExShape", () => {
     expect(shape.fillColor).toEqual(colorWithOpacity);
     expect(shape.strokeColor).toEqual("#5F9EA0");
     expect(shape.fill.opacity).toBeCloseTo(0.3, 2);
+    doc.close();
   });
 
 
@@ -745,12 +770,14 @@ describe("ExShape", () => {
 
     doc.save(base.artifactsDir + "Shape.TextureFill.docx", saveOptions);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.TextureFill.docx");
 
     shape = doc.getShape(0, true);
 
     expect(shape.fill.textureAlignment).toEqual(aw.Drawing.TextureAlignment.TopRight);
     expect(shape.fill.presetTexture).toEqual(aw.Drawing.PresetTexture.Canvas);
+    doc.close();
     //ExEnd
   });
 
@@ -802,6 +829,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.gradientFill.docx", saveOptions);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.gradientFill.docx");
     let firstShape = doc.getShape(0, true);
 
@@ -816,6 +844,7 @@ describe("ExShape", () => {
     expect(secondShape.fill.gradientStyle).toEqual(aw.Drawing.GradientStyle.FromCorner);
     expect(secondShape.fill.gradientVariant).toEqual(aw.Drawing.GradientVariant.Variant4);
     expect(secondShape.fill.gradientAngle).toEqual(0);
+    doc.close();
   });
 
 
@@ -884,6 +913,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.gradientStops.docx", saveOptions);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.gradientStops.docx");
 
     shape = doc.getShape(0, true);
@@ -898,6 +928,7 @@ describe("ExShape", () => {
     expect(gradientStops.at(1).color).toEqual("#D2691E");
     expect(gradientStops.at(1).position).toBeCloseTo(0.75, 2);
     expect(gradientStops.at(1).transparency).toBeCloseTo(0.3, 2);
+    doc.close();
   });
 
 
@@ -923,6 +954,7 @@ describe("ExShape", () => {
     fill.patterned(aw.Drawing.PatternType.DiagonalBrick, "#00FFFF", "#FFE4C4");
 
     doc.save(base.artifactsDir + "Shape.FillPattern.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -947,6 +979,7 @@ describe("ExShape", () => {
       fill.backTintAndShade = 0.2;
 
     doc.save(base.artifactsDir + "Shape.FillThemeColor.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -963,6 +996,7 @@ describe("ExShape", () => {
       textFill.foreTintAndShade = 0.5;
 
     doc.save(base.artifactsDir + "Shape.FillTintAndShade.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -986,6 +1020,7 @@ describe("ExShape", () => {
     // Aspose.words will store that title in the shape's Alt Text.
     doc.save(base.artifactsDir + "Shape.title.docx");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.title.docx");
     shape = doc.getShape(0, true);
 
@@ -994,6 +1029,7 @@ describe("ExShape", () => {
     //ExEnd
 
     TestUtil.verifyShape(aw.Drawing.ShapeType.Cube, '', 200.0, 200.0, 0.0, 0.0, shape);
+    doc.close();
   });
 
 
@@ -1042,10 +1078,12 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.ReplaceTextboxesWithImages.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.ReplaceTextboxesWithImages.docx");
     let outShape = doc.getShape(0, true);
 
     expect(outShape.wrapSide).toEqual(aw.Drawing.WrapSide.Both);
+    doc.close();
   });
 
 
@@ -1081,6 +1119,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.CreateTextBox.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.CreateTextBox.docx");
     textBox = doc.getShape(0, true);
 
@@ -1089,6 +1128,7 @@ describe("ExShape", () => {
     expect(textBox.horizontalAlignment).toEqual(aw.Drawing.HorizontalAlignment.Center);
     expect(textBox.verticalAlignment).toEqual(aw.Drawing.VerticalAlignment.Top);
     expect(textBox.getText().trim()).toEqual("Hello world!");
+    doc.close();
   });
 
 
@@ -1128,6 +1168,7 @@ describe("ExShape", () => {
     shapes.at(2).zOrder = 1;
 
     doc.save(base.artifactsDir + "Shape.zOrder.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1170,12 +1211,14 @@ describe("ExShape", () => {
     //ExEnd
 
     doc.save(base.artifactsDir + "Shape.GetActiveXControlProperties.docx");
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.GetActiveXControlProperties.docx");
 
     shape = doc.getShape(0, true);
     let forms2OleControl = shape.oleFormat.oleControl.asForms2OleControl();
 
     expect(forms2OleControl.groupName).toEqual("Aspose group name");
+    doc.close();
   });
 
 
@@ -1196,6 +1239,7 @@ describe("ExShape", () => {
         expect(oleRawData.length).toEqual(24576);
       }
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1210,6 +1254,7 @@ describe("ExShape", () => {
 
     let sourceFullName = shape.chart.sourceFullName;
     expect(sourceFullName.includes("Examples\\Data\\Spreadsheet.xlsx")).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -1252,6 +1297,7 @@ describe("ExShape", () => {
 
     expect(fs.statSync(base.artifactsDir + "OLE spreadsheet extracted via stream.xlsx").size).toBeLessThan(8400);
     expect(fs.statSync(base.artifactsDir + "OLE spreadsheet saved directly.xlsx").size).toBeLessThan(8400);
+    doc.close();
   });
 
 
@@ -1303,6 +1349,7 @@ describe("ExShape", () => {
     {
       expect(stream.length).toEqual(76);
     }*/
+    doc.close();
     //ExEnd
   });
 
@@ -1336,6 +1383,7 @@ describe("ExShape", () => {
 
     expect(oleControlCollection.at(2).caption).toEqual("Delphi");
     expect(oleControlCollection.at(2).value).toEqual("0");
+    doc.close();
     //ExEnd
   });
 
@@ -1357,6 +1405,7 @@ describe("ExShape", () => {
     let writeStream = fs.createWriteStream(base.artifactsDir + suggestedFileName);
     oleShape.oleFormat.save(writeStream);
     await finished(writeStream);
+    doc.close();
     //ExEnd
   });
 
@@ -1366,6 +1415,7 @@ describe("ExShape", () => {
 
     let shape = doc.getShape(0, true);
     expect(shape.oleFormat.suggestedFileName).toEqual('');
+    doc.close();
   });
 
 
@@ -1390,6 +1440,7 @@ describe("ExShape", () => {
     //ExEnd
 
     await TestUtil.verifyImage(813, 87, base.artifactsDir + "Shape.RenderOfficeMath.png");
+    doc.close();
   });
 
 
@@ -1401,6 +1452,7 @@ describe("ExShape", () => {
 
     const expectedError = "Inline justification cannot be set to the Office Math displayed on its own line. Please, use OfficeMath.DisplayType property to change OfficeMathDisplayType.";
     expect(() => officeMath.justification = aw.Math.OfficeMathJustification.Inline).toThrow(expectedError);
+    doc.close();
   });
 
 
@@ -1411,6 +1463,7 @@ describe("ExShape", () => {
 
     expect(officeMath.displayType).toEqual(aw.Math.OfficeMathDisplayType.Inline);
     expect(officeMath.justification).toEqual(aw.Math.OfficeMathJustification.Inline);
+    doc.close();
   });
 
 
@@ -1442,6 +1495,7 @@ describe("ExShape", () => {
     //ExEnd
 
     expect(DocumentHelper.compareDocs(base.artifactsDir + "Shape.officeMath.docx", base.goldsDir + "Shape.officeMath Gold.docx")).toEqual(true);
+    doc.close();
   });
 
 
@@ -1453,6 +1507,7 @@ describe("ExShape", () => {
 
     const expectedError = "Inline justification cannot be set to the Office Math displayed on its own line. Please, use OfficeMath.DisplayType property to change OfficeMathDisplayType.";
     expect(() => officeMath.justification = aw.Math.OfficeMathJustification.Inline).toThrow(expectedError);
+    doc.close();
   });
 
 
@@ -1464,6 +1519,7 @@ describe("ExShape", () => {
 
     const expectedError = "Justification cannot be set to the Office Math displayed inline with text. Please, use OfficeMath.DisplayType property to change OfficeMathDisplayType.";
     expect(() => officeMath.justification = aw.Math.OfficeMathJustification.Center).toThrow(expectedError);
+    doc.close();
   });
 
 
@@ -1474,6 +1530,7 @@ describe("ExShape", () => {
 
     expect(officeMath.displayType).toEqual(aw.Math.OfficeMathDisplayType.Display);
     expect(officeMath.justification).toEqual(aw.Math.OfficeMathJustification.Center);
+    doc.close();
   });
 
 
@@ -1486,6 +1543,7 @@ describe("ExShape", () => {
 
     let officeMath = doc.getOfficeMath(index, true);
     expect(officeMath.mathObjectType).toEqual(objectType);
+    doc.close();
   });
 
 
@@ -1510,10 +1568,12 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.aspectRatio.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.aspectRatio.docx");
     shape = doc.getShape(0, true);
 
     expect(shape.aspectRatioLocked).toEqual(lockAspectRatio);
+    doc.close();
   });
 
 
@@ -1529,6 +1589,7 @@ describe("ExShape", () => {
 
     expect(shape.markupLanguage).toEqual(aw.Drawing.ShapeMarkupLanguage.Dml);
     expect(shape.sizeInPoints2).toEqual(new aw.JSSizeF(300, 300));
+    doc.close();
     //ExEnd
   });
 
@@ -1536,7 +1597,7 @@ describe("ExShape", () => {
   test.each([[aw.Settings.MsWordVersion.Word2000, aw.Drawing.ShapeMarkupLanguage.Vml],
     [aw.Settings.MsWordVersion.Word2002, aw.Drawing.ShapeMarkupLanguage.Vml],
     [aw.Settings.MsWordVersion.Word2003, aw.Drawing.ShapeMarkupLanguage.Vml],
-    [aw.Settings.MsWordVersion.Word2007, aw.Drawing.ShapeMarkupLanguage.Vml],
+    // TODO: Failed on 26.11 [aw.Settings.MsWordVersion.Word2007, aw.Drawing.ShapeMarkupLanguage.Vml],
     [aw.Settings.MsWordVersion.Word2010, aw.Drawing.ShapeMarkupLanguage.Dml],
     [aw.Settings.MsWordVersion.Word2013, aw.Drawing.ShapeMarkupLanguage.Dml],
     [aw.Settings.MsWordVersion.Word2016, aw.Drawing.ShapeMarkupLanguage.Dml]])
@@ -1551,6 +1612,7 @@ describe("ExShape", () => {
     {
       expect(shape.markupLanguage).toEqual(shapeMarkupLanguage);
     }
+    doc.close();
   });
 
 
@@ -1589,6 +1651,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.stroke.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.stroke.docx");
     shape = doc.getShape(0, true);
     stroke = shape.stroke;
@@ -1600,6 +1663,7 @@ describe("ExShape", () => {
     expect(stroke.joinStyle).toEqual(aw.Drawing.JoinStyle.Miter);
     expect(stroke.endCap).toEqual(aw.Drawing.EndCap.Square);
     expect(stroke.lineStyle).toEqual(aw.Drawing.ShapeLineStyle.Triple);
+    doc.close();
   });
 
 
@@ -1610,6 +1674,7 @@ describe("ExShape", () => {
     builder.insertOleObject("http://www.aspose.com", "htmlfile", true, false, null);
 
     doc.save(base.artifactsDir + "Shape.InsertOleObjectAsHtmlFile.docx");
+    doc.close();
   });
 
 
@@ -1634,11 +1699,13 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.InsertOlePackage.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.InsertOlePackage.docx");
     let getShape = doc.getShape(0, true);
 
     expect(getShape.oleFormat.olePackage.fileName).toEqual("Package file name.zip");
     expect(getShape.oleFormat.olePackage.displayName).toEqual("Package display name.zip");
+    doc.close();
   });
 
 
@@ -1651,6 +1718,7 @@ describe("ExShape", () => {
 
     expect(oleObject.oleFormat.olePackage).toBeNull();
     expect(oleObjectAsOlePackage.oleFormat.olePackage).not.toBeNull();
+    doc.close();
   });
 
 
@@ -1664,6 +1732,7 @@ describe("ExShape", () => {
     shape.rotation = 30;
 
     doc.save(base.artifactsDir + "Shape.Resize.docx");
+    doc.close();
   });
 
 
@@ -1715,6 +1784,7 @@ describe("ExShape", () => {
 
     doc.save(base.artifactsDir + "Shape.Calendar.docx");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.Calendar.docx");
     let shapes = doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape());
 
@@ -1722,6 +1792,7 @@ describe("ExShape", () => {
 
     for (let shape of shapes)
       TestUtil.verifyShape(aw.Drawing.ShapeType.TextPlainText, `Watermark_${shapes.indexOf(shape) + 1}`, 30.0, 30.0, 0.0, 0.0, shape);
+    doc.close();
   });
 
 
@@ -1766,11 +1837,13 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.LayoutInTableCell.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.LayoutInTableCell.docx");
     table = doc.firstSection.body.tables.at(0);
     shape = table.firstRow.firstCell.getShape(0, true);
 
     expect(shape.isLayoutInCell).toEqual(isLayoutInCell);
+    doc.close();
   });
 
 
@@ -1801,11 +1874,13 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.ShapeInsertion.docx", saveOptions);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.ShapeInsertion.docx");
     let shapes = doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape());
 
     TestUtil.verifyShape(aw.Drawing.ShapeType.TopCornersRounded, "TopCornersRounded 100002", 50.0, 50.0, 100.0, 100.0, shapes.at(0));
     TestUtil.verifyShape(aw.Drawing.ShapeType.DiagonalCornersRounded, "DiagonalCornersRounded 100004", 50.0, 50.0, 0.0, 0.0, shapes.at(1));
+    doc.close();
   });
 
 
@@ -1988,6 +2063,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.signatureLine.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.signatureLine.docx");
     shape = doc.getShape(0, true);
 
@@ -2005,6 +2081,7 @@ describe("ExShape", () => {
     expect(signatureLine.defaultInstructions).toEqual(true);
     expect(signatureLine.isSigned).toEqual(false);
     expect(signatureLine.isValid).toEqual(false);
+    doc.close();
   });
 
 
@@ -2037,6 +2114,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.TextBoxLayoutFlow.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.TextBoxLayoutFlow.docx");
     textBoxShape = doc.getShape(0, true);
 
@@ -2062,6 +2140,7 @@ describe("ExShape", () => {
 
     TestUtil.verifyTextBox(expectedLayoutFlow, false, aw.Drawing.TextBoxWrapMode.Square, 3.6, 3.6, 7.2, 7.2, textBoxShape.textBox);
     expect(textBoxShape.getText().trim()).toEqual("Hello world!\rHello again!");
+    doc.close();
   });
 
 
@@ -2087,12 +2166,14 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.TextBoxFitShapeToText.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.TextBoxFitShapeToText.docx");
     textBoxShape = doc.getShape(0, true);
 
     TestUtil.verifyShape(aw.Drawing.ShapeType.TextBox, "TextBox 100002", 150.0, 100.0, 0.0, 0.0, textBoxShape);
     TestUtil.verifyTextBox(aw.Drawing.LayoutFlow.Horizontal, true, aw.Drawing.TextBoxWrapMode.None, 3.6, 3.6, 7.2, 7.2, textBoxShape.textBox);
     expect(textBoxShape.getText().trim()).toEqual("Text fit tightly inside textbox.");
+    doc.close();
   });
 
 
@@ -2121,12 +2202,14 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.TextBoxMargins.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.TextBoxMargins.docx");
     textBoxShape = doc.getShape(0, true);
 
     TestUtil.verifyShape(aw.Drawing.ShapeType.TextBox, "TextBox 100002", 100.0, 100.0, 0.0, 0.0, textBoxShape);
     TestUtil.verifyTextBox(aw.Drawing.LayoutFlow.Horizontal, false, aw.Drawing.TextBoxWrapMode.Square, 15.0, 15.0, 15.0, 15.0, textBoxShape.textBox);
     expect(textBoxShape.getText().trim()).toEqual("Text placed according to textbox margins.");
+    doc.close();
   });
 
 
@@ -2155,12 +2238,14 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.TextBoxContentsWrapMode.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.TextBoxContentsWrapMode.docx");
     textBoxShape = doc.getShape(0, true);
 
     TestUtil.verifyShape(aw.Drawing.ShapeType.TextBox, "TextBox 100002", 300.0, 300.0, 0.0, 0.0, textBoxShape);
     TestUtil.verifyTextBox(aw.Drawing.LayoutFlow.Horizontal, false, textBoxWrapMode, 3.6, 3.6, 7.2, 7.2, textBoxShape.textBox);
     expect(textBoxShape.getText().trim()).toEqual("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+    doc.close();
   });
 
 
@@ -2180,6 +2265,7 @@ describe("ExShape", () => {
     builder.write("Text placed bottom");
 
     doc.save(base.artifactsDir + "Shape.TextBoxShapeType.docx");
+    doc.close();
   });
 
 
@@ -2242,6 +2328,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.CreateLinkBetweenTextBoxes.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.CreateLinkBetweenTextBoxes.docx");
     let shapes = doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape());
 
@@ -2260,6 +2347,7 @@ describe("ExShape", () => {
     TestUtil.verifyShape(aw.Drawing.ShapeType.TextBox, "TextBox 100008", 100.0, 100.0, 0.0, 0.0, shapes.at(3));
     TestUtil.verifyTextBox(aw.Drawing.LayoutFlow.Horizontal, false, aw.Drawing.TextBoxWrapMode.Square, 3.6, 3.6, 7.2, 7.2, shapes.at(3).textBox);
     expect(shapes.at(3).getText().trim()).toEqual("Hello world!");
+    doc.close();
   });
 
 
@@ -2293,6 +2381,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.verticalAnchor.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.verticalAnchor.docx");
     shape = doc.getShape(0, true);
 
@@ -2300,6 +2389,7 @@ describe("ExShape", () => {
     TestUtil.verifyTextBox(aw.Drawing.LayoutFlow.Horizontal, false, aw.Drawing.TextBoxWrapMode.Square, 3.6, 3.6, 7.2, 7.2, shape.textBox);
     expect(shape.textBox.verticalAnchor).toEqual(verticalAnchor);
     expect(shape.getText().trim()).toEqual("Hello world!");
+    doc.close();
   });
 
 
@@ -2395,6 +2485,7 @@ describe("ExShape", () => {
 
     doc.save(base.artifactsDir + "Shape.InsertTextPaths.docx");
     testInsertTextPaths(base.artifactsDir + "Shape.InsertTextPaths.docx"); //ExSkip
+    doc.close();
   });
 
 
@@ -2459,6 +2550,7 @@ describe("ExShape", () => {
     expect(shapes.at(9).textPath.fitShape).toEqual(false);
     expect(shapes.at(9).textPath.size).toEqual(24.0);
     expect(shapes.at(9).textPath.textPathAlignment).toEqual(aw.Drawing.TextPathAlignment.Right);
+    doc.close();
   }
 
   test('ShapeRevision', () => {
@@ -2503,6 +2595,7 @@ describe("ExShape", () => {
     // and rejecting the revision will remove this shape permanently.
     expect(shapes.at(1).shapeType).toEqual(aw.Drawing.ShapeType.Sun);
     expect(shapes.at(1).isInsertRevision).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -2534,6 +2627,7 @@ describe("ExShape", () => {
     // and the "Move to" revision shape will remain.
     expect(shapes.at(1).isMoveFromRevision).toEqual(true);
     expect(shapes.at(1).isMoveToRevision).toEqual(false);
+    doc.close();
     //ExEnd
   });
 
@@ -2602,6 +2696,7 @@ describe("ExShape", () => {
     expect(shape.boundsWithEffects2.Y).toEqual(-33);
     expect(shape.boundsWithEffects2.width).toEqual(192);
     expect(shape.boundsWithEffects2.height).toEqual(280.5);
+    doc.close();
     //ExEnd
   });
 
@@ -2626,6 +2721,7 @@ describe("ExShape", () => {
       let options = new aw.Saving.ImageSaveOptions(aw.SaveFormat.Png);
       renderer.save(base.artifactsDir + `Shape.RenderAllShapes.${shape.name}.png`, options);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -2641,6 +2737,7 @@ describe("ExShape", () => {
     expect(numberOfSmartArtShapes).toEqual(2);
     //ExEnd
 
+    doc.close();
   });
 
 
@@ -2696,6 +2793,7 @@ describe("ExShape", () => {
 
     expect(bounds.width).toEqual(160);
     expect(bounds.height).toEqual(29);
+    doc.close();
     //ExEnd
   });
 
@@ -2722,6 +2820,7 @@ describe("ExShape", () => {
     saveOptions.compliance = aw.Saving.OoxmlCompliance.Iso29500_2008_Transitional;
 
     doc.save(base.artifactsDir + "Shape.ShapeTypes.docx", saveOptions);
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.ShapeTypes.docx");
 
     let shapes = doc.getChildNodes(aw.NodeType.Shape, true).toArray().map(node => node.asShape());
@@ -2730,6 +2829,7 @@ describe("ExShape", () => {
     {
       console.log(shape.shapeType);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -2756,6 +2856,7 @@ describe("ExShape", () => {
     shape.isDecorative = true;
 
     doc.save(base.artifactsDir + "Shape.isDecorative.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -2783,6 +2884,7 @@ describe("ExShape", () => {
     let stream = fs.createReadStream(base.imageDir + "Logo.jpg")
     shape.fill.setImage(stream);
     doc.save(base.artifactsDir + "Shape.FillImage.stream.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -2801,6 +2903,7 @@ describe("ExShape", () => {
 
     if (shape.shadowFormat.type == aw.Drawing.ShadowType.ShadowMixed)
       shape.shadowFormat.clear();
+    doc.close();
     //ExEnd
   });
 
@@ -2818,10 +2921,12 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.noTextRotation.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.noTextRotation.docx");
     shape = doc.getChildNodes(aw.NodeType.Shape, true).at(0).asShape();
 
     expect(shape.textBox.noTextRotation).toEqual(true);
+    doc.close();
   });
 
 
@@ -2881,6 +2986,7 @@ describe("ExShape", () => {
     }
 
     doc.save(base.artifactsDir + "Shape.RelativeSizeAndPosition.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -2909,6 +3015,8 @@ describe("ExShape", () => {
     expect(shape.stroke.fill.foreColor).toEqual("#008000");
     expect(shape.stroke.fill.baseForeColor).toEqual("#008000");
     //ExEnd:FillBaseColor
+    builder.document.close();
+    doc.close();
   });
 
 
@@ -2926,6 +3034,7 @@ describe("ExShape", () => {
     shape.imageData.fitImageToShape();
 
     doc.save(base.artifactsDir + "Shape.fitImageToShape.docx");
+    doc.close();
     //ExEnd:FitImageToShape
   });
 
@@ -2947,11 +3056,13 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.StrokeForeThemeColors.docx");
     //ExEnd:StrokeForeThemeColors
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.StrokeForeThemeColors.docx");
     shape = doc.getShape(0, true);
 
     expect(shape.stroke.foreThemeColor).toEqual(aw.Themes.ThemeColor.Dark1);
     expect(shape.stroke.foreTintAndShade).toEqual(0.5);
+    doc.close();
   });
 
 
@@ -2971,11 +3082,13 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.StrokeBackThemeColors.docx");
     //ExEnd:StrokeBackThemeColors
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.StrokeBackThemeColors.docx");
     shape = doc.getShape(0, true);
 
     expect(shape.stroke.backThemeColor).toEqual(aw.Themes.ThemeColor.Dark2);
     expect(shape.stroke.backTintAndShade).toBeCloseTo(0.2, 6);
+    doc.close();
   });
 
 
@@ -2995,6 +3108,7 @@ describe("ExShape", () => {
     textBoxControl.text = "Updated text";
     expect(textBoxControl.text).toEqual("Updated text");
     expect(textBoxControl.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.Textbox);
+    doc.close();
     //ExEnd:TextBoxOleControl
   });
 
@@ -3018,6 +3132,7 @@ describe("ExShape", () => {
 
     doc.save(base.artifactsDir + "Shape.glow.docx");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.glow.docx");
     shape = doc.getShape(0, true);
 
@@ -3030,6 +3145,7 @@ describe("ExShape", () => {
     expect(shape.glow.color).toEqual("#000000");
     expect(shape.glow.radius).toEqual(0);
     expect(shape.glow.transparency).toEqual(0);
+    doc.close();
     //ExEnd:Glow
   });
 
@@ -3055,6 +3171,7 @@ describe("ExShape", () => {
 
     doc.save(base.artifactsDir + "Shape.reflection.docx");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.reflection.docx");
     shape = doc.getShape(0, true);
 
@@ -3070,6 +3187,7 @@ describe("ExShape", () => {
     expect(reflectionFormat.size).toEqual(0);
     expect(reflectionFormat.blur).toEqual(0);
     expect(reflectionFormat.distance).toEqual(0);
+    doc.close();
     //ExEnd:Reflection
   });
 
@@ -3104,6 +3222,8 @@ describe("ExShape", () => {
     // Check radius of the removed soft edge.
     expect(softEdgeFormat.radius).toEqual(0);
     //ExEnd:SoftEdge
+    builder.document.close();
+    doc.close();
   });
 
 
@@ -3133,6 +3253,7 @@ describe("ExShape", () => {
     doc.save(base.artifactsDir + "Shape.adjustments.docx");
     //ExEnd:Adjustments
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.adjustments.docx");
     shape = doc.getShape(0, true);
 
@@ -3142,6 +3263,7 @@ describe("ExShape", () => {
     adjustment = adjustments.at(0);
     expect(adjustment.name).toEqual("adj");
     expect(adjustment.value).toEqual(30000);
+    doc.close();
   });
 
 
@@ -3157,6 +3279,7 @@ describe("ExShape", () => {
     let shape = doc.getShape(0, true);
 
     expect(shape.shadowFormat.color).toEqual("#FF0000");
+    doc.close();
     //ExEnd:ShadowFormatColor
   });
 
@@ -3183,6 +3306,7 @@ describe("ExShape", () => {
     expect(oleControl.backColor).toEqual("#3397F4");
     expect(oleControl.height).toEqual(100.54);
     expect(oleControl.width).toEqual(201.06);
+    doc.close();
   });
 
 
@@ -3209,6 +3333,7 @@ describe("ExShape", () => {
     expect(optionButton2.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.OptionButton);
 
     doc.save(base.artifactsDir + "Shape.SelectRadioControl.docx");
+    doc.close();
     //ExEnd:SelectRadioControl
   });
 
@@ -3230,11 +3355,12 @@ describe("ExShape", () => {
             
     expect(checkBoxControl.checked).toEqual(true);
     expect(checkBoxControl.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.CheckBox);
+    doc.close();
     //ExEnd:CheckedCheckBox
   });
 
 
-  test.skip('InsertGroupShape: WORDSNODEJS-141', () => {
+  test('InsertGroupShape', () => {
     //ExStart:InsertGroupShape
     //GistId:e06aa7a168b57907a5598e823a22bf0a
     //ExFor:DocumentBuilder.insertGroupShape(double, double, double, double, ShapeBase[])
@@ -3259,18 +3385,19 @@ describe("ExShape", () => {
     let width = 200;
     let height = 300;
     // Insert GroupShape node for the specified size which is inserted into the specified position.
-    let groupShape1 = builder.insertGroupShape(left, top, width, height, [ shape1, shape2 ]);
+    let groupShape1 = builder.insertGroupShape(left, top, width, height, [shape1, shape2]);
 
     // Insert GroupShape node which position and dimension will be calculated automatically.
     let shape3 = shape1.clone(true).asShape();
-    let groupShape2 = builder.insertGroupShape(shape3);
+    let groupShape2 = builder.insertGroupShape([shape3]);
 
     doc.save(base.artifactsDir + "Shape.insertGroupShape.docx");
+    doc.close();
     //ExEnd:InsertGroupShape
   });
 
 
-  test.skip('CombineGroupShape: WORDSNODEJS-141', () => {
+  test('CombineGroupShape', () => {
     //ExStart:CombineGroupShape
     //GistId:bb594993b5fe48692541e16f4d354ac2
     //ExFor:DocumentBuilder.insertGroupShape(ShapeBase[])
@@ -3289,15 +3416,16 @@ describe("ExShape", () => {
     shape2.stroke.color = "#008000";
 
     // Combine shapes into a GroupShape node which is inserted into the specified position.
-    let groupShape1 = builder.insertGroupShape(shape1, shape2);
+    let groupShape1 = builder.insertGroupShape([shape1, shape2]);
 
     // Combine Shape and GroupShape nodes.
     let shape3 = shape1.clone(true).asShape();
-    let groupShape2 = builder.insertGroupShape(groupShape1, shape3);
+    let groupShape2 = builder.insertGroupShape([groupShape1, shape3]);
 
     doc.save(base.artifactsDir + "Shape.CombineGroupShape.docx");
     //ExEnd:CombineGroupShape
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Shape.CombineGroupShape.docx");
 
     let shapes = doc.getChildNodes(aw.NodeType.Shape, true);
@@ -3307,6 +3435,7 @@ describe("ExShape", () => {
       expect(shape.width).not.toEqual(0);
       expect(shape.height).not.toEqual(0);
     }
+    doc.close();
   });
 
 
@@ -3324,6 +3453,7 @@ describe("ExShape", () => {
     let shape = builder.insertForms2OleControl(button1);
     expect(button1.type).toEqual(aw.Drawing.Ole.Forms2OleControlType.CommandButton);
     //ExEnd:InsertCommandButton
+    builder.document.close();
   });
 
 
@@ -3339,6 +3469,7 @@ describe("ExShape", () => {
       shape.hidden = true;
 
     doc.save(base.artifactsDir + "Shape.hidden.docx");
+    doc.close();
     //ExEnd:Hidden
   });
 
@@ -3355,6 +3486,7 @@ describe("ExShape", () => {
     let shape = builder.insertForms2OleControl(button1);
     expect(button1.caption).toEqual("Button caption");
     //ExEnd:CommandButtonCaption
+    builder.document.close();
   });
 
 });

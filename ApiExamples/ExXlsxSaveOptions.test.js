@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -34,6 +34,7 @@ describe("ExXlsxSaveOptions", () => {
     xlsxSaveOptions.saveFormat = aw.SaveFormat.Xlsx;
 
     doc.save(base.artifactsDir + "XlsxSaveOptions.CompressXlsx.xlsx", xlsxSaveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -52,6 +53,7 @@ describe("ExXlsxSaveOptions", () => {
     xlsxSaveOptions.sectionMode = aw.Saving.XlsxSectionMode.MultipleWorksheets;
 
     doc.save(base.artifactsDir + "XlsxSaveOptions.SelectionMode.xlsx", xlsxSaveOptions);
+    doc.close();
     //ExEnd:SelectionMode
   });
 
@@ -69,6 +71,7 @@ describe("ExXlsxSaveOptions", () => {
     saveOptions.dateTimeParsingMode = aw.Saving.XlsxDateTimeParsingMode.Auto;
 
     doc.save(base.artifactsDir + "XlsxSaveOptions.dateTimeParsingMode.xlsx", saveOptions);
+    doc.close();
     //ExEnd:DateTimeParsingMode
   });
 });

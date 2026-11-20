@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -50,12 +50,15 @@ describe("ExDocSaveOptions", () => {
 
     // To be able to load the document,
     // we will need to apply the password we specified in the DocSaveOptions object in a LoadOptions object.
+    doc.close();
     expect(() => doc = new aw.Document(base.artifactsDir + "DocSaveOptions.SaveAsDoc.doc")).toThrow("The document password is incorrect.");
 
     let loadOptions = new aw.Loading.LoadOptions("MyPassword");
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocSaveOptions.SaveAsDoc.doc", loadOptions);
 
     expect(doc.getText().trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -80,6 +83,7 @@ describe("ExDocSaveOptions", () => {
     // The folder will persist with no residual contents from the load operation.
     const fileList = fs.readdirSync(options.tempFolder);    
     expect(fileList.length).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -99,9 +103,11 @@ describe("ExDocSaveOptions", () => {
     doc.save(base.artifactsDir + "DocSaveOptions.PictureBullets.doc", saveOptions);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocSaveOptions.PictureBullets.doc");
 
     expect(doc.lists.at(0).listLevels.at(0).imageData).toBe(null);
+    doc.close();
   });
 
   test.each([true,
@@ -123,12 +129,14 @@ describe("ExDocSaveOptions", () => {
     doc.save(base.artifactsDir + "DocSaveOptions.updateLastPrintedProperty.doc", saveOptions);
 
     // Open the saved document, then verify the value of the property.
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocSaveOptions.updateLastPrintedProperty.doc");
 
     if (isUpdateLastPrintedProperty)
       expect(doc.builtInDocumentProperties.lastPrinted).not.toEqual(new Date(2019, 12, 20));
     else
       expect(doc.builtInDocumentProperties.lastPrinted).toEqual(new Date(2019, 12, 20));
+    doc.close();
     //ExEnd
   });
 
@@ -149,12 +157,14 @@ describe("ExDocSaveOptions", () => {
     doc.save(base.artifactsDir + "DocSaveOptions.updateCreatedTimeProperty.docx", saveOptions);
 
     // Open the saved document, then verify the value of the property.
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocSaveOptions.updateCreatedTimeProperty.docx");
 
     if (isUpdateCreatedTimeProperty)
       expect(doc.builtInDocumentProperties.createdTime).not.toEqual(new Date(2019, 12, 20));
     else
       expect(doc.builtInDocumentProperties.createdTime).toEqual(new Date(2019, 12, 20));
+    doc.close();
     //ExEnd
   });
 
@@ -181,5 +191,6 @@ describe("ExDocSaveOptions", () => {
       expect(testedFileLength).toBeLessThan(14000);
     else
       expect(testedFileLength).toBeLessThan(22000);            
+    doc.close();
   });
 });

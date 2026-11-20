@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -74,6 +74,7 @@ describe("ExTxtLoadOptions", () => {
       expect(doc.lists.count).toEqual(3);
       expect(doc.firstSection.body.paragraphs.toArray().some(p => p.getText().includes("Fourth list") && p.isListItem)).toEqual(false);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -154,6 +155,7 @@ describe("ExTxtLoadOptions", () => {
         expect(paragraphs[2].getText().endsWith("Line 3\f")).toEqual(true);
         break;
     }
+    doc.close();
     //ExEnd
   });
 
@@ -178,9 +180,11 @@ describe("ExTxtLoadOptions", () => {
     expect(doc.firstSection.body.firstParagraph.paragraphFormat.bidi).toEqual(true);
 
     // Detect English text as right-to-left.
+    doc.close();
     doc = new aw.Document(base.myDir + "English text.txt", loadOptions);
 
     expect(doc.firstSection.body.firstParagraph.paragraphFormat.bidi).toEqual(false);
+    doc.close();
     //ExEnd
   });
 
@@ -202,6 +206,7 @@ describe("ExTxtLoadOptions", () => {
     }
 
     expect(listItemsCount).toEqual(0);
+    doc.close();
   });
 
 
@@ -227,6 +232,7 @@ describe("ExTxtLoadOptions", () => {
 
     expect(doc.range.fields.at(0).result.trim()).toEqual("https://www.aspose.com/");
     expect(doc.range.fields.at(1).result.trim()).toEqual("https://docs.aspose.com/words/net/");
+    doc.close();
     //ExEnd:DetectHyperlinks
   });
 });

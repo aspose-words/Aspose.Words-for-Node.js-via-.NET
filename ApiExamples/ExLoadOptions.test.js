@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -32,6 +32,7 @@ describe("ExLoadOptions", () => {
     // When we load the document, our callback will handle linked resources such as CSS stylesheets and images.
     let doc = new aw.Document(base.myDir + "Images.html", loadOptions);
     doc.save(base.artifactsDir + "LoadOptions.LoadOptionsCallback.pdf");
+    doc.close();
   });
 
 
@@ -91,6 +92,7 @@ describe("ExLoadOptions", () => {
       expect(doc.getChildNodes(aw.NodeType.Shape, true).count).toEqual(24);
       expect(doc.getChildNodes(aw.NodeType.OfficeMath, true).count).toEqual(0);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -106,6 +108,7 @@ describe("ExLoadOptions", () => {
     let doc = new aw.Document(base.myDir + "English text.txt", loadOptions);
 
     expect(doc.toString(aw.SaveFormat.Text).includes("This is a sample text in English.")).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -128,6 +131,7 @@ describe("ExLoadOptions", () => {
     let doc = new aw.Document(base.myDir + "Document.docx", loadOptions);
 
     doc.save(base.artifactsDir + "LoadOptions.fontSettings.pdf");
+    doc.close();
     //ExEnd
   });
 
@@ -148,6 +152,7 @@ describe("ExLoadOptions", () => {
 
     // The style's line spacing will have this value when loaded by Microsoft Word 2007 specification.
     expect(doc.styles.defaultParagraphFormat.lineSpacing).toBeCloseTo(12.95, 2);
+    doc.close();
     //ExEnd
   });
 
@@ -167,6 +172,7 @@ describe("ExLoadOptions", () => {
     let warnings = loadOptions.warningCallback.getWarnings();
     expect(warnings.count).toEqual(3);
     testLoadOptionsWarningCallback(warnings); //ExSkip
+    doc.close();
   });
 
 
@@ -229,6 +235,7 @@ describe("ExLoadOptions", () => {
 
     // The folder will persist with no residual contents from the load operation.
     expect(fs.readdirSync(options.tempFolder).length).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -253,9 +260,11 @@ describe("ExLoadOptions", () => {
 
     expect(doc.styles.defaultFont.localeIdFarEast).toEqual(aw.Loading.EditingLanguage.Japanese);
 
+    doc.close();
     doc = new aw.Document(base.myDir + "No default editing language.docx");
 
     expect(doc.styles.defaultFont.localeIdFarEast).toEqual(aw.Loading.EditingLanguage.EnglishUS);
+    doc.close();
   });
 
 
@@ -276,9 +285,11 @@ describe("ExLoadOptions", () => {
 
     expect(doc.styles.defaultFont.localeId).toEqual(aw.Loading.EditingLanguage.Russian);
 
+    doc.close();
     doc = new aw.Document(base.myDir + "No default editing language.docx");
 
     expect(doc.styles.defaultFont.localeId).toEqual(aw.Loading.EditingLanguage.EnglishUS);
+    doc.close();
   });
 
 
@@ -304,10 +315,12 @@ describe("ExLoadOptions", () => {
     let loadOptions = new aw.Loading.LoadOptions();
     loadOptions.convertMetafilesToPng = true;
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Image.CreateImageDirectly.docx", loadOptions);
     shape = doc.getShape(0, true);
 
     TestUtil.verifyImageInShape(1666, 1666, aw.Drawing.ImageType.Png, shape);
+    doc.close();
     //ExEnd
   });
 
@@ -320,6 +333,7 @@ describe("ExLoadOptions", () => {
     loadOptions.encoding = "windows-1251";
 
     let doc = new aw.Document(base.myDir + "HTML help.chm", loadOptions);
+    doc.close();
   });
 
 
@@ -337,6 +351,7 @@ describe("ExLoadOptions", () => {
     try
     {
       let doc = new aw.Document(base.myDir + "Big document.docx", loadOptions);
+      doc.close();
     }
     catch (err)
     {
@@ -397,6 +412,7 @@ describe("ExLoadOptions", () => {
     let doc = new aw.Document(base.myDir + "OLE objects.docx", loadOptions);
 
     doc.save(base.artifactsDir + "LoadOptions.ignoreOleData.docx");
+    doc.close();
     //ExEnd
   });
 });

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -52,6 +52,7 @@ describe("WorkingWithTxtLoadOptions", () => {
     let doc = new aw.Document(Buffer.from(textDoc, 'utf8'), loadOptions);
 
     doc.save(base.artifactsDir + "WorkingWithTxtLoadOptions.DetectNumberingWithWhitespaces.docx");
+    doc.close();
     //ExEnd:DetectNumberingWithWhitespaces
   });
 
@@ -69,6 +70,7 @@ describe("WorkingWithTxtLoadOptions", () => {
     let doc = new aw.Document(Buffer.from(textDoc, 'utf8'), loadOptions);
 
     doc.save(base.artifactsDir + "WorkingWithTxtLoadOptions.HandleSpacesOptions.docx");
+    doc.close();
     //ExEnd:HandleSpacesOptions
   });
 
@@ -86,6 +88,7 @@ describe("WorkingWithTxtLoadOptions", () => {
     doc.save(base.artifactsDir + "WorkingWithTxtLoadOptions.DocumentTextDirection.docx");
     //ExEnd:DocumentTextDirection
 
+    doc.close();
   });
 
 });

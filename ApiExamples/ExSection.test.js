@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -45,10 +45,12 @@ describe("ExSection", () => {
     doc.save(base.artifactsDir + "Section.protect.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Section.protect.docx");
 
     expect(doc.sections.at(0).protectedForForms).toEqual(false);
     expect(doc.sections.at(1).protectedForForms).toEqual(true);
+    doc.close();
   });
 
 
@@ -79,6 +81,7 @@ describe("ExSection", () => {
     doc.sections.add(newSection);
 
     expect(doc.getText().trim()).toEqual("Section 2\u000cSection 2");
+    doc.close();
     //ExEnd
   });
 
@@ -117,10 +120,12 @@ describe("ExSection", () => {
     doc.save(base.artifactsDir + "Section.create.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Section.create.docx");
 
     expect(doc.firstSection.pageSetup.textColumns.count).toEqual(1);
     expect(doc.lastSection.pageSetup.textColumns.count).toEqual(2);
+    doc.close();
   });
 
 
@@ -190,6 +195,7 @@ describe("ExSection", () => {
     expect(doc.getText().trim()).toEqual("Hello World!");
 
     doc.save(base.artifactsDir + "Section.CreateManually.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -222,6 +228,7 @@ describe("ExSection", () => {
     doc.sections.at(0).body.firstParagraph.appendChild(new aw.Run(doc, "Hello world!"));
 
     expect(doc.getText().trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -259,6 +266,7 @@ describe("ExSection", () => {
     body.firstParagraph.appendChild(new aw.Run(doc, "Hello world!"));
 
     expect(doc.getText().trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -308,6 +316,7 @@ describe("ExSection", () => {
         }
       }
     }
+    doc.close();
     //ExEnd
   });
 
@@ -328,6 +337,7 @@ describe("ExSection", () => {
 
     expect(doc.getChildNodes(aw.NodeType.Any, true).count).toEqual(0);
     expect(doc.getText().trim()).toEqual('');
+    doc.close();
     //ExEnd
   });
 
@@ -363,6 +373,7 @@ describe("ExSection", () => {
     expect(section.getText()).toEqual("Section 1" + aw.ControlChar.paragraphBreak +
       "Section 3" + aw.ControlChar.paragraphBreak +
       "Section 2" + aw.ControlChar.sectionBreak);
+    doc.close();
     //ExEnd
   });
 
@@ -385,6 +396,7 @@ describe("ExSection", () => {
 
     expect(doc.getText().trim()).toEqual('');
     expect(doc.firstSection.body.paragraphs.count).toEqual(1);
+    doc.close();
     //ExEnd
   });
 
@@ -417,6 +429,7 @@ describe("ExSection", () => {
 
     expect(doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.HeaderPrimary).getText().trim()).toEqual('');
     expect(doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.FooterPrimary).getText().trim()).toEqual('');
+    doc.close();
     //ExEnd
   });
 
@@ -444,6 +457,7 @@ describe("ExSection", () => {
 
     expect(doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.HeaderPrimary).getChildNodes(aw.NodeType.Shape, true).count).toEqual(0);
     expect(doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.FooterPrimary).getChildNodes(aw.NodeType.Shape, true).count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -451,6 +465,7 @@ describe("ExSection", () => {
   test('SectionsCloneSection', () => {
     let doc = new aw.Document(base.myDir + "Document.docx");
     let cloneSection = doc.sections.at(0).clone();
+    doc.close();
   });
 
 
@@ -461,6 +476,8 @@ describe("ExSection", () => {
     let sourceSection = srcDoc.sections.at(0);
     let newSection = dstDoc.importNode(sourceSection, true).asSection();
     dstDoc.sections.add(newSection);
+    dstDoc.close();
+    srcDoc.close();
   });
 
 
@@ -471,6 +488,8 @@ describe("ExSection", () => {
     let sourceSection = srcDoc.sections.at(0);
     let newSection = dstDoc.importNode(sourceSection, true).asSection();
     dstDoc.sections.add(newSection);
+    dstDoc.close();
+    srcDoc.close();
   });
 
 
@@ -491,6 +510,7 @@ describe("ExSection", () => {
     }
 
     doc.save(base.artifactsDir + "Section.ModifyPageSetupInAllSections.doc");
+    doc.close();
   });
 
 
@@ -531,7 +551,9 @@ describe("ExSection", () => {
     sectionDe.pageSetup.footerDistance = 35.4; // 1.25 cm
     sectionDe.pageSetup.textColumns.spacing = 35.4; // 1.25 cm
 
-    docDe = DocumentHelper.saveOpen(docDe);
+    const reopenedDocument1 = DocumentHelper.saveOpen(docDe);
+    docDe.close();
+    docDe = reopenedDocument1;
 
     let sectionDeAfter = docDe.sections.at(0).asSection();
     expect(sectionDeAfter.pageSetup.leftMargin).toEqual(90.0);
@@ -541,6 +563,8 @@ describe("ExSection", () => {
     expect(sectionDeAfter.pageSetup.headerDistance).toEqual(35.4);
     expect(sectionDeAfter.pageSetup.footerDistance).toEqual(35.4);
     expect(sectionDeAfter.pageSetup.textColumns.spacing).toEqual(35.4);
+    docDe.close();
+    docEn.close();
   });
 
 
@@ -578,6 +602,7 @@ describe("ExSection", () => {
     // Removes all header and footer content including watermarks.
     doc.firstSection.clearHeadersFooters(false);
     expect(doc.watermark.type).toEqual(aw.WatermarkType.None);
+    doc.close();
     //ExEnd:PreserveWatermarks
   });
 

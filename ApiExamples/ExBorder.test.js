@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -46,12 +46,14 @@ describe("ExBorder", () => {
     doc.save(base.artifactsDir + "Border.FontBorder.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Border.FontBorder.docx");
     let border = doc.firstSection.body.firstParagraph.runs.at(0).font.border;
 
     expect(border.color).toEqual("#008000");
     expect(border.lineWidth).toEqual(2.5);
     expect(border.lineStyle).toEqual(aw.LineStyle.DashDotStroker);
+    doc.close();
   });
 
   test('ParagraphTopBorder', () => {
@@ -78,6 +80,7 @@ describe("ExBorder", () => {
     doc.save(base.artifactsDir + "Border.ParagraphTopBorder.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Border.ParagraphTopBorder.docx");
     let border = doc.firstSection.body.firstParagraph.paragraphFormat.borders.top;
 
@@ -85,6 +88,7 @@ describe("ExBorder", () => {
     expect(border.lineStyle).toEqual(aw.LineStyle.DashSmallGap);
     expect(border.themeColor).toEqual(aw.Themes.ThemeColor.Accent1);
     expect(border.tintAndShade).toBeCloseTo(0.25, 2);
+    doc.close();
   });
 
   test('ClearFormatting', () => {
@@ -117,6 +121,7 @@ describe("ExBorder", () => {
     doc.save(base.artifactsDir + "Border.clearFormatting.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Border.clearFormatting.docx");
 
     for (let testBorder of doc.firstSection.body.firstParagraph.paragraphFormat.borders)
@@ -125,6 +130,7 @@ describe("ExBorder", () => {
       expect(testBorder.lineWidth).toEqual(0.0);
       expect(testBorder.lineStyle).toEqual(aw.LineStyle.None);
     }
+    doc.close();
   });
 
   test('SharedElements', () => {
@@ -170,6 +176,7 @@ describe("ExBorder", () => {
     doc.save(base.artifactsDir + "Border.SharedElements.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Border.SharedElements.docx");
     let paragraphs = doc.firstSection.body.paragraphs;
 
@@ -178,6 +185,7 @@ describe("ExBorder", () => {
 
     for (let testBorder of paragraphs.at(1).paragraphFormat.borders)
       expect(testBorder.lineStyle).toEqual(aw.LineStyle.DotDash);
+    doc.close();
   });
 
   test('HorizontalBorders', () => {
@@ -204,11 +212,13 @@ describe("ExBorder", () => {
     doc.save(base.artifactsDir + "Border.HorizontalBorders.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Border.HorizontalBorders.docx");
     let paragraphs = doc.firstSection.body.paragraphs;
 
     expect(paragraphs.at(0).paragraphFormat.borders.at(aw.BorderType.Horizontal).lineStyle).toEqual(aw.LineStyle.DashSmallGap);
     expect(paragraphs.at(1).paragraphFormat.borders.at(aw.BorderType.Horizontal).lineStyle).toEqual(aw.LineStyle.DashSmallGap);
+    doc.close();
   });
 
   test('VerticalBorders', () => {
@@ -254,6 +264,7 @@ describe("ExBorder", () => {
     doc.save(base.artifactsDir + "Border.VerticalBorders.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Border.VerticalBorders.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -268,5 +279,6 @@ describe("ExBorder", () => {
       expect(row.rowFormat.borders.vertical.lineStyle).toEqual(aw.LineStyle.Dot);
       expect(row.rowFormat.borders.vertical.lineWidth).toEqual(2.0);
     }
+    doc.close();
   });
 });

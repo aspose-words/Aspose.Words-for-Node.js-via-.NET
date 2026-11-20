@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -37,6 +37,7 @@ describe("ExSvgSaveOptions", () => {
     options.textOutputMode = aw.Saving.SvgTextOutputMode.UsePlacedGlyphs;
 
     doc.save(base.artifactsDir + "SvgSaveOptions.SaveLikeImage.svg", options);
+    doc.close();
     //ExEnd
   });
 
@@ -66,6 +67,7 @@ describe("ExSvgSaveOptions", () => {
     }
 
     doc.save(base.artifactsDir + "SvgSaveOptions.SvgResourceFolder.svg", options);
+    doc.close();
   });
 
 /*
@@ -100,6 +102,7 @@ describe("ExSvgSaveOptions", () => {
     options.textOutputMode = aw.Saving.SvgTextOutputMode.UsePlacedGlyphs;
 
     math.getMathRenderer().save(base.artifactsDir + "SvgSaveOptions.Output.svg", options);
+    doc.close();
     //ExEnd:SaveOfficeMath
   });
 
@@ -118,6 +121,7 @@ describe("ExSvgSaveOptions", () => {
     saveOptions.maxImageResolution = 72;
 
     doc.save(base.artifactsDir + "SvgSaveOptions.maxImageResolution.svg", saveOptions);
+    doc.close();
     //ExEnd:MaxImageResolution
   });
 
@@ -133,6 +137,7 @@ describe("ExSvgSaveOptions", () => {
     saveOptions.idPrefix = "pfx1_";
 
     doc.save(base.artifactsDir + "SvgSaveOptions.IdPrefixSvg.html", saveOptions);
+    doc.close();
     //ExEnd:IdPrefixSvg
   });
 
@@ -148,6 +153,7 @@ describe("ExSvgSaveOptions", () => {
     saveOptions.removeJavaScriptFromLinks = true;
 
     doc.save(base.artifactsDir + "SvgSaveOptions.RemoveJavaScriptFromLinksSvg.html", saveOptions);
+    doc.close();
     //ExEnd:RemoveJavaScriptFromLinksSvg
   });
 

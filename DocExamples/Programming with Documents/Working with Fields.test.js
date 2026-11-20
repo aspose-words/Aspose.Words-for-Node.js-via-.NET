@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -28,6 +28,7 @@ describe("WorkingWithFields", () => {
             let fieldCode = field.getFieldCode();
             let fieldResult = field.result;
         }
+        doc.close();
         //ExEnd:FieldCode
     });
 
@@ -41,6 +42,7 @@ describe("WorkingWithFields", () => {
 
         builder.document.save(base.artifactsDir + "WorkingWithFields.SpecifyLocaleAtFieldLevel.docx");
         //ExEnd:SpecifyLocaleAtFieldLevel
+        builder.document.close();
     });
 
     test('ReplaceHyperlinks', () => {
@@ -63,6 +65,7 @@ describe("WorkingWithFields", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithFields.ReplaceHyperlinks.docx");
+        doc.close();
         //ExEnd:ReplaceHyperlinks
     });
 
@@ -84,6 +87,7 @@ describe("WorkingWithFields", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithFields.RenameMergeFields.docx");
+        doc.close();
         //ExEnd:RenameMergeFields
     });
 
@@ -94,6 +98,7 @@ describe("WorkingWithFields", () => {
 
         let field = doc.range.fields.at(0);
         field.remove();
+        doc.close();
         //ExEnd:RemoveField
     });
 
@@ -102,6 +107,7 @@ describe("WorkingWithFields", () => {
         //GistId:5745cef9bae16cdf430ed2906034a61e
         let doc = new aw.Document(base.myDir + "Various fields.docx");
         doc.unlinkFields();
+        doc.close();
         //ExEnd:UnlinkFields
     });
 
@@ -130,6 +136,7 @@ describe("WorkingWithFields", () => {
         fieldToa.update();
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertToaFieldWithoutDocumentBuilder.docx");
+        doc.close();
         //ExEnd:InsertToaFieldWithoutDocumentBuilder
     });
 
@@ -156,6 +163,7 @@ describe("WorkingWithFields", () => {
         field.update();
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertNestedFields.docx");
+        doc.close();
         //ExEnd:InsertNestedFields
     });
 
@@ -185,6 +193,7 @@ describe("WorkingWithFields", () => {
         field.update();
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertMergeFieldUsingDom.docx");
+        doc.close();
         //ExEnd:InsertMergeFieldUsingDom
     });
 
@@ -214,6 +223,7 @@ describe("WorkingWithFields", () => {
         field.update();
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertAddressBlockFieldUsingDom.docx");
+        doc.close();
         //ExEnd:InsertAddressBlockFieldUsingDom
     });
 
@@ -235,6 +245,7 @@ describe("WorkingWithFields", () => {
         fieldIncludeText.update();
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertIncludeFieldWithoutDocumentBuilder.docx");
+        doc.close();
         //ExEnd:InsertFieldIncludeTextWithoutDocumentBuilder
     });
 
@@ -247,6 +258,7 @@ describe("WorkingWithFields", () => {
         let field = builder.insertField(aw.Fields.FieldType.FieldNone, false);
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertFieldNone.docx");
+        doc.close();
         //ExEnd:InsertFieldNone
     });
 
@@ -259,6 +271,7 @@ describe("WorkingWithFields", () => {
         builder.insertField("MERGEFIELD MyFieldName \\* MERGEFORMAT");
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertField.docx");
+        doc.close();
         //ExEnd:InsertField
     });
 
@@ -286,6 +299,7 @@ describe("WorkingWithFields", () => {
         field.update();
 
         doc.save(base.artifactsDir + "Field.InsertFieldUsingFieldBuilder.docx");
+        doc.close();
         //ExEnd:InsertFieldUsingFieldBuilder
     });
 
@@ -304,6 +318,7 @@ describe("WorkingWithFields", () => {
         field.update();
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertAuthorField.docx");
+        doc.close();
         //ExEnd:InsertAuthorField
     });
 
@@ -328,6 +343,7 @@ describe("WorkingWithFields", () => {
         field.update();
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertAskFieldWithoutDocumentBuilder.docx");
+        doc.close();
         //ExEnd:InsertAskFieldWithoutDocumentBuilder
     });
 
@@ -356,6 +372,7 @@ describe("WorkingWithFields", () => {
         field.update();
 
         doc.save(base.artifactsDir + "WorkingWithFields.InsertAdvanceFieldWithoutDocumentBuilder.docx");
+        doc.close();
         //ExEnd:InsertAdvanceFieldWithoutDocumentBuilder
     });
 
@@ -372,6 +389,7 @@ describe("WorkingWithFields", () => {
         for (let field of document.range.fields)
             console.log(field.displayResult);
         //ExEnd:FieldDisplayResults
+        document.close();
     });
 
     test('EvaluateIfCondition', () => {
@@ -384,6 +402,7 @@ describe("WorkingWithFields", () => {
 
         console.log(actualResult);
         //ExEnd:EvaluateIfCondition
+        builder.document.close();
     });
 
     test('UnlinkFieldsInParagraph', () => {
@@ -401,6 +420,7 @@ describe("WorkingWithFields", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithFields.UnlinkFieldsInParagraph.docx");
+        doc.close();
         //ExEnd:UnlinkFieldsInParagraph
     });
 
@@ -419,6 +439,7 @@ describe("WorkingWithFields", () => {
 
         // Save the document with fields transformed to disk
         doc.save(base.artifactsDir + "WorkingWithFields.UnlinkFieldsInDocument.docx");
+        doc.close();
         //ExEnd:UnlinkFieldsInDocument
     });
 
@@ -436,6 +457,7 @@ describe("WorkingWithFields", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithFields.UnlinkFieldsInBody.docx");
+        doc.close();
         //ExEnd:UnlinkFieldsInBody
     });
 

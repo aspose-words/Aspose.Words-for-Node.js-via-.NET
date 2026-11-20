@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -49,6 +49,7 @@ describe("ExHtmlLoadOptions", () => {
       TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Jpeg, imageShape);
     else
       TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Png, imageShape);
+    doc.close();
   });
 
 
@@ -191,9 +192,11 @@ describe("ExHtmlLoadOptions", () => {
     doc.save(base.artifactsDir + "HtmlLoadOptions.baseUri.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HtmlLoadOptions.baseUri.docx");
 
     expect(doc.getShape(0, true).imageData.imageBytes.length > 0).toBeTruthy();
+    doc.close();
   });
 
 
@@ -224,6 +227,7 @@ describe("ExHtmlLoadOptions", () => {
 
     expect(tag.listItems.at(0).value).toEqual("val1");
     expect(tag.listItems.at(1).value).toEqual("val2");
+    doc.close();
   });
 
 
@@ -245,6 +249,7 @@ describe("ExHtmlLoadOptions", () => {
 
     let formField = nodes.at(0).asFormField();
     expect(formField.result).toEqual("Input value text");
+    doc.close();
   });
 
 
@@ -314,6 +319,7 @@ describe("ExHtmlLoadOptions", () => {
 
     let doc = new aw.Document(filename, loadOptions);
     doc.save(base.artifactsDir + "HtmlLoadOptions.BlockImport.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -328,6 +334,7 @@ describe("ExHtmlLoadOptions", () => {
     let doc = new aw.Document(base.myDir + "Html with FontFace.html", loadOptions);
 
     expect(doc.fontInfos.at(0).name).toEqual("Squarish Sans CT Regular");
+    doc.close();
     //ExEnd:FontFaceRules
   });
 

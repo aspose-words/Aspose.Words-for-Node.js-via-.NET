@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -36,11 +36,13 @@ describe("ExViewOptions", () => {
     doc.save(base.artifactsDir + "ViewOptions.SetZoomPercentage.doc");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ViewOptions.SetZoomPercentage.doc");
 
     expect(doc.viewOptions.viewType).toEqual(aw.Settings.ViewType.PageLayout);
     expect(doc.viewOptions.zoomPercent).toEqual(50.0);
     expect(doc.viewOptions.zoomType).toEqual(aw.Settings.ZoomType.None);
+    doc.close();
   });
 
 
@@ -67,9 +69,11 @@ describe("ExViewOptions", () => {
     doc.save(base.artifactsDir + "ViewOptions.SetZoomType.doc");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ViewOptions.SetZoomType.doc");
 
     expect(doc.viewOptions.zoomType).toEqual(zoomType);
+    doc.close();
   });
 
 
@@ -100,9 +104,11 @@ describe("ExViewOptions", () => {
     doc.save(base.artifactsDir + "ViewOptions.displayBackgroundShape.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ViewOptions.displayBackgroundShape.docx");
 
     expect(doc.viewOptions.displayBackgroundShape).toEqual(displayBackgroundShape);
+    doc.close();
   });
 
 
@@ -137,9 +143,11 @@ describe("ExViewOptions", () => {
     doc.save(base.artifactsDir + "ViewOptions.DisplayPageBoundaries.doc");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ViewOptions.DisplayPageBoundaries.doc");
 
     expect(doc.viewOptions.doNotDisplayPageBoundaries).toEqual(doNotDisplayPageBoundaries);
+    doc.close();
   });
 
 
@@ -159,6 +167,7 @@ describe("ExViewOptions", () => {
     doc.save(base.artifactsDir + "ViewOptions.formsDesign.xml");
 
     expect(fs.readFileSync(base.artifactsDir + "ViewOptions.formsDesign.xml").toString().includes("<w:formsDesign />")).toEqual(useFormsDesign);
+    doc.close();
     //ExEnd
   });
 });

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -35,6 +35,7 @@ describe("WorkingWithTxtSaveOptions", () => {
     saveOptions.addBidiMarks = true;
 
     doc.save(base.artifactsDir + "WorkingWithTxtSaveOptions.AddBidiMarks.txt", saveOptions);
+    doc.close();
     //ExEnd:AddBidiMarks
   });
 
@@ -57,6 +58,7 @@ describe("WorkingWithTxtSaveOptions", () => {
     saveOptions.listIndentation.character = '\t';
 
     doc.save(base.artifactsDir + "WorkingWithTxtSaveOptions.UseTabForListIndentation.txt", saveOptions);
+    doc.close();
     //ExEnd:UseTabForListIndentation
   });
 
@@ -79,6 +81,7 @@ describe("WorkingWithTxtSaveOptions", () => {
     saveOptions.listIndentation.character = ' ';
 
     doc.save(base.artifactsDir + "WorkingWithTxtSaveOptions.UseSpaceForListIndentation.txt", saveOptions);
+    doc.close();
     //ExEnd:UseSpaceForListIndentation
   });
 
@@ -120,6 +123,7 @@ describe("WorkingWithTxtSaveOptions", () => {
     // No headers and footers are exported.
     options.exportHeadersFootersMode = aw.Saving.TxtExportHeadersFootersMode.None;
     doc.save(base.artifactsDir + "WorkingWithTxtLoadOptions.HeadersFootersMode.None.txt", options);
+    doc.close();
     //ExEnd:ExportHeadersFootersMode
   });
 

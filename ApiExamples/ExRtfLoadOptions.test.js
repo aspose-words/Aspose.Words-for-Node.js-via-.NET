@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -37,6 +37,7 @@ describe("ExRtfLoadOptions", () => {
     expect(doc.firstSection.body.getText().trim()).toEqual(recognizeUtf8Text
       ? "“John Doe´s list of currency symbols”™\r€, ¢, £, ¥, ¤"
       : "â€œJohn DoeÂ´s list of currency symbolsâ€\u009dâ„¢\râ‚¬, Â¢, Â£, Â¥, Â¤");
+    doc.close();
     //ExEnd
   });
 

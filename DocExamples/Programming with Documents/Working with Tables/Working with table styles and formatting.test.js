@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -30,6 +30,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         console.log(table.distanceBottom);
         console.log(table.distanceRight);
         console.log(table.distanceLeft);
+        doc.close();
         //ExEnd:DistanceBetweenTableSurroundingText
     });
 
@@ -57,6 +58,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         table.setShading(aw.TextureIndex.TextureSolid, "#90EE90", "#000000");
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.ApplyOutlineBorder.docx");
+        doc.close();
         //ExEnd:ApplyOutlineBorder
     });
 
@@ -74,6 +76,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         table.setBorders(aw.LineStyle.Single, 1.5, "#008000");
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.BuildTableWithBorders.docx");
+        doc.close();
         //ExEnd:BuildTableWithBorders
     });
 
@@ -89,6 +92,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         firstRow.rowFormat.borders.lineStyle = aw.LineStyle.None;
         firstRow.rowFormat.heightRule = aw.HeightRule.Auto;
         firstRow.rowFormat.allowBreakAcrossPages = true;
+        doc.close();
         //ExEnd:ModifyRowFormatting
     });
 
@@ -117,6 +121,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.ApplyRowFormatting.docx");
+        doc.close();
         //ExEnd:ApplyRowFormatting
     });
 
@@ -137,6 +142,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.CellPadding.docx");
+        doc.close();
         //ExEnd:CellPadding
     });
 
@@ -150,6 +156,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         firstCell.cellFormat.width = 30;
         firstCell.cellFormat.orientation = aw.TextOrientation.Downward;
         firstCell.cellFormat.shading.foregroundPatternColor = "#90EE90";
+        doc.close();
         //ExEnd:ModifyCellFormatting
     });
 
@@ -195,6 +202,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         builder.writeln("Cell #4");
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.FormatTableAndCellWithDifferentBorders.docx");
+        doc.close();
         //ExEnd:FormatTableAndCellWithDifferentBorders
     });
 
@@ -213,6 +221,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         doc.compatibilityOptions.optimizeFor(aw.Settings.MsWordVersion.Word2016);
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.TableTitleAndDescription.docx", options);
+        doc.close();
         //ExEnd:TableTitleAndDescription
     });
 
@@ -226,6 +235,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         table.cellSpacing = 2;
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.AllowCellSpacing.docx");
+        doc.close();
         //ExEnd:AllowCellSpacing
     });
 
@@ -273,6 +283,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         builder.endRow();
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.BuildTableWithStyle.docx");
+        doc.close();
         //ExEnd:BuildTableWithStyle
     });
 
@@ -296,6 +307,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         // A blue background pattern color should have been applied from the table style.
         let cellShadingAfter = firstCell.cellFormat.shading.backgroundPatternColor;
         console.log("Cell shading after style expansion: " + cellShadingAfter);
+        doc.close();
         //ExEnd:ExpandFormattingOnCellsAndRowFromStyle
     });
 
@@ -326,6 +338,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         table.style = tableStyle;
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.CreateTableStyle.docx");
+        doc.close();
         //ExEnd:CreateTableStyle
     });
 
@@ -352,6 +365,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         table.style = tableStyle;
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.DefineConditionalFormatting.docx");
+        doc.close();
         //ExEnd:DefineConditionalFormatting
     });
 
@@ -376,6 +390,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.SetTableCellFormatting.docx");
+        doc.close();
         //ExEnd:SetTableCellFormatting
     });
 
@@ -403,6 +418,7 @@ describe("WorkingWithTableStylesAndFormatting", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTableStylesAndFormatting.SetTableRowFormatting.docx");
+        doc.close();
         //ExEnd:SetTableRowFormatting
     });
 });

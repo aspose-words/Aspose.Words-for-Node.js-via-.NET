@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -33,6 +33,7 @@ describe("WorkingWithFonts", () => {
         builder.write("Sample text.");
 
         doc.save(base.artifactsDir + "WorkingWithFonts.FontFormatting.docx");
+        doc.close();
         //ExEnd:WriteAndFont
     });
 
@@ -47,6 +48,7 @@ describe("WorkingWithFonts", () => {
 
         let font = builder.document.firstSection.body.firstParagraph.runs.at(0).font;
         console.log(`lineSpacing = ${font.lineSpacing}`);
+        doc.close();
         //ExEnd:GetFontLineSpacing
     });
 
@@ -63,6 +65,7 @@ describe("WorkingWithFonts", () => {
         console.log(runFont.hasDmlEffect(aw.TextDmlEffect.Reflection));
         console.log(runFont.hasDmlEffect(aw.TextDmlEffect.Outline));
         console.log(runFont.hasDmlEffect(aw.TextDmlEffect.Fill));
+        doc.close();
         //ExEnd:CheckDmlTextEffect
     });
 
@@ -84,6 +87,7 @@ describe("WorkingWithFonts", () => {
         builder.writeln("I'm a very nice formatted string.");
 
         doc.save(base.artifactsDir + "WorkingWithFonts.SetFontFormatting.docx");
+        doc.close();
         //ExEnd:SetFontFormatting
     });
 
@@ -102,6 +106,7 @@ describe("WorkingWithFonts", () => {
 
         document.save(base.artifactsDir + "WorkingWithFonts.SetFontEmphasisMark.docx");
         //ExEnd:SetFontEmphasisMark
+        document.close();
     });
 
     test('EnableDisableFontSubstitution', () => {
@@ -115,6 +120,7 @@ describe("WorkingWithFonts", () => {
         doc.fontSettings = fontSettings;
 
         doc.save(base.artifactsDir + "WorkingWithFonts.EnableDisableFontSubstitution.pdf");
+        doc.close();
         //ExEnd:EnableDisableFontSubstitution
     });
 
@@ -129,6 +135,7 @@ describe("WorkingWithFonts", () => {
         doc.fontSettings = fontSettings;
 
         doc.save(base.artifactsDir + "WorkingWithFonts.FontFallbackSettings.pdf")
+        doc.close();
         //ExEnd:FontFallbackSettings
     });
 
@@ -143,6 +150,7 @@ describe("WorkingWithFonts", () => {
         doc.fontSettings = fontSettings;
 
         doc.save(base.artifactsDir + "WorkingWithFonts.NotoFallbackSettings.pdf")
+        doc.close();
         //ExEnd:NotoFallbackSettings
     });
 
@@ -154,6 +162,7 @@ describe("WorkingWithFonts", () => {
 
         let doc = new aw.Document(base.myDir + "Rendering.docx");
         doc.save(base.artifactsDir + "WorkingWithFonts.DefaultInstance.pdf");
+        doc.close();
     });
 
     test('MultipleFolders', () => {
@@ -169,6 +178,7 @@ describe("WorkingWithFonts", () => {
         doc.fontSettings = fontSettings;
 
         doc.save(base.artifactsDir + "WorkingWithFonts.MultipleFolders.pdf")
+        doc.close();
         //ExEnd:MultipleFolders
     });
 
@@ -192,6 +202,7 @@ describe("WorkingWithFonts", () => {
         doc.fontSettings = fontSettings;
 
         doc.save(base.artifactsDir + "WorkingWithFonts.SetFontsFoldersSystemAndCustomFolder.pdf");
+        doc.close();
         //ExEnd:SetFontsFoldersSystemAndCustomFolder
     });
 
@@ -203,6 +214,7 @@ describe("WorkingWithFonts", () => {
 
         let doc = new aw.Document(base.myDir + "Rendering.docx");
         doc.save(base.artifactsDir + "WorkingWithFonts.FontsFoldersWithPriority.pdf");
+        doc.close();
     });
 
     test('TrueTypeFontsFolder', () => {
@@ -218,6 +230,7 @@ describe("WorkingWithFonts", () => {
         doc.fontSettings = fontSettings;
 
         doc.save(base.artifactsDir + "WorkingWithFonts.TrueTypeFontsFolder.pdf")
+        doc.close();
         //ExEnd:TrueTypeFontsFolder
     });
 
@@ -233,6 +246,7 @@ describe("WorkingWithFonts", () => {
         doc.fontSettings = fontSettings;
 
         doc.save(base.artifactsDir + "WorkingWithFonts.SpecifyDefaultFontWhenRendering.pdf");
+        doc.close();
         //ExEnd:SpecifyDefaultFontWhenRendering
     });
 
@@ -248,6 +262,7 @@ describe("WorkingWithFonts", () => {
         loadOptions.fontSettings = fontSettings;
 
         let doc = new aw.Document(base.myDir + "Rendering.docx", loadOptions);
+        doc.close();
         //ExEnd:FontSettingsWithLoadOptions
     });
 
@@ -260,6 +275,7 @@ describe("WorkingWithFonts", () => {
         loadOptions.fontSettings = fontSettings;
 
         let doc = new aw.Document(base.myDir + "Rendering.docx", loadOptions);
+        doc.close();
         //ExEnd:SetFontsFolder
     });
 
@@ -270,6 +286,7 @@ describe("WorkingWithFonts", () => {
         loadOptions.fontSettings = new aw.Fonts.FontSettings();
 
         let doc = new aw.Document(base.myDir + "Rendering.docx", loadOptions);
+        doc.close();
         //ExEnd:LoadOptionFontSettings
     });
 
@@ -286,6 +303,7 @@ describe("WorkingWithFonts", () => {
         //ExEnd:FontSettingsFontSource
 
         let doc = new aw.Document(base.myDir + "Rendering.docx");
+        doc.close();
         //ExEnd:FontsFolders
     });
 

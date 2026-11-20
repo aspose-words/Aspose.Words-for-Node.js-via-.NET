@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -47,6 +47,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.CreateFormattedRun.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.CreateFormattedRun.docx");
     run = doc.firstSection.body.firstParagraph.runs.at(0);
 
@@ -54,6 +55,7 @@ describe("ExFont", () => {
     expect(run.font.name).toEqual("Courier New");
     expect(run.font.size).toEqual(36);
     expect(run.font.highlightColor).toEqual("#FFFF00");
+    doc.close();
   });
 
 
@@ -84,6 +86,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.caps.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.caps.docx");
     run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -94,6 +97,7 @@ describe("ExFont", () => {
 
     expect(run.getText().trim()).toEqual("Small Capitals");
     expect(run.font.smallCaps).toEqual(true);
+    doc.close();
   });
 
 
@@ -116,6 +120,7 @@ describe("ExFont", () => {
       console.log(`\tName: ${allFonts.at(i).name}`);
       console.log(`\tIs ${allFonts.at(i).isTrueType ? "" : "not "}a trueType font`);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -126,6 +131,7 @@ describe("ExFont", () => {
     expect(doc.fontInfos.embedTrueTypeFonts).toEqual(false);
     expect(doc.fontInfos.embedSystemFonts).toEqual(false);
     expect(doc.fontInfos.saveSubsetFonts).toEqual(false);
+    doc.close();
   });
 
 
@@ -153,6 +159,7 @@ describe("ExFont", () => {
       expect(testedFileLength < 28000).toEqual(true);
     else
       expect(testedFileLength < 13000).toEqual(true);
+    doc.close();
   });
 
 
@@ -171,6 +178,7 @@ describe("ExFont", () => {
     fontInfos.saveSubsetFonts = saveSubsetFonts;
 
     doc.save(base.artifactsDir + "Font.WorkWithEmbeddedFonts.docx");
+    doc.close();
   });
 
 
@@ -195,6 +203,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.strikeThrough.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.strikeThrough.docx");
 
     run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
@@ -206,6 +215,7 @@ describe("ExFont", () => {
 
     expect(run.getText().trim()).toEqual("Text with a double-line strikethrough.");
     expect(run.font.doubleStrikeThrough).toEqual(true);
+    doc.close();
   });
 
 
@@ -245,12 +255,14 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.PositionSubscript.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.PositionSubscript.docx");
     run = doc.firstSection.body.firstParagraph.runs.at(0);
 
     expect(run.getText().trim()).toEqual("Raised text.");
     expect(run.font.position).toEqual(5);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.PositionSubscript.docx");
     run = doc.firstSection.body.firstParagraph.runs.at(1);
 
@@ -266,6 +278,7 @@ describe("ExFont", () => {
 
     expect(run.getText().trim()).toEqual("Superscript.");
     expect(run.font.superscript).toEqual(true);
+    doc.close();
   });
 
 
@@ -292,6 +305,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.ScalingSpacing.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.ScalingSpacing.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -307,6 +321,7 @@ describe("ExFont", () => {
 
     expect(run.getText().trim()).toEqual("Condensed by 1pt");
     expect(run.font.spacing).toEqual(-1);
+    doc.close();
   });
 
 
@@ -324,11 +339,13 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.italic.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.italic.docx");
     let run = doc.firstSection.body.firstParagraph.runs.at(0);
 
     expect(run.getText().trim()).toEqual("Hello world!");
     expect(run.font.italic).toEqual(true);
+    doc.close();
   });
 
 
@@ -358,6 +375,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.EngraveEmboss.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.EngraveEmboss.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -370,6 +388,7 @@ describe("ExFont", () => {
     expect(run.getText().trim()).toEqual("This text is embossed.");
     expect(run.font.engrave).toEqual(false);
     expect(run.font.emboss).toEqual(true);
+    doc.close();
   });
 
 
@@ -390,11 +409,13 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.shadow.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.shadow.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(run.getText().trim()).toEqual("This text has a shadow.");
     expect(run.font.shadow).toEqual(true);
+    doc.close();
   });
 
 
@@ -416,11 +437,13 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.outline.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.outline.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(run.getText().trim()).toEqual("This text has an outline.");
     expect(run.font.outline).toEqual(true);
+    doc.close();
   });
 
 
@@ -444,11 +467,13 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.hidden.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.hidden.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(run.getText().trim()).toEqual("This text will not be visible in the document.");
     expect(run.font.hidden).toEqual(true);
+    doc.close();
   });
 
 
@@ -477,6 +502,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.kerning.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.kerning.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -489,6 +515,7 @@ describe("ExFont", () => {
     expect(run.getText().trim()).toEqual("TALLY. (Kerning applied)");
     expect(run.font.kerning).toEqual(12);
     expect(run.font.size).toEqual(18);
+    doc.close();
   });
 
 
@@ -509,11 +536,13 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.noProofing.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.noProofing.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(run.getText().trim()).toEqual("Proofing has been disabled, so these spelking errrs will not display red lines underneath.");
     expect(run.font.noProofing).toEqual(true);
+    doc.close();
   });
 
 
@@ -536,6 +565,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.localeId.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.localeId.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -546,6 +576,7 @@ describe("ExFont", () => {
 
     expect(run.getText().trim()).toEqual("Привет!");
     expect(run.font.localeId).toEqual(1049);
+    doc.close();
   });
 
 
@@ -565,12 +596,14 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.Underlines.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.Underlines.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(run.getText().trim()).toEqual("Underlined text.");
     expect(run.font.underline).toEqual(aw.Underline.Dotted);
     expect(run.font.underlineColor).toEqual("#FF0000");
+    doc.close();
   });
 
 
@@ -588,11 +621,13 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.complexScript.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.complexScript.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(run.getText().trim()).toEqual("Text treated as complex script.");
     expect(run.font.complexScript).toEqual(true);
+    doc.close();
   });
 
 
@@ -613,11 +648,13 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.SparklingText.doc");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.SparklingText.doc");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(run.getText().trim()).toEqual("Text with a sparkle effect.");
     expect(run.font.textEffect).toEqual(aw.TextEffect.SparkleText);
+    doc.close();
   });
 
 
@@ -648,6 +685,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.ForegroundAndBackground.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.ForegroundAndBackground.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -657,6 +695,7 @@ describe("ExFont", () => {
 
     expect(doc.firstSection.body.paragraphs.at(0).paragraphFormat.shading.foregroundTintAndShade).toBeCloseTo(0.5, 1);
     expect(doc.firstSection.body.paragraphs.at(0).paragraphFormat.shading.backgroundTintAndShade).toBeCloseTo(-0.2, 1);
+    doc.close();
   });
 
 
@@ -681,6 +720,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.shading.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.shading.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -690,6 +730,7 @@ describe("ExFont", () => {
     expect(run.font.shading.texture).toEqual(aw.TextureIndex.TextureDiagonalUp);
     expect(run.font.shading.backgroundPatternColor).toEqual("#FF4500");
     expect(run.font.shading.foregroundPatternColor).toEqual("#00008B");
+    doc.close();
   });
 
 
@@ -733,6 +774,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.bidi.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.bidi.docx");
 
     for (let run of doc.firstSection.body.paragraphs.at(0).runs)
@@ -759,6 +801,7 @@ describe("ExFont", () => {
       expect(run.font.italicBi).toEqual(true);
       expect(run.font.boldBi).toEqual(true);
     }
+    doc.close();
   });
 
 
@@ -790,6 +833,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.farEast.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.farEast.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -806,6 +850,7 @@ describe("ExFont", () => {
     expect(run.font.name).toEqual("SimSun");
     expect(run.font.localeIdFarEast).toEqual(2052);
     expect(run.font.nameFarEast).toEqual("SimSun");
+    doc.close();
   });
 
 
@@ -836,6 +881,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.nameAscii.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.nameAscii.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -843,6 +889,7 @@ describe("ExFont", () => {
     expect(run.font.name).toEqual("Calibri");
     expect(run.font.nameAscii).toEqual("Calibri");
     expect(run.font.nameOther).toEqual("Courier New");
+    doc.close();
   });
 
 
@@ -878,6 +925,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.ChangeStyle.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.ChangeStyle.docx");
     let docRun = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -890,6 +938,7 @@ describe("ExFont", () => {
     expect(docRun.getText().trim()).toEqual("Text originally in \"Intense Emphasis\" style");
     expect(docRun.font.styleIdentifier).toEqual(aw.StyleIdentifier.Strong);
     expect(docRun.font.styleName).toEqual("Strong");
+    doc.close();
   });
 
 
@@ -914,6 +963,7 @@ describe("ExFont", () => {
     style.font.name = "Courier New";
 
     expect(style.builtIn).toEqual(false);
+    doc.close();
     //ExEnd
   });
 
@@ -945,6 +995,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.style.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.style.docx");
     let docRun = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -952,6 +1003,7 @@ describe("ExFont", () => {
     expect(docRun.font.styleName).toEqual("MyStyle");
     expect(docRun.font.style.builtIn).toEqual(false);
     expect(docRun.font.underline).toEqual(aw.Underline.Double);
+    doc.close();
   });
 
 
@@ -980,7 +1032,7 @@ describe("ExFont", () => {
   });
 
 
-  test.skip('SetFontAutoColor: WORDSNODEJS-123', () => {
+  test('SetFontAutoColor', () => {
     //ExStart
     //ExFor:Font.autoColor
     //ExSummary:Shows how to improve readability by automatically selecting text color based on the brightness of its background.
@@ -1010,6 +1062,7 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Font.SetFontAutoColor.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Font.SetFontAutoColor.docx");
     let run = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
@@ -1022,6 +1075,7 @@ describe("ExFont", () => {
     expect(run.getText().trim()).toEqual("The text color automatically chosen for this run is black.");
     expect(run.font.color).toEqual(base.emptyColor);
     expect(run.font.shading.backgroundPatternColor).toEqual("#ADD8E6");
+    doc.close();
   });
 
 
@@ -1307,6 +1361,7 @@ describe("ExFont", () => {
 
     expect(doc.fontInfos.contains("Symbol")).toEqual(true);
     expect(doc.fontInfos.contains("Arial")).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -1330,6 +1385,7 @@ describe("ExFont", () => {
 
     // Embedded font formats may be different in other formats such as .doc.
     // We need to know the correct format before we can extract the font.
+    doc.close();
     doc = new aw.Document(base.myDir + "Embedded font.doc");
 
     expect(doc.fontInfos.at("Alte DIN 1451 Mittelschrift").getEmbeddedFont(aw.Fonts.EmbeddedFontFormat.OpenType, aw.Fonts.EmbeddedFontStyle.Regular)).toBe(null);
@@ -1339,6 +1395,7 @@ describe("ExFont", () => {
     embeddedFontBytes = doc.fontInfos.at("Alte DIN 1451 Mittelschrift").getEmbeddedFontAsOpenType(aw.Fonts.EmbeddedFontStyle.Regular);
 
     fs.writeFileSync(base.artifactsDir + "Alte DIN 1451 Mittelschrift.otf", Buffer.from(embeddedFontBytes));
+    doc.close();
     //ExEnd
   });
 
@@ -1386,6 +1443,7 @@ describe("ExFont", () => {
     expect([2, 15, 5, 2, 2, 2, 4, 3, 2, 4]).toEqual(doc.fontInfos.at("Calibri").panose);
     expect([2, 15, 3, 2, 2, 2, 4, 3, 2, 4]).toEqual(doc.fontInfos.at("Calibri Light").panose);
     expect([2, 2, 6, 3, 5, 4, 5, 2, 3, 4]).toEqual(doc.fontInfos.at("Times New Roman").panose);
+    doc.close();
   });
 
 
@@ -1402,6 +1460,7 @@ describe("ExFont", () => {
 
     builder.font.name = "Times New Roman";
     expect(builder.font.lineSpacing).toEqual(13.798828125);
+    doc.close();
     //ExEnd
   });
 
@@ -1420,6 +1479,7 @@ describe("ExFont", () => {
     expect(runs.at(2).font.hasDmlEffect(aw.TextDmlEffect.Reflection)).toEqual(true);
     expect(runs.at(3).font.hasDmlEffect(aw.TextDmlEffect.Effect3D)).toEqual(true);
     expect(runs.at(4).font.hasDmlEffect(aw.TextDmlEffect.Fill)).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -1463,6 +1523,7 @@ describe("ExFont", () => {
  
     builder.document.save(base.artifactsDir + "Fonts.SetEmphasisMark.docx");
     //ExEnd
+    builder.document.close();
   });
 
 
@@ -1553,6 +1614,7 @@ describe("ExFont", () => {
 
     expect(font.themeColor).toEqual(aw.Themes.ThemeColor.None);
     expect(font.color).toEqual("#0000FF");
+    doc.close();
     //ExEnd
   });
 
@@ -1599,6 +1661,7 @@ describe("ExFont", () => {
 
     expect(run.font.themeColor).toEqual(aw.Themes.ThemeColor.Accent5);
     expect(run.font.color).toEqual(base.emptyColor);
+    doc.close();
   });
 
 
@@ -1625,6 +1688,7 @@ describe("ExFont", () => {
         console.log(fontInfo.embeddingLicensingRights.noSubsetting);
       }
     }
+    doc.close();
     //ExEnd:FontInfoEmbeddingLicensingRights
   });
 
@@ -1674,10 +1738,12 @@ describe("ExFont", () => {
     doc.save(base.artifactsDir + "Fonts.numberSpacing.docx");
     //ExEnd:NumberSpacing
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Fonts.numberSpacing.docx");
 
     run = doc.firstSection.body.firstParagraph.runs.at(0);
     expect(run.font.numberSpacing).toEqual(aw.NumSpacing.Proportional);
+    doc.close();
   });
 
 });

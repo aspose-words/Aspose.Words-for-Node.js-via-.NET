@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -68,6 +68,7 @@ describe("ApplyLicense", () => {
       let doc = new aw.Document(base.myDir + "Document.docx");
 
       console.log(doc.pageCount);
+      doc.close();
     } catch(err) {
       console.log(`\nThere was an error setting the license:  ${err}`);
     }

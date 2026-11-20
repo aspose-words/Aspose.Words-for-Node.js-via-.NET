@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -27,6 +27,7 @@ describe("WorkingWithFootnotes", () => {
     doc.footnoteOptions.columns = 3;
 
     doc.save(base.artifactsDir + "WorkingWithFootnotes.SetFootnoteColumns.docx");
+    doc.close();
     //ExEnd:SetFootnoteColumns
   });
 
@@ -38,6 +39,7 @@ describe("WorkingWithFootnotes", () => {
     doc.endnoteOptions.position = aw.Notes.EndnotePosition.EndOfSection;
 
     doc.save(base.artifactsDir + "WorkingWithFootnotes.SetFootnoteAndEndnotePosition.docx");
+    doc.close();
     //ExEnd:SetFootnoteAndEndnotePosition
   });
 
@@ -55,6 +57,7 @@ describe("WorkingWithFootnotes", () => {
     option.position = aw.Notes.EndnotePosition.EndOfSection;
 
     doc.save(base.artifactsDir + "WorkingWithFootnotes.SetEndnoteOptions.docx");
+    doc.close();
     //ExEnd:SetEndnoteOptions
   });
 

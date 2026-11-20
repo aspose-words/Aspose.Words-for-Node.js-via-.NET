@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -29,6 +29,7 @@ describe("BaseConversions", () => {
     //ExEnd:OpenDocument
 
     doc.save(base.artifactsDir + "BaseConversions.DocToDocx.docx");
+    doc.close();
     //ExEnd:LoadAndSave
   });
 
@@ -52,6 +53,7 @@ describe("BaseConversions", () => {
     doc.save(dstStream, aw.SaveFormat.Rtf);
     await new Promise(resolve => dstStream.on("finish", resolve));
 
+    doc.close();
     //ExEnd:LoadAndSaveToStream
   });
 
@@ -62,6 +64,7 @@ describe("BaseConversions", () => {
     let doc = new aw.Document(base.myDir + "Document.docx");
 
     doc.save(base.artifactsDir + "BaseConversions.DocxToPdf.pdf");
+    doc.close();
     //ExEnd:DocxToPdf
   });
 
@@ -76,6 +79,7 @@ describe("BaseConversions", () => {
     doc.save(outStream, aw.SaveFormat.Docx);
     await new Promise(resolve => outStream.on("finish", resolve));
 
+    doc.close();
     //ExEnd:DocxToByte
   });
 
@@ -85,6 +89,7 @@ describe("BaseConversions", () => {
     let doc = new aw.Document(base.myDir + "Document.docx");
 
     doc.save(base.artifactsDir + "BaseConversions.DocxToEpub.epub");
+    doc.close();
     //ExEnd:DocxToEpub
   });
 
@@ -95,6 +100,7 @@ describe("BaseConversions", () => {
     let doc = new aw.Document(base.myDir + "Document.docx");
 
     doc.save(base.artifactsDir + "BaseConversions.DocxToHtml.html");
+    doc.close();
     //ExEnd:DocxToHtml
   });
 
@@ -108,6 +114,7 @@ describe("BaseConversions", () => {
     doc.save(stream, aw.SaveFormat.Mhtml);
     await new Promise(resolve => stream.on("finish", resolve));
 
+    doc.close();
     //ExEnd:DocxToMhtml
   });
 
@@ -121,6 +128,7 @@ describe("BaseConversions", () => {
     builder.writeln("Some text!");
 
     doc.save(base.artifactsDir + "BaseConversions.DocxToMarkdown.md");
+    doc.close();
     //ExEnd:DocxToMarkdown
   });
 
@@ -130,6 +138,7 @@ describe("BaseConversions", () => {
     //GistId:433f5122fe18fdc24a406528b70b0020
     let doc = new aw.Document(base.myDir + "Document.docx");
     doc.save(base.artifactsDir + "BaseConversions.DocxToTxt.txt");
+    doc.close();
     //ExEnd:DocxToTxt
   });
 
@@ -139,6 +148,7 @@ describe("BaseConversions", () => {
     //GistId:a2974bc90e2ef0579ddce59482175c52
     let doc = new aw.Document(base.myDir + "Document.docx");
     doc.save(base.artifactsDir + "BaseConversions.DocxToXlsx.xlsx");
+    doc.close();
     //ExEnd:DocxToXlsx
   });
 
@@ -149,6 +159,7 @@ describe("BaseConversions", () => {
 
     let saveOptions = new aw.Saving.ImageSaveOptions(aw.SaveFormat.Jpeg);
     doc.save(base.artifactsDir + "BaseConversions.DocxToJpeg.jpeg", saveOptions);
+    doc.close();
     //ExEnd:DocxToJpeg
   });
 
@@ -159,6 +170,7 @@ describe("BaseConversions", () => {
     let doc = new aw.Document(base.myDir + "English text.txt");
 
     doc.save(base.artifactsDir + "BaseConversions.TxtToDocx.docx");
+    doc.close();
     //ExEnd:TxtToDocx
   });
 
@@ -169,6 +181,7 @@ describe("BaseConversions", () => {
     let doc = new aw.Document(base.myDir + "Pdf Document.pdf");
 
     doc.save(base.artifactsDir + "BaseConversions.PdfToJpeg.jpeg");
+    doc.close();
     //ExEnd:PdfToJpeg
   });
 
@@ -179,6 +192,7 @@ describe("BaseConversions", () => {
     let doc = new aw.Document(base.myDir + "Pdf Document.pdf");
 
     doc.save(base.artifactsDir + "BaseConversions.PdfToDocx.docx");
+    doc.close();
     //ExEnd:PdfToDocx
   });
 
@@ -189,6 +203,7 @@ describe("BaseConversions", () => {
     let doc = new aw.Document(base.myDir + "Pdf Document.pdf");
 
     doc.save(base.artifactsDir + "BaseConversions.PdfToXlsx.xlsx");
+    doc.close();
     //ExEnd:PdfToXlsx
   });
 
@@ -211,6 +226,7 @@ describe("BaseConversions", () => {
     doc.range.replace("Ruby", "Jade", options);
 
     doc.save(base.artifactsDir + "BaseConversions.FindReplaceXlsx.xlsx");
+    doc.close();
     //ExEnd:FindReplaceXlsx
   });
 
@@ -224,6 +240,7 @@ describe("BaseConversions", () => {
     saveOptions.compressionLevel = aw.Saving.CompressionLevel.Maximum;
 
     doc.save(base.artifactsDir + "BaseConversions.CompressXlsx.xlsx", saveOptions);
+    doc.close();
     //ExEnd:CompressXlsx
   });
 
@@ -257,6 +274,7 @@ describe("BaseConversions", () => {
     builder.insertImage(inputFileName);
 
     doc.save(outputFileName);            
+    doc.close();
   };
   //ExEnd:ConvertImageToPdf
 

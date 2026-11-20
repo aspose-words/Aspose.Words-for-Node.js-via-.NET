@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -25,6 +25,7 @@ describe("WorkingWithHyphenation", () => {
     aw.Hyphenation.registerDictionary("en-US", base.myDir + "hyph_en_US.dic");
     aw.Hyphenation.registerDictionary("de-CH", base.myDir + "hyph_de_CH.dic");
     doc.save(base.artifactsDir + "WorkingWithHyphenation.HyphenateWords.pdf");
+    doc.close();
     //ExEnd:HyphenateWords
   });
 
@@ -36,6 +37,7 @@ describe("WorkingWithHyphenation", () => {
     let stream = base.loadFileToBuffer(base.myDir + "hyph_de_CH.dic");
     aw.Hyphenation.registerDictionary("de-CH", stream);
     doc.save(base.artifactsDir + "WorkingWithHyphenation.LoadHyphenationDictionary.pdf");
+    doc.close();
     //ExEnd:LoadHyphenationDictionary
   });
 

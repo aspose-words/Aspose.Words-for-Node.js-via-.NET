@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -99,6 +99,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.chartTitle.docx");
     //ExEnd:ChartTitle
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.chartTitle.docx");
     chartShape = doc.getShape(0, true);
 
@@ -110,6 +111,7 @@ describe("ExCharts", () => {
     expect(title.text).toEqual("My Chart");
     expect(title.overlay).toEqual(true);
     expect(title.show).toEqual(true);
+    doc.close();
   });
 
   test('DataLabelNumberFormat', () => {
@@ -145,12 +147,14 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.DataLabelNumberFormat.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.DataLabelNumberFormat.docx");
     series = doc.getShape(0, true).chart.series.at(0);
 
     expect(series.hasDataLabels).toEqual(true);
     expect(series.dataLabels.showValue).toEqual(true);
     expect(series.dataLabels.numberFormat.formatCode).toEqual("\"US$\" #,##0.000\"M\"");
+    doc.close();
   });
 
   test('DataArraysWrongSize', () => {
@@ -169,6 +173,7 @@ describe("ExCharts", () => {
 
     expect(()=> seriesColl.add("AW Series 3", categories, [ NaN, 4, 5, NaN, NaN ])).toThrow("Data arrays must be of the same size.");
     expect(() => seriesColl.add("AW Series 4", categories, [ NaN, NaN, NaN, NaN, NaN ])).toThrow("Data arrays must be of the same size.");
+    doc.close();
   });
 
   test('EmptyValuesInChartData', () => {
@@ -188,6 +193,7 @@ describe("ExCharts", () => {
     seriesColl.add("AW Series 4", categories, [ NaN, NaN, NaN, NaN, NaN, 9 ]);
 
     doc.save(base.artifactsDir + "Charts.EmptyValuesInChartData.docx");
+    doc.close();
   });
 
   test('AxisProperties', () => {
@@ -267,6 +273,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.AxisProperties.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.AxisProperties.docx");
     chart = doc.getShape(0, true).chart;
 
@@ -295,6 +302,7 @@ describe("ExCharts", () => {
     expect(chart.axisY.tickLabels.font.color).toEqual("#FF0000");
     expect(chart.axisY.tickLabels.spacing).toEqual(1);
     expect(chart.axisY.format.isDefined).toEqual(true);
+    doc.close();
   });
 
   test('AxisCollection', () => {
@@ -316,6 +324,7 @@ describe("ExCharts", () => {
     }
 
     doc.save(base.artifactsDir + "Charts.AxisCollection.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -380,6 +389,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.DateTimeValues.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.DateTimeValues.docx");
     chart = doc.getShape(0, true).chart;
 
@@ -401,6 +411,7 @@ describe("ExCharts", () => {
     expect(chart.axisY.scaling.maximum).toEqual(new aw.Drawing.Charts.AxisBound(700));
     expect(chart.axisY.hasMajorGridlines).toEqual(true);
     expect(chart.axisY.hasMinorGridlines).toEqual(true);
+    doc.close();
   });
 
   test('HideChartAxis', () => {
@@ -428,11 +439,13 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.HideChartAxis.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.HideChartAxis.docx");
     chart = doc.getShape(0, true).chart;
 
     expect(chart.axisX.hidden).toEqual(true);
     expect(chart.axisY.hidden).toEqual(true);
+    doc.close();
   });
 
   test('SetNumberFormatToChartAxis', () => {
@@ -466,10 +479,12 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.SetNumberFormatToChartAxis.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.SetNumberFormatToChartAxis.docx");
     chart = doc.getShape(0, true).chart;
 
     expect(chart.axisY.numberFormat.formatCode).toEqual("#,##0");
+    doc.close();
   });
 
   test.each([aw.Drawing.Charts.ChartType.Column,
@@ -490,6 +505,7 @@ describe("ExCharts", () => {
 
     doc.save(base.artifactsDir + "Charts.TestDisplayChartsWithConversion.docx");
     doc.save(base.artifactsDir + "Charts.TestDisplayChartsWithConversion.pdf");
+    doc.close();
   });
 
   test('Surface3DChart', () => {
@@ -514,6 +530,7 @@ describe("ExCharts", () => {
 
     doc.save(base.artifactsDir + "Charts.surfaceChart.docx");
     doc.save(base.artifactsDir + "Charts.surfaceChart.pdf");
+    doc.close();
   });
 
   test('DataLabelsBubbleChart', () => {
@@ -548,6 +565,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.DataLabelsBubbleChart.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.DataLabelsBubbleChart.docx");
     dataLabels = doc.getShape(0, true).chart.series.at(0).dataLabels;
 
@@ -555,6 +573,7 @@ describe("ExCharts", () => {
     expect(dataLabels.showCategoryName).toEqual(true);
     expect(dataLabels.showSeriesName).toEqual(true);
     expect(dataLabels.separator).toEqual(" & ");
+    doc.close();
   });
 
   test('DataLabelsPieChart', () => {
@@ -590,6 +609,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.DataLabelsPieChart.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.DataLabelsPieChart.docx");
     dataLabels = doc.getShape(0, true).chart.series.at(0).dataLabels;
 
@@ -598,6 +618,7 @@ describe("ExCharts", () => {
     expect(dataLabels.showPercentage).toEqual(true);
     expect(dataLabels.showValue).toEqual(true);
     expect(dataLabels.separator).toEqual("; ");
+    doc.close();
   });
 
 
@@ -666,6 +687,7 @@ describe("ExCharts", () => {
     chart.series.at(2).dataLabels.clearFormat();
 
     doc.save(base.artifactsDir + "Charts.dataLabels.docx");
+    doc.close();
   });
   //ExEnd
 
@@ -725,6 +747,7 @@ describe("ExCharts", () => {
     chart.series.at(2).dataPoints.clearFormat();
 
     doc.save(base.artifactsDir + "Charts.ChartDataPoint.docx");
+    doc.close();
   });
   //ExEnd
 
@@ -755,11 +778,13 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.PieChartExplosion.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.PieChartExplosion.docx");
     let series = doc.getShape(0, true).chart.series.at(0);
 
     expect(series.dataPoints.at(0).explosion).toEqual(10);
     expect(series.dataPoints.at(1).explosion).toEqual(40);
+    doc.close();
   });
 
   test('Bubble3D', () => {
@@ -790,6 +815,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.bubble3D.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.bubble3D.docx");
     let series = doc.getShape(0, true).chart.series.at(0);
 
@@ -797,6 +823,7 @@ describe("ExCharts", () => {
     {
       expect(series.dataLabels.at(i).showBubbleSize).toEqual(true);
     }
+    doc.close();
   });
 
 
@@ -876,6 +903,7 @@ describe("ExCharts", () => {
       [ 2.0, 4.0, 8.0 ]);
 
     doc.save(base.artifactsDir + "Charts.ChartSeriesCollection.docx");
+    doc.close();
   });
   //ExEnd
 
@@ -932,6 +960,7 @@ describe("ExCharts", () => {
     chartData.clear();
     expect(chartData.count).toEqual(0);
 
+    doc.close();
     //ExEnd
   });
 
@@ -968,12 +997,14 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.AxisScaling.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.AxisScaling.docx");
     chart = doc.getShape(0, true).chart;
 
     expect(chart.axisX.scaling.type).toEqual(aw.Drawing.Charts.AxisScaleType.Linear);
     expect(chart.axisY.scaling.type).toEqual(aw.Drawing.Charts.AxisScaleType.Logarithmic);
     expect(chart.axisY.scaling.logBase).toEqual(20.0);
+    doc.close();
   });
 
   test('AxisBound', () => {
@@ -1035,6 +1066,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.AxisBound.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.AxisBound.docx");
     chart = doc.getShape(0, true).chart;
 
@@ -1053,6 +1085,7 @@ describe("ExCharts", () => {
     expect(chart.axisX.scaling.maximum).toEqual(new aw.Drawing.Charts.AxisBound(Date.parse("1990-01-01")));
 
     expect(chart.axisY.scaling.minimum.isAuto).toEqual(true);
+    doc.close();
   });
 
   test('ChartLegend', () => {
@@ -1084,12 +1117,14 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.ChartLegend.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.ChartLegend.docx");
 
     legend = doc.getShape(0, true).chart.legend;
 
     expect(legend.overlay).toEqual(true);
     expect(legend.position).toEqual(aw.Drawing.Charts.LegendPosition.TopRight);
+    doc.close();
   });
 
   test('AxisCross', () => {
@@ -1119,12 +1154,14 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.AxisCross.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.AxisCross.docx");
     axis = doc.getShape(0, true).chart.axisX;
 
     expect(axis.axisBetweenCategories).toEqual(true);
     expect(axis.crosses).toEqual(aw.Drawing.Charts.AxisCrosses.Custom);
     expect(axis.crossesAt).toEqual(3.0);
+    doc.close();
   });
 
 
@@ -1194,6 +1231,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.AxisDisplayUnit.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.AxisDisplayUnit.docx");
     shape = doc.getShape(0, true);
 
@@ -1220,6 +1258,7 @@ describe("ExCharts", () => {
     expect(axis.minorUnit).toEqual(1.0);
     expect(axis.scaling.minimum.value).toEqual(-10.0);
     expect(axis.scaling.maximum.value).toEqual(20.0);
+    doc.close();
   });
 
 
@@ -1265,6 +1304,7 @@ describe("ExCharts", () => {
     dataPoints.at(3).marker.format.stroke.transparency = 0.5;
 
     doc.save(base.artifactsDir + "Charts.MarkerFormatting.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1298,6 +1338,7 @@ describe("ExCharts", () => {
     series3.format.fill.foreColor = "#0000FF";
 
     doc.save(base.artifactsDir + "Charts.SeriesColor.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1328,6 +1369,7 @@ describe("ExCharts", () => {
     dataPoints.at(3).format.fill.foreColor = "#0000FF";
 
     doc.save(base.artifactsDir + "Charts.DataPointsFormatting.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1358,6 +1400,7 @@ describe("ExCharts", () => {
     legendEntries.at(3).isHidden = true;
 
     doc.save(base.artifactsDir + "Charts.legendEntries.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1383,6 +1426,7 @@ describe("ExCharts", () => {
     let legendEntry = chart.series.at(0).legendEntry;
 
     doc.save(base.artifactsDir + "Charts.LegendFont.docx");
+    doc.close();
     //ExEnd:LegendFont
   });
 
@@ -1408,6 +1452,7 @@ describe("ExCharts", () => {
       [ 5.6, 7.1, 2.9, 8.9 ]);
 
     doc.save(base.artifactsDir + "Charts.RemoveSpecificChartSeries.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1450,6 +1495,7 @@ describe("ExCharts", () => {
     series2.add(aw.Drawing.Charts.ChartXValue.fromDouble(8), aw.Drawing.Charts.ChartYValue.fromDouble(7));
 
     doc.save(base.artifactsDir + "Charts.PopulateChartWithData.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1499,6 +1545,8 @@ describe("ExCharts", () => {
 
     doc.save(base.artifactsDir + "Charts.GetChartSeriesData.docx");
     //ExEnd
+    builder.document.close();
+    doc.close();
   });
 
 
@@ -1527,6 +1575,8 @@ describe("ExCharts", () => {
 
     doc.save(base.artifactsDir + "Charts.ChartDataValues.docx");
     //ExEnd
+    builder.document.close();
+    doc.close();
   });
 
 
@@ -1567,6 +1617,7 @@ describe("ExCharts", () => {
     labelFormat.fill.solid("#0000FF");
 
     doc.save(base.artifactsDir + "Charts.FormatDataLables.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1604,6 +1655,7 @@ describe("ExCharts", () => {
     chartAxisYTitle.font.color = "#0000FF";
 
     doc.save(base.artifactsDir + "Charts.chartAxisTitle.docx");
+    doc.close();
     //ExEnd:ChartAxisTitle
   });
 
@@ -1626,6 +1678,7 @@ describe("ExCharts", () => {
       seriesColl.add("AW Series", categories, seriesValue);
     else
       expect(() => seriesColl.add("AW Series", categories, seriesValue)).toThrow(exceptionText);
+    doc.close();
   });
 
 
@@ -1661,6 +1714,7 @@ describe("ExCharts", () => {
     expect(dataPoints.hasDefaultFormat(1)).toEqual(true);
 
     doc.save(base.artifactsDir + "Charts.CopyDataPointFormat.docx");
+    doc.close();
     //ExEnd:CopyDataPointFormat
   });
 
@@ -1682,6 +1736,7 @@ describe("ExCharts", () => {
     dataPoint.format.setDefaultFill();
 
     doc.save(base.artifactsDir + "Charts.ResetDataPointFill.docx");
+    doc.close();
     //ExEnd:ResetDataPointFill
   });
 
@@ -1726,6 +1781,7 @@ describe("ExCharts", () => {
     dataTable.format.stroke.color = "#00008B";
 
     doc.save(base.artifactsDir + "Charts.dataTable.docx");
+    doc.close();
     //ExEnd:DataTable
   });
 
@@ -1774,6 +1830,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.ChartFormat.docx");
     //ExEnd:ChartFormat
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.ChartFormat.docx");
 
     shape = doc.getShape(0, true);
@@ -1783,6 +1840,7 @@ describe("ExCharts", () => {
     expect(chart.title.format.fill.color).toEqual("#FFFACD");
     expect(chart.axisX.title.format.fill.color).toEqual("#FFFACD");
     expect(chart.legend.format.fill.color).toEqual("#FFFACD");
+    doc.close();
   });
 
 
@@ -1831,6 +1889,7 @@ describe("ExCharts", () => {
     series3.format.stroke.weight = 3.5;
 
     doc.save(base.artifactsDir + "Charts.SecondaryAxis.docx");
+    doc.close();
     //ExEnd:SecondaryAxis
   });
 
@@ -1853,6 +1912,7 @@ describe("ExCharts", () => {
     seriesGroup.overlap = -75;
 
     doc.save(base.artifactsDir + "Charts.ConfigureGapOverlap.docx");
+    doc.close();
     //ExEnd:ConfigureGapOverlap
   });
 
@@ -1873,6 +1933,7 @@ describe("ExCharts", () => {
     seriesGroup.bubbleScale = 200;
 
     doc.save(base.artifactsDir + "Charts.bubbleScale.docx");
+    doc.close();
     //ExEnd:BubbleScale
   });
 
@@ -1894,6 +1955,7 @@ describe("ExCharts", () => {
     for (let i = 0; i < seriesGroups.count; i++)
       if (seriesGroups.at(i).axisGroup == aw.Drawing.Charts.AxisGroup.Secondary)
         seriesGroups.removeAt(i);
+    doc.close();
     //ExEnd:RemoveSecondaryAxis
   });
 
@@ -1961,6 +2023,7 @@ describe("ExCharts", () => {
     series.dataLabels.numberFormat.formatCode = `#${thousandSeparator}0`;
 
     doc.save(base.artifactsDir + "Charts.treemap.docx");
+    doc.close();
     //ExEnd:TreemapChart
   });
 
@@ -2007,6 +2070,7 @@ describe("ExCharts", () => {
     series.dataLabels.showCategoryName = true;
 
     doc.save(base.artifactsDir + "Charts.sunburst.docx");
+    doc.close();
     //ExEnd:SunburstChart
   });
 
@@ -2037,6 +2101,7 @@ describe("ExCharts", () => {
       ]);
 
     doc.save(base.artifactsDir + "Charts.histogram.docx");
+    doc.close();
     //ExEnd:HistogramChart
   });
 
@@ -2064,6 +2129,7 @@ describe("ExCharts", () => {
       [ 1.43, 0.91, 1.17, 0.98, 0.85 ]);
 
     doc.save(base.artifactsDir + "Charts.pareto.docx");
+    doc.close();
     //ExEnd:ParetoChart
   });
 
@@ -2102,6 +2168,7 @@ describe("ExCharts", () => {
     series.hasDataLabels = true;
 
     doc.save(base.artifactsDir + "Charts.boxAndWhisker.docx");
+    doc.close();
     //ExEnd:BoxAndWhiskerChart
   });
 
@@ -2133,6 +2200,7 @@ describe("ExCharts", () => {
     series.hasDataLabels = true;
 
     doc.save(base.artifactsDir + "Charts.waterfall.docx");
+    doc.close();
     //ExEnd:WaterfallChart
   });
 
@@ -2165,6 +2233,7 @@ describe("ExCharts", () => {
     series.dataLabels.numberFormat.formatCode = `0${decimalSeparator}0%`;
 
     doc.save(base.artifactsDir + "Charts.funnel.docx");
+    doc.close();
     //ExEnd:FunnelChart
   });
 
@@ -2203,6 +2272,7 @@ describe("ExCharts", () => {
     dataLabels.at(0).rotation = 45;
 
     doc.save(base.artifactsDir + "Charts.LabelOrientationRotation.docx");
+    doc.close();
     //ExEnd:LabelOrientationRotation
   });
 
@@ -2228,6 +2298,7 @@ describe("ExCharts", () => {
     yTickLabels.rotation = 45;
 
     doc.save(base.artifactsDir + "Charts.TickLabelsOrientationRotation.docx");
+    doc.close();
     //ExEnd:TickLabelsOrientationRotation
   });
 
@@ -2255,6 +2326,7 @@ describe("ExCharts", () => {
     seriesGroup.firstSliceAngle = 270;
 
     doc.save(base.artifactsDir + "Charts.doughnutChart.docx");
+    doc.close();
     //ExEnd:DoughnutChart
   });
 
@@ -2281,6 +2353,7 @@ describe("ExCharts", () => {
     seriesGroup.secondSectionSize = 77;
 
     doc.save(base.artifactsDir + "Charts.PieOfPieChart.docx");
+    doc.close();
     //ExEnd:PieOfPieChart
   });
 
@@ -2325,6 +2398,7 @@ describe("ExCharts", () => {
     doc.save(base.artifactsDir + "Charts.formatCode.docx");
     //ExEnd:FormatCode
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Charts.formatCode.docx");
     shape = doc.getShape(0, true);
     chart = shape.chart;
@@ -2336,6 +2410,7 @@ describe("ExCharts", () => {
       expect(seriesProperties.yvalues.formatCode).toEqual("#,##0.0#;[Red]\\-#,##0.0#");
       expect(seriesProperties.bubbleSizes.formatCode).toEqual("#,##0.0#");
     }
+    doc.close();
   });
 
 
@@ -2375,6 +2450,7 @@ describe("ExCharts", () => {
     dataLabels.at(0).font.color = "#8B0000";
 
     doc.save(base.artifactsDir + "Charts.labelPosition.docx");
+    doc.close();
     //ExEnd:DataLablePosition
   });
 
@@ -2484,6 +2560,7 @@ describe("ExCharts", () => {
     }
 
     doc.save(base.artifactsDir + "Charts.DoughnutChartLabelPosition.docx");
+    doc.close();
     //ExEnd:DoughnutChartLabelPosition
   });
 
@@ -2510,6 +2587,7 @@ describe("ExCharts", () => {
     series1.insert(3, aw.Drawing.Charts.ChartXValue.fromDouble(3), aw.Drawing.Charts.ChartYValue.fromDouble(10), 10);
 
     doc.save(base.artifactsDir + "Charts.PopulateChartWithData.docx");
+    doc.close();
     //ExEnd
   });
 

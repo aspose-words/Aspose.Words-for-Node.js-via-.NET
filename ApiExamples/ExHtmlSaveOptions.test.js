@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -38,6 +38,7 @@ describe("ExHtmlSaveOptions", () => {
     doc.save(
       base.artifactsDir + "HtmlSaveOptions.ExportPageMarginsEpub" +
       aw.FileFormatUtil.saveFormatToExtension(saveFormat), saveOptions);
+    doc.close();
   });
 
 
@@ -54,6 +55,7 @@ describe("ExHtmlSaveOptions", () => {
     doc.save(
       base.artifactsDir + "HtmlSaveOptions.ExportOfficeMathEpub" +
       aw.FileFormatUtil.saveFormatToExtension(saveFormat), saveOptions);
+    doc.close();
   });
 
 
@@ -82,32 +84,38 @@ describe("ExHtmlSaveOptions", () => {
 
         dirFiles = fs.readdirSync(base.artifactsDir, { recursive: true }).filter((f) => f.endsWith("HtmlSaveOptions.ExportTextBoxAsSvgEpub.001.png"));
         expect(dirFiles.length).toEqual(0);
+        doc.close();
         return;
 
       case aw.SaveFormat.Epub:
 
         dirFiles = fs.readdirSync(base.artifactsDir, { recursive: true }).filter((f) => f.endsWith("HtmlSaveOptions.ExportTextBoxAsSvgEpub.001.png"));
         expect(dirFiles.length).toEqual(0);
+        doc.close();
         return;
 
       case aw.SaveFormat.Mhtml:
 
         dirFiles = fs.readdirSync(base.artifactsDir, { recursive: true }).filter((f) => f.endsWith("HtmlSaveOptions.ExportTextBoxAsSvgEpub.001.png"));
         expect(dirFiles.length).toEqual(0);
+        doc.close();
         return;
 
       case aw.SaveFormat.Azw3:
 
         dirFiles = fs.readdirSync(base.artifactsDir, { recursive: true }).filter((f) => f.endsWith("HtmlSaveOptions.ExportTextBoxAsSvgEpub.001.png"));
         expect(dirFiles.length).toEqual(0);
+        doc.close();
         return;
 
       case aw.SaveFormat.Mobi:
 
         dirFiles = fs.readdirSync(base.artifactsDir, { recursive: true }).filter((f) => f.endsWith("HtmlSaveOptions.ExportTextBoxAsSvgEpub.001.png"));
         expect(dirFiles.length).toEqual(0);
+        doc.close();
         return;
     }
+    doc.close();
   });
 
 
@@ -121,6 +129,7 @@ describe("ExHtmlSaveOptions", () => {
     options.navigationMapLevel = 2;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.CreateAZW3Toc.azw3", options);
+    doc.close();
     //ExEnd
   });
 
@@ -135,6 +144,7 @@ describe("ExHtmlSaveOptions", () => {
     options.navigationMapLevel = 5;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.CreateMobiToc.mobi", options);
+    doc.close();
     //ExEnd
   });
 
@@ -160,6 +170,7 @@ describe("ExHtmlSaveOptions", () => {
     saveOptions.exportListLabels = howExportListLabels;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.ControlListLabelsExport.html", saveOptions);
+    doc.close();
   });
 
 
@@ -178,6 +189,7 @@ describe("ExHtmlSaveOptions", () => {
       dirFiles.length == 0
         ? "<img src=\"http://www.aspose.com/images/aspose-logo.gif\""
         : "<img src=\"HtmlSaveOptions.ExportUrlForLinkedImage.001.png\"");
+    doc.close();
   });
 
 
@@ -187,6 +199,7 @@ describe("ExHtmlSaveOptions", () => {
     saveOptions.exportRoundtripInformation = true;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.RoundtripInformation.html", saveOptions);
+    doc.close();
   });
 
 
@@ -227,6 +240,7 @@ describe("ExHtmlSaveOptions", () => {
 
     DocumentHelper.findTextInFile(base.artifactsDir + "HtmlSaveOptions.ExternalResourceSavingConfig.html",
       "<link href=\"https://www.aspose.com/HtmlSaveOptions.ExternalResourceSavingConfig.css\"");
+    doc.close();
   });
 
 
@@ -240,6 +254,7 @@ describe("ExHtmlSaveOptions", () => {
     saveOptions.exportFontsAsBase64 = true;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.ConvertFontsAsBase64.html", saveOptions);
+    doc.close();
   });
 
 
@@ -251,6 +266,7 @@ describe("ExHtmlSaveOptions", () => {
     saveOptions.htmlVersion = htmlVersion;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.Html5Support.html", saveOptions);
+    doc.close();
   });
 
 
@@ -283,6 +299,7 @@ describe("ExHtmlSaveOptions", () => {
         expect(fs.existsSync(fontsFolder)).toBe(false);
         break;
     }
+    doc.close();
   });
 
 
@@ -305,6 +322,7 @@ describe("ExHtmlSaveOptions", () => {
       .filter((f) => f.endsWith("HtmlSaveOptions.ResourceFolderPriority.arial.ttf").length)).not.toBe(0);
     expect(fs.readdirSync(base.artifactsDir + "Resources", {recursive: true})
       .filter((f) => f.endsWith("HtmlSaveOptions.ResourceFolderPriority.css").length)).not.toBe(0);
+    doc.close();
   });
 
 
@@ -329,6 +347,7 @@ describe("ExHtmlSaveOptions", () => {
       .filter((f) => f.endsWith("HtmlSaveOptions.ResourceFolderLowPriority.arial.ttf").length)).not.toBe(0);
     expect(fs.readdirSync(base.artifactsDir + "Resources", {recursive: true})
       .filter((f) => f.endsWith("HtmlSaveOptions.ResourceFolderLowPriority.css").length)).not.toBe(0);
+    doc.close();
   });
 
 
@@ -345,6 +364,7 @@ describe("ExHtmlSaveOptions", () => {
     let saveOptions = new aw.Saving.HtmlSaveOptions();
     saveOptions.metafileFormat = aw.Saving.HtmlMetafileFormat.Png;
     builder.document.save(base.artifactsDir + "HtmlSaveOptions.SvgMetafileFormat.html", saveOptions);
+    builder.document.close();
   });
 
 
@@ -361,6 +381,7 @@ describe("ExHtmlSaveOptions", () => {
     let saveOptions = new aw.Saving.HtmlSaveOptions();
     saveOptions.metafileFormat = aw.Saving.HtmlMetafileFormat.Png;
     builder.document.save(base.artifactsDir + "HtmlSaveOptions.PngMetafileFormat.html", saveOptions);
+    builder.document.close();
   });
 
 
@@ -380,6 +401,7 @@ describe("ExHtmlSaveOptions", () => {
     let saveOptions = new aw.Saving.HtmlSaveOptions();
     saveOptions.metafileFormat = aw.Saving.HtmlMetafileFormat.EmfOrWmf;
     builder.document.save(base.artifactsDir + "HtmlSaveOptions.EmfOrWmfMetafileFormat.html", saveOptions);
+    builder.document.close();
   });
 
 
@@ -404,6 +426,7 @@ describe("ExHtmlSaveOptions", () => {
 
     expect(outDocContents.includes(".myprefix-Footer { margin-bottom:0pt; line-height:normal; font-family:Arial; font-size:11pt; -aw-style-name:footer }")).toEqual(true);
     expect(outDocContents.includes(".myprefix-Header { margin-bottom:0pt; line-height:normal; font-family:Arial; font-size:11pt; -aw-style-name:header }")).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -422,6 +445,7 @@ describe("ExHtmlSaveOptions", () => {
     saveOptions.cssClassNamePrefix = null;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.cssClassNamePrefix.html", saveOptions);
+    doc.close();
   });
 
 
@@ -433,6 +457,7 @@ describe("ExHtmlSaveOptions", () => {
     saveOptions.exportCidUrlsForMhtmlResources = true;
     
     doc.save(base.artifactsDir + "HtmlSaveOptions.ContentIdScheme.mhtml", saveOptions);
+    doc.close();
   });
 
 
@@ -517,23 +542,28 @@ describe("ExHtmlSaveOptions", () => {
     // The saving operation will split our document at three places, into four smaller documents.
     doc.save(base.artifactsDir + "HtmlSaveOptions.HeadingLevels.html", options);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HtmlSaveOptions.HeadingLevels.html");
 
     expect(doc.getText().trim()).toEqual("Heading #1");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HtmlSaveOptions.HeadingLevels-01.html");
 
     expect(doc.getText().trim()).toEqual("Heading #2\r" +
                             "Heading #3");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HtmlSaveOptions.HeadingLevels-02.html");
 
     expect(doc.getText().trim()).toEqual("Heading #4");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HtmlSaveOptions.HeadingLevels-03.html");
 
     expect(doc.getText().trim()).toEqual("Heading #5\r" +
                             "Heading #6");
+    doc.close();
     //ExEnd
   });
 
@@ -595,6 +625,7 @@ describe("ExHtmlSaveOptions", () => {
       expect(outDocContents.includes(
         "<table cellspacing=\"0\" cellpadding=\"0\" style=\"margin-left:30.35pt; border:0.75pt solid #000000; -aw-border:0.5pt single #000000; -aw-border-insideh:0.5pt single #000000; -aw-border-insidev:0.5pt single #000000; border-collapse:collapse\">")).toEqual(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -625,6 +656,7 @@ describe("ExHtmlSaveOptions", () => {
     options.exportOriginalUrlForLinkedImages = true;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.FolderAlias.html", options);
+    doc.close();
     //ExEnd
   });
 
@@ -665,6 +697,7 @@ describe("ExHtmlSaveOptions", () => {
     }
 
     expect(fs.readdirSync(base.artifactsDir).filter((s) => s.endsWith(".ttf")).count).toEqual(10);
+    doc.close();
   });
 
 /*
@@ -730,6 +763,7 @@ describe("ExHtmlSaveOptions", () => {
         expect(outDocContents.includes("<table cellspacing=\"0\" cellpadding=\"0\" style=\"-aw-border:0.5pt single #000000; -aw-border-insideh:0.5pt single #000000; -aw-border-insidev:0.5pt single #000000; border-collapse:collapse\"")).toEqual(true);
         break;
     }
+    doc.close();
     //ExEnd
   });
 
@@ -763,6 +797,7 @@ describe("ExHtmlSaveOptions", () => {
         "<html xmlns=\"http://www.w3.org/1999/xhtml\">")).toEqual(true);
     else
       expect(outDocContents.includes("<html>")).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -822,6 +857,7 @@ describe("ExHtmlSaveOptions", () => {
       TestUtil.docPackageFileContainsString("<navLabel><text>Heading #6</text></navLabel>", 
         base.artifactsDir + "HtmlSaveOptions.EpubHeadings.epub", "HtmlSaveOptions.EpubHeadings.ncx");
     }).toThrow("");
+    doc.close();
   });
 
 
@@ -854,6 +890,7 @@ describe("ExHtmlSaveOptions", () => {
     saveOptions.exportDocumentProperties = true;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.Doc2EpubSaveOptions.epub", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -891,6 +928,7 @@ describe("ExHtmlSaveOptions", () => {
       expect(outDocContents.includes("@font-face { font-family:'Arial Black'; font-weight:bold; src:url('ariblk.t=\r\ntf') }")).toEqual(true);
       expect(outDocContents.includes("<img src=3D\"image.003.jpeg\" width=3D\"350\" height=3D\"180\" alt=3D\"\" />")).toEqual(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -927,6 +965,7 @@ describe("ExHtmlSaveOptions", () => {
           "<option selected=\"selected\">Two</option>" +
           "<option>Three</option>" +
         "</select>")).toBe(true);
+    doc.close();
     //ExEnd
   });
 
@@ -950,6 +989,7 @@ describe("ExHtmlSaveOptions", () => {
     expect(exportImagesAsBase64
       ? outDocContents.includes("<img src=\"data:image/png;base64")
       : outDocContents.includes("<img src=\"HtmlSaveOptions.exportImagesAsBase64.001.png\"")).toBe(true);
+    doc.close();
     //ExEnd
   });
 
@@ -967,6 +1007,7 @@ describe("ExHtmlSaveOptions", () => {
     options.prettyFormat = true;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.exportFontsAsBase64.html", options);
+    doc.close();
     //ExEnd
   });
 
@@ -1015,6 +1056,7 @@ describe("ExHtmlSaveOptions", () => {
       expect(outDocContents.includes("<span>Hello again!</span>")).toEqual(true);
       expect(outDocContents.includes("<span>Привет, мир!</span>")).toEqual(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1103,6 +1145,7 @@ describe("ExHtmlSaveOptions", () => {
           "</ol>")).toBe(true);
         break;
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1148,6 +1191,7 @@ describe("ExHtmlSaveOptions", () => {
       expect(outDocContents.includes("<style type=\"text/css\">")).toEqual(false);
       expect(outDocContents.includes("<div><p style=\"margin-top:0pt; margin-left:222pt; margin-bottom:0pt\">")).toEqual(true);
      }
+    doc.close();
     //ExEnd
   });
 
@@ -1196,6 +1240,7 @@ describe("ExHtmlSaveOptions", () => {
           "</p>" +
         "</div>")).toBe(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1261,6 +1306,7 @@ describe("ExHtmlSaveOptions", () => {
           "</div>" +
         "</body>")).toBe(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1304,6 +1350,7 @@ describe("ExHtmlSaveOptions", () => {
           "style=\"-aw-left-pos:0pt; -aw-rel-hpos:column; -aw-rel-vpos:paragraph; -aw-top-pos:0pt; -aw-wrap-type:inline\" />" +
         "</p>")).toBe(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1332,6 +1379,7 @@ describe("ExHtmlSaveOptions", () => {
     doc.save(base.artifactsDir + "HtmlSaveOptions.RoundTripInformation.html", options);
 
     let outDocContents = fs.readFileSync(base.artifactsDir + "HtmlSaveOptions.RoundTripInformation.html").toString();
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "HtmlSaveOptions.RoundTripInformation.html");
 
     if (exportRoundtripInformation)
@@ -1382,6 +1430,7 @@ describe("ExHtmlSaveOptions", () => {
 
       expect([...doc.range.fields].filter(f => f.type == aw.Fields.FieldType.FieldPage).length).toEqual(0);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1440,6 +1489,7 @@ describe("ExHtmlSaveOptions", () => {
                     "<span>Entry 2</span>" +
                     "</p>")).toEqual(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1495,6 +1545,7 @@ describe("ExHtmlSaveOptions", () => {
       expect(fontFileInfo.size > 700000 || fontFileInfo.size < 30000).toEqual(true);
       expect(Math.max(fontResourcesSubsettingSizeThreshold, 30000) > fontFileInfo.size).toEqual(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1558,6 +1609,7 @@ describe("ExHtmlSaveOptions", () => {
                         "</p>")).toEqual(true);
         break;
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1612,6 +1664,7 @@ describe("ExHtmlSaveOptions", () => {
            '</p>')).not.toEqual(-1);
         break;
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1649,6 +1702,7 @@ describe("ExHtmlSaveOptions", () => {
       expect(testedImageLength < 6200).toEqual(true);
     else
       expect(testedImageLength < 16000).toEqual(true);
+    doc.close();
   });
 
 
@@ -1680,6 +1734,7 @@ describe("ExHtmlSaveOptions", () => {
     expect(fs.readdirSync(imagesDir).length).toEqual(9);
 
     fs.rmSync(imagesDir, { recursive: true, force: true });
+    doc.close();
   });
 
 
@@ -1699,6 +1754,7 @@ describe("ExHtmlSaveOptions", () => {
     options.imageSavingCallback = new ImageShapePrinter();
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.imageSavingCallback.html", options);
+    doc.close();
   });
 
 /*
@@ -1774,6 +1830,7 @@ describe("ExHtmlSaveOptions", () => {
             "<body style=\"font-family:'Times New Roman'; font-size:12pt\">" +
             "<div><p style=\"margin-top:0pt; margin-bottom:0pt\"><span>Hello world!</span></p>" +
             "<p style=\"margin-top:0pt; margin-bottom:0pt\"><span style=\"-aw-import:ignore\">&#xa0;</span></p></div></body></html>");
+    doc.close();
     //ExEnd
   });
 
@@ -1796,6 +1853,7 @@ describe("ExHtmlSaveOptions", () => {
 
     expect(() =>
       doc.save(base.artifactsDir + `HtmlSaveOptions.progressCallback.${ext}`, saveOptions)).toThrow("OperationCanceledException");
+    doc.close();
   });
 
 
@@ -1851,6 +1909,7 @@ describe("ExHtmlSaveOptions", () => {
 
     let encoding = TestUtil.getEncoding(outputFileName);
     expect(encoding).toEqual("UTF32");
+    doc.close();
   });
 
 
@@ -1868,6 +1927,7 @@ describe("ExHtmlSaveOptions", () => {
     saveOptions.replaceBackslashWithYenSign = true;
 
     doc.save(base.artifactsDir + "HtmlSaveOptions.replaceBackslashWithYenSign.html", saveOptions);
+    doc.close();
     //ExEnd:HtmlReplaceBackslashWithYenSign
   });
 

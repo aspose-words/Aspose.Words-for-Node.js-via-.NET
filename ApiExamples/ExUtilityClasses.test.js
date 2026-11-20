@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -49,6 +49,7 @@ describe("ExUtilityClasses", () => {
     doc.save(base.artifactsDir + "UtilityClasses.PointsAndInches.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "UtilityClasses.PointsAndInches.docx");
     pageSetup = doc.firstSection.pageSetup;
 
@@ -60,6 +61,7 @@ describe("ExUtilityClasses", () => {
     expect(aw.ConvertUtil.pointToInch(pageSetup.leftMargin)).toBeCloseTo(2.5, 2);
     expect(pageSetup.rightMargin).toBeCloseTo(108.0, 2);
     expect(aw.ConvertUtil.pointToInch(pageSetup.rightMargin)).toBeCloseTo(1.5, 2);
+    doc.close();
   });
 
 
@@ -91,6 +93,7 @@ describe("ExUtilityClasses", () => {
     doc.save(base.artifactsDir + "UtilityClasses.PointsAndMillimeters.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "UtilityClasses.PointsAndMillimeters.docx");
     pageSetup = doc.firstSection.pageSetup;
 
@@ -98,6 +101,7 @@ describe("ExUtilityClasses", () => {
     expect(pageSetup.bottomMargin).toBeCloseTo(141.75, 2);
     expect(pageSetup.leftMargin).toBeCloseTo(226.75, 2);
     expect(pageSetup.rightMargin).toBeCloseTo(113.4, 2);
+    doc.close();
   });
 
 
@@ -134,6 +138,7 @@ describe("ExUtilityClasses", () => {
     doc.save(base.artifactsDir + "UtilityClasses.PointsAndPixels.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "UtilityClasses.PointsAndPixels.docx");
     pageSetup = doc.firstSection.pageSetup;
 
@@ -145,6 +150,7 @@ describe("ExUtilityClasses", () => {
     expect(aw.ConvertUtil.pointToPixel(pageSetup.leftMargin)).toBeCloseTo(225.0, 2);
     expect(pageSetup.rightMargin).toBeCloseTo(93.75, 2);
     expect(aw.ConvertUtil.pointToPixel(pageSetup.rightMargin)).toBeCloseTo(125.0, 2);
+    doc.close();
   });
 
 
@@ -182,6 +188,7 @@ describe("ExUtilityClasses", () => {
     doc.save(base.artifactsDir + "UtilityClasses.PointsAndPixelsDpi.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "UtilityClasses.PointsAndPixelsDpi.docx");
     pageSetup = doc.firstSection.pageSetup;
 
@@ -190,6 +197,7 @@ describe("ExUtilityClasses", () => {
     expect(aw.ConvertUtil.pointToPixel(pageSetup.topMargin, myDpi)).toBeCloseTo(157.33, 2);
     expect(aw.ConvertUtil.pointToPixel(100)).toBeCloseTo(133.33, 2);
     expect(aw.ConvertUtil.pointToPixel(100, myDpi)).toBeCloseTo(266.66, 1);
+    doc.close();
   });
 
 });

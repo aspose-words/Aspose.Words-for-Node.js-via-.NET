@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -32,6 +32,8 @@ describe("ExtractContent", () => {
 
         dstDoc.save(base.artifactsDir + "ExtractContent.ExtractContentBetweenBlockLevelNodes.docx");
         //ExEnd:ExtractContentBetweenBlockLevelNodes
+        dstDoc.close();
+        doc.close();
     });
 
     test('ExtractContentBetweenBookmark', () => {
@@ -52,9 +54,12 @@ describe("ExtractContent", () => {
         // Secondly, extract the content between these nodes this time without including the bookmark.
         let extractedNodesExclusive = ExtractContentHelper.extractContent(bookmarkStart, bookmarkEnd, false, true);
 
+        dstDoc.close();
         dstDoc = ExtractContentHelper.generateDocument(doc, extractedNodesExclusive);
         dstDoc.save(base.artifactsDir + "ExtractContent.ExtractContentBetweenBookmark.WithoutBookmark.docx");
         //ExEnd:ExtractContentBetweenBookmark
+        dstDoc.close();
+        doc.close();
     });
 
     test('ExtractContentBetweenCommentRange', () => {
@@ -73,10 +78,13 @@ describe("ExtractContent", () => {
 
         // Secondly, extract the content between these nodes without the comment.
         let extractedNodesExclusive = ExtractContentHelper.extractContent(commentStart, commentEnd, false, true);
+        dstDoc.close();
         dstDoc = ExtractContentHelper.generateDocument(doc, extractedNodesExclusive);
 
         dstDoc.save(base.artifactsDir + "ExtractContent.ExtractContentBetweenCommentRange.WithoutComment.docx");
         //ExEnd:ExtractContentBetweenCommentRange
+        dstDoc.close();
+        doc.close();
     });
 
     test('ExtractContentBetweenParagraphs', () => {
@@ -93,6 +101,8 @@ describe("ExtractContent", () => {
 
         dstDoc.save(base.artifactsDir + "ExtractContent.ExtractContentBetweenParagraphs.docx");
         //ExEnd:ExtractContentBetweenParagraphs
+        dstDoc.close();
+        doc.close();
     });
 
     test('ExtractContentBetweenParagraphStyles', () => {
@@ -114,6 +124,8 @@ describe("ExtractContent", () => {
 
         dstDoc.save(base.artifactsDir + "ExtractContent.ExtractContentBetweenParagraphStyles.docx");
         //ExEnd:ExtractContentBetweenParagraphStyles
+        dstDoc.close();
+        doc.close();
     });
 
     //ExStart:ParagraphsByStyleName
@@ -147,6 +159,7 @@ describe("ExtractContent", () => {
         let extractedNodes = ExtractContentHelper.extractContent(startRun, endRun, true, false);
         for (let extractedNode of extractedNodes)
             console.log(extractedNode.toString(aw.SaveFormat.Text));
+        doc.close();
         //ExEnd:ExtractContentBetweenRuns
     });
 
@@ -168,6 +181,8 @@ describe("ExtractContent", () => {
         let dstDoc = ExtractContentHelper.generateDocument(doc, extractedNodes);
         dstDoc.save(base.artifactsDir + "ExtractContent.ExtractContentUsingField.docx");
         //ExEnd:ExtractContentUsingField
+        dstDoc.close();
+        doc.close();
     });
 
     test('SimpleExtractText', () => {
@@ -182,6 +197,7 @@ describe("ExtractContent", () => {
         // but will still contain some natural formatting characters such as paragraph markers etc.
         // This is the same as "viewing" the document as if it was opened in a text editor.
         console.log("Convert to text result: " + doc.toString(aw.SaveFormat.Text));
+        doc.close();
         //ExEnd:SimpleExtractText
     });
 
@@ -205,6 +221,7 @@ describe("ExtractContent", () => {
 
         console.log("\nContents of the cell: ");
         console.log(table.lastRow.lastCell.range.text);
+        doc.close();
         //ExEnd:PrintTextRangeRowAndTable
     });
 
@@ -228,6 +245,7 @@ describe("ExtractContent", () => {
                 imageIndex++;
             }
         }
+        doc.close();
         //ExEnd:ExtractImages
     });
 
@@ -247,6 +265,7 @@ describe("ExtractContent", () => {
 
         for (let run of runs)
             console.log(run.range.text);
+        doc.close();
         //ExEnd:ExtractContentBasedOnStyles
     });
 

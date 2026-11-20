@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -23,6 +23,7 @@ describe("WorkingWithRanges", () => {
       //GistId:5abf4b66965fca92533f9a266a06c7ed
       let doc = new aw.Document(base.myDir + "Document.docx");
       doc.sections.at(0).range.delete();
+      doc.close();
       //ExEnd:RangesDeleteText
   });
 
@@ -31,6 +32,7 @@ describe("WorkingWithRanges", () => {
       //GistId:5abf4b66965fca92533f9a266a06c7ed
       let doc = new aw.Document(base.myDir + "Document.docx");
       let text = doc.range.text;
+      doc.close();
       //ExEnd:RangesGetText
   });
 });

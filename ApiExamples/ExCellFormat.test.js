@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -56,6 +56,7 @@ describe("ExCellFormat", () => {
     doc.save(base.artifactsDir + "CellFormat.verticalMerge.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "CellFormat.verticalMerge.docx");
     let table = doc.firstSection.body.tables.at(0);
 
@@ -63,6 +64,7 @@ describe("ExCellFormat", () => {
     expect(table.rows.at(1).cells.at(0).cellFormat.verticalMerge).toEqual(aw.Tables.CellMerge.Previous);
     expect(table.rows.at(0).cells.at(0).getText().trim()).toEqual("Text in merged cells.\u0007");
     expect(table.rows.at(1).cells.at(0).getText()).not.toEqual(table.rows.at(0).cells.at(0).getText());
+    doc.close();
   });
 
   test('HorizontalMerge', () => {
@@ -97,12 +99,14 @@ describe("ExCellFormat", () => {
     doc.save(base.artifactsDir + "CellFormat.horizontalMerge.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "CellFormat.horizontalMerge.docx");
     let table = doc.firstSection.body.tables.at(0);
 
     expect(table.rows.at(0).cells.count).toEqual(1);
     expect(table.rows.at(0).cells.at(0).cellFormat.horizontalMerge).toEqual(aw.Tables.CellMerge.None);
     expect(table.rows.at(0).cells.at(0).getText().trim()).toEqual("Text in merged cells.\u0007");
+    doc.close();
   });
 
   test('Padding', () => {
@@ -125,6 +129,7 @@ describe("ExCellFormat", () => {
     doc.save(base.artifactsDir + "CellFormat.Padding.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "CellFormat.Padding.docx");
 
     let table = doc.firstSection.body.tables.at(0);
@@ -134,5 +139,6 @@ describe("ExCellFormat", () => {
     expect(cell.cellFormat.topPadding).toEqual(10);
     expect(cell.cellFormat.rightPadding).toEqual(40);
     expect(cell.cellFormat.bottomPadding).toEqual(50);
+    doc.close();
   });
 });

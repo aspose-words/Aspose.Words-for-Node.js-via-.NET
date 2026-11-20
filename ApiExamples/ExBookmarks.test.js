@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -58,9 +58,11 @@ describe("ExBookmarks", () => {
     doc.save(base.artifactsDir + "Bookmarks.insert.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Bookmarks.insert.docx");
 
     expect(doc.range.bookmarks.at(0).name).toEqual("My Bookmark");
+    doc.close();
   });
 
 
@@ -97,6 +99,7 @@ describe("ExBookmarks", () => {
     // Bookmarks can be accessed in the bookmark collection by index or name, and their names can be updated.
     bookmarks.at(0).name = `${bookmarks.at(0).name}_NewName`;
     bookmarks.at("MyBookmark_2").text = `Updated text contents of ${bookmarks.at(1).name}`;
+    doc.close();
   });
   //ExEnd
 
@@ -114,7 +117,9 @@ describe("ExBookmarks", () => {
     }
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
 
     let firstTableColumnBookmark = doc.range.bookmarks.at("FirstTableColumnBookmark");
     let secondTableColumnBookmark = doc.range.bookmarks.at("SecondTableColumnBookmark");
@@ -126,6 +131,7 @@ describe("ExBookmarks", () => {
     expect(secondTableColumnBookmark.isColumn).toEqual(true);
     expect(secondTableColumnBookmark.firstColumn).toEqual(0);
     expect(secondTableColumnBookmark.lastColumn).toEqual(3);
+    doc.close();
   });
 
 
@@ -193,6 +199,7 @@ describe("ExBookmarks", () => {
             "Text inside MyBookmark_3.\r" +
             "Text inside MyBookmark_4.\r" +
             "Text inside MyBookmark_5.");
+    doc.close();
     //ExEnd
   });
 });

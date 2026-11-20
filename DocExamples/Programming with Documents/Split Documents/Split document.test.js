@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -31,6 +31,7 @@ describe("SplitDocument", () => {
     options.documentSplitCriteria = aw.Saving.DocumentSplitCriteria.HeadingParagraph;
 
     doc.save(base.artifactsDir + "SplitDocument.ByHeadings.epub", options);
+    doc.close();
     //ExEnd:SplitDocumentByHeadings
   });
 
@@ -44,6 +45,7 @@ describe("SplitDocument", () => {
     //ExEnd:SplitDocumentBySectionsHtml
 
     doc.save(base.artifactsDir + "SplitDocument.BySections.html", options);
+    doc.close();
   });
 
   test('BySections', () => {
@@ -62,7 +64,9 @@ describe("SplitDocument", () => {
 
       // Save each section as a separate document.
       newDoc.save(base.artifactsDir + `SplitDocument.BySections_${i}.docx`);
+      newDoc.close();
     }
+    doc.close();
     //ExEnd:SplitDocumentBySections
   });
 
@@ -77,10 +81,12 @@ describe("SplitDocument", () => {
       // Save each page as a separate document.
       let extractedPage = doc.extractPages(page, 1);
       extractedPage.save(base.artifactsDir + `SplitDocument.PageByPage_${page + 1}.docx`);
+      extractedPage.close();
     }
     //ExEnd:SplitDocumentPageByPage
 
     mergeDocuments();
+    doc.close();
   });
 
   //ExStart:MergeSplitDocuments
@@ -111,10 +117,13 @@ describe("SplitDocument", () => {
         continue;
       mergedDocBuilder.moveToDocumentEnd();
       mergedDocBuilder.insertDocument(sourceDoc, aw.ImportFormatMode.KeepSourceFormatting);
+      sourceDoc.close();
       sourceDoc = new aw.Document(file.fullPath);
     }
 
     mergedDoc.save(base.artifactsDir + "SplitDocument.MergeDocuments.docx");
+    mergedDoc.close();
+    sourceDoc.close();
   }
   //ExEnd:MergeSplitDocuments
 
@@ -127,5 +136,7 @@ describe("SplitDocument", () => {
     let extractedPages = doc.extractPages(3, 6);
     extractedPages.save(base.artifactsDir + "SplitDocument.ByPageRange.docx");
     //ExEnd:SplitDocumentByPageRange
+    extractedPages.close();
+    doc.close();
   });
 });

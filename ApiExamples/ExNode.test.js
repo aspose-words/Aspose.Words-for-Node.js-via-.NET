@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -43,6 +43,7 @@ describe("ExNode", () => {
 
     expect(cloneWithoutChildren.hasChildNodes).toEqual(false);
     expect(cloneWithoutChildren.getText().trim()).toEqual('');
+    doc.close();
     //ExEnd
   });
 
@@ -64,6 +65,7 @@ describe("ExNode", () => {
     expect(para.parentNode.referenceEquals(doc.firstSection.body)).toEqual(true);
     expect(doc.firstSection.body.parentNode.referenceEquals(doc.firstSection)).toEqual(true);
     expect(doc.firstSection.parentNode.referenceEquals(doc)).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -99,6 +101,7 @@ describe("ExNode", () => {
 
     expect(para.document.referenceEquals(doc)).toEqual(true);
     expect(para.parentNode).not.toBe(null);
+    doc.close();
   });
 
 
@@ -153,6 +156,7 @@ describe("ExNode", () => {
 
     expect(paragraph.getChild(aw.NodeType.Run, 0, true).nodeType).toEqual(aw.NodeType.Run);
     expect(doc.getText().trim()).toEqual("Hello world! Hello again!");
+    doc.close();
   });
 
 
@@ -195,6 +199,7 @@ describe("ExNode", () => {
 
     // Invoke the recursive function that will go through and print all the child nodes of a composite node.
     traverseAllNodes(doc, 0);
+    doc.close();
   });
 
 
@@ -252,6 +257,7 @@ describe("ExNode", () => {
     }
 
     expect(doc.getChildNodes(aw.NodeType.Table, true).count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -272,6 +278,7 @@ describe("ExNode", () => {
       let contents = node.getText().trim();
       console.log(contents == '' ? "This node contains no text" : `Contents: \"${node.getText().trim()}\"`);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -299,6 +306,7 @@ describe("ExNode", () => {
 
     expect(tables[0].rows.count).toEqual(3);
     expect(tables[1].rows.count).toEqual(2);
+    doc.close();
     //ExEnd
   });
 
@@ -326,6 +334,7 @@ describe("ExNode", () => {
 
     // The section we removed was the first one, leaving the document with only the second.
     expect(doc.getText().trim()).toEqual("Section 2 text.");
+    doc.close();
     //ExEnd
   });
 
@@ -359,6 +368,7 @@ describe("ExNode", () => {
     let node = doc.selectSingleNode("//Body/Paragraph");
 
     expect(node.nodeType).toEqual(aw.NodeType.Paragraph);
+    doc.close();
     //ExEnd
   });
 
@@ -377,6 +387,7 @@ describe("ExNode", () => {
 
     // Check if the specified run is one of the nodes that are inside the field.
     console.log(`Contents of the first Run node that's part of a field: ${resultList.find(n => n.nodeType == aw.NodeType.Run).asRun().getText().trim()}`);
+    doc.close();
     //ExEnd
   });
 
@@ -388,6 +399,7 @@ describe("ExNode", () => {
 
     let section = doc.lastSection;
     section.body.appendChild(para);
+    doc.close();
   });
 
 
@@ -402,6 +414,7 @@ describe("ExNode", () => {
     doc.removeSmartTags();
 
     expect(doc.getChildNodes(aw.NodeType.SmartTag, true).count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -416,6 +429,7 @@ describe("ExNode", () => {
 
     // Retrieve the index of the last paragraph in the body of the first section.
     expect(body.getChildNodes(aw.NodeType.Any, false).indexOf(body.lastParagraph)).toEqual(24);
+    doc.close();
     //ExEnd
   });
 
@@ -442,6 +456,7 @@ describe("ExNode", () => {
     expect(node.toString(saveOptions)).toEqual("<p style=\"margin-top:0pt; margin-bottom:8pt; line-height:108%\">" +
                             "<span style=\"font-family:'Times New Roman'\">Hello World!</span>" +
                             "</p>");
+    doc.close();
     //ExEnd
   });
 
@@ -455,6 +470,7 @@ describe("ExNode", () => {
     let paras = doc.firstSection.body.paragraphs.toArray();
 
     expect(paras.length).toEqual(22);
+    doc.close();
     //ExEnd
   });
 
@@ -477,6 +493,7 @@ describe("ExNode", () => {
         para.remove();
 
     expect(doc.getText().includes("The third paragraph")).toEqual(false);
+    doc.close();
     //ExEnd
   });
 
@@ -503,6 +520,7 @@ describe("ExNode", () => {
     builder.insertImage(base.imageDir + "Logo.jpg");            
 
     builder.currentParagraph.parentNode.removeAllChildren();
+    doc.close();
   });
 
 
@@ -584,6 +602,7 @@ describe("ExNode", () => {
     expect(doc.getText().trim()).toEqual("Run 1. Run 3.");
     expect(run).not.toBe(null);
     expect(runs.contains(run)).toEqual(false);
+    doc.close();
     //ExEnd
   });
 
@@ -631,6 +650,7 @@ describe("ExNode", () => {
 
     let shape = nodeList.at(0).asShape();
     expect(shape.hasImage).toEqual(true);
+    doc.close();
     //ExEnd
   });
 });

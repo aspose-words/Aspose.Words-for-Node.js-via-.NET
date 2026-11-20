@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -44,6 +44,7 @@ describe("ExControlChar", () => {
     // we can omit some of the control characters with the Trim method.
     expect(doc.getText().trim()).toEqual(`Hello world!${aw.ControlChar.cr}` +
                             "Hello again!");
+    doc.close();
     //ExEnd
   });
 
@@ -138,6 +139,7 @@ describe("ExControlChar", () => {
     expect(aw.ControlChar.sectionBreakChar).toEqual(aw.ControlChar.sectionBreak);
     expect(aw.ControlChar.sectionBreakChar).toEqual(aw.ControlChar.pageBreak);
     expect(aw.ControlChar.columnBreakChar).toEqual(aw.ControlChar.columnBreak);
+    doc.close();
     //ExEnd
   });
 });
