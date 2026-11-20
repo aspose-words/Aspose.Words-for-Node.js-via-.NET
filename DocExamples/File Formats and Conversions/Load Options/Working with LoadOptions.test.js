@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -28,6 +28,7 @@ describe("WorkingWithLoadOptions", () => {
     let doc = new aw.Document(base.myDir + "Dirty field.docx", loadOptions);
 
     doc.save(base.artifactsDir + "WorkingWithLoadOptions.updateDirtyFields.docx");
+    doc.close();
     //ExEnd:UpdateDirtyFields
   });
 
@@ -42,6 +43,7 @@ describe("WorkingWithLoadOptions", () => {
 
     doc.save(base.artifactsDir + "WorkingWithLoadOptions.LoadSaveEncryptedDocument.odt", 
       new aw.Saving.OdtSaveOptions("newPassword"));
+    doc.close();
     //ExEnd:LoadSaveEncryptedDocument
   });
 
@@ -65,6 +67,7 @@ describe("WorkingWithLoadOptions", () => {
     let doc = new aw.Document(base.myDir + "Office math.docx", loadOptions);
 
     doc.save(base.artifactsDir + "WorkingWithLoadOptions.convertShapeToOfficeMath.docx", aw.SaveFormat.Docx);
+    doc.close();
     //ExEnd:ConvertShapeToOfficeMath
   });
 
@@ -80,6 +83,7 @@ describe("WorkingWithLoadOptions", () => {
     let doc = new aw.Document(base.myDir + "Document.docx", loadOptions);
 
     doc.save(base.artifactsDir + "WorkingWithLoadOptions.SetMsWordVersion.docx");
+    doc.close();
     //ExEnd:SetMsWordVersion
   });
 
@@ -91,6 +95,7 @@ describe("WorkingWithLoadOptions", () => {
     loadOptions.tempFolder = base.artifactsDir;
 
     let doc = new aw.Document(base.myDir + "Document.docx", loadOptions);
+    doc.close();
     //ExEnd:TempFolder
   });
 
@@ -102,6 +107,7 @@ describe("WorkingWithLoadOptions", () => {
     // loadOptions.warningCallback = new DocumentLoadingWarningCallback(); TODO: not supported yet
             
     let doc = new aw.Document(base.myDir + "Document.docx", loadOptions);
+    doc.close();
     //ExEnd:WarningCallback
   });
 
@@ -132,6 +138,7 @@ describe("WorkingWithLoadOptions", () => {
     let doc = new aw.Document(base.myDir + "Images.html", loadOptions);
 
     doc.save(base.artifactsDir + "WorkingWithLoadOptions.resourceLoadingCallback.pdf");
+    doc.close();
     //ExEnd:ResourceLoadingCallback
   });
 
@@ -189,6 +196,7 @@ describe("WorkingWithLoadOptions", () => {
 
     // Load the document while passing the LoadOptions object, then verify the document's contents.
     let doc = new aw.Document(base.myDir + "English text.txt", loadOptions);
+    doc.close();
     //ExEnd:LoadWithEncoding
   });
 
@@ -199,6 +207,7 @@ describe("WorkingWithLoadOptions", () => {
     loadOptions.skipPdfImages = true;
 
     let doc = new aw.Document(base.myDir + "Pdf Document.pdf", loadOptions);
+    doc.close();
     //ExEnd:SkipPdfImages
   });
 
@@ -209,6 +218,7 @@ describe("WorkingWithLoadOptions", () => {
     loadOptions.convertMetafilesToPng = true;
 
     let doc = new aw.Document(base.myDir + "WMF with image.docx", loadOptions);
+    doc.close();
     //ExEnd:ConvertMetafilesToPng
   });
 
@@ -219,6 +229,7 @@ describe("WorkingWithLoadOptions", () => {
     loadOptions.encoding = "windows-1251";
 
     let doc = new aw.Document(base.myDir + "HTML help.chm", loadOptions);
+    doc.close();
     //ExEnd:LoadCHM
   });
 

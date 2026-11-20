@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -31,6 +31,7 @@ describe("WorkingWithDocSaveOptions", () => {
     saveOptions.password = "password";
 
     doc.save(base.artifactsDir + "WorkingWithDocSaveOptions.EncryptDocumentWithPassword.docx", saveOptions);
+    doc.close();
     //ExEnd:EncryptDocumentWithPassword
   });
 
@@ -43,6 +44,7 @@ describe("WorkingWithDocSaveOptions", () => {
     saveOptions.alwaysCompressMetafiles = false;
 
     doc.save(base.artifactsDir + "WorkingWithDocSaveOptions.NotCompressSmallMetafiles.docx", saveOptions);
+    doc.close();
     //ExEnd:DoNotCompressSmallMetafiles
   });
 
@@ -55,6 +57,7 @@ describe("WorkingWithDocSaveOptions", () => {
     saveOptions.savePictureBullet = false;
 
     doc.save(base.artifactsDir + "WorkingWithDocSaveOptions.DoNotSavePictureBullet.docx", saveOptions);
+    doc.close();
     //ExEnd:DoNotSavePictureBullet
   });
 

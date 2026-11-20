@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -28,6 +28,7 @@ describe("WorkingWithOleObjectsAndActiveX", () => {
     builder.insertOleObject("http://www.aspose.com", "htmlfile", true, true, null);
 
     doc.save(base.artifactsDir + "WorkingWithOleObjectsAndActiveX.InsertOleObject.docx");
+    doc.close();
     //ExEnd:InsertOleObject
   });
 
@@ -41,6 +42,7 @@ describe("WorkingWithOleObjectsAndActiveX", () => {
         "My embedded file");
 
     doc.save(base.artifactsDir + "WorkingWithOleObjectsAndActiveX.InsertOleObjectAsIcon.docx");
+    doc.close();
     //ExEnd:InsertOleObjectAsIcon
   });
 
@@ -69,6 +71,7 @@ describe("WorkingWithOleObjectsAndActiveX", () => {
 
     properties = properties + "\nTotal ActiveX Controls found: " + doc.getChildNodes(aw.NodeType.Shape, true).count;
     console.log("\n" + properties);
+    doc.close();
   });
 
   test('InsertOnlineVideo', () => {
@@ -84,6 +87,7 @@ describe("WorkingWithOleObjectsAndActiveX", () => {
     let shape = builder.insertOnlineVideo(url, width, height);
 
     doc.save(base.artifactsDir + "WorkingWithOleObjectsAndActiveX.InsertOnlineVideo.docx");
+    doc.close();
     //ExEnd:InsertOnlineVideo
   });
 

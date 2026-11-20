@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -42,6 +42,7 @@ describe("WorkingWithImages", () => {
     // Save the document as a PDF to disk
     // You can also save this directly to a stream
     doc.save(base.artifactsDir + "WorkingWithImages.InsertBarcodeImage.docx");
+    doc.close();
     //ExEnd:InsertBarcodeImage
   });
 
@@ -108,6 +109,7 @@ describe("WorkingWithImages", () => {
     croppedImage.imageData.cropBottom = croppedImage.imageData.cropBottom - topToHeight;
 
     croppedImage.getShapeRenderer().save(base.artifactsDir + "WorkingWithImages.CropImages.jpg", new aw.Saving.ImageSaveOptions(aw.SaveFormat.Jpeg));
+    doc.close();
     //ExEnd:CropImages
   });
 });

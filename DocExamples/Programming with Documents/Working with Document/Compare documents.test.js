@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -28,6 +28,8 @@ describe("CompareDocuments", () => {
     docA.compare(docB, "user", new Date());
     console.log(docA.revisions.count == 0 ? "Documents are equal" : "Documents are not equal");
     //ExEnd:CompareForEqual
+    docB.close();
+    docA.close();
   });
 
 
@@ -49,6 +51,8 @@ describe("CompareDocuments", () => {
     docA.compare(docB, "user", new Date(), options);
     console.log(docA.revisions.count == 0 ? "Documents are equal" : "Documents are not equal");
     //ExEnd:CompareOptions
+    docB.close();
+    docA.close();
   });
 
   test('ComparisonTarget', () => {
@@ -62,6 +66,8 @@ describe("CompareDocuments", () => {
 
     docA.compare(docB, "user", new Date(), options);
     //ExEnd:ComparisonTarget
+    docB.close();
+    docA.close();
   });
 
   test('ComparisonGranularity', () => {
@@ -75,5 +81,7 @@ describe("CompareDocuments", () => {
 
     builderA.document.compare(builderB.document, "author", new Date(), compareOptions);
     //ExEnd:ComparisonGranularity
+    builderB.document.close();
+    builderA.document.close();
   });
 });

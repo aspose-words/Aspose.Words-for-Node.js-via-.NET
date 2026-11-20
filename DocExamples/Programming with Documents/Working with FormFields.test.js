@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -26,6 +26,7 @@ describe("WorkingWithFormFields", () => {
     let builder = new aw.DocumentBuilder(doc);
     let items = ["One", "Two", "Three"];
     builder.insertComboBox("DropDown", items, 0);
+    doc.close();
     //ExEnd:InsertFormFields
   });
 
@@ -36,6 +37,7 @@ describe("WorkingWithFormFields", () => {
     let formField = doc.range.formFields.at(3);
     if (formField.type == aw.Fields.FieldType.FieldFormTextInput)
         formField.result = "My name is " + formField.name;
+    doc.close();
     //ExEnd:FormFieldsWorkWithProperties
   });
 
@@ -45,6 +47,7 @@ describe("WorkingWithFormFields", () => {
     let doc = new aw.Document(base.myDir + "Form fields.docx");
 
     let formFields = doc.range.formFields;
+    doc.close();
     //ExEnd:FormFieldsGetFormFieldsCollection
   });
 
@@ -60,6 +63,7 @@ describe("WorkingWithFormFields", () => {
     //ExEnd:FormFieldsGetByName
     formField1.font.size = 20;
     formField2.font.color = "#FF0000";
+    doc.close();
     //ExEnd:FormFieldsFontFormatting
   });
 

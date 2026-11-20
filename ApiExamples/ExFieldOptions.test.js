@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -60,6 +60,7 @@ describe("ExFieldOptions", () => {
     doc.save(base.artifactsDir + "FieldOptions.currentUser.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "FieldOptions.currentUser.docx");
 
     expect(doc.fieldOptions.currentUser).toBe(null);
@@ -78,6 +79,7 @@ describe("ExFieldOptions", () => {
 
     expect(fieldUserAddress.userAddress).toBe(null);
     expect(fieldUserAddress.result).toEqual("One Microsoft Way");
+    doc.close();
   });
 
 
@@ -122,10 +124,12 @@ describe("ExFieldOptions", () => {
     doc.save(base.artifactsDir + doc.fieldOptions.fileName);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "FieldOptions.FILENAME.docx");
 
     expect(doc.fieldOptions.fileName).toBe(null);
     TestUtil.verifyField(aw.Fields.FieldType.FieldFileName, " FILENAME ", "FieldOptions.FILENAME.docx", doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -147,6 +151,7 @@ describe("ExFieldOptions", () => {
     doc.save(base.artifactsDir + "FieldOptions.bidi.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "FieldOptions.bidi.docx");
 
     expect(doc.fieldOptions.isBidiTextSupportedOnUpdate).toEqual(false);
@@ -154,6 +159,7 @@ describe("ExFieldOptions", () => {
     comboBox = doc.range.formFields.at(0);
 
     expect(comboBox.result).toEqual("עֶשְׂרִים");
+    doc.close();
   });
 
 
@@ -174,10 +180,13 @@ describe("ExFieldOptions", () => {
     expect(field.result).toEqual("$5");
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
 
     expect(doc.fieldOptions.legacyNumberFormat).toEqual(false);
     TestUtil.verifyField(aw.Fields.FieldType.FieldFormula, "= 2 + 3 \\# $##", "$5", doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -204,10 +213,13 @@ describe("ExFieldOptions", () => {
     expect(new RegExp(String.raw`\d{2}[/]\d{2}[/]\d{4} \d{2}[:]\d{2}`).test(field.result)).toEqual(true);
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument2 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument2;
 
     expect(doc.fieldOptions.preProcessCulture).toBe(null);
     expect(new RegExp(String.raw`\d{2}[/]\d{2}[/]\d{4} \d{2}[:]\d{2}`).test(doc.range.fields.at(0).result)).toEqual(true);
+    doc.close();
   });
 
 
@@ -258,6 +270,7 @@ describe("ExFieldOptions", () => {
     doc.save(base.artifactsDir + "FieldOptions.TOA.categories.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "FieldOptions.TOA.categories.docx");
 
     expect(doc.fieldOptions.toaCategories).toBe(null);
@@ -267,6 +280,7 @@ describe("ExFieldOptions", () => {
       "My Category 2\r" +
       "entry 1\t2\r" +
       "entry 3\t4\r", doc.range.fields.at(1));
+    doc.close();
   });
 
 
@@ -294,10 +308,13 @@ describe("ExFieldOptions", () => {
     expect(field.result).toEqual("$1.234.567,89");
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument3 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument3;
 
     expect(doc.fieldOptions.useInvariantCultureNumberFormat).toEqual(false);
     TestUtil.verifyField(aw.Fields.FieldType.FieldFormula, " = 1234567,89 \\# $#,###,###.##", "$1.234.567,89", doc.range.fields.at(0));
+    doc.close();
   });
 
 

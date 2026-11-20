@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -32,6 +32,7 @@ describe("WorkingWithTextboxes", () => {
 
     if (textBox1.isValidLinkTarget(textBox2))
       textBox1.next = textBox2;
+    doc.close();
     //ExEnd:CreateLink
   });
 
@@ -51,6 +52,7 @@ describe("WorkingWithTextboxes", () => {
 
     if (textBox.next == null && textBox.previous != null)
       console.log("The Tail of the sequence.");
+    doc.close();
     //ExEnd:CheckSequence
   });
 
@@ -71,6 +73,7 @@ describe("WorkingWithTextboxes", () => {
     // Break a link, which leads to this textbox.
     if (textBox.previous != null)
       textBox.previous.breakForwardLink();
+    doc.close();
     //ExEnd:BreakLink
   });
 

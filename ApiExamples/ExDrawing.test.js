@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -225,6 +225,7 @@ describe("ExDrawing", () => {
 
     let imgShape = builder.insertImage(base.imageDir + "Logo.jpg");
     expect(imgShape.imageData.imageType).toEqual(aw.Drawing.ImageType.Jpeg);
+    doc.close();
     //ExEnd
   });
 
@@ -256,6 +257,7 @@ describe("ExDrawing", () => {
     console.log("The fill transparency is {0}%", fill.transparency * 100);
 
     doc.save(base.artifactsDir + "Drawing.FillSolid.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -311,6 +313,7 @@ describe("ExDrawing", () => {
     expect(path.extname(imageFileNames.at(7))).toEqual(".Jpeg");
     await TestUtil.verifyImage(1200, 1500, base.artifactsDir + imageFileNames.at(8));
     expect(path.extname(imageFileNames.at(8))).toEqual(".Jpeg");
+    imgSourceDoc.close();
   });
 
 
@@ -335,6 +338,7 @@ describe("ExDrawing", () => {
     //ExEnd
 
     await TestUtil.verifyImage(8, 8, base.artifactsDir + "Drawing.StrokePattern.png");
+    doc.close();
   });
 
 
@@ -480,6 +484,7 @@ describe("ExDrawing", () => {
     doc.save(base.artifactsDir + "Drawing.textBox.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Drawing.textBox.docx");
     textbox = doc.getShape(0, true).asShape();
 
@@ -488,6 +493,7 @@ describe("ExDrawing", () => {
     expect(textbox.height).toEqual(100.0);
     expect(textbox.textBox.layoutFlow).toEqual(aw.Drawing.LayoutFlow.BottomToTop);
     expect(textbox.getText().trim()).toEqual("This text is flipped 90 degrees to the left.");
+    doc.close();
   });
 
 
@@ -519,6 +525,7 @@ describe("ExDrawing", () => {
     //ExEnd
 
     await TestUtil.verifyImage(2467, 1500, base.artifactsDir + "Drawing.GetDataFromImage.png");
+    imgSourceDoc.close();
   });
 
 
@@ -593,6 +600,7 @@ describe("ExDrawing", () => {
     dstDoc.save(base.artifactsDir + "Drawing.imageData.docx");
     //ExEnd
 
+    imgSourceDoc.close();
     imgSourceDoc = new aw.Document(base.artifactsDir + "Drawing.imageData.docx");
     sourceShape = imgSourceDoc.getShape(0, true).asShape();
 
@@ -615,6 +623,8 @@ describe("ExDrawing", () => {
     expect(sourceShape.imageData.cropLeft).toBeCloseTo(0.3, 1);
     expect(sourceShape.imageData.cropTop).toBeCloseTo(0.3, 1);
     expect(sourceShape.imageData.cropRight).toBeCloseTo(0.3, 1);
+    dstDoc.close();
+    imgSourceDoc.close();
   });
 
 
@@ -650,6 +660,7 @@ describe("ExDrawing", () => {
     doc.save(base.artifactsDir + "Drawing.imageSize.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Drawing.imageSize.docx");
     shape = doc.getShape(0, true).asShape();
 
@@ -663,6 +674,7 @@ describe("ExDrawing", () => {
     expect(imageSize.widthPixels).toEqual(400);
     expect(Math.abs(imageSize.horizontalResolution - 95.98)).toBeLessThanOrEqual(delta);
     expect(Math.abs(imageSize.verticalResolution - 95.98)).toBeLessThanOrEqual(delta);
+    doc.close();
   });
 
 });

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -36,6 +36,7 @@ describe("ExOdtSaveOptions", () => {
     doc.save(base.artifactsDir + "OdtSaveOptions.Odt11Schema.odt", saveOptions);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "OdtSaveOptions.Odt11Schema.odt");
 
     expect(doc.layoutOptions.revisionOptions.measurementUnit).toEqual(aw.MeasurementUnits.Centimeters);
@@ -53,6 +54,7 @@ describe("ExOdtSaveOptions", () => {
       expect(doc.range.formFields.at(1).type).toEqual(aw.Fields.FieldType.FieldFormCheckBox);
       expect(doc.range.formFields.at(2).type).toEqual(aw.Fields.FieldType.FieldFormDropDown);
     }
+    doc.close();
   });
 
 
@@ -87,6 +89,7 @@ describe("ExOdtSaveOptions", () => {
           base.artifactsDir + "OdtSaveOptions.Odt11Schema.odt", "styles.xml");
         break;
     }
+    doc.close();
   });
 
 
@@ -117,10 +120,12 @@ describe("ExOdtSaveOptions", () => {
 
     // If we wish to open or edit this document again using Aspose.words,
     // we will have to provide a LoadOptions object with the correct password to the loading constructor.
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "OdtSaveOptions.encrypt" + extensionString,
       new aw.Loading.LoadOptions("@sposeEncrypted_1145"));
 
     expect(doc.getText().trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 

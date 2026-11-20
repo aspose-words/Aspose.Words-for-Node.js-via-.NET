@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -112,6 +112,7 @@ describe("ExDocumentProperties", () => {
     //ExEnd
 
     expect(doc.builtInDocumentProperties.count).toEqual(31);
+    doc.close();
   });
 
 
@@ -141,6 +142,7 @@ describe("ExDocumentProperties", () => {
     //ExEnd
 
     expect(doc.customDocumentProperties.count).toEqual(2);
+    doc.close();
   });
 
 
@@ -190,6 +192,7 @@ describe("ExDocumentProperties", () => {
     doc.save(base.artifactsDir + "DocumentProperties.description.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentProperties.description.docx");
 
     properties = doc.builtInDocumentProperties;
@@ -204,6 +207,7 @@ describe("ExDocumentProperties", () => {
                             "Doc title:\t\u0013 TITLE \u0014John's Document\u0015\r" +
                             "Subject:\t\u0013 SUBJECT \u0014My subject\u0015\r" +
                             "Comments:\t\"\u0013 COMMENTS \u0014This is John Doe's document about My subject\u0015\"");
+    doc.close();
   });
 
 
@@ -249,7 +253,8 @@ describe("ExDocumentProperties", () => {
     doc.save(base.artifactsDir + "DocumentProperties.origin.docx");
     //ExEnd
 
-    properties = new aw.Document(base.artifactsDir + "DocumentProperties.origin.docx").builtInDocumentProperties;
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "DocumentProperties.origin.docx");
+    properties = loadedDocument1.builtInDocumentProperties;
 
     expect(properties.company).toEqual("Doe Ltd.");
     expect(properties.createdTime).toEqual(new Date(2006, 3, 25, 10, 10, 0));
@@ -263,6 +268,8 @@ describe("ExDocumentProperties", () => {
     expect(properties.template).toEqual("Normal");
     expect(properties.totalEditingTime).toEqual(8);
     expect(properties.version).toEqual(786432);
+    loadedDocument1.close();
+    doc.close();
   });
 
 
@@ -333,7 +340,10 @@ describe("ExDocumentProperties", () => {
     expect(properties.linksUpToDate).toEqual(false);
 
     doc.save(base.artifactsDir + "DocumentProperties.content.docx");
-    testContent(new aw.Document(base.artifactsDir + "DocumentProperties.content.docx")); //ExSkip
+    const loadedDocument2 = new aw.Document(base.artifactsDir + "DocumentProperties.content.docx");
+    testContent(loadedDocument2); //ExSkip
+    loadedDocument2.close();
+    doc.close();
   });
   //ExEnd
 
@@ -362,6 +372,7 @@ describe("ExDocumentProperties", () => {
     //ExEnd
 
     await TestUtil.verifyImage(400, 400, base.artifactsDir + "DocumentProperties.thumbnail.gif");            
+    doc.close();
   });
 
 
@@ -393,16 +404,19 @@ describe("ExDocumentProperties", () => {
     doc.save(base.artifactsDir + "DocumentProperties.hyperlinkBase.WorkingLink.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentProperties.hyperlinkBase.BrokenLink.docx");
     properties = doc.builtInDocumentProperties;
 
     expect(properties.hyperlinkBase).toEqual('');
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentProperties.hyperlinkBase.WorkingLink.docx");
     properties = doc.builtInDocumentProperties;
 
     expect(properties.hyperlinkBase).toEqual(base.myDir);
     expect(fs.existsSync(properties.hyperlinkBase + doc.range.fields.at(0).asFieldHyperlink().address)).toEqual(true);
+    doc.close();
   });
 
 
@@ -455,6 +469,7 @@ describe("ExDocumentProperties", () => {
     // "Heading 2"
     expect(titlesOfParts.at(6)).toEqual("Part6");
     expect(titlesOfParts.at(7)).toEqual("Part7");
+    doc.close();
   });
 
 
@@ -471,10 +486,12 @@ describe("ExDocumentProperties", () => {
     doc.writeProtection.readOnlyRecommended = true;
     doc.save(base.artifactsDir + "DocumentProperties.security.readOnlyRecommended.docx");
 
-    expect(new aw.Document(base.artifactsDir + "DocumentProperties.security.readOnlyRecommended.docx")
+    const loadedDocument3 = new aw.Document(base.artifactsDir + "DocumentProperties.security.readOnlyRecommended.docx");
+    expect(loadedDocument3
       .builtInDocumentProperties.security).toEqual(aw.Properties.DocumentSecurity.ReadOnlyRecommended);
 
     // Write-protect a document, and then verify its security level.
+    doc.close();
     doc = new aw.Document();
 
     expect(doc.writeProtection.isWriteProtected).toEqual(false);
@@ -486,19 +503,26 @@ describe("ExDocumentProperties", () => {
 
     doc.save(base.artifactsDir + "DocumentProperties.security.readOnlyEnforced.docx");
             
-    expect(new aw.Document(base.artifactsDir + "DocumentProperties.security.readOnlyEnforced.docx")
+    const loadedDocument4 = new aw.Document(base.artifactsDir + "DocumentProperties.security.readOnlyEnforced.docx");
+    expect(loadedDocument4
       .builtInDocumentProperties.security).toEqual(aw.Properties.DocumentSecurity.ReadOnlyEnforced);
 
     // "Security" is a descriptive property. We can edit its value manually.
+    doc.close();
     doc = new aw.Document();
 
     doc.protect(aw.ProtectionType.AllowOnlyComments, "MyPassword");
     doc.builtInDocumentProperties.security = aw.Properties.DocumentSecurity.ReadOnlyExceptAnnotations;
     doc.save(base.artifactsDir + "DocumentProperties.security.readOnlyExceptAnnotations.docx");
 
-    expect(new aw.Document(base.artifactsDir + "DocumentProperties.security.readOnlyExceptAnnotations.docx")
+    const loadedDocument5 = new aw.Document(base.artifactsDir + "DocumentProperties.security.readOnlyExceptAnnotations.docx");
+    expect(loadedDocument5
       .builtInDocumentProperties.security).toEqual(aw.Properties.DocumentSecurity.ReadOnlyExceptAnnotations);
     //ExEnd
+    loadedDocument5.close();
+    loadedDocument4.close();
+    loadedDocument3.close();
+    doc.close();
   });
 
 
@@ -516,9 +540,12 @@ describe("ExDocumentProperties", () => {
     //console.log(`Document authorized on ${doc.customDocumentProperties.at("AuthorizationDate")}`);
     //ExEnd
 
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
     TestUtil.verifyDate(date, 
-      DocumentHelper.saveOpen(doc).customDocumentProperties.at("AuthorizationDate").toDateTime(), 
+      reopenedDocument1.customDocumentProperties.at("AuthorizationDate").toDateTime(),
       1000);
+    doc.close();
+    reopenedDocument1.close();
   });
 
 
@@ -547,12 +574,14 @@ describe("ExDocumentProperties", () => {
     doc.save(base.artifactsDir + "DocumentProperties.LinkCustomDocumentPropertiesToBookmark.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentProperties.LinkCustomDocumentPropertiesToBookmark.docx");
     customProperty = doc.customDocumentProperties.at("Bookmark");
 
     expect(customProperty.isLinkToContent).toEqual(true);
     expect(customProperty.linkSource).toEqual("MyBookmark");
     expect(customProperty.toString()).toEqual("Hello world!");
+    doc.close();
   });
 
 
@@ -621,6 +650,7 @@ describe("ExDocumentProperties", () => {
     properties.clear();
 
     expect(properties.count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -649,6 +679,7 @@ describe("ExDocumentProperties", () => {
     expect(properties.at("Authorized Revision").toInt()).toEqual(1);
     expect(properties.at("Authorized Amount").type).toEqual(aw.Properties.PropertyType.Double);
     expect(properties.at("Authorized Amount").toDouble()).toEqual(123.45);
+    doc.close();
     //ExEnd
   });
 
@@ -664,6 +695,7 @@ describe("ExDocumentProperties", () => {
     expect(doc.builtInDocumentProperties.scaleCrop).toEqual(true);
     expect(doc.builtInDocumentProperties.sharedDocument).toEqual(true);
     expect(doc.builtInDocumentProperties.hyperlinksChanged).toEqual(true);
+    doc.close();
     //ExEnd:ExtendedProperties
   });
 

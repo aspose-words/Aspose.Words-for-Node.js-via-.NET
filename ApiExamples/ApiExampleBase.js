@@ -52,6 +52,19 @@ class ApiExampleBase {
         return [...Uint8Array.from(fs.readFileSync(fileName))];
     }
 
+    static async streamToBuffer(stream)
+    {
+        const chunks = [];
+
+        for await (const chunk of stream) {
+            chunks.push(
+                Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk)
+            );
+        }
+
+        return Buffer.concat(chunks);
+    }
+
     /// <summary>
     /// Gets the path to the codebase directory.
     /// </summary>

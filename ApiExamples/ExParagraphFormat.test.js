@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -35,12 +35,14 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.AsianTypographyProperties.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.AsianTypographyProperties.docx");
     format = doc.firstSection.body.firstParagraph.paragraphFormat;
 
     expect(format.farEastLineBreakControl).toEqual(true);
     expect(format.wordWrap).toEqual(false);
     expect(format.hangingPunctuation).toEqual(true);
+    doc.close();
   });
 
 
@@ -76,10 +78,12 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.DropCap.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.DropCap.docx");
 
     expect(doc.firstSection.body.paragraphs.at(0).asParagraph().paragraphFormat.dropCapPosition).toEqual(dropCapPosition);
     expect(doc.firstSection.body.paragraphs.at(1).asParagraph().paragraphFormat.dropCapPosition).toEqual(aw.DropCapPosition.None);
+    doc.close();
   });
 
   test('LineSpacing', () => {
@@ -121,6 +125,7 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.lineSpacing.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.lineSpacing.docx");
     let paragraphs = doc.firstSection.body.paragraphs;
 
@@ -138,6 +143,7 @@ describe("ExParagraphFormat", () => {
     expect(paragraphs.at(4).paragraphFormat.lineSpacing).toEqual(18.0);
     expect(paragraphs.at(5).paragraphFormat.lineSpacingRule).toEqual(aw.LineSpacingRule.Multiple);
     expect(paragraphs.at(5).paragraphFormat.lineSpacing).toEqual(18.0);
+    doc.close();
   });
 
   test.each([false, true])('ParagraphSpacingAuto(%o)', (autoSpacing) => {
@@ -167,6 +173,7 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.ParagraphSpacingAuto.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.ParagraphSpacingAuto.docx");
     let format = doc.firstSection.body.paragraphs.at(0).asParagraph().paragraphFormat;
 
@@ -181,6 +188,7 @@ describe("ExParagraphFormat", () => {
     expect(format.spaceAfter).toEqual(24.0);
     expect(format.spaceAfterAuto).toEqual(autoSpacing);
     expect(format.spaceBeforeAuto).toEqual(autoSpacing);
+    doc.close();
   });
 
   test.each([false, true])('ParagraphSpacingSameStyle(%o)', (noSpaceBetweenParagraphsOfSameStyle) => {
@@ -216,6 +224,7 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.ParagraphSpacingSameStyle.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.ParagraphSpacingSameStyle.docx");
 
     for (let paragraph of doc.firstSection.body.paragraphs)
@@ -226,6 +235,7 @@ describe("ExParagraphFormat", () => {
       expect(format.spaceAfter).toEqual(24.0);
       expect(format.noSpaceBetweenParagraphsOfSameStyle).toEqual(noSpaceBetweenParagraphsOfSameStyle);
     }
+    doc.close();
   });
 
   test('ParagraphOutlineLevel', () => {
@@ -260,6 +270,7 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.ParagraphOutlineLevel.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.ParagraphOutlineLevel.docx");
     let paragraphs = doc.firstSection.body.paragraphs;
 
@@ -268,6 +279,7 @@ describe("ExParagraphFormat", () => {
     expect(paragraphs.at(2).paragraphFormat.outlineLevel).toEqual(aw.OutlineLevel.Level3);
     expect(paragraphs.at(3).paragraphFormat.outlineLevel).toEqual(aw.OutlineLevel.Level3);
     expect(paragraphs.at(4).paragraphFormat.outlineLevel).toEqual(aw.OutlineLevel.BodyText);
+    doc.close();
   });
 
 
@@ -305,11 +317,13 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.pageBreakBefore.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.pageBreakBefore.docx");
     paragraphs = doc.firstSection.body.paragraphs;
 
     expect(paragraphs.at(0).paragraphFormat.pageBreakBefore).toEqual(pageBreakBefore);
     expect(paragraphs.at(1).paragraphFormat.pageBreakBefore).toEqual(pageBreakBefore);
+    doc.close();
   });
 
 
@@ -339,9 +353,11 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.widowControl.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.widowControl.docx");
 
     expect(doc.firstSection.body.paragraphs.at(0).paragraphFormat.widowControl).toEqual(widowControl);
+    doc.close();
   });
 
 
@@ -366,11 +382,13 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.linesToDrop.odt");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.linesToDrop.odt");
     let paragraphs = doc.firstSection.body.paragraphs;
 
     expect(paragraphs.at(0).paragraphFormat.linesToDrop).toEqual(4);
     expect(paragraphs.at(1).paragraphFormat.linesToDrop).toEqual(0);
+    doc.close();
   });
 
   test('ParagraphSpacingAndIndents', () => {
@@ -427,7 +445,9 @@ describe("ExParagraphFormat", () => {
       "文档测试文档测试文档测试文档测试文档测试文档测试文档测试文档测试文档测试文档");
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
     format = doc.firstSection.body.firstParagraph.paragraphFormat;
 
     expect(10.0).toEqual(format.characterUnitLeftIndent);
@@ -444,6 +464,7 @@ describe("ExParagraphFormat", () => {
 
     expect(10.9).toEqual(format.lineUnitAfter);
     expect(format.spaceAfter).toBeCloseTo(130.8, 1);
+    doc.close();
   });
 
 
@@ -463,9 +484,11 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.ParagraphBaselineAlignment.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.ParagraphBaselineAlignment.docx");
     format = doc.firstSection.body.paragraphs.at(0).paragraphFormat;
     expect(format.baselineAlignment).toEqual(aw.BaselineAlignment.Top);
+    doc.close();
   });
 
 
@@ -482,9 +505,11 @@ describe("ExParagraphFormat", () => {
     doc.save(base.artifactsDir + "ParagraphFormat.mirrorIndents.docx");
     //ExEnd:MirrorIndents
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "ParagraphFormat.mirrorIndents.docx");
     format = doc.firstSection.body.paragraphs.at(0).paragraphFormat;
 
     expect(format.mirrorIndents).toEqual(true);
+    doc.close();
   });
 });

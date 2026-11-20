@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -37,12 +37,15 @@ describe("ExOoxmlSaveOptions", () => {
     // We will not be able to open this document with Microsoft Word or
     // Aspose.words without providing the correct password.
     //Assert.Throws<IncorrectPasswordException>(() => doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.password.docx"));
-    expect(() => { doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.password.docx"); }).toThrow();
+    expect(() => { doc.close();
+    doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.password.docx"); }).toThrow();
 
     // Open the encrypted document by passing the correct password in a LoadOptions object.
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.password.docx", new aw.Loading.LoadOptions("MyPassword"));
 
     expect(doc.getText().trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -78,9 +81,11 @@ describe("ExOoxmlSaveOptions", () => {
     doc.save(base.artifactsDir + "OoxmlSaveOptions.Iso29500Strict.docx", saveOptions);
 
     // Our saved document defines the shape using DML to adhere to the "ISO/IEC 29500:2008" OOXML standard.
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.Iso29500Strict.docx");
 
     expect(doc.getShape(0, true).markupLanguage).toEqual(aw.Drawing.ShapeMarkupLanguage.Dml);
+    doc.close();
     //ExEnd
   });
 
@@ -114,9 +119,11 @@ describe("ExOoxmlSaveOptions", () => {
 
     doc.save(base.artifactsDir + "OoxmlSaveOptions.RestartingDocumentList.docx", options);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.RestartingDocumentList.docx");
 
     expect(doc.lists.at(0).isRestartAtEachSection).toEqual(restartListAtEachSection);
+    doc.close();
     //ExEnd
   });
 
@@ -140,6 +147,7 @@ describe("ExOoxmlSaveOptions", () => {
 
     doc.save(base.artifactsDir + "OoxmlSaveOptions.lastSavedTime.docx", saveOptions);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.lastSavedTime.docx");
     let lastSavedTimeNew = doc.builtInDocumentProperties.lastSavedTime;
 
@@ -147,11 +155,12 @@ describe("ExOoxmlSaveOptions", () => {
       expect(lastSavedTimeNew.getUTCDate()).toEqual(new Date().getUTCDate())
     else
       expect(lastSavedTimeNew).toEqual(new Date(2021, 5 - 1, 11, 6, 32, 0));
+    doc.close();
     //ExEnd
   });
 
 
-  test.skip.each([false, true])('KeepLegacyControlChars(%o) - TODO: WORDSNODEJS-80', (keepLegacyControlChars) => {
+  test.each([false, true])('KeepLegacyControlChars(%o)', (keepLegacyControlChars) => {
     //ExStart
     //ExFor:OoxmlSaveOptions.keepLegacyControlChars
     //ExFor:OoxmlSaveOptions.#ctor(SaveFormat)
@@ -169,9 +178,11 @@ describe("ExOoxmlSaveOptions", () => {
  
     doc.save(base.artifactsDir + "OoxmlSaveOptions.keepLegacyControlChars.docx", so);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.keepLegacyControlChars.docx");
 
-    expect(doc.firstSection.body.getText()).toEqual(keepLegacyControlChars ? "\u0013date \\@ \"MM/dd/yyyy\"\u0014\u0015\f" : "\u001e\f");
+    expect(doc.firstSection.body.getText()).toEqual(keepLegacyControlChars ? "\u0013date \\@ \"d/MM/yyyy\"\u0014\u0015\f" : "\u001e\f");
+    doc.close();
     //ExEnd
   });
 
@@ -223,6 +234,7 @@ describe("ExOoxmlSaveOptions", () => {
         expect(testedFileLength < 1276000).toEqual(true);
         break;
     }
+    doc.close();
   });
 
 
@@ -255,6 +267,7 @@ describe("ExOoxmlSaveOptions", () => {
       expect(TestUtil.dumpArray(data, 0, 10)).toEqual(fileSignatures.at(i));
       prevFileSize = data.length;
     }
+    doc.close();
   });
 
   test('ExportGeneratorName', () => {
@@ -268,6 +281,7 @@ describe("ExOoxmlSaveOptions", () => {
     saveOptions.exportGeneratorName = false;
 
     doc.save(base.artifactsDir + "OoxmlSaveOptions.exportGeneratorName.docx", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -358,6 +372,7 @@ describe("ExOoxmlSaveOptions", () => {
     saveOptions.zip64Mode = aw.Saving.Zip64Mode.Always;
     builder.document.save(base.artifactsDir + "OoxmlSaveOptions.Zip64ModeOption.docx", saveOptions);
     //ExEnd:Zip64ModeOption
+    builder.document.close();
   });
 
   test('DigitalSignature', () => {
@@ -382,6 +397,7 @@ describe("ExOoxmlSaveOptions", () => {
     expect(saveOptions.digitalSignatureDetails.signOptions.comments).toEqual("Some comments");
 
     doc.save(base.artifactsDir + "OoxmlSaveOptions.digitalSignature.docx", saveOptions);
+    doc.close();
     //ExEnd:DigitalSignature
   });
 
@@ -400,10 +416,12 @@ describe("ExOoxmlSaveOptions", () => {
     saveOptions.updateAmbiguousTextFont = true;
     doc.save(base.artifactsDir + "OoxmlSaveOptions.updateAmbiguousTextFont.docx", saveOptions);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "OoxmlSaveOptions.updateAmbiguousTextFont.docx");
     run = doc.firstSection.body.firstParagraph.runs.at(0);
     console.log(run.text); // ฿
     console.log(run.font.name); // Angsana New
+    doc.close();
     //ExEnd:UpdateAmbiguousTextFont
   });
 

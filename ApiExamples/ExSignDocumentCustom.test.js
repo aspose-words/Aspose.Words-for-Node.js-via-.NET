@@ -73,6 +73,7 @@ describe("ExSignDocumentCustom", () => {
 
     // Overwrite the unsigned document we saved above with a version signed using the certificate.
     aw.DigitalSignatures.DigitalSignatureUtil.sign(dstDocumentPath, dstDocumentPath, certificateHolder, signOptions);
+    document.close();
   }
 
   function createSignees() {

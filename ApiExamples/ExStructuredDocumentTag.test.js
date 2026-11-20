@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -33,6 +33,7 @@ describe("ExStructuredDocumentTag", () => {
     expect(tags.at(0).asStructuredDocumentTag().sdtType).toEqual(aw.Markup.SdtType.RepeatingSection);
     expect(tags.at(1).asStructuredDocumentTag().sdtType).toEqual(aw.Markup.SdtType.RepeatingSectionItem);
     expect(tags.at(2).asStructuredDocumentTag().sdtType).toEqual(aw.Markup.SdtType.RichText);
+    doc.close();
     //ExEnd
   });
 
@@ -48,6 +49,7 @@ describe("ExStructuredDocumentTag", () => {
 
     expect(tags.at(0).asStructuredDocumentTag().wordOpenXML.includes(
         "<pkg:part pkg:name=\"/docProps/app.xml\" pkg:contentType=\"application/vnd.openxmlformats-officedocument.extended-properties+xml\">")).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -91,6 +93,7 @@ describe("ExStructuredDocumentTag", () => {
       expect(sdt.style.styleIdentifier).toEqual(aw.StyleIdentifier.Quote);
       expect(sdt.styleName).toEqual("Quote");
     }
+    doc.close();
     //ExEnd
   });
 
@@ -117,12 +120,14 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.checkBox.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.checkBox.docx");
 
     let tags = doc.getChildNodes(aw.NodeType.StructuredDocumentTag, true);
 
     expect(tags.at(0).asStructuredDocumentTag().checked).toEqual(true);
     expect(tags.at(0).asStructuredDocumentTag().xmlMapping.storeItemId).toEqual('');
+    doc.close();
   });
 
 
@@ -163,6 +168,7 @@ describe("ExStructuredDocumentTag", () => {
     builder.insertNode(sdtDate);
 
     doc.save(base.artifactsDir + "StructuredDocumentTag.date.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -230,6 +236,7 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.plainText.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.plainText.docx");
     tag = doc.getSdt(0, true);
 
@@ -241,6 +248,7 @@ describe("ExStructuredDocumentTag", () => {
     expect(tag.endCharacterFont.name).toEqual("Arial Black");
     expect(tag.multiline).toEqual(true);
     expect(tag.appearance).toEqual(aw.Markup.SdtAppearance.Tags);
+    doc.close();
   });
 
 
@@ -280,10 +288,12 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.isTemporary.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.isTemporary.docx");
 
     expect(doc.getChildNodes(aw.NodeType.StructuredDocumentTag, true).toArray()
       .filter(sdt => sdt.asStructuredDocumentTag().isTemporary == isTemporary).length).toEqual(2);
+    doc.close();
   });
 
 
@@ -336,6 +346,7 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.PlaceholderBuildingBlock.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.PlaceholderBuildingBlock.docx");
     tag = doc.getSdt(0, true);
     substituteBlock = doc.glossaryDocument.getChild(aw.NodeType.BuildingBlock, 0, true).asBuildingBlock();
@@ -344,6 +355,7 @@ describe("ExStructuredDocumentTag", () => {
     expect(tag.isShowingPlaceholderText).toEqual(isShowingPlaceholderText);
     expect(tag.placeholder.referenceEquals(substituteBlock)).toBe(true);
     expect(tag.placeholderName).toEqual(substituteBlock.name);
+    doc.close();
   });
 
   test('Lock', () => {
@@ -377,6 +389,7 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.Lock.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.Lock.docx");
     tag = doc.getChild(aw.NodeType.StructuredDocumentTag, 0, true).asStructuredDocumentTag();
 
@@ -387,6 +400,7 @@ describe("ExStructuredDocumentTag", () => {
 
     expect(tag.lockContents).toEqual(false);
     expect(tag.lockContentControl).toEqual(true);
+    doc.close();
   });
 
 
@@ -452,6 +466,7 @@ describe("ExStructuredDocumentTag", () => {
     listItems.clear();
 
     expect(listItems.count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -534,6 +549,7 @@ describe("ExStructuredDocumentTag", () => {
     expect(DocumentHelper.compareDocs(base.artifactsDir + "StructuredDocumentTag.customXml.docx",
       base.goldsDir + "StructuredDocumentTag.customXml Gold.docx")).toEqual(true);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.customXml.docx");
     xmlPart = doc.customXmlParts.at(0);
 
@@ -546,6 +562,7 @@ describe("ExStructuredDocumentTag", () => {
     expect(tag.xmlMapping.xpath).toEqual("/root[1]/text[1]");
     expect(tag.xmlMapping.prefixMappings).toEqual('');
     expect(tag.xmlMapping.customXmlPart.dataChecksum).toEqual(xmlPart.dataChecksum);
+    doc.close();
   });
 
 
@@ -573,6 +590,7 @@ describe("ExStructuredDocumentTag", () => {
 
     // We changed the XmlPart of the tag, and the checksum was updated at runtime.
     expect(updatedChecksum).not.toEqual(checksum);
+    doc.close();
     //ExEnd
   });
 
@@ -613,6 +631,7 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.xmlMapping.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.xmlMapping.docx");
     xmlPart = doc.customXmlParts.at(0);
 
@@ -623,6 +642,7 @@ describe("ExStructuredDocumentTag", () => {
     expect(tag.getText().trim()).toEqual("Text element #2");
     expect(tag.xmlMapping.xpath).toEqual("/root[1]/text[2]");
     expect(tag.xmlMapping.prefixMappings).toEqual("xmlns:ns='http://www.w3.org/2001/XMLSchema'");
+    doc.close();
   });
 
 
@@ -650,6 +670,7 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.StructuredDocumentTagRangeStartXmlMapping.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.StructuredDocumentTagRangeStartXmlMapping.docx");
     xmlPart = doc.customXmlParts.at(0);
 
@@ -658,6 +679,7 @@ describe("ExStructuredDocumentTag", () => {
 
     sdtRangeStart = doc.getChild(aw.NodeType.StructuredDocumentTagRangeStart, 0, true).asStructuredDocumentTagRangeStart();
     expect(sdtRangeStart.xmlMapping.xpath).toEqual("/root[1]/text[2]");
+    doc.close();
   });
 
 
@@ -708,6 +730,7 @@ describe("ExStructuredDocumentTag", () => {
     schemas.clear();
 
     expect(schemas.count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -722,6 +745,7 @@ describe("ExStructuredDocumentTag", () => {
     let tag = doc.getChild(aw.NodeType.StructuredDocumentTag, 0, true).asStructuredDocumentTag();
 
     expect(tag.xmlMapping.storeItemId).toEqual("{F3029283-4FF8-4DD2-9F31-395F19ACEE85}");
+    doc.close();
     //ExEnd
   });
 
@@ -735,10 +759,13 @@ describe("ExStructuredDocumentTag", () => {
 
     builder.insertNode(sdtCheckBox);
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
 
     let sdt = doc.getChild(aw.NodeType.StructuredDocumentTag, 0, true).asStructuredDocumentTag();
     console.log("The Id of your custom xml part is: " + sdt.xmlMapping.storeItemId);
+    doc.close();
   });
 
 
@@ -784,6 +811,7 @@ describe("ExStructuredDocumentTag", () => {
 
     expect(tag.isShowingPlaceholderText).toEqual(true);
     expect(tag.getText().trim()).toEqual("Custom placeholder text.");
+    doc.close();
     //ExEnd
   });
 
@@ -795,6 +823,7 @@ describe("ExStructuredDocumentTag", () => {
 
     expect(docPartObjSdt.sdtType).toEqual(aw.Markup.SdtType.DocPartObj);
     expect(docPartObjSdt.buildingBlockGallery).toEqual("Table of Contents");
+    doc.close();
   });
 
 
@@ -805,6 +834,7 @@ describe("ExStructuredDocumentTag", () => {
 
     expect(plainTextSdt.sdtType).toEqual(aw.Markup.SdtType.PlainText);
     expect(() => {let _ = plainTextSdt.buildingBlockGallery; }).toThrow("BuildingBlockType is only accessible for BuildingBlockGallery SDT type.");
+    doc.close();
   });
 
 
@@ -829,6 +859,7 @@ describe("ExStructuredDocumentTag", () => {
     expect(buildingBlockSdt.sdtType).toEqual(aw.Markup.SdtType.BuildingBlockGallery);
     expect(buildingBlockSdt.buildingBlockGallery).toEqual("Table of Contents");
     expect(buildingBlockSdt.buildingBlockCategory).toEqual("Built-in");
+    doc.close();
   });
 
 
@@ -849,6 +880,7 @@ describe("ExStructuredDocumentTag", () => {
     doc.firstSection.body.appendChild(tag);
 
     doc.save(base.artifactsDir + "StructuredDocumentTag.UpdateSdtContent.pdf");
+    doc.close();
   });
 
 
@@ -910,6 +942,7 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.repeatingSectionItem.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.repeatingSectionItem.docx");
     let tags = doc.getChildNodes(aw.NodeType.StructuredDocumentTag, true).toArray().map(node => node.asStructuredDocumentTag());
 
@@ -929,6 +962,7 @@ describe("ExStructuredDocumentTag", () => {
                             "Everyday Italian\u0007Giada De Laurentiis\u0007\u0007" +
                             "The C Programming Language\u0007Brian W. Kernighan, Dennis M. Ritchie\u0007\u0007" +
                             "Learning XML\u0007Erik T. Ray\u0007\u0007");
+    doc.close();
   });
 
 
@@ -958,6 +992,7 @@ describe("ExStructuredDocumentTag", () => {
 
     // Add the StructuredDocumentTag to the document to display the element in the text.
     doc.firstSection.body.appendChild(sdt);
+    doc.close();
   });
 
 
@@ -1009,6 +1044,7 @@ describe("ExStructuredDocumentTag", () => {
     console.log("StructuredDocumentTagRangeEnd values:");
     console.log(`\t|Id: ${rangeEndTag.id}`);
     console.log(`\t|NodeType: ${rangeEndTag.nodeType}`);
+    doc.close();
     //ExEnd
   });
 
@@ -1025,6 +1061,7 @@ describe("ExStructuredDocumentTag", () => {
 
     tag.getChildNodes(aw.NodeType.Any, false).toArray().forEach(node => { console.log(`\t|Child node type: ${node.nodeType}`); });
     tag.getChildNodes(aw.NodeType.Run, true).toArray().forEach(node => { console.log(`\t|Child node text: ${node.getText()}`); });
+    doc.close();
     //ExEnd
   });
 
@@ -1064,6 +1101,7 @@ describe("ExStructuredDocumentTag", () => {
 
     paragraphNode = lastOrDefault(rangeStart);
     expect(paragraphNode).toBeNull();
+    doc.close();
   });
 
   function lastOrDefault(enumeratedObject) {
@@ -1104,6 +1142,7 @@ describe("ExStructuredDocumentTag", () => {
     // Remove the structured document tag at position 0.
     structuredDocumentTags.removeAt(0);
     expect(structuredDocumentTags.count).toEqual(3);
+    doc.close();
     //ExEnd
   });
 
@@ -1126,6 +1165,7 @@ describe("ExStructuredDocumentTag", () => {
     // Get the structured document tag or ranged tag by Title.
     sdt = doc.range.structuredDocumentTags.getByTitle("Alias4");
     console.log(sdt.id);
+    doc.close();
     //ExEnd
   });
 
@@ -1164,6 +1204,7 @@ describe("ExStructuredDocumentTag", () => {
     builder.write("Nulla blandit nisi.");
 
     doc.save(base.artifactsDir + "StructuredDocumentTag.SdtAtRowLevel.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1185,8 +1226,10 @@ describe("ExStructuredDocumentTag", () => {
     doc.save(base.artifactsDir + "StructuredDocumentTag.ignoreStructuredDocumentTags.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "StructuredDocumentTag.ignoreStructuredDocumentTags.docx");
     expect(doc.getText().trim()).toEqual("This document contains Structured Document Tags with text inside them\r\rRepeatingSection\rRichText\rreplacement");
+    doc.close();
   });
 
 
@@ -1210,6 +1253,7 @@ describe("ExStructuredDocumentTag", () => {
       sdt.appendChild(sdt.nextSibling);
 
     doc.save(base.artifactsDir + "StructuredDocumentTag.citation.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -1225,6 +1269,7 @@ describe("ExStructuredDocumentTag", () => {
     expect(tag.wordOpenXMLMinimal.includes("<pkg:part pkg:name=\"/docProps/app.xml\" pkg:contentType=\"application/vnd.openxmlformats-officedocument.extended-properties+xml\">"))
       .toEqual(true);
     expect(tag.wordOpenXMLMinimal.includes("xmlns:w16cid=\"http://schemas.microsoft.com/office/word/2016/wordml/cid\"")).toEqual(false);
+    doc.close();
     //ExEnd:RangeStartWordOpenXmlMinimal
   });
 
@@ -1251,6 +1296,7 @@ describe("ExStructuredDocumentTag", () => {
 
     sdts = doc.range.structuredDocumentTags;
     expect(sdts.count).toEqual(0);
+    doc.close();
     //ExEnd:RemoveSelfOnly
   });
 
@@ -1267,6 +1313,7 @@ describe("ExStructuredDocumentTag", () => {
 
     if (tag.appearance == aw.Markup.SdtAppearance.Hidden)
       tag.appearance = aw.Markup.SdtAppearance.Tags;
+    doc.close();
     //ExEnd:Appearance
   });
 
@@ -1288,6 +1335,7 @@ describe("ExStructuredDocumentTag", () => {
     let sdtPlain = builder.insertStructuredDocumentTag(aw.Markup.SdtType.PlainText);
 
     doc.save(base.artifactsDir + "StructuredDocumentTag.insertStructuredDocumentTag.docx");
+    doc.close();
     //ExEnd:InsertStructuredDocumentTag
   });
 

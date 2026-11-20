@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -52,12 +52,14 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.CreateTable.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.CreateTable.docx");
     table = doc.firstSection.body.tables.at(0);
 
     expect(table.rows.count).toEqual(1);
     expect(table.firstRow.cells.count).toEqual(1);
     expect(table.getText().trim()).toEqual("Hello world!\u0007\u0007");
+    doc.close();
   });
 
 
@@ -89,6 +91,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.SetRowFormatting.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.SetRowFormatting.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -96,6 +99,7 @@ describe("ExTable", () => {
     expect(table.rightPadding).toEqual(60.0);
     expect(table.topPadding).toEqual(10.0);
     expect(table.bottomPadding).toEqual(90.0);
+    doc.close();
   });
 
 
@@ -136,6 +140,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.RowCellFormat.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.RowCellFormat.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -150,6 +155,7 @@ describe("ExTable", () => {
 
     expect(cellFormat.width).toEqual(110.8);
     expect(cellFormat.shading.backgroundPatternColor).toEqual("#FFA500");
+    doc.close();
   });
 
 
@@ -197,6 +203,7 @@ describe("ExTable", () => {
 
       console.log(`End of Table ${i}\n`);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -231,6 +238,7 @@ describe("ExTable", () => {
       else
         console.log("Table #{0} is a non nested table (is not a child of another table)", i);
     }
+    doc.close();
   });
 
 
@@ -299,6 +307,7 @@ describe("ExTable", () => {
     //ExEnd
 
     expect(table.getChildNodes(aw.NodeType.Any, true).count).toEqual(4);
+    doc.close();
   });
 
 
@@ -323,6 +332,7 @@ describe("ExTable", () => {
     //ExEnd
 
     expect(row.getChildNodes(aw.NodeType.Any, true).count).toEqual(3);
+    doc.close();
   });
 
 
@@ -349,6 +359,7 @@ describe("ExTable", () => {
     //ExEnd
 
     expect(cell.getChildNodes(aw.NodeType.Any, true).count).toEqual(2);
+    doc.close();
   });
 
 
@@ -384,6 +395,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.SetOutlineBorders.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.SetOutlineBorders.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -398,6 +410,7 @@ describe("ExTable", () => {
     expect(borders.horizontal.color).not.toEqual("#008000");
     expect(borders.vertical.color).not.toEqual("#008000");
     expect(table.firstRow.firstCell.cellFormat.shading.foregroundPatternColor).toEqual("#90EE90");
+    doc.close();
   });
 
 
@@ -417,6 +430,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.setBorders.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.setBorders.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -426,6 +440,7 @@ describe("ExTable", () => {
     expect(table.firstRow.rowFormat.borders.bottom.color).toEqual("#008000");
     expect(table.firstRow.rowFormat.borders.horizontal.color).toEqual("#008000");
     expect(table.firstRow.rowFormat.borders.vertical.color).toEqual("#008000");
+    doc.close();
   });
 
 
@@ -446,12 +461,14 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.rowFormat.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.rowFormat.docx");
     table = doc.firstSection.body.tables.at(0);
 
     expect(table.firstRow.rowFormat.borders.lineStyle).toEqual(aw.LineStyle.None);
     expect(table.firstRow.rowFormat.heightRule).toEqual(aw.HeightRule.Auto);
     expect(table.firstRow.rowFormat.allowBreakAcrossPages).toEqual(true);
+    doc.close();
   });
 
 
@@ -472,12 +489,14 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.cellFormat.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.cellFormat.docx");
 
     table = doc.firstSection.body.tables.at(0);
     expect(table.firstRow.firstCell.cellFormat.width).toEqual(30);
     expect(table.firstRow.firstCell.cellFormat.orientation).toEqual(aw.TextOrientation.Downward);
     expect(table.firstRow.firstCell.cellFormat.shading.foregroundPatternColor).toEqual("#90EE90");
+    doc.close();
   });
 
 
@@ -503,6 +522,7 @@ describe("ExTable", () => {
     table.distanceBottom = 3;
 
     doc.save(base.artifactsDir + "Table.DistanceBetweenTableAndText.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -533,6 +553,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.clearBorders.docx");
 
     // Verify the values of the table's properties after re-opening the document.
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.clearBorders.docx");
     table = doc.firstSection.body.tables.at(0);
     topBorder = table.firstRow.rowFormat.borders.at(aw.BorderType.Top);
@@ -540,6 +561,7 @@ describe("ExTable", () => {
     expect(topBorder.lineWidth).toEqual(0.0);
     expect(topBorder.color).toEqual(base.emptyColor);
     expect(topBorder.lineStyle).toEqual(aw.LineStyle.None);
+    doc.close();
     //ExEnd
   });
 
@@ -575,6 +597,7 @@ describe("ExTable", () => {
 
     expect(table.getText().trim()).toEqual("Eggs\u000750\u0007\u0007" +
                             "Potatoes\u000720\u0007\u0007");
+    doc.close();
     //ExEnd
   });
 
@@ -607,9 +630,11 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.RemoveParagraphTextAndMark.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.RemoveParagraphTextAndMark.docx");
 
     expect(doc.firstSection.body.tables.at(0).rows.at(0).cells[0].paragraphs.count).toEqual(isSmartParagraphBreakReplacement ? 1 : 2);
+    doc.close();
   });
 
 
@@ -635,6 +660,7 @@ describe("ExTable", () => {
 
     expect(table.rows.at(1).range.text).toEqual("\u0007Column 1\u0007Column 2\u0007Column 3\u0007Column 4\u0007\u0007");
     expect(table.lastRow.lastCell.range.text).toEqual("Cell 12 contents\u0007");
+    doc.close();
   });
 
 
@@ -660,6 +686,7 @@ describe("ExTable", () => {
       cellNode.asCell().removeAllChildren();
 
     expect(tableClone.toString(aw.SaveFormat.Text).trim()).toEqual('');
+    doc.close();
   });
 
 
@@ -681,10 +708,12 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.allowBreakAcrossPages.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.allowBreakAcrossPages.docx");
     table = doc.firstSection.body.tables.at(0);
 
     expect(table.rows.toArray().filter(r => r.rowFormat.allowBreakAcrossPages == allowBreakAcrossPages).length).toEqual(3);
+    doc.close();
   });
 
 
@@ -736,6 +765,7 @@ describe("ExTable", () => {
         "<td style=\"width:7.2pt; border-left-style:solid; border-left-width:0.75pt; padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; -aw-border-left:0.5pt single\">",
         base.artifactsDir + "Table.AllowAutoFitOnTable.html");
     }
+    doc.close();
   });
 
 
@@ -767,6 +797,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.KeepTableTogether.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.KeepTableTogether.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -777,6 +808,7 @@ describe("ExTable", () => {
       else
         expect(para.paragraphFormat.keepWithNext).toEqual(true);
     }
+    doc.close();
   });
 
 
@@ -798,6 +830,7 @@ describe("ExTable", () => {
     let cell = row.lastCell;
 
     expect(row.indexOf(cell)).toEqual(4);
+    doc.close();
     //ExEnd
   });
 
@@ -815,6 +848,7 @@ describe("ExTable", () => {
 
     expect(firstCell.cellFormat.preferredWidth.type).toEqual(aw.Tables.PreferredWidthType.Percent);
     expect(firstCell.cellFormat.preferredWidth.value).toEqual(11.16);
+    doc.close();
     //ExEnd
   });
 
@@ -856,6 +890,7 @@ describe("ExTable", () => {
     expect(table.allowCellSpacing).toEqual(true);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.allowCellSpacing.html");
     table = doc.getTable(0, true);
 
@@ -872,6 +907,7 @@ describe("ExTable", () => {
         : "<td style=\"border-right-style:solid; border-right-width:0.75pt; border-bottom-style:solid; border-bottom-width:0.75pt; " +
         "padding-right:5.03pt; padding-left:5.03pt; vertical-align:top; -aw-border-bottom:0.5pt single; -aw-border-right:0.5pt single\">",
       base.artifactsDir + "Table.allowCellSpacing.html");
+    doc.close();
   });
 
 
@@ -898,7 +934,10 @@ describe("ExTable", () => {
     outerTable.firstRow.firstCell.appendChild(innerTable);
 
     doc.save(base.artifactsDir + "Table.CreateNestedTable.docx");
-    testCreateNestedTable(new aw.Document(base.artifactsDir + "Table.CreateNestedTable.docx")); //ExSkip
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "Table.CreateNestedTable.docx");
+    testCreateNestedTable(loadedDocument1); //ExSkip
+    loadedDocument1.close();
+    doc.close();
   });
 
 
@@ -961,6 +1000,7 @@ describe("ExTable", () => {
       for (let cell of row.cells.toArray())
         console.log(printCellMergeType(cell));
     expect(printCellMergeType(table.firstRow.firstCell)).toEqual("The cell at R1, C1 is vertically merged");
+    doc.close();
   });
 
 
@@ -1009,6 +1049,7 @@ describe("ExTable", () => {
     expect(table.rows.at(2).cells.at(2).cellFormat.verticalMerge == aw.Tables.CellMerge.First).toEqual(true);
     expect(table.rows.at(3).cells.at(3).cellFormat.horizontalMerge == aw.Tables.CellMerge.Previous).toEqual(true);
     expect(table.rows.at(3).cells.at(3).cellFormat.verticalMerge == aw.Tables.CellMerge.Previous).toEqual(true);
+    doc.close();
   });
 
 
@@ -1080,11 +1121,13 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.CombineTables.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.CombineTables.docx");
 
     expect(doc.getChildNodes(aw.NodeType.Table, true).count).toEqual(1);
     expect(doc.firstSection.body.tables.at(0).rows.count).toEqual(9);
     expect(doc.firstSection.body.tables.at(0).getChildNodes(aw.NodeType.Cell, true).count).toEqual(42);
+    doc.close();
   });
 
 
@@ -1112,12 +1155,15 @@ describe("ExTable", () => {
       table.prependChild(currentRow);
     } while (currentRow != row);
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
 
     expect(table.firstRow).toEqual(row);
     expect(firstTable.rows.count).toEqual(2);
     expect(table.rows.count).toEqual(3);
     expect(doc.getChildNodes(aw.NodeType.Table, true).count).toEqual(3);
+    doc.close();
   });
 
 
@@ -1149,12 +1195,14 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.wrapText.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.wrapText.docx");
     table = doc.firstSection.body.tables.at(0);
 
     expect(table.textWrapping).toEqual(aw.Tables.TextWrapping.Around);
     expect(table.absoluteHorizontalDistance).toEqual(100.0);
     expect(table.absoluteVerticalDistance).toEqual(20.0);
+    doc.close();
   });
 
 
@@ -1183,6 +1231,7 @@ describe("ExTable", () => {
       // The ArgumentException will be thrown for any other values.
       table.verticalAnchor = aw.Drawing.RelativeVerticalPosition.Page;
     }
+    doc.close();
     //ExEnd
   });
 
@@ -1220,6 +1269,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.ChangeFloatingTableProperties.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.ChangeFloatingTableProperties.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -1230,6 +1280,7 @@ describe("ExTable", () => {
 
     expect(table.absoluteVerticalDistance).toEqual(50.0);
     expect(table.absoluteHorizontalDistance).toEqual(100.0);
+    doc.close();
   });
 
 
@@ -1287,6 +1338,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.TableStyleCreation.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.TableStyleCreation.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -1313,6 +1365,7 @@ describe("ExTable", () => {
     expect(tableStyle.borders.color).toEqual("#0000FF");
     expect(tableStyle.borders.lineStyle).toEqual(aw.LineStyle.DotDash);
     expect(tableStyle.verticalAlignment).toEqual(aw.Tables.CellVerticalAlignment.Center);
+    doc.close();
   });
 
 
@@ -1357,6 +1410,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.SetTableAlignment.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.SetTableAlignment.docx");
 
     tableStyle = doc.styles.at("MyTableStyle1").asTableStyle();
@@ -1368,6 +1422,7 @@ describe("ExTable", () => {
 
     expect(tableStyle.leftIndent).toEqual(55.0);
     expect((doc.getTable( 1, true)).style).toEqual(tableStyle);
+    doc.close();
   });
 
 
@@ -1460,6 +1515,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.conditionalStyles.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.conditionalStyles.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -1480,6 +1536,7 @@ describe("ExTable", () => {
 
     expect(conditionalStyles.at(3).type).toEqual(aw.ConditionalStyleType.LastColumn);
     expect(conditionalStyles.at(3).font.bold).toEqual(true);
+    doc.close();
   });
 
 
@@ -1518,6 +1575,7 @@ describe("ExTable", () => {
     tableStyle.conditionalStyles.clearFormatting();
 
     expect([...tableStyle.conditionalStyles].every(s => s.borders.color == "")).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -1573,6 +1631,7 @@ describe("ExTable", () => {
     doc.save(base.artifactsDir + "Table.AlternatingRowStyles.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Table.AlternatingRowStyles.docx");
     table = doc.firstSection.body.tables.at(0);
     tableStyle = doc.styles.at("MyTableStyle1").asTableStyle();
@@ -1587,6 +1646,7 @@ describe("ExTable", () => {
     expect(tableStyle.conditionalStyles.at(aw.ConditionalStyleType.EvenRowBanding).shading.backgroundPatternColor).toEqual("#E0FFFF");
     expect(tableStyle.columnStripe).toEqual(1);
     expect(tableStyle.conditionalStyles.at(aw.ConditionalStyleType.EvenColumnBanding).shading.backgroundPatternColor).toEqual("#FFA07A");
+    doc.close();
   });
 
 
@@ -1620,6 +1680,7 @@ describe("ExTable", () => {
     expect(row.cells.at(4).cellFormat.horizontalMerge).toEqual(aw.Tables.CellMerge.First);
     expect(row.cells.at(5).cellFormat.horizontalMerge).toEqual(aw.Tables.CellMerge.Previous);
     expect(row.cells.at(6).cellFormat.horizontalMerge).toEqual(aw.Tables.CellMerge.None);
+    doc.close();
     //ExEnd
   });
 
@@ -1642,6 +1703,7 @@ describe("ExTable", () => {
         console.log(cell.getText());
       }
     }
+    doc.close();
     //ExEnd
   });
 

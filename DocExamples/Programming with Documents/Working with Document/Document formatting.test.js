@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -33,6 +33,7 @@ describe("DocumentFormatting", () => {
     builder.writeln("Automatically adjust space between Asian text and numbers");
 
     doc.save(base.artifactsDir + "DocumentFormatting.SpaceBetweenAsianAndLatinText.docx");
+    doc.close();
     //ExEnd:SpaceBetweenAsianAndLatinText
   });
 
@@ -47,6 +48,7 @@ describe("DocumentFormatting", () => {
     format.hangingPunctuation = false;
 
     doc.save(base.artifactsDir + "DocumentFormatting.AsianTypographyLineBreakGroup.docx");
+    doc.close();
     //ExEnd:AsianTypographyLineBreakGroup
   });
 
@@ -68,6 +70,7 @@ describe("DocumentFormatting", () => {
         "I'm another nice formatted paragraph. I'm intended to demonstrate how the space after paragraph looks like.");
 
     doc.save(base.artifactsDir + "DocumentFormatting.ParagraphFormatting.docx");
+    doc.close();
     //ExEnd:ParagraphFormatting
   });
 
@@ -98,6 +101,7 @@ describe("DocumentFormatting", () => {
     builder.listFormat.removeNumbers();
 
     doc.save(base.artifactsDir + "DocumentFormatting.MultilevelListFormatting.docx");
+    doc.close();
     //ExEnd:MultilevelListFormatting
   });
 
@@ -111,6 +115,7 @@ describe("DocumentFormatting", () => {
     builder.write("Hello");
 
     doc.save(base.artifactsDir + "DocumentFormatting.ApplyParagraphStyle.docx");
+    doc.close();
     //ExEnd:ApplyParagraphStyle
   });
 
@@ -135,6 +140,7 @@ describe("DocumentFormatting", () => {
     builder.write("I'm a formatted paragraph with double border and nice shading.");
 
     doc.save(base.artifactsDir + "DocumentFormatting.ApplyBordersAndShadingToParagraph.doc");
+    doc.close();
     //ExEnd:ApplyBordersAndShadingToParagraph
   });
 
@@ -150,6 +156,7 @@ describe("DocumentFormatting", () => {
     format.lineUnitAfter = 10;                 // ParagraphFormat.SpaceAfter will be updated
 
     doc.save(base.artifactsDir + "DocumentFormatting.ChangeAsianParagraphSpacingAndIndents.doc");
+    doc.close();
     //ExEnd:ChangeAsianParagraphSpacingAndIndents
   });
 
@@ -168,6 +175,7 @@ describe("DocumentFormatting", () => {
     par.runs.at(0).font.snapToGrid = true;
 
     doc.save(base.artifactsDir + "DocumentFormatting.SnapToGrid.docx");
+    doc.close();
     //ExEnd:SetSnapToGrid
   });
 
@@ -183,6 +191,7 @@ describe("DocumentFormatting", () => {
         console.log("Separator Found!");
       }
     }
+    doc.close();
     //ExEnd:GetParagraphStyleSeparator
   });
 });

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -35,6 +35,7 @@ describe("WorkingWithComments", () => {
         builder.currentParagraph.appendChild(comment);
 
         doc.save(base.artifactsDir + "WorkingWithComments.AddComments.docx");
+        doc.close();
         //ExEnd:AddComments
     });
 
@@ -69,6 +70,7 @@ describe("WorkingWithComments", () => {
         commentRangeEnd.parentNode.insertAfter(comment, commentRangeEnd);
 
         doc.save(base.artifactsDir + "WorkingWithComments.AnchorComment.doc");
+        doc.close();
         //ExEnd:AnchorComment
     });
 
@@ -83,6 +85,7 @@ describe("WorkingWithComments", () => {
         comment.addReply("John Doe", "JD", new Date(2017, 8, 25, 12, 15, 0), "New reply");
 
         doc.save(base.artifactsDir + "WorkingWithComments.AddRemoveCommentReply.docx");
+        doc.close();
         //ExEnd:AddRemoveCommentReply
     });
 
@@ -111,6 +114,7 @@ describe("WorkingWithComments", () => {
         console.log("All comments are removed!");
 
         doc.save(base.artifactsDir + "WorkingWithComments.ProcessComments.docx");
+        doc.close();
         //ExEnd:ProcessComments
     });
 
@@ -206,6 +210,7 @@ describe("WorkingWithComments", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithComments.RemoveRangeText.docx");
+        doc.close();
         //ExEnd:RemoveRangeText
     });
 });

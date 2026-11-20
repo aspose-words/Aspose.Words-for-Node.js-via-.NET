@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -33,6 +33,7 @@ describe("WorkWithWatermark", () => {
     doc.watermark.setText("Test", options);
 
     doc.save(base.artifactsDir + "WorkWithWatermark.AddTextWatermark.docx");
+    doc.close();
     //ExEnd:AddTextWatermark
   });
 
@@ -48,6 +49,7 @@ describe("WorkWithWatermark", () => {
     doc.watermark.setImage(base.imagesDir + "Transparent background logo.png", options);
 
     doc.save(base.artifactsDir + "WorkWithWatermark.AddImageWatermark.docx");
+    doc.close();
     //ExEnd:AddImageWatermark
   });
 
@@ -77,6 +79,7 @@ describe("WorkWithWatermark", () => {
       doc.watermark.remove();
 
     doc.save(base.artifactsDir + "WorkWithWatermark.RemoveDocumentWatermark.docx");
+    doc.close();
     //ExEnd:RemoveDocumentWatermark
   });
 
@@ -90,6 +93,7 @@ describe("WorkWithWatermark", () => {
 
     removeWatermarkShape(doc);
     doc.save(base.artifactsDir + "WorkWithWatermark.RemoveWatermark.docx");
+    doc.close();
   });
 
   // <summary>

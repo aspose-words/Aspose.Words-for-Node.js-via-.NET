@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -32,6 +32,7 @@ describe("WorkingWithDigitalSignatures", () => {
             console.log("Time of signing: " + signature.signTime);
             console.log();
         }
+        doc.close();
         //ExEnd:AccessAndVerifySignature
     });
 
@@ -69,6 +70,7 @@ describe("WorkingWithDigitalSignatures", () => {
                 "MhnGvDURv9KEhC25DDF1al8NRVR71TF3CjHVZXpYu7edQS5/yLw/k5CiFZzCp1+MmhOdYPcVO+Fm" +
                 "+9fKr2iNLeyYB+fgEeZHfTqTFM2WwAqo=");
         }
+        doc.close();
         //ExEnd:SignatureValue
     });
 });

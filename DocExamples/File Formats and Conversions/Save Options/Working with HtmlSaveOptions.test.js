@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -30,6 +30,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.exportRoundtripInformation = true;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.exportRoundtripInformation.html", saveOptions);
+    doc.close();
     //ExEnd:ExportRoundtripInformation
   });
 
@@ -43,6 +44,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.exportFontsAsBase64 = true;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.exportFontsAsBase64.html", saveOptions);
+    doc.close();
     //ExEnd:ExportFontsAsBase64
   });
 
@@ -59,6 +61,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.resourceFolderAlias = "http://example.com/resources";
 
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.ExportResources.html", saveOptions);
+    doc.close();
     //ExEnd:ExportResources
   });
 
@@ -84,6 +87,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.metafileFormat = aw.Saving.HtmlMetafileFormat.Png;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.convertMetafilesToPng.html", saveOptions);
+    doc.close();
     //ExEnd:ConvertMetafilesToPng
   });
 
@@ -104,6 +108,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.metafileFormat = aw.Saving.HtmlMetafileFormat.Svg;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.ConvertMetafilesToSvg.html", saveOptions);
+    doc.close();
     //ExEnd:ConvertMetafilesToSvg
   });
 
@@ -116,6 +121,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.cssStyleSheetType = aw.Saving.CssStyleSheetType.External, CssClassNamePrefix = "pfx_";
             
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.AddCssClassNamePrefix.html", saveOptions);
+    doc.close();
     //ExEnd:AddCssClassNamePrefix
   });
 
@@ -129,6 +135,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.exportCidUrlsForMhtmlResources = true;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.exportCidUrlsForMhtmlResources.mhtml", saveOptions);
+    doc.close();
     //ExEnd:ExportCidUrlsForMhtmlResources
   });
 
@@ -142,6 +149,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.resolveFontNames = true;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.resolveFontNames.html", saveOptions);
+    doc.close();
     //ExEnd:ResolveFontNames
   });
 
@@ -165,6 +173,7 @@ describe("WorkingWithHtmlSaveOptions", () => {
     saveOptions.imagesFolder = imagesDir;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlSaveOptions.exportTextInputFormFieldAsText.html", saveOptions);
+    doc.close();
     //ExEnd:ExportTextInputFormFieldAsText
   });
 

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -44,6 +44,7 @@ describe("WorkingWithShapes", () => {
     builder.insertNode(groupShape);
 
     doc.save(base.artifactsDir + "WorkingWithShapes.AddGroupShape.docx");
+    doc.close();
     //ExEnd:AddGroupShape
   });
 
@@ -66,6 +67,7 @@ describe("WorkingWithShapes", () => {
     saveOptions.compliance = aw.Saving.OoxmlCompliance.Iso29500_2008_Transitional;
 
     doc.save(base.artifactsDir + "WorkingWithShapes.InsertShape.docx", saveOptions);
+    doc.close();
     //ExEnd:InsertShape
   });
 
@@ -79,6 +81,7 @@ describe("WorkingWithShapes", () => {
     shape.aspectRatioLocked = false;
 
     doc.save(base.artifactsDir + "WorkingWithShapes.AspectRatioLocked.docx");
+    doc.close();
     //ExEnd:AspectRatioLocked
   });
 
@@ -127,6 +130,7 @@ describe("WorkingWithShapes", () => {
     doc.compatibilityOptions.optimizeFor(aw.Settings.MsWordVersion.Word2010);
 
     doc.save(base.artifactsDir + "WorkingWithShapes.LayoutInCell.docx");
+    doc.close();
     //ExEnd:LayoutInCell
   });
 
@@ -142,6 +146,7 @@ describe("WorkingWithShapes", () => {
     saveOptions.compliance = aw.Saving.OoxmlCompliance.Iso29500_2008_Transitional;
 
     doc.save(base.artifactsDir + "WorkingWithShapes.AddCornersSnipped.docx", saveOptions);
+    doc.close();
     //ExEnd:AddCornersSnipped
   });
   
@@ -156,6 +161,7 @@ describe("WorkingWithShapes", () => {
 
     console.log("\nGets the actual bounds of the shape in points: ");
     console.log(shape.getShapeRenderer().boundsInPoints2);
+    doc.close();
     //ExEnd:GetActualShapeBoundsPoints
   });
 
@@ -172,6 +178,7 @@ describe("WorkingWithShapes", () => {
     builder.write("Textbox contents");
 
     doc.save(base.artifactsDir + "WorkingWithShapes.VerticalAnchor.docx");
+    doc.close();
     //ExEnd:VerticalAnchor
   });
 
@@ -190,6 +197,7 @@ describe("WorkingWithShapes", () => {
     }
 
     console.log(`The document has ${count} shapes with SmartArt.`);
+    doc.close();
     //ExEnd:DetectSmartArtShape
   });
 
@@ -205,6 +213,7 @@ describe("WorkingWithShapes", () => {
             shape.updateSmartArtDrawing();
         }
     }
+    doc.close();
     //ExEnd:UpdateSmartArtDrawing
   });
 });

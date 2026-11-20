@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -64,6 +64,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.clearFormatting.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.clearFormatting.docx");
 
     expect(doc.sections.at(0).pageSetup.orientation).toEqual(aw.Orientation.Landscape);
@@ -71,6 +72,7 @@ describe("ExPageSetup", () => {
 
     expect(doc.sections.at(1).pageSetup.orientation).toEqual(aw.Orientation.Portrait);
     expect(doc.sections.at(1).pageSetup.verticalAlignment).toEqual(aw.PageVerticalAlignment.Top);
+    doc.close();
   });
 
 
@@ -115,9 +117,11 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.differentFirstPageHeaderFooter.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.differentFirstPageHeaderFooter.docx");
 
     expect(doc.firstSection.pageSetup.differentFirstPageHeaderFooter).toEqual(differentFirstPageHeaderFooter);
+    doc.close();
   });
 
 
@@ -163,9 +167,11 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.oddAndEvenPagesHeaderFooter.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.oddAndEvenPagesHeaderFooter.docx");
 
     expect(doc.firstSection.pageSetup.oddAndEvenPagesHeaderFooter).toEqual(oddAndEvenPagesHeaderFooter);
+    doc.close();
   });
 
 
@@ -192,10 +198,12 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.charactersPerLine.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.charactersPerLine.docx");
 
     expect(doc.firstSection.pageSetup.layoutMode).toEqual(aw.SectionLayoutMode.Grid);
     expect(doc.firstSection.pageSetup.charactersPerLine).toEqual(8);
+    doc.close();
   });
 
 
@@ -222,6 +230,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.linesPerPage.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.linesPerPage.docx");
 
     expect(doc.firstSection.pageSetup.layoutMode).toEqual(aw.SectionLayoutMode.LineGrid);
@@ -229,6 +238,7 @@ describe("ExPageSetup", () => {
 
     for (let paragraph of doc.firstSection.body.paragraphs.toArray())
       expect(paragraph.paragraphFormat.snapToGrid).toEqual(true);
+    doc.close();
   });
 
 
@@ -280,6 +290,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.SetSectionStart.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.SetSectionStart.docx");
 
     expect(doc.sections.at(0).pageSetup.sectionStart).toEqual(aw.SectionStart.NewPage);
@@ -288,6 +299,7 @@ describe("ExPageSetup", () => {
     expect(doc.sections.at(3).pageSetup.sectionStart).toEqual(aw.SectionStart.EvenPage);
     expect(doc.sections.at(4).pageSetup.sectionStart).toEqual(aw.SectionStart.OddPage);
     expect(doc.sections.at(5).pageSetup.sectionStart).toEqual(aw.SectionStart.NewColumn);
+    doc.close();
   });
 
 
@@ -403,6 +415,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.pageMargins.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.pageMargins.docx");
 
     expect(doc.firstSection.pageSetup.paperSize).toEqual(aw.PaperSize.Legal);
@@ -415,6 +428,7 @@ describe("ExPageSetup", () => {
     expect(doc.firstSection.pageSetup.rightMargin).toEqual(108.0);
     expect(doc.firstSection.pageSetup.headerDistance).toEqual(14.4);
     expect(doc.firstSection.pageSetup.footerDistance).toEqual(14.4);
+    doc.close();
   });
 
 
@@ -460,6 +474,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.PaperSizes.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.PaperSizes.docx");
 
     expect(doc.sections.at(0).pageSetup.paperSize).toEqual(aw.PaperSize.Tabloid);
@@ -471,6 +486,7 @@ describe("ExPageSetup", () => {
     expect(doc.sections.at(2).pageSetup.paperSize).toEqual(aw.PaperSize.Custom);
     expect(doc.sections.at(2).pageSetup.pageWidth).toEqual(620.0);
     expect(doc.sections.at(2).pageSetup.pageHeight).toEqual(480.0);
+    doc.close();
   });
 
 
@@ -497,11 +513,13 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.ColumnsSameWidth.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.ColumnsSameWidth.docx");
 
     expect(doc.firstSection.pageSetup.textColumns.spacing).toEqual(100.0);
     expect(doc.firstSection.pageSetup.textColumns.count).toEqual(2);
     expect(doc.firstSection.pageSetup.textColumns.width).toBeCloseTo(184, 1);
+    doc.close();
   });
 
 
@@ -542,6 +560,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.CustomColumnWidth.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.CustomColumnWidth.docx");
     pageSetup = doc.firstSection.pageSetup;
 
@@ -551,6 +570,7 @@ describe("ExPageSetup", () => {
     expect(pageSetup.textColumns.at(0).spaceAfter).toEqual(20.0);
     expect(pageSetup.textColumns.at(1).width).toEqual(468);
     expect(pageSetup.textColumns.at(1).spaceAfter).toEqual(0.0);
+    doc.close();
   });
 
 
@@ -578,9 +598,11 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.VerticalLineBetweenColumns.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.VerticalLineBetweenColumns.docx");
 
     expect(doc.firstSection.pageSetup.textColumns.lineBetween).toEqual(lineBetween);
+    doc.close();
   });
 
 
@@ -619,6 +641,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.LineNumbers.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.LineNumbers.docx");
     pageSetup = doc.firstSection.pageSetup;
 
@@ -626,6 +649,7 @@ describe("ExPageSetup", () => {
     expect(pageSetup.lineNumberCountBy).toEqual(3);
     expect(pageSetup.lineNumberRestartMode).toEqual(aw.LineNumberRestartMode.RestartPage);
     expect(pageSetup.lineNumberDistanceFromText).toEqual(50.0);
+    doc.close();
   });
 
 
@@ -655,6 +679,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.PageBorderProperties.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.PageBorderProperties.docx");
     pageSetup = doc.firstSection.pageSetup;
 
@@ -668,6 +693,7 @@ describe("ExPageSetup", () => {
     expect(border.lineWidth).toEqual(30.0);
     expect(border.color).toEqual("#0000FF");
     expect(border.distanceFromText).toEqual(0.0);
+    doc.close();
   });
 
 
@@ -693,6 +719,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.PageBorders.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.PageBorders.docx");
     pageSetup = doc.firstSection.pageSetup;
 
@@ -704,6 +731,7 @@ describe("ExPageSetup", () => {
       expect(border.distanceFromText).toEqual(24.0);
       expect(border.shadow).toEqual(true);
     }
+    doc.close();
   });
 
 
@@ -763,6 +791,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.PageNumbering.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.PageNumbering.docx");
     pageSetup = doc.sections.at(0).pageSetup;
 
@@ -775,6 +804,7 @@ describe("ExPageSetup", () => {
     expect(pageSetup.restartPageNumbering).toEqual(true);
     expect(pageSetup.pageStartingNumber).toEqual(10);
     expect(pageSetup.pageNumberStyle).toEqual(aw.NumberStyle.Arabic);
+    doc.close();
   });
 
 
@@ -809,6 +839,7 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.footnoteOptions.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.footnoteOptions.docx");
     footnoteOptions = doc.firstSection.pageSetup.footnoteOptions;
 
@@ -821,6 +852,7 @@ describe("ExPageSetup", () => {
     expect(endnoteOptions.position).toEqual(aw.Notes.EndnotePosition.EndOfDocument);
     expect(endnoteOptions.restartRule).toEqual(aw.Notes.FootnoteNumberingRule.Continuous);
     expect(endnoteOptions.startNumber).toEqual(1);
+    doc.close();
   });
 
 
@@ -850,11 +882,13 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.bidi.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.bidi.docx");
     pageSetup = doc.firstSection.pageSetup;
 
     expect(pageSetup.textColumns.count).toEqual(3);
     expect(pageSetup.bidi).toEqual(reverseColumns);
+    doc.close();
   });
 
 
@@ -888,11 +922,13 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.PageBorder.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.PageBorder.docx");
     pageSetup = doc.firstSection.pageSetup;
 
     expect(pageSetup.borderSurroundsHeader).toEqual(true);
     expect(pageSetup.borderSurroundsFooter).toEqual(false);
+    doc.close();
   });
 
 
@@ -932,12 +968,14 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.gutter.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.gutter.docx");
     pageSetup = doc.firstSection.pageSetup;
 
     expect(pageSetup.gutter).toEqual(100.0);
     expect(pageSetup.rtlGutter).toEqual(true);
     expect(pageSetup.multiplePages).toEqual(aw.Settings.MultiplePagesType.MirrorMargins);
+    doc.close();
   });
 
 
@@ -972,11 +1010,13 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.Booklet.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.Booklet.docx");
     pageSetup = doc.firstSection.pageSetup;
 
     expect(pageSetup.multiplePages).toEqual(aw.Settings.MultiplePagesType.BookFoldPrinting);
     expect(pageSetup.sheetsPerBooklet).toEqual(4);
+    doc.close();
   });
 
 
@@ -997,10 +1037,12 @@ describe("ExPageSetup", () => {
     doc.save(base.artifactsDir + "PageSetup.SetTextOrientation.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "PageSetup.SetTextOrientation.docx");
     pageSetup = doc.firstSection.pageSetup;
 
     expect(pageSetup.textOrientation).toEqual(aw.TextOrientation.Upward);
+    doc.close();
   });
 
 
@@ -1030,7 +1072,10 @@ describe("ExPageSetup", () => {
     pageSetup.suppressEndnotes = true;
 
     doc.save(base.artifactsDir + "PageSetup.suppressEndnotes.docx");
-    testSuppressEndnotes(new aw.Document(base.artifactsDir + "PageSetup.suppressEndnotes.docx")); //ExSkip
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "PageSetup.suppressEndnotes.docx");
+    testSuppressEndnotes(loadedDocument1); //ExSkip
+    loadedDocument1.close();
+    doc.close();
   });
 
 
@@ -1079,6 +1124,7 @@ describe("ExPageSetup", () => {
     pageSetup.pageNumberStyle = aw.NumberStyle.UppercaseRoman;
     pageSetup.chapterPageSeparator = aw.ChapterPageSeparator.Colon;
     pageSetup.headingLevelForChapter = 1;
+    doc.close();
     //ExEnd
   });
 });

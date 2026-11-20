@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -64,6 +64,7 @@ describe("ExWordML2003SaveOptions", () => {
          "<o:DocumentProperties><o:Revision>1</o:Revision><o:TotalTime>0</o:TotalTime><o:Pages>1</o:Pages>" +
          "<o:Words>0</o:Words><o:Characters>0</o:Characters><o:Lines>1</o:Lines><o:Paragraphs>1</o:Paragraphs>" +
          "<o:CharactersWithSpaces>0</o:CharactersWithSpaces><o:Version>11.5606</o:Version></o:DocumentProperties>"));
+    doc.close();
     //ExEnd
   });
 
@@ -87,6 +88,7 @@ describe("ExWordML2003SaveOptions", () => {
     options.memoryOptimization = memoryOptimization;
 
     doc.save(base.artifactsDir + "WordML2003SaveOptions.memoryOptimization.xml", options);
+    doc.close();
     //ExEnd
   });
 });

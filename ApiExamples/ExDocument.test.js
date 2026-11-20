@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -66,6 +66,7 @@ describe('ExDocument', () => {
     para.appendChild(new aw.Run(doc, "Hello world!"));
     //ExEnd:CreateSimpleDocument
     expect(doc.getText()).toEqual("\fHello world!\f");
+    doc.close();
   });
 
   test('Constructor', () => {
@@ -80,13 +81,16 @@ describe('ExDocument', () => {
     // required to begin adding content such as text and shapes: a Section, a Body, and a Paragraph.
     doc.firstSection.body.firstParagraph.appendChild(new aw.Run(doc, "Hello world!"));
     // 2 -  Load a document that exists in the local file system:
+    doc.close();
     doc = new aw.Document(base.myDir + "Document.docx");
     // Loaded documents will have contents that we can access and edit.
     expect(doc.firstSection.body.firstParagraph.getText().trim()).toEqual("Hello World!");
     // Some operations that need to occur during loading, such as using a password to decrypt a document,
     // can be done by passing a LoadOptions object when loading the document.
+    doc.close();
     doc = new aw.Document(base.myDir + "Encrypted.docx", new aw.Loading.LoadOptions("docPassword"));
     expect(doc.firstSection.body.firstParagraph.getText().trim()).toEqual("Test encrypted document.");
+    doc.close();
     //ExEnd
   });
 
@@ -97,6 +101,7 @@ describe('ExDocument', () => {
     const buffer = base.loadFileToBuffer(base.myDir + "Document.docx");
     const doc = new aw.Document(buffer);
     expect(doc.getText().trim()).toEqual("Hello World!\r\rHello Word!\r\r\rHello World!");
+    doc.close();
     //ExEnd
   });
 
@@ -121,6 +126,7 @@ describe('ExDocument', () => {
                                     "The Tables section contains two sub-headings, \"Simple Table\" and \"Complex Table,\" which are both level 3 headings.");
 
     doc.save(base.artifactsDir + "Document.LoadFromWeb.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -132,6 +138,7 @@ describe('ExDocument', () => {
     //ExSummary:Shows how to open a document and convert it to .PDF.
     const doc = new aw.Document(base.myDir + "Document.docx");
     doc.save(base.artifactsDir + "Document.ConvertToPdf.pdf");
+    doc.close();
     //ExEnd
   });
   
@@ -157,6 +164,7 @@ describe('ExDocument', () => {
     const image = bmp.decode(bmpData);
     expect(image.width).toEqual(816);
     expect(image.height).toEqual(1056);
+    doc.close();
     //ExEnd
   });
 
@@ -184,6 +192,7 @@ describe('ExDocument', () => {
     expect(shape.imageData.imageBytes).not.toEqual(null);
     expect(aw.ConvertUtil.pointToPixel(shape.width)).toBeCloseTo(32, 2);
     expect(aw.ConvertUtil.pointToPixel(shape.height)).toBeCloseTo(32, 2);
+    doc.close();
     //ExEnd
   });
 
@@ -205,6 +214,7 @@ describe('ExDocument', () => {
     expect(doc.getText().includes("HYPERLINK \"https://products.aspose.com/words/net/\" \\o \"Aspose.Words\"")).toBe(true) ; //ExSkip
 
     doc.save(base.artifactsDir + "Document.LoadFromWeb.docx");    
+    doc.close();
     //ExEnd
   });
 
@@ -232,6 +242,8 @@ describe('ExDocument', () => {
     const doc2 = new aw.Document(stream, options);
     expect(doc2.getText().trim()).toEqual("Test encrypted document."); //ExSkip
     //ExEnd
+    doc2.close();
+    doc.close();
   });
 
   test.skip('NotSupportedWarning - TODO: Inherence from IWarningCallback not supported.', () => {
@@ -246,6 +258,7 @@ describe('ExDocument', () => {
 
     expect(warnings.at(0).description).toEqual("The original file load format is FB2, which is not supported by Aspose.words. The file is loaded as an XML document.");
     expect(warnings.count).toEqual(1);
+    doc.close();
     //ExEnd
   });
 
@@ -263,6 +276,7 @@ describe('ExDocument', () => {
     }    
 
     const doc = new aw.Document(base.myDir + "Document.docx", loadOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -274,22 +288,26 @@ describe('ExDocument', () => {
     const doc = new aw.Document(base.myDir + "Document.docx");
 
     doc.save(base.artifactsDir + "Document.ConvertToHtml.html", aw.SaveFormat.Html);
+    doc.close();
     //ExEnd
   });
 
   test('ConvertToMhtml', () => {
     const doc = new aw.Document(base.myDir + "Document.docx");
     doc.save(base.artifactsDir + "Document.ConvertToMhtml.mht");
+    doc.close();
   });
 
   test('ConvertToTxt', () => {
     const doc = new aw.Document(base.myDir + "Document.docx");
     doc.save(base.artifactsDir + "Document.ConvertToTxt.txt");
+    doc.close();
   });
 
   test('ConvertToEpub', () => {
     const doc = new aw.Document(base.myDir + "Rendering.docx");
     doc.save(base.artifactsDir + "Document.ConvertToEpub.epub");
+    doc.close();
   });
 
   test('SaveToStream', async () => {
@@ -305,6 +323,8 @@ describe('ExDocument', () => {
     const dstDoc = new aw.Document(dstFile);
     expect(dstDoc.getText().trim()).toEqual("Hello World!\r\rHello Word!\r\r\rHello World!");
     //ExEnd
+    dstDoc.close();
+    doc.close();
   });
 
   test('AppendDocument', () => {
@@ -325,10 +345,14 @@ describe('ExDocument', () => {
     dstDoc.save(base.artifactsDir + "Document.AppendDocument.docx");
     //ExEnd
 
-    const outDocText = new aw.Document(base.artifactsDir + "Document.AppendDocument.docx").getText();
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "Document.AppendDocument.docx");
+    const outDocText = loadedDocument1.getText();
 
     expect(outDocText.startsWith(dstDoc.getText())).toEqual(true);
     expect(outDocText.endsWith(srcDoc.getText())).toEqual(true);;
+    loadedDocument1.close();
+    dstDoc.close();
+    srcDoc.close();
   });
 
   // The file path used below does not point to an existing file.
@@ -359,7 +383,9 @@ describe('ExDocument', () => {
           expect(() => { doc.Sections[i].HeadersFooters.LinkToPrevious(false); })
             .toThrow(`Cannot read properties of undefined (reading '${i}')`);
         }
+        srcDoc.close();
     }
+    doc.close();
   });
 
   test.each([true, false])('TestImportList', (isKeepSourceNumbering) => {
@@ -384,6 +410,8 @@ describe('ExDocument', () => {
 
     expect(dstDoc.lists.count).toEqual(isKeepSourceNumbering ? 5 : 4);
     //ExEnd
+    dstDoc.close();
+    srcDoc.close();
   });
 
   test('KeepSourceNumberingSameListIds', () => {
@@ -407,6 +435,8 @@ describe('ExDocument', () => {
 
     expect(paraText.startsWith("13->13")).toEqual(true);
     expect(dstDoc.sections.at(1).body.lastParagraph.listLabel.labelString).toEqual("1.");
+    dstDoc.close();
+    srcDoc.close();
   });
 
   test('MergePastedLists', () => {
@@ -424,6 +454,8 @@ describe('ExDocument', () => {
 
     dstDoc.save(base.artifactsDir + "Document.MergePastedLists.docx");
     //ExEnd
+    dstDoc.close();
+    srcDoc.close();
   });
 
   test('ForceCopyStyles', () => {
@@ -444,6 +476,8 @@ describe('ExDocument', () => {
     expect(paras.at(1).paragraphFormat.style.name).toEqual("MyStyle2_0");
     expect(paras.at(2).paragraphFormat.style.name).toEqual("MyStyle3");
     //ExEnd
+    dstDoc.close();
+    srcDoc.close();
   });
 
   test('AdjustSentenceAndWordSpacing', () => {
@@ -465,6 +499,8 @@ describe('ExDocument', () => {
 
       expect(dstDoc.firstSection.body.firstParagraph.getText().trim()).toEqual("Lorem ipsum. Dolor sit amet.");
       //ExEnd
+      dstDoc.close();
+      srcDoc.close();
   });
 
   test('ValidateIndividualDocumentSignatures', () => {
@@ -497,6 +533,7 @@ describe('ExDocument', () => {
     expect(digitalSig.isValid).toEqual(true);
     expect(digitalSig.comments).toEqual("Test Sign");
     expect(digitalSig.signatureType).toEqual(aw.DigitalSignatures.DigitalSignatureType.XmlDsig);
+    doc.close();
   });
 
   test.skip('DigitalSignature - X509Certificate2 type is not supported by Node.js', () => {
@@ -515,6 +552,7 @@ describe('ExDocument', () => {
                                      "MhnGvDURv9KEhC25DDF1al8NRVR71TF3CjHVZXpYu7edQS5/yLw/k5CiFZzCp1+MmhOdYPcVO+Fm" +
                                      "+9fKr2iNLeyYB+fgEeZHfTqTFM2WwAqo=");
     }
+    doc.close();
     //ExEnd
   });
 
@@ -545,11 +583,13 @@ describe('ExDocument', () => {
           continue;
       const srcDoc = new aw.Document(fileName);
       dstDoc.appendDocument(srcDoc, aw.ImportFormatMode.UseDestinationStyles);
+      srcDoc.close();
     }
     dstDoc.save(base.artifactsDir + "Document.AppendAllDocumentsInFolder.doc");
     //ExEnd
     expect(dstDoc.styles.count).toEqual(7);
     expect(dstDoc.sections.count).toEqual(10);
+    dstDoc.close();
   });
 
   test('JoinRunsWithSameFormatting', () => {
@@ -567,6 +607,7 @@ describe('ExDocument', () => {
     // The number of joins and the number of runs we have after the join
     // should add up the number of runs we had initially.
     expect(doc.getChildNodes(aw.NodeType.Run, true).count).toEqual(196);
+    doc.close();
     //ExEnd
   });
               
@@ -584,8 +625,11 @@ describe('ExDocument', () => {
     builder.writeln("Hello" + aw.ControlChar.tab + "World!");
     builder.writeln("Hello" + aw.ControlChar.tabChar + "World!");
     //ExEnd
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
     expect(doc.defaultTabStop).toEqual(72);
+    doc.close();
   });
       
   test('CloneDocument', () => {
@@ -601,6 +645,8 @@ describe('ExDocument', () => {
     expect(doc.firstSection.body.firstParagraph.runs.at(0).getText()).toEqual(
         clone.firstSection.body.firstParagraph.runs.at(0).text);
     //ExEnd
+    clone.close();
+    doc.close();
   });
 
   test('DocumentGetTextToString', () => {
@@ -615,6 +661,7 @@ describe('ExDocument', () => {
     expect(doc.getText().trim()).toEqual("\u0013MERGEFIELD Field\u0014«Field»\u0015");
     // ToString will give us the document's appearance if saved to a passed save format.
     expect(doc.toString(aw.SaveFormat.Text).trim()).toEqual("«Field»");
+    doc.close();
     //ExEnd
   });
 
@@ -650,6 +697,8 @@ describe('ExDocument', () => {
     doc.unprotect("NewPassword");
     expect(doc.protectionType).toEqual(aw.ProtectionType.NoProtection);
     //ExEnd
+    protectedDoc.close();
+    doc.close();
   });
  
   /* getChildNodes not supported
@@ -693,6 +742,7 @@ describe('ExDocument', () => {
     doc.removeMacros();
     expect(doc.hasMacros).toEqual(false);
     expect(doc.vbaProject).toEqual(null);
+    doc.close();
     //ExEnd
   });
 
@@ -713,6 +763,7 @@ describe('ExDocument', () => {
     // This operation will not need to be re-done when rendering the document to a fixed page save format,
     // such as .pdf. So you can save some time, especially with more complex documents.
     doc.save(base.artifactsDir + "Document.GetPageCount.pdf");
+    doc.close();
     //ExEnd
   });
 
@@ -745,6 +796,7 @@ describe('ExDocument', () => {
     expect(doc.builtInDocumentProperties.lines).toEqual(1);
     doc.updateWordCount(true);
     expect(doc.builtInDocumentProperties.lines).toEqual(4);
+    doc.close();
     //ExEnd
   });
     
@@ -788,6 +840,7 @@ describe('ExDocument', () => {
     let doc = new aw.Document(base.myDir + "Document.docx");
     expect(doc.originalFileName).toEqual(base.myDir + "Document.docx");
     expect(doc.originalLoadFormat).toEqual(aw.LoadFormat.Docx);
+    doc.close();
     //ExEnd
   });
 
@@ -801,9 +854,11 @@ describe('ExDocument', () => {
     expect(doc.footnoteOptions.columns).toEqual(0);
     doc.footnoteOptions.columns = 2;
     doc.save(base.artifactsDir + "Document.FootnoteColumns.docx");
+    doc.close();
     //ExEnd
     doc = new aw.Document(base.artifactsDir + "Document.FootnoteColumns.docx");
     expect(doc.firstSection.pageSetup.footnoteOptions.columns).toEqual(2);
+    doc.close();
   });
 
   test('Compare', () => {
@@ -833,8 +888,12 @@ describe('ExDocument', () => {
     docOriginal.revisions.acceptAll();
     expect(docEdited.getText()).toEqual(docOriginal.getText());
     //ExEnd
-    docOriginal = DocumentHelper.saveOpen(docOriginal);
+    const reopenedDocument2 = DocumentHelper.saveOpen(docOriginal);
+    docOriginal.close();
+    docOriginal = reopenedDocument2;
     expect(docOriginal.revisions.count).toEqual(0);
+    docEdited.close();
+    docOriginal.close();
   });
 
   test('CompareDocumentWithRevisions', () => {
@@ -846,6 +905,8 @@ describe('ExDocument', () => {
     docWithRevision.startTrackRevisions("John Doe");
     builder.writeln("This is a revision.");
     expect(() => docWithRevision.compare(doc1, "John Doe", new Date(Date.now()))).toThrow("Compared documents must not have revisions.");
+    docWithRevision.close();
+    doc1.close();
   });
 
   
@@ -862,6 +923,8 @@ describe('ExDocument', () => {
     docA.compare(docB, "Aspose.words", new Date(Date.now()), compareOptions);
     expect(docA.revisions.count).toEqual(isIgnoreDmlUniqueId ? 1 : 3);
     //ExEnd
+    docB.close();
+    docA.close();
   });
 
   test('RemoveExternalSchemaReferences', () => {
@@ -870,6 +933,7 @@ describe('ExDocument', () => {
     //ExSummary:Shows how to remove all external XML schema references from a document.
     let doc = new aw.Document(base.myDir + "External XML schema.docx");
     doc.removeExternalSchemaReferences();
+    doc.close();
     //ExEnd
   });
 
@@ -897,6 +961,7 @@ describe('ExDocument', () => {
     options.generateFromFirstPage = false;
     doc.updateThumbnail(options);
     doc.save(base.artifactsDir + "Document.updateThumbnail.FirstImage.epub");
+    doc.close();
     //ExEnd
   });
 
@@ -926,6 +991,7 @@ describe('ExDocument', () => {
     expect(doc.hyphenationOptions.hyphenateCaps).toEqual(true);
     expect(DocumentHelper.compareDocs(base.artifactsDir + "Document.hyphenationOptions.docx",
         base.goldsDir + "Document.hyphenationOptions Gold.docx")).toEqual(true);
+    doc.close();
   });  
 
   test('HyphenationOptionsDefaultValues', () => {
@@ -935,11 +1001,14 @@ describe('ExDocument', () => {
     expect(doc2.hyphenationOptions.consecutiveHyphenLimit).toEqual(0);
     expect(doc2.hyphenationOptions.hyphenationZone).toEqual(360);
     expect(doc2.hyphenationOptions.hyphenateCaps).toEqual(true);
+    doc.close();
+    doc2.close();
   });
 
   test('HyphenationZoneException', () => {
     let doc = new aw.Document();
     expect(() => doc.hyphenationOptions.hyphenationZone = 0).toThrow("Specified argument was out of the range of valid values.");
+    doc.close();
   });
 
   test('OoxmlComplianceVersion', () => {
@@ -949,8 +1018,10 @@ describe('ExDocument', () => {
     // The compliance version varies between documents created by different versions of Microsoft Word.
     let doc = new aw.Document(base.myDir + "Document.doc");
     expect(aw.Saving.OoxmlCompliance.Ecma376_2006).toEqual(doc.compliance);
+    doc.close();
     doc = new aw.Document(base.myDir + "Document.docx");
     expect(aw.Saving.OoxmlCompliance.Iso29500_2008_Transitional).toEqual(doc.compliance);
+    doc.close();
     //ExEnd
   });
 
@@ -975,6 +1046,7 @@ describe('ExDocument', () => {
     //ExEnd
     await TestUtil.verifyImage(794, 1122, base.artifactsDir + "Document.ImageSaveOptions.default.jpg");
     await TestUtil.verifyImage(794, 1122, base.artifactsDir + "Document.ImageSaveOptions.HighQuality.jpg");
+    doc.close();
   });
 
   test('Cleanup', () => {
@@ -1005,6 +1077,7 @@ describe('ExDocument', () => {
     doc.firstSection.body.removeAllChildren();
     doc.cleanup();
     expect(doc.styles.count).toEqual(4);
+    doc.close();
     //ExEnd
   });
 
@@ -1021,11 +1094,13 @@ describe('ExDocument', () => {
     doc.attachedTemplate = base.myDir + "Business brochure.dotx";
     doc.automaticallyUpdateStyles = true;
     doc.save(base.artifactsDir + "Document.automaticallyUpdateStyles.docx");
+    doc.close();
     //ExEnd
     doc = new aw.Document(base.artifactsDir + "Document.automaticallyUpdateStyles.docx");
     expect(doc.automaticallyUpdateStyles).toEqual(true);
     expect(doc.attachedTemplate).toEqual(base.myDir + "Business brochure.dotx");
     expect(fs.existsSync(doc.attachedTemplate)).toEqual(true);
+    doc.close();
   });
 
   test('DefaultTemplate', () => {
@@ -1047,6 +1122,7 @@ describe('ExDocument', () => {
     doc.save(base.artifactsDir + "Document.defaultTemplate.docx", options);
     //ExEnd
     expect(fs.existsSync(options.defaultTemplate)).toEqual(true);
+    doc.close();
   });
 
   test.skip('UseSubstitutions - TODO: Regex is not supported yet.', () => {
@@ -1065,6 +1141,7 @@ describe('ExDocument', () => {
     options.legacyMode = false;
     doc.range.replace(regex, "$2 took money from $1", options);
     expect(doc.getText()).toEqual("Paul took money from Jason.\f");
+    doc.close();
     //ExEnd
   });
 
@@ -1095,6 +1172,7 @@ describe('ExDocument', () => {
     expect(field.start.fieldType).toEqual(aw.Fields.FieldType.FieldPage);
     expect(field.separator.fieldType).toEqual(aw.Fields.FieldType.FieldPage);
     expect(field.end.fieldType).toEqual(aw.Fields.FieldType.FieldPage);
+    doc.close();
     //ExEnd
   });
 
@@ -1113,6 +1191,7 @@ describe('ExDocument', () => {
     builder.writeln("This text is hidden.");
     doc.layoutOptions.showHiddenText = showHiddenText;
     doc.save(base.artifactsDir + "Document.LayoutOptionsHiddenText.pdf");
+    doc.close();
     //ExEnd
   });
 
@@ -1144,6 +1223,7 @@ describe('ExDocument', () => {
     builder.writeln("Hello again!");
     doc.layoutOptions.showParagraphMarks = showParagraphMarks;
     doc.save(base.artifactsDir + "Document.LayoutOptionsParagraphMarks.pdf");
+    doc.close();
     //ExEnd
   });
   
@@ -1181,6 +1261,7 @@ describe('ExDocument', () => {
     // to stay up to date, we will need to update it manually.
     doc.updatePageLayout();
     doc.save(base.artifactsDir + "Document.updatePageLayout.2.pdf");
+    doc.close();
     //ExEnd
   });
   
@@ -1228,6 +1309,7 @@ describe('ExDocument', () => {
     expect(doc.packageCustomParts.count).toEqual(2);
     doc.packageCustomParts.clear();
     expect(doc.packageCustomParts.count).toEqual(0);
+    doc.close();
     //ExEnd
   });
   
@@ -1244,6 +1326,7 @@ describe('ExDocument', () => {
     // We can turn the grey shading off, so the bookmarked text will blend in with the other text.
     doc.shadeFormData = useGreyShading;
     doc.save(base.artifactsDir + "Document.shadeFormData.docx");
+    doc.close();
     //ExEnd
   });
   
@@ -1255,8 +1338,10 @@ describe('ExDocument', () => {
     // We can read this property of a document, but we cannot preserve it while saving.
     expect(doc.versionsCount).toEqual(4);
     doc.save(base.artifactsDir + "Document.versionsCount.doc");
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Document.versionsCount.doc");
     expect(doc.versionsCount).toEqual(0);
+    doc.close();
     //ExEnd
   });
   
@@ -1281,6 +1366,7 @@ describe('ExDocument', () => {
     expect(doc.writeProtection.validatePassword("MyPassword")).toEqual(true);
     // Protection does not prevent the document from being edited programmatically, nor does it encrypt the contents.
     doc.save(base.artifactsDir + "Document.writeProtection.docx");
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Document.writeProtection.docx");
     expect(doc.writeProtection.isWriteProtected).toEqual(true);
     builder = new aw.DocumentBuilder(doc);
@@ -1292,6 +1378,7 @@ describe('ExDocument', () => {
     expect(doc.writeProtection.readOnlyRecommended).toEqual(true);
     expect(doc.writeProtection.validatePassword("MyPassword")).toEqual(true);
     expect(doc.writeProtection.validatePassword("wrongpassword")).toEqual(false);
+    doc.close();
   });
   
   test.each([false, true])('RemovePersonalInformation', (saveWithoutPersonalInfo) => {
@@ -1312,11 +1399,13 @@ describe('ExDocument', () => {
     // This option will not take effect during a save operation made using Aspose.words.
     // Personal data will be removed from our document with the flag set when we save it manually using Microsoft Word.
     doc.save(base.artifactsDir + "Document.removePersonalInformation.docx");
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Document.removePersonalInformation.docx");
     expect(doc.removePersonalInformation).toEqual(saveWithoutPersonalInfo);
     expect(doc.builtInDocumentProperties.author).toEqual("John Doe");
     expect(doc.builtInDocumentProperties.company).toEqual("Placeholder Inc.");
     expect(doc.revisions.at(0).author).toEqual("John Doe");
+    doc.close();
     //ExEnd
   });
   
@@ -1341,6 +1430,7 @@ describe('ExDocument', () => {
     doc.layoutOptions.commentDisplayMode = aw.Layout.CommentDisplayMode.ShowInBalloons;
     doc.updatePageLayout();
     doc.save(base.artifactsDir + "Document.ShowCommentsInBalloons.pdf");
+    doc.close();
     //ExEnd
   });
   
@@ -1367,6 +1457,8 @@ describe('ExDocument', () => {
     target.copyStylesFromTemplate(template);
     expect(target.styles.count).toEqual(22);
     //ExEnd
+    target.close();
+    template.close();
   });
   
   test('CopyTemplateStylesViaDocumentNew', () => {
@@ -1405,6 +1497,8 @@ describe('ExDocument', () => {
     target.copyStylesFromTemplate(base.myDir + "Rendering.docx");
     expect(target.styles.count).toEqual(21);
     //ExEnd
+    target.close();
+    template.close();
   });
   
   test('ReadMacrosFromExistingDocument', () => {
@@ -1450,6 +1544,7 @@ describe('ExDocument', () => {
     expect(vbaModules.at(0).sourceCode).toEqual("Your VBA code...");
     expect(vbaModules.at(1).name).toEqual("Module1");
     expect(vbaModules.at(1).sourceCode).toEqual("Your VBA code...");
+    doc.close();
   });
   
   test('SaveOutputParameters', () => {
@@ -1466,6 +1561,7 @@ describe('ExDocument', () => {
     // This property changes depending on the save format.
     parameters = doc.save(base.artifactsDir + "Document.SaveOutputParameters.pdf");
     expect(parameters.contentType).toEqual("application/pdf");
+    doc.close();
     //ExEnd
   });
   
@@ -1480,6 +1576,7 @@ describe('ExDocument', () => {
     // This node serves as a reference to an external document, and its contents cannot be accessed.
     subDocument = subDocuments.at(0).asSubDocument();
     expect(subDocument.isComposite).toEqual(false);
+    doc.close();
     //ExEnd
   });
   
@@ -1548,6 +1645,7 @@ describe('ExDocument', () => {
     // Remove all web extension task panes at once like this.
     doc.webExtensionTaskPanes.clear();
     expect(doc.webExtensionTaskPanes.count).toEqual(0);
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Document.webExtension.docx");
             
     myScriptTaskPane = doc.webExtensionTaskPanes.at(0);
@@ -1569,6 +1667,7 @@ describe('ExDocument', () => {
     expect(webExtension.bindings.at(0).bindingType).toEqual(aw.WebExtensions.WebExtensionBindingType.Text);
     expect(webExtension.bindings.at(0).appRef).toEqual("104380646");
     expect(webExtension.isFrozen).toEqual(false);
+    doc.close();
     //ExEnd
   });
   
@@ -1592,6 +1691,7 @@ describe('ExDocument', () => {
     // Remove the web extension.
     doc.webExtensionTaskPanes.remove(0);
     expect(doc.webExtensionTaskPanes.count).toEqual(0);
+    doc.close();
     //ExEnd
   });
   
@@ -1607,6 +1707,7 @@ describe('ExDocument', () => {
     let image = base.loadFileToArray(base.imageDir + "Transparent background logo.png");
     doc.builtInDocumentProperties.thumbnail =  image;
     doc.save(base.artifactsDir + "Document.EpubCover.epub");
+    doc.close();
   });
   
   test('TextWatermark', () => {
@@ -1642,9 +1743,11 @@ describe('ExDocument', () => {
     // We can remove a watermark from a document like this.
     if (doc.watermark.type == aw.WatermarkType.Text)
         doc.watermark.remove();
+    doc.close();
     //ExEnd
     doc = new aw.Document(base.artifactsDir + "Document.TextWatermark.docx");
     expect(doc.watermark.type).toEqual(aw.WatermarkType.Text);
+    doc.close();
   });
   
   test('ImageWatermark', () => {
@@ -1665,9 +1768,11 @@ describe('ExDocument', () => {
     let image = new aw.JSImage(base.imageDir + "Logo.jpg");
     doc.watermark.setImage(image, imageWatermarkOptions);
     doc.save(base.artifactsDir + "Document.ImageWatermark.docx");
+    doc.close();
     //ExEnd
     doc = new aw.Document(base.artifactsDir + "Document.ImageWatermark.docx");
     expect(doc.watermark.type).toEqual(aw.WatermarkType.Image);
+    doc.close();
   });
   
   test.each([false, true])('SpellingAndGrammarErrors', (showErrors) => {
@@ -1686,10 +1791,12 @@ describe('ExDocument', () => {
     doc.showGrammaticalErrors = showErrors;
     doc.showSpellingErrors = showErrors;
     doc.save(base.artifactsDir + "Document.SpellingAndGrammarErrors.docx");
+    doc.close();
     //ExEnd
     doc = new aw.Document(base.artifactsDir + "Document.SpellingAndGrammarErrors.docx");
     expect(doc.showGrammaticalErrors).toEqual(showErrors);
     expect(doc.showSpellingErrors).toEqual(showErrors);
+    doc.close();
   });
   
   test('IgnorePrinterMetrics', () => {
@@ -1699,6 +1806,7 @@ describe('ExDocument', () => {
     let doc = new aw.Document(base.myDir + "Rendering.docx");
     doc.layoutOptions.ignorePrinterMetrics = false;
     doc.save(base.artifactsDir + "Document.ignorePrinterMetrics.docx");
+    doc.close();
     //ExEnd
   });
   
@@ -1707,11 +1815,15 @@ describe('ExDocument', () => {
     //ExFor:Document.extractPages
     //ExSummary:Shows how to get specified range of pages from the document.
     let doc = new aw.Document(base.myDir + "Layout entities.docx");
-    doc = doc.extractPages(0, 2);
+    const extractedDocument = doc.extractPages(0, 2);
+    doc.close();
+    doc = extractedDocument;
     doc.save(base.artifactsDir + "Document.extractPages.docx");
+    doc.close();
     //ExEnd
     doc = new aw.Document(base.artifactsDir + "Document.extractPages.docx");
     expect(doc.pageCount).toEqual(2);
+    doc.close();
   });
   
   test.each([true, false])('SpellingOrGrammar', (checkSpellingGrammar) => {
@@ -1728,6 +1840,7 @@ describe('ExDocument', () => {
     doc.spellingChecked = checkSpellingGrammar;
     doc.grammarChecked = checkSpellingGrammar;
     doc.save(base.artifactsDir + "Document.SpellingOrGrammar.docx");
+    doc.close();
     //ExEnd
   });
   
@@ -1750,6 +1863,7 @@ describe('ExDocument', () => {
     let saveOptions = aw.Saving.SaveOptions.createSaveOptions(aw.SaveFormat.Docx);
     saveOptions.allowEmbeddingPostScriptFonts = true;
     doc.save(base.artifactsDir + "Document.allowEmbeddingPostScriptFonts.docx", saveOptions);
+    doc.close();
     //ExEnd
   });
   
@@ -1777,10 +1891,13 @@ describe('ExDocument', () => {
         "https://github.com/aspose-words/Aspose.Words-for-.NET/blob/master/Examples/Data/Absolute%20position%20tab.docx";
     doc.frameset.childFramesets.at(0).childFramesets.at(0).isFrameLinkToFile = false;
     //ExEnd
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument4 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument4;
     expect(doc.frameset.childFramesets.at(0).childFramesets.at(0).frameDefaultUrl)
       .toEqual("https://github.com/aspose-words/Aspose.Words-for-.NET/blob/master/Examples/Data/Absolute%20position%20tab.docx");
     expect(doc.frameset.childFramesets.at(0).childFramesets.at(0).isFrameLinkToFile).toEqual(false);
+    doc.close();
   });
   
   test('OpenAzw', () => {
@@ -1788,6 +1905,7 @@ describe('ExDocument', () => {
     expect(info.loadFormat).toEqual(aw.LoadFormat.Azw3);
     let doc = new aw.Document(base.myDir + "Azw3 document.azw3");
     expect(doc.getText().includes("Hachette Book Group USA")).toEqual(true);
+    doc.close();
   });
   
   test('OpenEpub', () => {
@@ -1795,6 +1913,7 @@ describe('ExDocument', () => {
     expect(info.loadFormat).toEqual(aw.LoadFormat.Epub);
     let doc = new aw.Document(base.myDir + "Epub document.epub");
     expect(doc.getText().includes("Down the Rabbit-Hole")).toEqual(true);
+    doc.close();
   });
   
   test('OpenXml', () => {
@@ -1802,6 +1921,7 @@ describe('ExDocument', () => {
     expect(info.loadFormat).toEqual(aw.LoadFormat.Xml);
     let doc = new aw.Document(base.myDir + "Mail merge data - Purchase order.xml");
     expect(doc.getText().includes("Ellen Adams\r123 Maple Street")).toEqual(true);
+    doc.close();
   });
   
   test('MoveToStructuredDocumentTag', () => {
@@ -1827,6 +1947,7 @@ describe('ExDocument', () => {
     // Get currently selected structured document tag.
     builder.currentStructuredDocumentTag.color = "#008000";
     doc.save(base.artifactsDir + "Document.moveToStructuredDocumentTag.docx");
+    doc.close();
     //ExEnd
   });
   
@@ -1846,6 +1967,7 @@ describe('ExDocument', () => {
     doc.updateWordCount();
     // Words count with textboxes, footnotes and endnotes.
     expect(doc.builtInDocumentProperties.words).toEqual(4);
+    doc.close();
     //ExEnd
   });
   
@@ -1859,6 +1981,7 @@ describe('ExDocument', () => {
     if (justificationMode == aw.Settings.JustificationMode.Expand)
         doc.justificationMode = aw.Settings.JustificationMode.Compress;
     doc.save(base.artifactsDir + "Document.SetJustificationMode.docx");
+    doc.close();
     //ExEnd
   });
   
@@ -1870,6 +1993,7 @@ describe('ExDocument', () => {
     let doc = new aw.Document(base.myDir + "Document.docx");
     // Check that the first page of the document is not colored.
     expect(doc.getPageInfo(0).colored).toEqual(false);
+    doc.close();
     //ExEnd
   });
   
@@ -1892,6 +2016,8 @@ describe('ExDocument', () => {
     dstDoc.insertDocumentInline(srcDoc.document, aw.ImportFormatMode.UseDestinationStyles, new aw.ImportFormatOptions());
     expect(dstDoc.document.getText().trim()).toEqual("Before [src content] after");
     //ExEnd:InsertDocumentInline
+    dstDoc.document.close();
+    srcDoc.document.close();
   });
   
   test.each([aw.SaveFormat.Doc, 
@@ -1957,6 +2083,7 @@ describe('ExDocument', () => {
         doc.save(stream, saveFormat);
 
     await new Promise(resolve => stream.on("finish", resolve));
+    doc.close();
   });
   
   test('HasMacros', () => {
@@ -1976,6 +2103,7 @@ describe('ExDocument', () => {
     //ExSummary:Shows how to work with kerning applies to both Latin text and punctuation.
     let doc = new aw.Document(base.myDir + "Document.docx");
     expect(doc.punctuationKerning).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -1989,6 +2117,7 @@ describe('ExDocument', () => {
     doc.removeBlankPages();
     doc.updatePageLayout();
     expect(doc.pageCount).toEqual(1);
+    doc.close();
     //ExEnd
   });
 

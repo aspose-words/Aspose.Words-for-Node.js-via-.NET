@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -50,6 +50,7 @@ describe("ExPdfSaveOptions", () => {
     // This document will contain one page starting from page two, which will only contain the second page.
     doc.save(stream, options);
     await new Promise(resolve => stream.on("finish", resolve));
+    doc.close();
     //ExEnd
   });
 
@@ -92,6 +93,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.outlineOptions.headingsOutlineLevels = 2;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.headingsOutlineLevels.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -135,6 +137,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.outlineOptions.createMissingOutlineLevels = createMissingOutlineLevels;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.createMissingOutlineLevels.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -179,6 +182,7 @@ describe("ExPdfSaveOptions", () => {
     pdfSaveOptions.outlineOptions.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.TableHeadingOutlines.pdf", pdfSaveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -239,6 +243,7 @@ describe("ExPdfSaveOptions", () => {
     options.outlineOptions.expandedOutlineLevels = 2;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.expandedOutlineLevels.pdf", options);
+    doc.close();
     //ExEnd
   });
 
@@ -277,6 +282,7 @@ describe("ExPdfSaveOptions", () => {
     expect(options).not.toBe(options.clone());
 
     doc.save(base.artifactsDir + "PdfSaveOptions.updateFields.pdf", options);
+    doc.close();
     //ExEnd
   });
 
@@ -304,6 +310,7 @@ describe("ExPdfSaveOptions", () => {
     pdfOptions.preserveFormFields = preserveFormFields;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.preserveFormFields.pdf", pdfOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -345,6 +352,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.compliance = pdfCompliance;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.compliance.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -390,6 +398,7 @@ describe("ExPdfSaveOptions", () => {
         TestUtil.fileContainsString("<</Length 11 0 R/Filter/FlateDecode>>stream", filePath);
         break;
     }
+    doc.close();
   });
 
 
@@ -421,6 +430,7 @@ describe("ExPdfSaveOptions", () => {
     pdfSaveOptions.jpegQuality = 10;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.imageCompression.pdf", pdfSaveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -453,6 +463,7 @@ describe("ExPdfSaveOptions", () => {
     pdfSaveOptions.imageColorSpaceExportMode = pdfImageColorSpaceExportMode;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.imageColorSpaceExportMode.pdf", pdfSaveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -487,6 +498,7 @@ describe("ExPdfSaveOptions", () => {
 
     // Only the first two images from the document will be downsampled at this stage.
     doc.save(base.artifactsDir + "PdfSaveOptions.downsampleOptions.LowerResolution.pdf", options);
+    doc.close();
     //ExEnd
   });
 
@@ -509,6 +521,7 @@ describe("ExPdfSaveOptions", () => {
     pdfSaveOptions.colorMode = colorMode;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.ColorRendering.pdf", pdfSaveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -533,6 +546,7 @@ describe("ExPdfSaveOptions", () => {
     pdfSaveOptions.displayDocTitle = displayDocTitle;;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.DocTitle.pdf", pdfSaveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -555,6 +569,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.memoryOptimization = memoryOptimization;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.memoryOptimization.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -566,6 +581,7 @@ describe("ExPdfSaveOptions", () => {
     builder.insertHyperlink("Testlink", uri, false);
 
     doc.save(base.artifactsDir + "PdfSaveOptions.EscapedUri.pdf");
+    doc.close();
   });
 
 
@@ -600,6 +616,7 @@ describe("ExPdfSaveOptions", () => {
         "<</Type/Annot/Subtype/Link/Rect[70.84999847 707.35101318 110.17799377 721.15002441]/BS" +
         "<</Type/Border/S/S/W 0>>/A<</Type/Action/S/URI/URI(https://www.google.com/search?q=%20aspose)>>>>",
         base.artifactsDir + "PdfSaveOptions.openHyperlinksInNewWindow.pdf");
+    doc.close();
   });
 
 
@@ -636,6 +653,7 @@ describe("ExPdfSaveOptions", () => {
 
     expect(callback.Warnings.count).toEqual(1);
     expect(callback.Warnings.at(0).description).toEqual("'R2_XORPEN' binary raster operation is not supported.");
+    doc.close();
   });
 
 /*
@@ -691,6 +709,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.headerFooterBookmarksExportMode.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -704,6 +723,7 @@ describe("ExPdfSaveOptions", () => {
     doc.save(base.artifactsDir + "PdfSaveOption.UnsupportedImageFormatWarning.pdf", aw.SaveFormat.Pdf);
 
     expect(saveWarningCallback.SaveWarnings.at(0).description).toEqual("Image can not be processed. Possibly unsupported image format.");
+    doc.close();
   });
 
 
@@ -745,6 +765,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.metafileRenderingOptions.emulateRenderingToSizeOnPageResolution = 50;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.emulateRenderingToSizeOnPage.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -795,6 +816,7 @@ describe("ExPdfSaveOptions", () => {
       expect(testedFileLength < 571000).toEqual(true);
     else
       expect(testedFileLength < 24000).toEqual(true);
+    doc.close();
   });
 
 
@@ -841,6 +863,7 @@ describe("ExPdfSaveOptions", () => {
         expect(testedFileLength < 4300).toEqual(true);
         break;
     }
+    doc.close();
   });
 
 
@@ -873,6 +896,7 @@ describe("ExPdfSaveOptions", () => {
       expect(testedFileLength < 2000).toEqual(true);
     else
       expect(testedFileLength < 33500).toEqual(true);
+    doc.close();
   });
 
 
@@ -893,6 +917,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.additionalTextPositioning = applyAdditionalTextPositioning;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.additionalTextPositioning.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -924,6 +949,7 @@ describe("ExPdfSaveOptions", () => {
     // Once we print this document on both sides of the pages, we can fold all the pages down the middle at once,
     // and the contents will line up in a way that creates a booklet.
     doc.save(base.artifactsDir + "PdfSaveOptions.SaveAsPdfBookFold.pdf", options);
+    doc.close();
     //ExEnd
   });
 
@@ -949,6 +975,7 @@ describe("ExPdfSaveOptions", () => {
 
     // When we open this document using a reader such as Adobe Acrobat, we will see the document scaled at 1/4 of its actual size.
     doc.save(base.artifactsDir + "PdfSaveOptions.ZoomBehaviour.pdf", options);
+    doc.close();
     //ExEnd
   });
 
@@ -1016,6 +1043,7 @@ describe("ExPdfSaveOptions", () => {
           base.artifactsDir + "PdfSaveOptions.pageMode.pdf");
         break;
     }
+    doc.close();
   });
 
 
@@ -1061,6 +1089,7 @@ describe("ExPdfSaveOptions", () => {
     TestUtil.fileContainsString(
       "<</Type/Annot/Subtype/Link/Rect[85.05000305 643.10406494 87.93800354 654.60308838]/BS<</Type/Border/S/S/W 0>>/Dest[5 0 R /XYZ 212 711 0]>>",
       base.artifactsDir + "PdfSaveOptions.NoteHyperlinks.pdf");
+    doc.close();
   });
 
 
@@ -1112,6 +1141,7 @@ describe("ExPdfSaveOptions", () => {
           base.artifactsDir + "PdfSaveOptions.customPropertiesExport.pdf");
         break;
     }
+    doc.close();
   });
 
 
@@ -1141,6 +1171,7 @@ describe("ExPdfSaveOptions", () => {
     expect(options.dmlRenderingMode).toEqual(aw.Saving.DmlRenderingMode.DrawingML);
 
     doc.save(base.artifactsDir + "PdfSaveOptions.DrawingMLEffects.pdf", options);
+    doc.close();
     //ExEnd
   });
 
@@ -1179,6 +1210,7 @@ describe("ExPdfSaveOptions", () => {
           base.artifactsDir + "PdfSaveOptions.DrawingMLFallback.pdf");
         break;
     }
+    doc.close();
   });
 
 
@@ -1220,6 +1252,7 @@ describe("ExPdfSaveOptions", () => {
       TestUtil.fileContainsString("<</Type/Page/Parent 3 0 R/Contents 6 0 R/MediaBox[0 0 612 792]/Resources<</Font<</FAAAAI 8 0 R/FAAABC 12 0 R>>>>/Group<</Type/Group/S/Transparency/CS/DeviceRGB>>>>",
         base.artifactsDir + "PdfSaveOptions.exportDocumentStructure.pdf");
     }
+    doc.close();
   });
 
 
@@ -1256,6 +1289,7 @@ describe("ExPdfSaveOptions", () => {
       TestUtil.fileContainsString("<</Type/XObject/Subtype/Image/Width 400/Height 400/ColorSpace/DeviceRGB/BitsPerComponent 8/SMask 10 0 R/Length 11 0 R/Filter/FlateDecode>>",
         base.artifactsDir + "PdfSaveOptions.interpolateImages.pdf");
     }
+    doc.close();
   });
 
 
@@ -1271,6 +1305,7 @@ describe("ExPdfSaveOptions", () => {
     doc.save(base.artifactsDir + "PdfSaveOptions.Dml3DEffectsRenderingModeTest.pdf", saveOptions);
 
     expect(warningCallback.count).toEqual(48);
+    doc.close();
   });
 
 /*
@@ -1349,6 +1384,7 @@ describe("ExPdfSaveOptions", () => {
 
     expect(aw.FileFormatUtil.detectFileFormat(
       base.artifactsDir + "PdfSaveOptions.PdfDigitalSignature.pdf").hasDigitalSignature).toBe(false);
+    doc.close();
   });
 
 
@@ -1403,6 +1439,7 @@ describe("ExPdfSaveOptions", () => {
     expect(aw.FileFormatUtil.detectFileFormat(base.artifactsDir + "PdfSaveOptions.PdfDigitalSignatureTimestamp.pdf").hasDigitalSignature).toEqual(false);
     TestUtil.fileContainsString("<</Type/Annot/Subtype/Widget/Rect[0 0 0 0]/FT/Sig/T",
       base.artifactsDir + "PdfSaveOptions.PdfDigitalSignatureTimestamp.pdf");
+    doc.close();
   });
 
 
@@ -1434,6 +1471,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.metafileRenderingOptions.useEmfEmbeddedToWmf = true;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.RenderMetafile.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -1465,6 +1503,7 @@ describe("ExPdfSaveOptions", () => {
 
     // When we open this document, we will need to provide the password before accessing its contents.
     doc.save(base.artifactsDir + "PdfSaveOptions.EncryptionPermissions.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -1499,6 +1538,7 @@ describe("ExPdfSaveOptions", () => {
     options.numeralFormat = numeralFormat;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.SetNumeralFormat.pdf", options);
+    doc.close();
     //ExEnd
   });
 
@@ -1540,6 +1580,7 @@ describe("ExPdfSaveOptions", () => {
     options.pageSet = aw.Saving.PageSet.all;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.ExportPageSet.all.pdf", options);
+    doc.close();
     //ExEnd
   });
 
@@ -1560,6 +1601,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.exportLanguageToSpanTag = true;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.exportLanguageToSpanTag.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -1578,6 +1620,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.attachmentsEmbeddingMode = aw.Saving.PdfAttachmentsEmbeddingMode.Annotations;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.PdfEmbedAttachments.pdf", saveOptions);
+    doc.close();
     //ExEnd:AttachmentsEmbeddingMode
   });
 
@@ -1597,6 +1640,7 @@ describe("ExPdfSaveOptions", () => {
     let wordToPdfSize = fs.statSync(base.myDir + "Background images (word to pdf).pdf").size;
 
     expect(asposeToPdfSize <= wordToPdfSize).toBe(true);
+    doc.close();
     //ExEnd
   });
 
@@ -1613,6 +1657,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.textCompression = aw.Saving.PdfTextCompression.None;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.exportParagraphGraphicsToArtifact.pdf", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -1630,6 +1675,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.pageLayout = aw.Saving.PdfPageLayout.TwoPageLeft;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.pageLayout.pdf", saveOptions);
+    doc.close();
     //ExEnd:PageLayout
   });
 
@@ -1648,6 +1694,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.useSdtTagAsFormFieldName = true;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.SdtTagAsFormFieldName.pdf", saveOptions);
+    doc.close();
     //ExEnd:SdtTagAsFormFieldName
   });
 
@@ -1664,6 +1711,7 @@ describe("ExPdfSaveOptions", () => {
     saveOptions.renderChoiceFormFieldBorder = true;
 
     doc.save(base.artifactsDir + "PdfSaveOptions.renderChoiceFormFieldBorder.pdf", saveOptions);
+    doc.close();
     //ExEnd:RenderChoiceFormFieldBorder
   });
 

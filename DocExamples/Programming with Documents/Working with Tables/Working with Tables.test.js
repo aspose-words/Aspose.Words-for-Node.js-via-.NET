@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -27,6 +27,7 @@ describe("WorkingWithTables", () => {
 
         let column = Column.fromIndex(table, 2);
         column.remove();
+        doc.close();
         //ExEnd:RemoveColumn
     });
 
@@ -49,6 +50,7 @@ describe("WorkingWithTables", () => {
 
         for (let cell of newColumn.cells)
             cell.firstParagraph.appendChild(new aw.Run(doc, "Column Text " + newColumn.indexOf(cell)));
+        doc.close();
         //ExEnd:InsertBlankColumn
     });
 
@@ -157,6 +159,7 @@ describe("WorkingWithTables", () => {
         table.autoFit(aw.Tables.AutoFitBehavior.AutoFitToContents);
 
         doc.save(base.artifactsDir + "WorkingWithTables.AutoFitTableToContents.docx");
+        doc.close();
         //ExEnd:AutoFitTableToContents
     });
 
@@ -170,6 +173,7 @@ describe("WorkingWithTables", () => {
         table.autoFit(aw.Tables.AutoFitBehavior.FixedColumnWidths);
 
         doc.save(base.artifactsDir + "WorkingWithTables.AutoFitTableToFixedColumnWidths.docx");
+        doc.close();
         //ExEnd:AutoFitTableToFixedColumnWidths
     });
 
@@ -183,6 +187,7 @@ describe("WorkingWithTables", () => {
         table.autoFit(aw.Tables.AutoFitBehavior.AutoFitToWindow);
 
         doc.save(base.artifactsDir + "WorkingWithTables.AutoFitTableToWindow.docx");
+        doc.close();
         //ExEnd:AutoFitTableToPageWidth
     });
 
@@ -214,6 +219,7 @@ describe("WorkingWithTables", () => {
         table.firstRow.lastCell.removeAllChildren();
 
         doc.save(base.artifactsDir + "WorkingWithTables.BuildTableFromDataTable.docx");
+        doc.close();
         //ExEnd:BuildTableFromDataTable
     });
 
@@ -292,6 +298,7 @@ describe("WorkingWithTables", () => {
         table.parentNode.insertAfter(new aw.Paragraph(doc), table);
 
         doc.save(base.artifactsDir + "WorkingWithTables.CloneCompleteTable.docx");
+        doc.close();
         //ExEnd:CloneCompleteTable
     });
 
@@ -312,6 +319,7 @@ describe("WorkingWithTables", () => {
         table.appendChild(clonedRow);
 
         doc.save(base.artifactsDir + "WorkingWithTables.CloneLastRow.docx");
+        doc.close();
         //ExEnd:CloneLastRow
     });
 
@@ -339,6 +347,7 @@ describe("WorkingWithTables", () => {
         let cellIndex = row.indexOf(row.cells.at(4));
         //ExEnd:RetrieveCellIndex
         console.log("\nCell index is " + cellIndex);
+        doc.close();
     });
 
     test('InsertTableDirectly', () => {
@@ -379,6 +388,7 @@ describe("WorkingWithTables", () => {
         table.autoFit(aw.Tables.AutoFitBehavior.FixedColumnWidths);
 
         doc.save(base.artifactsDir + "WorkingWithTables.InsertTableDirectly.docx");
+        doc.close();
         //ExEnd:InsertTableDirectly
     });
 
@@ -401,6 +411,7 @@ describe("WorkingWithTables", () => {
             "</table>");
 
         doc.save(base.artifactsDir + "WorkingWithTables.InsertTableFromHtml.docx");
+        doc.close();
         //ExEnd:InsertTableFromHtml
     });
 
@@ -435,6 +446,7 @@ describe("WorkingWithTables", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTables.CreateSimpleTable.docx");
+        doc.close();
         //ExEnd:CreateSimpleTable
     });
 
@@ -508,6 +520,7 @@ describe("WorkingWithTables", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTables.FormattedTable.docx");
+        doc.close();
         //ExEnd:FormattedTable
     });
 
@@ -538,6 +551,7 @@ describe("WorkingWithTables", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTables.NestedTable.docx");
+        doc.close();
         //ExEnd:NestedTable
     });
 
@@ -558,6 +572,7 @@ describe("WorkingWithTables", () => {
         secondTable.remove();
 
         doc.save(base.artifactsDir + "WorkingWithTables.CombineRows.docx");
+        doc.close();
         //ExEnd:CombineRows
     });
 
@@ -587,6 +602,7 @@ describe("WorkingWithTables", () => {
         } while (base.compareNodes(currentRow, row));
 
         doc.save(base.artifactsDir + "WorkingWithTables.SplitTable.docx");
+        doc.close();
         //ExEnd:SplitTable
     });
 
@@ -604,6 +620,7 @@ describe("WorkingWithTables", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithTables.RowFormatDisableBreakAcrossPages.docx");
+        doc.close();
         //ExEnd:RowFormatDisableBreakAcrossPages
     });
 
@@ -628,6 +645,7 @@ describe("WorkingWithTables", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithTables.KeepTableTogether.docx");
+        doc.close();
         //ExEnd:KeepTableTogether
     });
 
@@ -645,6 +663,7 @@ describe("WorkingWithTables", () => {
                 console.log(printCellMergeType(cell));
             }
         }
+        doc.close();
         //ExEnd:CheckCellsMerged
     });
 
@@ -695,6 +714,7 @@ describe("WorkingWithTables", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTables.VerticalMerge.docx");
+        doc.close();
         //ExEnd:VerticalMerge
     });
 
@@ -723,6 +743,7 @@ describe("WorkingWithTables", () => {
         builder.endTable();
 
         doc.save(base.artifactsDir + "WorkingWithTables.HorizontalMerge.docx");
+        doc.close();
         //ExEnd:HorizontalMerge
     });
 
@@ -741,6 +762,7 @@ describe("WorkingWithTables", () => {
         mergeCells(cellStartRange, cellEndRange);
 
         doc.save(base.artifactsDir + "WorkingWithTables.MergeCellRange.docx");
+        doc.close();
         //ExEnd:MergeCellRange
     });
 
@@ -796,6 +818,7 @@ describe("WorkingWithTables", () => {
         let table = doc.firstSection.body.tables.at(0);
         // Now merged cells have appropriate merge flags.
         table.convertToHorizontallyMergedCells();
+        doc.close();
         //ExEnd:ConvertToHorizontallyMergedCells
     });
 
@@ -829,6 +852,7 @@ describe("WorkingWithTables", () => {
         }
 
         doc.save(base.artifactsDir + "WorkingWithTables.RepeatRowsOnSubsequentPages.docx");
+        doc.close();
         //ExEnd:RepeatRowsOnSubsequentPages
     });
 
@@ -852,6 +876,7 @@ describe("WorkingWithTables", () => {
         builder.writeln("Cell #3");
 
         doc.save(base.artifactsDir + "WorkingWithTables.AutoFitPageWidth.docx");
+        doc.close();
         //ExEnd:AutoFitPageWidth
     });
 
@@ -883,6 +908,7 @@ describe("WorkingWithTables", () => {
         builder.writeln("In this case the cell will fill up the rest of the available space.");
 
         doc.save(base.artifactsDir + "WorkingWithTables.PreferredWidthSettings.docx");
+        doc.close();
         //ExEnd:PreferredWidthSettings
     });
 
@@ -900,6 +926,7 @@ describe("WorkingWithTables", () => {
         let firstCell = table.firstRow.firstCell;
         let type = firstCell.cellFormat.preferredWidth.type;
         let value = firstCell.cellFormat.preferredWidth.value;
+        doc.close();
         //ExEnd:RetrievePreferredWidthType
     });
 
@@ -916,6 +943,7 @@ describe("WorkingWithTables", () => {
         } else {
             console.log(table.alignment);
         }
+        doc.close();
         //ExEnd:GetTablePosition
     });
 
@@ -937,6 +965,7 @@ describe("WorkingWithTables", () => {
                 console.log("..............................");
             }
         }
+        doc.close();
         //ExEnd:GetFloatingTablePosition
     });
 
@@ -950,6 +979,7 @@ describe("WorkingWithTables", () => {
         table.relativeVerticalAlignment = aw.Drawing.VerticalAlignment.Center;
 
         doc.save(base.artifactsDir + "WorkingWithTables.FloatingTablePosition.docx");
+        doc.close();
         //ExEnd:FloatingTablePosition
     });
 
@@ -962,6 +992,7 @@ describe("WorkingWithTables", () => {
         table.verticalAnchor = aw.Drawing.RelativeVerticalPosition.Page;
 
         doc.save(base.artifactsDir + "WorkingWithTables.RelativeHorizontalOrVerticalPosition.docx");
+        doc.close();
         //ExEnd:RelativeHorizontalOrVerticalPosition
     });
 });

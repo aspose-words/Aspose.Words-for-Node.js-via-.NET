@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -27,6 +27,7 @@ describe("WorkingWithOoxmlSaveOptions", () => {
     saveOptions.password = "password";
 
     doc.save(base.artifactsDir + "WorkingWithOoxmlSaveOptions.EncryptDocxWithPassword.docx", saveOptions);
+    doc.close();
     //ExEnd:EncryptDocxWithPassword
   });
 
@@ -41,6 +42,7 @@ describe("WorkingWithOoxmlSaveOptions", () => {
     saveOptions.compliance = aw.Saving.OoxmlCompliance.Iso29500_2008_Strict;
 
     doc.save(base.artifactsDir + "WorkingWithOoxmlSaveOptions.OoxmlComplianceIso29500_2008_Strict.docx", saveOptions);
+    doc.close();
     //ExEnd:OoxmlComplianceIso29500_2008_Strict
   });
 
@@ -54,6 +56,7 @@ describe("WorkingWithOoxmlSaveOptions", () => {
     saveOptions.updateLastSavedTimeProperty = true;
 
     doc.save(base.artifactsDir + "WorkingWithOoxmlSaveOptions.UpdateLastSavedTime.docx", saveOptions);
+    doc.close();
     //ExEnd:UpdateLastSavedTime
   });
 
@@ -66,6 +69,7 @@ describe("WorkingWithOoxmlSaveOptions", () => {
     saveOptions.keepLegacyControlChars = true;
 
     doc.save(base.artifactsDir + "WorkingWithOoxmlSaveOptions.keepLegacyControlChars.docx", saveOptions);
+    doc.close();
     //ExEnd:KeepLegacyControlChars
   });
 
@@ -78,6 +82,7 @@ describe("WorkingWithOoxmlSaveOptions", () => {
     saveOptions.compressionLevel = aw.Saving.CompressionLevel.SuperFast;
 
     doc.save(base.artifactsDir + "WorkingWithOoxmlSaveOptions.SetCompressionLevel.docx", saveOptions);
+    doc.close();
     //ExEnd:SetCompressionLevel
   });
 

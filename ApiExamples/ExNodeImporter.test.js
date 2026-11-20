@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -77,6 +77,8 @@ describe("ExNodeImporter", () => {
         "13. Item 4");
     }
     //ExEnd
+    dstDoc.close();
+    srcDoc.close();
   });
 
 
@@ -106,6 +108,8 @@ describe("ExNodeImporter", () => {
 
     expect(doc.getText().trim()).toEqual("We will insert a document here: " +
                             "\rHello world!");
+    docToInsert.close();
+    doc.close();
   });
 
 
@@ -169,6 +173,8 @@ describe("ExNodeImporter", () => {
 
     expect(doc.getText().trim()).toEqual("A document will appear here: \r" +
                             "Hello world!");
+    subDoc.close();
+    doc.close();
   });
 
 /*

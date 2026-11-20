@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -49,6 +49,7 @@ describe("ExStyles", () => {
 
       expect(style.document.referenceEquals(doc)).toBe(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -89,6 +90,7 @@ describe("ExStyles", () => {
     expect(firstParagraphStyle.font.name).toEqual("Times New Roman");
     expect(firstParagraphStyle.font.size).toEqual(12.0);
     expect(firstParagraphStyle.font.color).toEqual(base.emptyColor);
+    doc.close();
     //ExEnd
   });
 
@@ -115,6 +117,7 @@ describe("ExStyles", () => {
 
     expect(styles.at(4).font.name).toEqual("Courier New");
     expect(styles.at("MyStyle").paragraphFormat.firstLineIndent).toEqual(15.0);
+    doc.close();
     //ExEnd
   });
 
@@ -128,6 +131,7 @@ describe("ExStyles", () => {
     doc.styles.clearQuickStyleGallery();
 
     doc.save(base.artifactsDir + "Styles.RemoveStylesFromStyleGallery.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -162,6 +166,7 @@ describe("ExStyles", () => {
     doc.save(base.artifactsDir + "Styles.ChangeTocsTabStops.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Styles.ChangeTocsTabStops.docx");
 
     for (var paraNode of doc.getChildNodes(aw.NodeType.Paragraph, true)) {
@@ -175,6 +180,7 @@ describe("ExStyles", () => {
         expect(tabStop.leader).toEqual(aw.TabLeader.Dots);
       }
     }
+    doc.close();
   });
 
 
@@ -203,6 +209,7 @@ describe("ExStyles", () => {
     expect(newStyle.font.name).toEqual(doc.styles.at("Heading 1").font.name);
     expect(newStyle.font.size).toEqual(doc.styles.at("Heading 1").font.size);
     expect(newStyle.font.color).not.toEqual(doc.styles.at("Heading 1").font.color);
+    doc.close();
     //ExEnd
   });
 
@@ -225,6 +232,8 @@ describe("ExStyles", () => {
     expect(newStyle.name).toEqual("MyStyle");
     expect(newStyle.font.color).toEqual("#FF0000");
     //ExEnd
+    dstDoc.close();
+    srcDoc.close();
   });
 
 
@@ -237,12 +246,15 @@ describe("ExStyles", () => {
     doc.styles.defaultParagraphFormat.spaceAfter = 20;
     doc.styles.defaultParagraphFormat.alignment = aw.ParagraphAlignment.Right;
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
 
     expect(doc.styles.defaultFont.bold).toEqual(true);
     expect(doc.styles.defaultFont.name).toEqual("PMingLiU");
     expect(doc.styles.defaultParagraphFormat.spaceAfter).toEqual(20);
     expect(doc.styles.defaultParagraphFormat.alignment).toEqual(aw.ParagraphAlignment.Right);
+    doc.close();
   });
 
 
@@ -281,6 +293,7 @@ describe("ExStyles", () => {
     builder.document.save(base.artifactsDir + "Styles.ParagraphStyleBulletedList.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Styles.ParagraphStyleBulletedList.docx");
 
     style = doc.styles.at("MyStyle1");
@@ -289,6 +302,7 @@ describe("ExStyles", () => {
     expect(style.font.size).toEqual(24);
     expect(style.font.name).toEqual("Verdana");
     expect(style.paragraphFormat.spaceAfter).toEqual(12.0);
+    doc.close();
   });
 
 
@@ -319,6 +333,7 @@ describe("ExStyles", () => {
     builder.write("Hello again!");
 
     expect(doc.firstSection.body.paragraphs.at(1).paragraphFormat.style).toEqual(doc.firstSection.body.paragraphs.at(0).paragraphFormat.style);
+    doc.close();
     //ExEnd
   });
 
@@ -342,6 +357,7 @@ describe("ExStyles", () => {
     TestUtil.docPackageFileContainsString(
       '<w:lsdException w:name="Unresolved Mention" w:semiHidden="1" w:unhideWhenUsed="1" />',
       base.artifactsDir + "Styles.latentStyles.docx", "styles.xml");
+    doc.close();
   });
 
 
@@ -359,8 +375,10 @@ describe("ExStyles", () => {
     doc.save(base.artifactsDir + "Styles.LockStyle.docx");
     //ExEnd:LockStyle
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Styles.LockStyle.docx");
     expect(doc.styles.at(aw.StyleIdentifier.Heading1).locked).toEqual(true);
+    doc.close();
   });
 
 
@@ -384,6 +402,7 @@ describe("ExStyles", () => {
       styleTitle.semiHidden = true;
 
     doc.save(base.artifactsDir + "Styles.StylePriority.docx");
+    doc.close();
     //ExEnd:StylePriority
   });
 
@@ -407,6 +426,7 @@ describe("ExStyles", () => {
 
     expect(styleHeading1.linkedStyleName).toEqual("Heading 1 Char");
     expect(styleHeading1Char.linkedStyleName).toEqual("Heading 1");
+    doc.close();
     //ExEnd:LinkedStyleName
   });
 

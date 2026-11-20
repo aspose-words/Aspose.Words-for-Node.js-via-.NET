@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -129,6 +129,7 @@ describe("ExFile", () => {
 
     expect(aw.FileFormatUtil.loadFormatToExtension(info.loadFormat)).toEqual(".odt");
     expect(info.isEncrypted).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -214,6 +215,7 @@ describe("ExFile", () => {
     let doc = new aw.Document(docStream);
     expect(aw.FileFormatUtil.saveFormatToExtension(saveFormat)).toEqual(".doc");
     doc.save(base.artifactsDir + "File.SaveToDetectedFileFormat" + aw.FileFormatUtil.saveFormatToExtension(saveFormat));
+    doc.close();
   //ExEnd
   });
 
@@ -268,5 +270,6 @@ describe("ExFile", () => {
     const r = new RegExp("^.+\.(jpeg|png|emf|wmf)$");
     expect(fs.readdirSync(base.artifactsDir)
       .filter(s => r.test(s) && s.startsWith("File.ExtractImages")).length).toEqual(9);
+    doc.close();
   });
 });

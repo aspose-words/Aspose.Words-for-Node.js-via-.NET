@@ -117,6 +117,7 @@ describe("ExTableColumn", () => {
     expect(table.getChildNodes(aw.NodeType.Cell, true).count).toEqual(16);
     expect(table.rows.at(2).cells.at(2).toString(aw.SaveFormat.Text).trim()).toEqual("Cell 7 contents");
     expect(table.lastRow.cells.at(2).toString(aw.SaveFormat.Text).trim()).toEqual("Cell 11 contents");
+    doc.close();
   });
 
 
@@ -139,6 +140,7 @@ describe("ExTableColumn", () => {
     expect(table.getChildNodes(aw.NodeType.Cell, true).count).toEqual(24);
     expect(table.firstRow.cells.at(1).toString(aw.SaveFormat.Text).trim()).toEqual("Column Text 0");
     expect(table.lastRow.cells.at(1).toString(aw.SaveFormat.Text).trim()).toEqual("Column Text 3");
+    doc.close();
   });
 
 
@@ -150,5 +152,6 @@ describe("ExTableColumn", () => {
     console.log(column.toTxt());
 
     expect(column.toTxt()).toEqual("\rRow 1\rRow 2\rRow 3\r");
+    doc.close();
   });
 });

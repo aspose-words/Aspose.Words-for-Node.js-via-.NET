@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -47,6 +47,7 @@ describe("ExDocumentBuilderImages", () => {
     doc.save(base.artifactsDir + "DocumentBuilderImages.InsertImageFromStream.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilderImages.InsertImageFromStream.docx");
 
     let imageShape = doc.getShape(0, true).asShape();
@@ -93,6 +94,7 @@ describe("ExDocumentBuilderImages", () => {
     TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Jpeg, imageShape);
     expect(imageShape.imageData.imageSize.heightPoints).toEqual(300.0);
     expect(imageShape.imageData.imageSize.widthPoints).toEqual(300.0);
+    doc.close();
   });
 
 
@@ -122,6 +124,7 @@ describe("ExDocumentBuilderImages", () => {
     doc.save(base.artifactsDir + "DocumentBuilderImages.InsertImageFromFilename.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilderImages.InsertImageFromFilename.docx");
 
     let imageShape = doc.getShape(0, true).asShape();
@@ -168,6 +171,7 @@ describe("ExDocumentBuilderImages", () => {
     TestUtil.verifyImageInShape(1600, 1600, aw.Drawing.ImageType.Wmf, imageShape);
     expect(imageShape.imageData.imageSize.heightPoints).toEqual(400.0);
     expect(imageShape.imageData.imageSize.widthPoints).toEqual(400.0);
+    doc.close();
   });
 
 
@@ -191,6 +195,7 @@ describe("ExDocumentBuilderImages", () => {
 
     // Aspose.words insert SVG image to the document as EMF metafile to keep the image in vector representation.
     doc.save(base.artifactsDir + "DocumentBuilderImages.InsertSvgImage.emf.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -223,6 +228,7 @@ describe("ExDocumentBuilderImages", () => {
     doc.save(base.artifactsDir + "DocumentBuilderImages.InsertImageFromImageObject.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilderImages.InsertImageFromImageObject.docx");
 
     let imageShape = doc.getShape(0, true).asShape();
@@ -269,6 +275,7 @@ describe("ExDocumentBuilderImages", () => {
     TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Jpeg, imageShape);
     expect(imageShape.imageData.imageSize.heightPoints).toEqual(300.0);
     expect(imageShape.imageData.imageSize.widthPoints).toEqual(300.0);
+    doc.close();
   });
 
 
@@ -300,6 +307,7 @@ describe("ExDocumentBuilderImages", () => {
     doc.save(base.artifactsDir + "DocumentBuilderImages.InsertImageFromByteArray.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilderImages.InsertImageFromByteArray.docx");
 
     let imageShape = doc.getShape(0, true).asShape();
@@ -346,6 +354,7 @@ describe("ExDocumentBuilderImages", () => {
     TestUtil.verifyImageInShape(400, 400, aw.Drawing.ImageType.Jpeg, imageShape);
     expect(imageShape.imageData.imageSize.heightPoints).toBeCloseTo(300.0, 1);
     expect(imageShape.imageData.imageSize.widthPoints).toBeCloseTo(300.0, 1);
+    doc.close();
   });
 
 
@@ -364,6 +373,7 @@ describe("ExDocumentBuilderImages", () => {
 
     builder.document.save(base.artifactsDir + "InsertGif.docx");
     //ExEnd
+    builder.document.close();
   });
 
 });

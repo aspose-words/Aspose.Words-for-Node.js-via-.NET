@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -28,6 +28,7 @@ describe("WorkingWithSdt", () => {
     builder.insertNode(sdtCheckBox);
 
     doc.save(base.artifactsDir + "WorkingWithSdt.SdtCheckBox.docx");
+    doc.close();
     //ExEnd:SdtCheckBox
   });
 
@@ -44,6 +45,7 @@ describe("WorkingWithSdt", () => {
     }
 
     doc.save(base.artifactsDir + "WorkingWithSdt.CurrentStateOfCheckBox.docx");
+    doc.close();
     //ExEnd:CurrentStateOfCheckBox
   });
 
@@ -73,6 +75,7 @@ describe("WorkingWithSdt", () => {
     }
 
     doc.save(base.artifactsDir + "WorkingWithSdt.ModifySdt.docx");
+    doc.close();
     //ExEnd:ModifySdt
   });
 
@@ -88,6 +91,7 @@ describe("WorkingWithSdt", () => {
     doc.firstSection.body.appendChild(sdt);
 
     doc.save(base.artifactsDir + "WorkingWithSdt.SdtComboBox.docx");
+    doc.close();
     //ExEnd:SdtComboBox
   });
 
@@ -107,6 +111,7 @@ describe("WorkingWithSdt", () => {
     doc.firstSection.body.appendChild(sdtRichText);
 
     doc.save(base.artifactsDir + "WorkingWithSdt.SdtRichTextBox.docx");
+    doc.close();
     //ExEnd:SdtRichTextBox
   });
 
@@ -119,6 +124,7 @@ describe("WorkingWithSdt", () => {
     sdt.color = "#FF0000"; // Red.
 
     doc.save(base.artifactsDir + "WorkingWithSdt.SdtColor.docx");
+    doc.close();
     //ExEnd:SdtColor
   });
 
@@ -131,6 +137,7 @@ describe("WorkingWithSdt", () => {
     sdt.clear();
 
     doc.save(base.artifactsDir + "WorkingWithSdt.ClearSdt.doc");
+    doc.close();
     //ExEnd:ClearSdt
   });
 
@@ -146,6 +153,7 @@ describe("WorkingWithSdt", () => {
     sdt.xmlMapping.setMapping(xmlPart, "/root[1]/text[1]", "");
 
     doc.save(base.artifactsDir + "WorkingWithSdt.BindSdtToCustomXmlPart.doc");
+    doc.close();
     //ExEnd:BindSdtToCustomXmlPart
   });
 
@@ -159,6 +167,7 @@ describe("WorkingWithSdt", () => {
     sdt.style = style;
 
     doc.save(base.artifactsDir + "WorkingWithSdt.SdtStyle.docx");
+    doc.close();
     //ExEnd:SdtStyle
   });
 
@@ -214,6 +223,7 @@ describe("WorkingWithSdt", () => {
     row.appendChild(authorSdt);
 
     doc.save(base.artifactsDir + "WorkingWithSdt.RepeatingSectionMappedToCustomXmlPart.docx");
+    doc.close();
     //ExEnd:RepeatingSectionMappedToCustomXmlPart
   });
 
@@ -227,6 +237,7 @@ describe("WorkingWithSdt", () => {
       let tag = tags.at(i);
       console.log(tag.asStructuredDocumentTagRangeStart().title);
     }
+    doc.close();
     //ExEnd:MultiSection
   });
 
@@ -250,6 +261,7 @@ describe("WorkingWithSdt", () => {
     sdtRangeStart.xmlMapping.setMapping(xmlPart, "/root[1]/text[2]", null);
 
     doc.save(base.artifactsDir + "WorkingWithSdt.SdtRangeStartXmlMapping.docx");
+    doc.close();
     //ExEnd:SdtRangeStartXmlMapping
   });
 

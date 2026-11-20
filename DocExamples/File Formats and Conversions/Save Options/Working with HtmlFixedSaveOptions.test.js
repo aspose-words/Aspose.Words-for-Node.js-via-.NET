@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -29,6 +29,7 @@ describe("WorkingWithHtmlFixedSaveOptions", () => {
     saveOptions.useTargetMachineFonts = true;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlFixedSaveOptions.UseFontFromTargetMachine.html", saveOptions);
+    doc.close();
     //ExEnd:UseFontFromTargetMachine
   });
 
@@ -42,6 +43,7 @@ describe("WorkingWithHtmlFixedSaveOptions", () => {
     saveOptions.saveFontFaceCssSeparately = false;
 
     doc.save(base.artifactsDir + "WorkingWithHtmlFixedSaveOptions.WriteAllCssRulesInSingleFile.html", saveOptions);
+    doc.close();
     //ExEnd:WriteAllCssRulesInSingleFile
   });
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -66,6 +66,7 @@ describe("ExCleanupOptions", () => {
     doc.cleanup(cleanupOptions);
 
     expect(doc.styles.count).toEqual(2);
+    doc.close();
     //ExEnd
   });
 
@@ -113,6 +114,7 @@ describe("ExCleanupOptions", () => {
     expect(doc.styles.count).toEqual(5);
     expect(paragraphs.at(0).paragraphFormat.style).toEqual(myStyle);
     expect(paragraphs.at(1).paragraphFormat.style).toEqual(myStyle);
+    doc.close();
     //ExEnd
   });
 

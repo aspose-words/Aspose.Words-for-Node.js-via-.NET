@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -62,6 +62,7 @@ describe("WorkingWithRevisions", () => {
 
     // Save the document.
     doc.save(base.artifactsDir + "WorkingWithRevisions.AcceptRevisions.docx");
+    doc.close();
     //ExEnd:AcceptAllRevisions
   });
 
@@ -76,6 +77,7 @@ describe("WorkingWithRevisions", () => {
       if (paragraphs.at(i).isMoveToRevision)
         console.log(`The paragraph ${i} has been moved (inserted).`);
     }
+    doc.close();
     //ExEnd:GetRevisionTypes
   });
 
@@ -87,6 +89,7 @@ describe("WorkingWithRevisions", () => {
       console.log(`${group.author}, ${group.revisionType}:`);
       console.log(group.text);
     }
+    doc.close();
     //ExEnd:GetRevisionGroups
   });
 
@@ -98,6 +101,7 @@ describe("WorkingWithRevisions", () => {
     doc.layoutOptions.commentDisplayMode = aw.Layout.CommentDisplayMode.Hide;
 
     doc.save(base.artifactsDir + "WorkingWithRevisions.RemoveCommentsInPdf.pdf");
+    doc.close();
     //ExEnd:RemoveCommentsInPDF
   });
 
@@ -112,6 +116,7 @@ describe("WorkingWithRevisions", () => {
     doc.layoutOptions.revisionOptions.revisionBarsPosition = aw.Drawing.HorizontalAlignment.Right;
 
     doc.save(base.artifactsDir + "WorkingWithRevisions.ShowRevisionsInBalloons.pdf");
+    doc.close();
     //ExEnd:ShowRevisionsInBalloons
   });
 
@@ -130,6 +135,7 @@ describe("WorkingWithRevisions", () => {
       console.log("Revision text: " + revision.parentNode.toString(aw.SaveFormat.Text));
       console.log(groupText);
     }
+    doc.close();
     //ExEnd:GetRevisionGroupDetails
   });
 
@@ -150,6 +156,7 @@ describe("WorkingWithRevisions", () => {
         }
       }
     }
+    doc.close();
     //ExEnd:AccessRevisedVersion
   });
 
@@ -186,6 +193,7 @@ describe("WorkingWithRevisions", () => {
     // There are 3 additional paragraphs in the move-from range.
     console.log(`Paragraph count: ${body.paragraphs.count}`);
     doc.save(base.artifactsDir + "WorkingWithRevisions.MoveNodeInTrackedDocument.docx");
+    doc.close();
     //ExEnd:MoveNodeInTrackedDocument
   });
 
@@ -229,6 +237,7 @@ describe("WorkingWithRevisions", () => {
 
     // The document has one shape that was moved, but shape move revisions will have two instances of that shape.
     // One will be the shape at its arrival destination and the other will be the shape at its original location.
+    doc.close();
     doc = new aw.Document(base.myDir + "Revision shape.docx");
 
     shapes = Array.from(doc.getChildNodes(aw.NodeType.Shape, true));
@@ -244,6 +253,7 @@ describe("WorkingWithRevisions", () => {
     shape1 = shapes.at(1).asShape();
     expect(shape1.isMoveFromRevision).toBe(true);
     expect(shape1.isMoveToRevision).toBe(false);
+    doc.close();
     //ExEnd:ShapeRevision
   });
 

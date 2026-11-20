@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -31,6 +31,7 @@ describe("RenderingShapes", () => {
         Scale = 1.5
     };
     renderer.save(base.artifactsDir + "RenderShape.RenderShapeAsEmf.emf", saveOptions);
+    doc.close();
     //ExEnd:RenderShapeAsEmf
   });
 
@@ -49,6 +50,7 @@ describe("RenderingShapes", () => {
 
     };
     renderer.save(base.artifactsDir + "RenderShape.RenderShapeAsJpeg.jpg", saveOptions);
+    doc.close();
     //ExEnd:RenderShapeAsJpeg
   });
 
@@ -59,6 +61,7 @@ describe("RenderingShapes", () => {
     //ExStart:RenderShapeImage
     //GistId:e9a02a29ae68be63f1fdfa266a642ea1
     shape.getShapeRenderer().save(base.artifactsDir + "RenderShape.RenderShapeImage.jpg", new aw.Saving.ImageSaveOptions(aw.SaveFormat.Jpeg));
+    doc.close();
     //ExEnd:RenderShapeImage
   });
 

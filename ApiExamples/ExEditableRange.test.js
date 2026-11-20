@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -79,6 +79,7 @@ describe("ExEditableRange", () => {
                             "This paragraph is outside the editable range, and cannot be edited.");
     expect(doc.getChildNodes(aw.NodeType.EditableRangeStart, true).count).toEqual(0);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "EditableRange.CreateAndRemove.docx");
 
     expect(doc.protectionType).toEqual(aw.ProtectionType.ReadOnly);
@@ -90,6 +91,7 @@ describe("ExEditableRange", () => {
     editableRange = doc.getEditableRangeStart(0, true).editableRange;
 
     TestUtil.verifyEditableRange(0, '', aw.EditorType.Unspecified, editableRange);
+    doc.close();
   });
 
 
@@ -132,6 +134,7 @@ describe("ExEditableRange", () => {
     doc.save(base.artifactsDir + "EditableRange.Nested.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "EditableRange.Nested.docx");
 
     expect(doc.getText().trim()).toEqual("Hello world! Since we have set the document's protection level to read-only, we cannot edit this paragraph without the password.\r" +
@@ -147,6 +150,7 @@ describe("ExEditableRange", () => {
     editableRange = doc.getEditableRangeStart(1, true).editableRange;
 
     TestUtil.verifyEditableRange(1, '', aw.EditorType.Contributors, editableRange);
+    doc.close();
   });
 
 
@@ -274,6 +278,7 @@ describe("ExEditableRange", () => {
     expect(() => builder.endEditableRange()).toThrow("EndEditableRange can not be called before StartEditableRange.");
 
     builder.startEditableRange();
+    doc.close();
   });
 
 
@@ -287,7 +292,9 @@ describe("ExEditableRange", () => {
     builder.writeln("EditableRange_1_2");
 
     startRange1.editableRange.editorGroup = aw.EditorType.Everyone;
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
 
     // Assert that it's not valid structure and editable ranges aren't added to the current document.
     let startNodes = doc.getChildNodes(aw.NodeType.EditableRangeStart, true);
@@ -295,6 +302,7 @@ describe("ExEditableRange", () => {
 
     let endNodes = doc.getChildNodes(aw.NodeType.EditableRangeEnd, true);
     expect(endNodes.count).toEqual(0);
+    doc.close();
   });
 
 

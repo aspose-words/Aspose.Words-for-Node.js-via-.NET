@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -52,12 +52,14 @@ describe("ExTabStop", () => {
     doc.save(base.artifactsDir + "TabStopCollection.AddTabStops.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "TabStopCollection.AddTabStops.docx");
     let tabStops = doc.firstSection.body.paragraphs.at(0).paragraphFormat.tabStops;
 
     TestUtil.verifyTabStop(141.75, aw.TabAlignment.Left, aw.TabLeader.Dashes, false, tabStops.at(0));
     TestUtil.verifyTabStop(216.0, aw.TabAlignment.Left, aw.TabLeader.Dashes, false, tabStops.at(1));
     TestUtil.verifyTabStop(283.45, aw.TabAlignment.Left, aw.TabLeader.Dashes, false, tabStops.at(2));
+    doc.close();
   });
 
 
@@ -113,6 +115,7 @@ describe("ExTabStop", () => {
     doc.save(base.artifactsDir + "TabStopCollection.TabStopCollection.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "TabStopCollection.TabStopCollection.docx");
     tabStops = doc.firstSection.body.paragraphs.at(0).paragraphFormat.tabStops;
 
@@ -123,6 +126,7 @@ describe("ExTabStop", () => {
     tabStops = doc.firstSection.body.paragraphs.at(1).paragraphFormat.tabStops;
 
     expect(tabStops.count).toEqual(0);
+    doc.close();
   });
 
 
@@ -146,9 +150,11 @@ describe("ExTabStop", () => {
     doc.save(base.artifactsDir + "TabStopCollection.removeByIndex.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "TabStopCollection.removeByIndex.docx");
 
     TestUtil.verifyTabStop(170.1, aw.TabAlignment.Left, aw.TabLeader.Dashes, false, doc.firstSection.body.paragraphs.at(0).paragraphFormat.tabStops.at(0));
+    doc.close();
   });
 
 
@@ -164,6 +170,7 @@ describe("ExTabStop", () => {
 
     // Verify the position of the second tab stop in the collection.
     expect(tabStops.getPositionByIndex(1)).toBeCloseTo(aw.ConvertUtil.millimeterToPoint(60), 1);
+    doc.close();
     //ExEnd
   });
 
@@ -185,6 +192,7 @@ describe("ExTabStop", () => {
     // A "-1" returned by "GetIndexByPosition" confirms that
     // there is no tab stop in this collection with a position of 60mm.
     expect(tabStops.getIndexByPosition(aw.ConvertUtil.millimeterToPoint(60))).toEqual(-1);
+    doc.close();
     //ExEnd
   });
 

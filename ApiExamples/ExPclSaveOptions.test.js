@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -31,6 +31,7 @@ describe("ExPclSaveOptions", () => {
     saveOptions.rasterizeTransformedElements = true
 
     doc.save(base.artifactsDir + "PclSaveOptions.RasterizeElements.pcl", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -51,6 +52,7 @@ describe("ExPclSaveOptions", () => {
     // This document will instruct the printer to apply "Times New Roman" to the text with the missing font.
     // Should "Times New Roman" also be unavailable, the printer will default to the "Arial" font.
     doc.save(base.artifactsDir + "PclSaveOptions.SetPrinterFont.pcl", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -71,6 +73,7 @@ describe("ExPclSaveOptions", () => {
     // When printing this document, the printer will use the "Courier New" font
     // to access places where our document used the "Courier" font.
     doc.save(base.artifactsDir + "PclSaveOptions.addPrinterFont.pcl", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -88,6 +91,7 @@ describe("ExPclSaveOptions", () => {
     }
 
     doc.save(base.artifactsDir + "PclSaveOptions.GetPreservedPaperTrayInformation.pcl");
+    doc.close();
   });
 
 });

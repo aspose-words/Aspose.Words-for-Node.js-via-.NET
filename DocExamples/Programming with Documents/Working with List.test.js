@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -37,6 +37,7 @@ describe("WorkingWithList", () => {
     builder.writeln("List item 3");
     builder.writeln("List item 4");
     doc.save(base.artifactsDir + "WorkingWithList.RestartingDocumentList.docx", options);
+    doc.close();
     //ExEnd:RestartListAtEachSection
   });
 
@@ -62,6 +63,7 @@ describe("WorkingWithList", () => {
     // This is a way to stop list formatting.
     builder.listFormat.list = null;
     builder.document.save(base.artifactsDir + "WorkingWithList.SpecifyListLevel.docx");
+    doc.close();
     //ExEnd:SpecifyListLevel
   });
 
@@ -88,6 +90,7 @@ describe("WorkingWithList", () => {
     builder.writeln("Item 2");
     builder.listFormat.removeNumbers();
     builder.document.save(base.artifactsDir + "WorkingWithList.RestartListNumber.docx");
+    doc.close();
     //ExEnd:RestartListNumber
   });
 

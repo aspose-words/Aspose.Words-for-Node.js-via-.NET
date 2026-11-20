@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -36,6 +36,7 @@ describe("ExPlainTextDocument", () => {
     let plaintext = new aw.PlainTextDocument(base.artifactsDir + "PlainTextDocument.load.docx");
 
     expect(plaintext.text.trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -53,6 +54,7 @@ describe("ExPlainTextDocument", () => {
     var buffer = base.loadFileToBuffer(base.artifactsDir + "PlainTextDocument.LoadFromStream.docx");
     let plaintext = new aw.PlainTextDocument(buffer);
     expect(plaintext.text.trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -76,6 +78,7 @@ describe("ExPlainTextDocument", () => {
     let plaintext = new aw.PlainTextDocument(base.artifactsDir + "PlainTextDocument.LoadEncrypted.docx", loadOptions);
 
     expect(plaintext.text.trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -100,6 +103,7 @@ describe("ExPlainTextDocument", () => {
     var buffer = base.loadFileToBuffer(base.artifactsDir + "PlainTextDocument.LoadFromStreamWithOptions.docx");
     let plaintext = new aw.PlainTextDocument(buffer, loadOptions);
     expect(plaintext.text.trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -120,6 +124,7 @@ describe("ExPlainTextDocument", () => {
 
     expect(plaintext.text.trim()).toEqual("Hello world!");
     expect(plaintext.builtInDocumentProperties.author).toEqual("John Doe");
+    doc.close();
     //ExEnd
   });
 
@@ -140,6 +145,7 @@ describe("ExPlainTextDocument", () => {
 
     expect(plaintext.text.trim()).toEqual("Hello world!");
     expect(plaintext.customDocumentProperties.at("Location of writing").toString()).toEqual("123 Main St, London, UK");
+    doc.close();
     //ExEnd
   });
 });

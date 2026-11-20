@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -77,7 +77,9 @@ describe("ExParagraph", () => {
     expect(builder.currentParagraph.isEndOfDocument).toEqual(true);
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
     let paragraph = doc.firstSection.body.firstParagraph;
 
     expect(paragraph.paragraphFormat.firstLineIndent).toEqual(8);
@@ -94,6 +96,7 @@ describe("ExParagraph", () => {
     expect(runFont.color).toEqual("#0000FF");
     expect(runFont.name).toEqual("Arial");
     expect(runFont.underline).toEqual(aw.Underline.Dash);
+    doc.close();
   });
 
 
@@ -126,6 +129,7 @@ describe("ExParagraph", () => {
     doc.save(base.artifactsDir + "Paragraph.appendField.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Paragraph.appendField.docx");
 
     let today = new Date();
@@ -135,6 +139,7 @@ describe("ExParagraph", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE ", today, doc.range.fields.at(0), 0);
     TestUtil.verifyField(aw.Fields.FieldType.FieldTime, " TIME  \\@ \"HH:mm:ss\" ", now, doc.range.fields.at(1), 5000);
     TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE \"Real value\"", "Real value", doc.range.fields.at(2));
+    doc.close();
   });
 
 
@@ -177,11 +182,13 @@ describe("ExParagraph", () => {
     doc.save(base.artifactsDir + "Paragraph.insertField.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Paragraph.insertField.docx");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldAuthor, " AUTHOR ", "John Doe", doc.range.fields.at(0));
     TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE \" Real value.\"", " Real value.", doc.range.fields.at(1));
     TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE \" Real value\" ", " Real value", doc.range.fields.at(2));
+    doc.close();
   });
 
 
@@ -191,6 +198,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldCode(doc, " AUTHOR ", null, false, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("\u0013 AUTHOR \u0014Test Author\u0015Hello World!\r");
+    doc.close();
   });
 
 
@@ -202,6 +210,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldCode(doc, " DATE ", null, true, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual(`Hello World!\u0013 DATE \u0014${date}\u0015\r`);
+    doc.close();
   });
 
 
@@ -211,6 +220,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldType(doc, aw.Fields.FieldType.FieldAuthor, false, null, false, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("\u0013 AUTHOR \u0014\u0015Hello World!\r");
+    doc.close();
   });
 
 
@@ -220,6 +230,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldType(doc, aw.Fields.FieldType.FieldAuthor, false, null, true, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("Hello World!\u0013 AUTHOR \u0014\u0015\r");
+    doc.close();
   });
 
 
@@ -229,6 +240,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldType(doc, aw.Fields.FieldType.FieldListNum, true, null, false, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("\u0013 LISTNUM \u0015Hello World!\r");
+    doc.close();
   });
 
 
@@ -239,6 +251,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldCodeFieldString(doc, " AUTHOR ", null, null, false, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("\u0013 AUTHOR \u0014\u0015Hello World!\r");
+    doc.close();
   });
 
 
@@ -248,6 +261,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldCodeFieldString(doc, " AUTHOR ", null, null, true, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("Hello World!\u0013 AUTHOR \u0014\u0015\r");
+    doc.close();
   });
 
 
@@ -260,6 +274,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldCodeFieldString(doc, " AUTHOR ", "Test Field Value", run, false, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("Hello World!\u0013 AUTHOR \u0014Test Field Value\u0015 Hello World!\r");
+    doc.close();
   });
 
 
@@ -272,6 +287,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldCodeFieldString(doc, " AUTHOR ", "", run, true, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("Hello World! Hello World!\u0013 AUTHOR \u0014\u0015\r");
+    doc.close();
   });
 
 
@@ -282,6 +298,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldType(doc, aw.Fields.FieldType.FieldAuthor, false, null, false, 1);
 
     expect(DocumentHelper.getParagraphText(doc, 1)).toEqual("\u0013 AUTHOR \u0014\u0015\f");
+    doc.close();
   });
 
 
@@ -292,6 +309,7 @@ describe("ExParagraph", () => {
     insertFieldUsingFieldType(doc, aw.Fields.FieldType.FieldAuthor, true, null, false, 0);
 
     expect(DocumentHelper.getParagraphText(doc, 0)).toEqual("\u0013 AUTHOR \u0014Test Author\u0015\r");
+    doc.close();
   });
 
 
@@ -350,6 +368,7 @@ describe("ExParagraph", () => {
 
     expect(paragraph.getText().trim()).toEqual("Run 1. Updated run 2. Run 3.");
     expect(paragraph.getChildNodes(aw.NodeType.Any, true).count).toEqual(3);
+    doc.close();
     //ExEnd
   });
 
@@ -386,6 +405,7 @@ describe("ExParagraph", () => {
     // The "Move to" revision is the paragraph where we dragged the text to.
     // If we reject the revision, this paragraph instead will disappear, and the other will remain.
     expect(paragraphs.at(3).isMoveToRevision).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -405,6 +425,7 @@ describe("ExParagraph", () => {
 
     // Reject the first section revisions.
     doc.firstSection.range.revisions.rejectAll();
+    doc.close();
     //ExEnd
   });
 
@@ -418,6 +439,7 @@ describe("ExParagraph", () => {
     // This paragraph is a "Format" revision, which occurs when we change the formatting of existing text
     // while tracking revisions in Microsoft Word via "Review" -> "Track changes".
     expect(doc.firstSection.body.firstParagraph.isFormatRevision).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -453,6 +475,7 @@ describe("ExParagraph", () => {
     expect(paragraphFrame.frameFormat.verticalPosition).toEqual(20.5);
     expect(paragraphFrame.frameFormat.relativeVerticalPosition).toEqual(aw.Drawing.RelativeVerticalPosition.Paragraph);
     expect(paragraphFrame.frameFormat.verticalDistanceFromText).toEqual(0.0);
+    doc.close();
     //ExEnd
   });
 
@@ -497,6 +520,7 @@ describe("ExParagraph", () => {
     expect(paragraphs.count).toEqual(3);
     expect(para.count).toEqual(0);
     expect("Paragraph 1. \rParagraph 2. \rParagraph 4.").toEqual(doc.getText().trim());
+    doc.close();
     //ExEnd
   });
 
@@ -531,11 +555,13 @@ describe("ExParagraph", () => {
     doc.save(base.artifactsDir + "Paragraph.breakIsStyleSeparator.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Paragraph.breakIsStyleSeparator.docx");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldTOC, "TOC \\o \\h \\z \\u", 
       "\u0013 HYPERLINK \\l \"_Toc256000000\" \u0014Heading 1. Will appear in the TOC.\t\u0013 PAGEREF _Toc256000000 \\h \u00142\u0015\u0015\r", doc.range.fields.at(0));
     expect(doc.firstSection.body.firstParagraph.breakIsStyleSeparator).toEqual(false);
+    doc.close();
   });
 
 
@@ -570,12 +596,14 @@ describe("ExParagraph", () => {
     doc.save(base.artifactsDir + "Paragraph.tabStops.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Paragraph.tabStops.docx");
     tabStops = doc.firstSection.body.firstParagraph.paragraphFormat.tabStops;
 
     TestUtil.verifyTabStop(72.0, aw.TabAlignment.Left, aw.TabLeader.Dots, false, tabStops.at(0));
     TestUtil.verifyTabStop(216.0, aw.TabAlignment.Center, aw.TabLeader.Dashes, false, tabStops.at(1));
     TestUtil.verifyTabStop(360.0, aw.TabAlignment.Right, aw.TabLeader.Line, false, tabStops.at(2));
+    doc.close();
   });
 
 
@@ -614,6 +642,7 @@ describe("ExParagraph", () => {
     expect(para.runs.count).toEqual(2);
     expect(para.runs.at(0).text).toEqual("Run 1. Run 2. Run 3. ");
     expect(para.runs.at(1).text).toEqual("Run 4. ");
+    doc.close();
     //ExEnd
   });
 

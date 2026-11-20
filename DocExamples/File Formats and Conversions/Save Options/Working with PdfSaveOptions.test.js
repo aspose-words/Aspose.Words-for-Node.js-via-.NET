@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -27,6 +27,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.displayDocTitle = true;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.DisplayDocTitleInWindowTitlebar.pdf", saveOptions);
+    doc.close();
     //ExEnd:DisplayDocTitleInWindowTitlebar
   });
 
@@ -55,6 +56,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     {
       console.log(warningInfo.description);
     }
+    doc.close();
   });
 
 
@@ -95,6 +97,7 @@ describe("WorkingWithPdfSaveOptions", () => {
         Date.now())*/
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.DigitallySignedPdfUsingCertificateHolder.pdf", saveOptions);
+    doc.close();
     //ExEnd:DigitallySignedPdfUsingCertificateHolder
   });
 
@@ -109,6 +112,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.embedFullFonts = true;
             
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.EmbeddedAllFonts.pdf", saveOptions);
+    doc.close();
     //ExEnd:EmbeddedAllFonts
   });
 
@@ -124,6 +128,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.embedFullFonts = false;
             
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.EmbeddedSubsetFonts.pdf", saveOptions);
+    doc.close();
     //ExEnd:EmbeddedSubsetFonts
   });
 
@@ -138,6 +143,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.fontEmbeddingMode = aw.Saving.PdfFontEmbeddingMode.EmbedNone;
             
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.DisableEmbedWindowsFonts.pdf", saveOptions);
+    doc.close();
     //ExEnd:DisableEmbedWindowsFonts
   });
 
@@ -150,6 +156,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.fontEmbeddingMode = aw.Saving.PdfFontEmbeddingMode.EmbedAll;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.SkipEmbeddedArialAndTimesRomanFonts.pdf", saveOptions);
+    doc.close();
     //ExEnd:SkipEmbeddedArialAndTimesRomanFonts
   });
 
@@ -164,6 +171,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.useCoreFonts = true;
             
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.AvoidEmbeddingCoreFonts.pdf", saveOptions);
+    doc.close();
     //ExEnd:AvoidEmbeddingCoreFonts
   });
 
@@ -177,6 +185,7 @@ describe("WorkingWithPdfSaveOptions", () => {
       "https://www.google.com/search?q= aspose", false);
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.EscapeUri.pdf");
+    doc.close();
     //ExEnd:EscapeUri
   });
 
@@ -191,6 +200,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.headerFooterBookmarksExportMode = aw.Saving.HeaderFooterBookmarksExportMode.First;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.ExportHeaderFooterBookmarks.pdf", saveOptions);
+    doc.close();
     //ExEnd:ExportHeaderFooterBookmarks
   });
 
@@ -208,6 +218,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.metafileRenderingOptions = metafileRenderingOptions;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.emulateRenderingToSizeOnPage.pdf", saveOptions);
+    doc.close();
     //ExEnd:EmulateRenderingToSizeOnPage
   });
 
@@ -220,6 +231,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.additionalTextPositioning = true;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.additionalTextPositioning.pdf", saveOptions);
+    doc.close();
     //ExEnd:AdditionalTextPositioning
   });
 
@@ -233,6 +245,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.compliance = aw.Saving.PdfCompliance.Pdf17;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.ConversionToPdf17.pdf", saveOptions);
+    doc.close();
     //ExEnd:ConversionToPdf17
   });
 
@@ -249,6 +262,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.downsampleOptions.resolutionThreshold = 128;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.DownsamplingImages.pdf", saveOptions);
+    doc.close();
     //ExEnd:DownsamplingImages
   });
 
@@ -263,6 +277,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.outlineOptions.expandedOutlineLevels = 1;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.outlineOptions.pdf", saveOptions);
+    doc.close();
     //ExEnd:OutlineOptions
   });
 
@@ -277,6 +292,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.customPropertiesExport = aw.Saving.PdfCustomPropertiesExport.Standard;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.customPropertiesExport.pdf", saveOptions);
+    doc.close();
     //ExEnd:CustomPropertiesExport
   });
 
@@ -292,6 +308,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.exportDocumentStructure = true;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.exportDocumentStructure.pdf", saveOptions);
+    doc.close();
     //ExEnd:ExportDocumentStructure
   });
 
@@ -313,6 +330,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.jpegQuality = 100; // Use JPEG compression at 50% quality to reduce file size.
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.ImageCompression_A2u.pdf", saveOptionsA2U);
+    doc.close();
     //ExEnd:ImageCompression
   });
 
@@ -326,6 +344,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.updateLastPrintedProperty = true;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.UpdateLastPrinted.pdf", saveOptions);
+    doc.close();
     //ExEnd:UpdateLastPrinted
   });
 
@@ -338,6 +357,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.dml3DEffectsRenderingMode = aw.Saving.Dml3DEffectsRenderingMode.Advanced;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.Dml3DEffectsRendering.pdf", saveOptions);
+    doc.close();
     //ExEnd:Dml3DEffectsRendering
   });
 
@@ -350,6 +370,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.interpolateImages = true;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.interpolateImages.pdf", saveOptions);
+    doc.close();
     //ExEnd:SetImageInterpolation
   });
 
@@ -363,6 +384,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.optimizeOutput = true;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.optimizeOutput.pdf", saveOptions);
+    doc.close();
     //ExEnd:OptimizeOutput
   });
 
@@ -388,6 +410,7 @@ describe("WorkingWithPdfSaveOptions", () => {
     saveOptions.outlineOptions.createMissingOutlineLevels = true;
 
     doc.save(base.artifactsDir + "WorkingWithPdfSaveOptions.UpdateScreenTip.pdf", saveOptions);
+    doc.close();
     //ExEnd:UpdateScreenTip
   });
 

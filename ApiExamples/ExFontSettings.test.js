@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -45,6 +45,7 @@ describe("ExFontSettings", () => {
     expect(doc.fontSettings).toBe(null);
 
     doc.save(base.artifactsDir + "FontSettings.DefaultFontInstance.pdf");
+    doc.close();
     //ExEnd
   });
 
@@ -76,6 +77,7 @@ describe("ExFontSettings", () => {
 
     // Aspose.words will now use the default font in place of any missing fonts during any rendering calls.
     doc.save(base.artifactsDir + "FontSettings.defaultFontName.pdf");
+    doc.close();
     //ExEnd
   });
 
@@ -400,6 +402,7 @@ describe("ExFontSettings", () => {
     expect(fileFontSource.filePath).toEqual(base.myDir + "Alte DIN 1451 Mittelschrift.ttf");
     expect(fileFontSource.type).toEqual(aw.Fonts.FontSourceType.FontFile);
     expect(fileFontSource.priority).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -425,6 +428,7 @@ describe("ExFontSettings", () => {
     expect(folderFontSource.scanSubfolders).toEqual(false);
     expect(folderFontSource.type).toEqual(aw.Fonts.FontSourceType.FontsFolder);
     expect(folderFontSource.priority).toEqual(1);
+    doc.close();
     //ExEnd
   });
 
@@ -483,6 +487,7 @@ describe("ExFontSettings", () => {
 
     // Restore the original font sources.
     aw.Fonts.FontSettings.defaultInstance.setFontsSources(originalFontSources);
+    doc.close();
     //ExEnd
   });
 
@@ -541,6 +546,7 @@ describe("ExFontSettings", () => {
 
     // Restore the original font sources.
     aw.Fonts.FontSettings.defaultInstance.setFontsSources(originalFontSources);
+    doc.close();
     //ExEnd
   });
 
@@ -590,6 +596,7 @@ describe("ExFontSettings", () => {
 
     // Restore the original font sources.
     aw.Fonts.FontSettings.defaultInstance.setFontsSources(originalFontSources);
+    doc.close();
     //ExEnd
   });
 
@@ -608,6 +615,7 @@ describe("ExFontSettings", () => {
 
     expect(folderSource.folderPath).toEqual(base.fontsDir);
     expect(folderSource.scanSubfolders).toEqual(false);
+    doc.close();
   });
 
 
@@ -648,6 +656,7 @@ describe("ExFontSettings", () => {
 
     // The output document will display the text that uses the "Amethysta" font formatted with "Courier New".
     doc.save(base.artifactsDir + "FontSettings.tableSubstitution.pdf");
+    doc.close();
     //ExEnd
   });
 
@@ -668,6 +677,7 @@ describe("ExFontSettings", () => {
     folderSource = doc.fontSettings.getFontsSources()[1].asFolderFontSource();
     expect(folderSource.folderPath).toEqual("C:\\Windows\\Fonts\\");
     expect(folderSource.scanSubfolders).toEqual(true);
+    doc.close();
   });
 
 
@@ -684,6 +694,7 @@ describe("ExFontSettings", () => {
 
     alternativeFonts = doc.fontSettings.substitutionSettings.tableSubstitution.getSubstitutes("Arvo");
     expect(["Open Sans", "Arial"]).toEqual(alternativeFonts);
+    doc.close();
   });
 
 
@@ -705,6 +716,7 @@ describe("ExFontSettings", () => {
 
     expect(memoryFontSource.type).toEqual(aw.Fonts.FontSourceType.MemoryFont);
     expect(memoryFontSource.priority).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -765,6 +777,7 @@ describe("ExFontSettings", () => {
     expect(doc.fontSettings.getFontsSources().length).toEqual(1);
     expect(doc.fontSettings.getFontsSources()[0].type).toEqual(aw.Fonts.FontSourceType.SystemFonts);
     expect(doc.fontSettings.substitutionSettings.tableSubstitution.getSubstitutes("Kreon-Regular").length).toEqual(1);
+    doc.close();
     //ExEnd*/
   });
 
@@ -785,6 +798,7 @@ describe("ExFontSettings", () => {
 
     // Save our document's current font fallback settings as an XML document.
     doc.fontSettings.fallbackSettings.save(base.artifactsDir + "FallbackSettings.xml");
+    doc.close();
     //ExEnd
   });
 
@@ -833,6 +847,7 @@ describe("ExFontSettings", () => {
     expect(rules.at(4).attributes.at("FallbackFonts").value).toEqual("MS Mincho");
 
     expect(rules.at(5).attributes.at("FallbackFonts").value).toEqual("Arial Unicode MS");
+    doc.close();
   });
 
 
@@ -856,6 +871,7 @@ describe("ExFontSettings", () => {
 
     let doc = new aw.Document();
     doc.fontSettings = fontSettings;
+    doc.close();
     //ExEnd
   });
 
@@ -890,6 +906,7 @@ describe("ExFontSettings", () => {
     //ExEnd
 
     expect(defaultFontSubstitutionRule.defaultFontName).toEqual("Courier New");
+    doc.close();
   });
 
 
@@ -966,6 +983,7 @@ describe("ExFontSettings", () => {
 
     expect(rules.at(9).attributes.at("Ranges").value).toEqual("0C00-0C7F");
     expect(rules.at(9).attributes.at("FallbackFonts").value).toEqual("Vani");
+    doc.close();
   });
 
 
@@ -1044,6 +1062,7 @@ describe("ExFontSettings", () => {
 
     expect(rules.at(7).attributes.at("Ranges").value).toEqual("0370-03FF");
     expect(rules.at(7).attributes.at("FallbackFonts").value).toEqual("Arvo");
+    doc.close();
   });
 
 
@@ -1096,6 +1115,7 @@ describe("ExFontSettings", () => {
 
     expect(rules.at(31).attributes.at("OriginalFont").value).toEqual("Times New Roman CE");
     expect(rules.at(31).attributes.at("SubstituteFonts").value).toEqual("FreeSerif, Liberation Serif, DejaVu Serif");
+    doc.close();
   });
 
 
@@ -1156,6 +1176,7 @@ describe("ExFontSettings", () => {
     builder.writeln("Text written in Times New Roman, to be substituted by Squarish Sans CT.");
 
     doc.save(base.artifactsDir + "FontSettings.TableSubstitutionRule.custom.pdf");
+    doc.close();
     //ExEnd
   });
 
@@ -1181,6 +1202,7 @@ describe("ExFontSettings", () => {
     expect(doc.firstSection.body.firstParagraph.runs.at(0).font.name).toEqual("MissingFont");
 
     doc.save(base.artifactsDir + "FontSettings.ResolveFontsBeforeLoadingDocument.pdf");
+    doc.close();
     //ExEnd
   });
 

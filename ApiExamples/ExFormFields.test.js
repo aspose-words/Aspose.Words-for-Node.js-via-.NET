@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -42,12 +42,14 @@ describe("ExFormFields", () => {
     doc.save(base.artifactsDir + "FormFields.create.html");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "FormFields.create.html");
     comboBox = doc.range.formFields.at(0);
 
     expect(comboBox.name).toEqual("MyComboBox");
     expect(comboBox.type).toEqual(aw.Fields.FieldType.FieldFormDropDown);
     expect(comboBox.result).toEqual("Apple");
+    doc.close();
   });
 
 
@@ -69,6 +71,7 @@ describe("ExFormFields", () => {
     doc.save(base.artifactsDir + "FormFields.textInput.html");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "FormFields.textInput.html");
 
     let textInput = doc.range.formFields.at(0);
@@ -78,6 +81,7 @@ describe("ExFormFields", () => {
     expect(textInput.textInputFormat).toEqual('');
     expect(textInput.result).toEqual("Placeholder text");
     expect(textInput.maxLength).toEqual(0);
+    doc.close();
   });
 
 
@@ -94,6 +98,7 @@ describe("ExFormFields", () => {
     let formFieldAfter = doc.range.formFields.at(3);
 
     expect(formFieldAfter).toBe(null);
+    doc.close();
   });
 
 
@@ -105,7 +110,9 @@ describe("ExFormFields", () => {
     builder.insertTextInput("TextInput1", aw.Fields.TextFormFieldType.Regular, "TestFormField", "SomeText", 0);
     builder.endBookmark("MyBookmark");
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
 
     let bookmarkBeforeDeleteFormField = doc.range.bookmarks;
     expect(bookmarkBeforeDeleteFormField.at(0).name).toEqual("MyBookmark");
@@ -115,6 +122,7 @@ describe("ExFormFields", () => {
 
     let bookmarkAfterDeleteFormField = doc.range.bookmarks;
     expect(bookmarkAfterDeleteFormField.at(0).name).toEqual("MyBookmark");
+    doc.close();
   });
 
 
@@ -131,7 +139,9 @@ describe("ExFormFields", () => {
 
     formField.result = "Aspose.formField";
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument2 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument2;
 
     let formFieldRun = doc.firstSection.body.firstParagraph.runs.at(1);
 
@@ -139,6 +149,7 @@ describe("ExFormFields", () => {
     expect(formFieldRun.font.bold).toEqual(true);
     expect(formFieldRun.font.size).toEqual(24);
     expect(formFieldRun.font.color).toEqual("#FF0000");
+    doc.close();
     //ExEnd
   });
 
@@ -405,11 +416,14 @@ describe("ExFormFields", () => {
     dropDownItems.clear();
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument3 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument3;
     dropDownItems = doc.range.formFields.at(0).dropDownItems;
 
     expect(dropDownItems.count).toEqual(0);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "FormFields.DropDownItemCollection.html");
     dropDownItems = doc.range.formFields.at(0).dropDownItems;
 
@@ -417,6 +431,7 @@ describe("ExFormFields", () => {
     expect(dropDownItems.at(0)).toEqual("One");
     expect(dropDownItems.at(1)).toEqual("Two");
     expect(dropDownItems.at(2)).toEqual("Three");
+    doc.close();
   });
 
 });

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -62,6 +62,7 @@ describe("ExTxtSaveOptions", () => {
             
     // If we load a plaintext document with page breaks,
     // the "Document" object will use them to split the body into pages.
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "TxtSaveOptions.PageBreaks.txt");
 
     expect(doc.pageCount).toEqual(forcePageBreaks ? 3 : 1);
@@ -70,6 +71,7 @@ describe("ExTxtSaveOptions", () => {
     TestUtil.fileContainsString(
       forcePageBreaks ? "Page 1\r\n\fPage 2\r\n\fPage 3\r\n\r\n" : "Page 1\r\nPage 2\r\nPage 3\r\n\r\n",
       base.artifactsDir + "TxtSaveOptions.PageBreaks.txt");
+    doc.close();
   });
 
 
@@ -111,6 +113,7 @@ describe("ExTxtSaveOptions", () => {
       expect(docText).toEqual("\uFEFFHello world!\r\nשלום עולם!\r\nمرحبا بالعالم!\r\n\r\n");
       expect(docText.includes("\u200f")).toEqual(false);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -183,6 +186,7 @@ describe("ExTxtSaveOptions", () => {
                                     "Page 3\r\n");
         break;
     }
+    doc.close();
     //ExEnd
   });
 
@@ -225,6 +229,7 @@ describe("ExTxtSaveOptions", () => {
     expect(docText).toEqual(`1. Item 1${newLine}` +
                             `   a. Item 2${newLine}` +
                             `      i. Item 3${newLine}`);
+    doc.close();
     //ExEnd
   });
 
@@ -274,6 +279,7 @@ describe("ExTxtSaveOptions", () => {
                                 "§ Item 3\r\n" +
                                 "· Item 4\r\n" +
                                 "o Item 5\r\n");
+    doc.close();
     //ExEnd
   });
 
@@ -308,6 +314,7 @@ describe("ExTxtSaveOptions", () => {
     expect(docText).toEqual("Paragraph 1. End of paragraph.\n\n\t" +
                             "Paragraph 2. End of paragraph.\n\n\t" +
                             "Paragraph 3. End of paragraph.\n\n\t");
+    doc.close();
     //ExEnd
   });
 
@@ -341,6 +348,7 @@ describe("ExTxtSaveOptions", () => {
     docText = readTextFile(base.artifactsDir + "TxtSaveOptions.encoding.ASCII.txt", false, "ascii");
 
     expect(docText).toEqual("? ? ? ? ?.\r\n");
+    doc.close();
     //ExEnd
   });
 
@@ -388,6 +396,7 @@ describe("ExTxtSaveOptions", () => {
                               "Row 1, cell 2\r" +
                               "Row 2, cell 1\r" +
                               "Row 2, cell 2\r\r\n");
+    doc.close();
     //ExEnd
   });
 
@@ -407,6 +416,7 @@ describe("ExTxtSaveOptions", () => {
     saveOptions.maxCharactersPerLine = 30;
 
     doc.save(base.artifactsDir + "TxtSaveOptions.maxCharactersPerLine.txt", saveOptions);
+    doc.close();
     //ExEnd
   });
 });

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -44,6 +44,8 @@ describe("ExAI", () => {
     const apiKey = process.env.API_KEY;
     if (!apiKey) {
       console.warn("API_KEY environment variable is not set.");
+      secondDoc.close();
+      firstDoc.close();
       return;
     }
 
@@ -63,6 +65,10 @@ describe("ExAI", () => {
     let multiDocumentSummary = model.summarize([firstDoc, secondDoc], options);
     multiDocumentSummary.save(base.artifactsDir + "AI.AiSummarize.multi.docx");
     //ExEnd:AiSummarize
+    multiDocumentSummary.close();
+    oneDocumentSummary.close();
+    secondDoc.close();
+    firstDoc.close();
   });
 
 
@@ -77,6 +83,7 @@ describe("ExAI", () => {
     const apiKey = process.env.API_KEY;
     if (!apiKey) {
       console.warn("API_KEY environment variable is not set.");
+      doc.close();
       return;
     }
 
@@ -87,6 +94,8 @@ describe("ExAI", () => {
     let translatedDoc = model.translate(doc, aw.AI.Language.Arabic);
     translatedDoc.save(base.artifactsDir + "AI.AiTranslate.docx");
     //ExEnd:AiTranslate
+    translatedDoc.close();
+    doc.close();
   });
 
 
@@ -101,6 +110,7 @@ describe("ExAI", () => {
     const apiKey = process.env.API_KEY;
     if (!apiKey) {
       console.warn("API_KEY environment variable is not set.");
+      doc.close();
       return;
     }
 
@@ -114,5 +124,7 @@ describe("ExAI", () => {
     let proofedDoc = model.checkGrammar(doc, grammarOptions);
     proofedDoc.save(base.artifactsDir + "AI.AiGrammar.docx");
     //ExEnd:AiGrammar
+    proofedDoc.close();
+    doc.close();
   });
 });

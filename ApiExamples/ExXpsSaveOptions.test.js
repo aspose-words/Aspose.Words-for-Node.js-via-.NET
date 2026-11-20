@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -65,6 +65,7 @@ describe("ExXpsSaveOptions", () => {
     saveOptions.outlineOptions.headingsOutlineLevels = 2;
 
     doc.save(base.artifactsDir + "XpsSaveOptions.OutlineLevels.xps", saveOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -97,6 +98,7 @@ describe("ExXpsSaveOptions", () => {
     // Once we print this document, we can turn it into a booklet by stacking the pages
     // to come out of the printer and folding down the middle.
     doc.save(base.artifactsDir + "XpsSaveOptions.BookFold.xps", xpsOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -132,6 +134,7 @@ describe("ExXpsSaveOptions", () => {
         "UnicodeString=\"This document contains complex content which can be optimized to save space when \""
         : "<Glyphs OriginX=\"34.294998169\" OriginY=\"10.31799984\" UnicodeString=\"This\"",
       base.artifactsDir + "XpsSaveOptions.optimizeOutput.xps", "1.fpage");
+    doc.close();
   });
 
 
@@ -159,6 +162,7 @@ describe("ExXpsSaveOptions", () => {
     xpsOptions.pageSet = new aw.Saving.PageSet([0, 1, 3]);
 
     doc.save(base.artifactsDir + "XpsSaveOptions.ExportExactPages.xps", xpsOptions);
+    doc.close();
     //ExEnd
   });
 
@@ -184,6 +188,7 @@ describe("ExXpsSaveOptions", () => {
     expect(digitalSignatureDetails.signOptions.comments).toEqual("Some comments");
 
     doc.save(base.artifactsDir + "XpsSaveOptions.XpsDigitalSignature.docx", saveOptions);
+    doc.close();
     //ExEnd:XpsDigitalSignature
   });
 

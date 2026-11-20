@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -30,6 +30,7 @@ describe("ExDocumentBase", () => {
     doc.glossaryDocument = glossaryDoc;
 
     expect(glossaryDoc.getType().baseType).toEqual(typeof(DocumentBase));
+    doc.close();
     //ExEnd
   });
 
@@ -47,9 +48,11 @@ describe("ExDocumentBase", () => {
     doc.save(base.artifactsDir + "DocumentBase.SetPageColor.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBase.SetPageColor.docx");
 
     expect(doc.pageColor).toEqual("#D3D3D3");
+    doc.close();
   });
 
 
@@ -85,6 +88,8 @@ describe("ExDocumentBase", () => {
     expect(srcDoc.firstSection.referenceEquals(importedSection)).toBeFalsy();
     expect(srcDoc.firstSection.document).not.toEqual(importedSection.document);
     expect(srcDoc.firstSection.body.firstParagraph.getText()).toEqual(importedSection.body.firstParagraph.getText());
+    dstDoc.close();
+    srcDoc.close();
   });
 
 
@@ -123,6 +128,8 @@ describe("ExDocumentBase", () => {
     expect(dstDoc.styles.at("My style").font.name).toEqual(dstStyle.font.name);
     expect(dstDoc.styles.at("My style_0").font.name).toEqual(srcStyle.font.name);
     //ExEnd
+    dstDoc.close();
+    srcDoc.close();
   });
 
 
@@ -164,10 +171,12 @@ describe("ExDocumentBase", () => {
     doc.save(base.artifactsDir + "DocumentBase.backgroundShape.image.pdf", saveOptions);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBase.backgroundShape.FlatColor.docx");
 
     expect(doc.backgroundShape.fillColor).toEqual("#ADD8E6");
     expect(() => { doc.backgroundShape = new aw.Drawing.Shape(doc, aw.Drawing.ShapeType.Triangle); }).toThrow("Only a rectangle shape can be set as a document background.");
+    doc.close();
   });
 
 

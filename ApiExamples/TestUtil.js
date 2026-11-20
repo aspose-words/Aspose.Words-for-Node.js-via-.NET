@@ -343,10 +343,10 @@ function verifyDate(expected, actual, delta) {
     let innerFieldParent = innerField.start.parentNode;
 
     expect(innerFieldParent.referenceEquals(outerField.start.parentNode)).toEqual(true);
-    expect(innerFieldParent.getChildNodes(aw.NodeType.Any, false).indexOf(innerField.start) >
-           innerFieldParent.getChildNodes(aw.NodeType.Any, false).indexOf(outerField.start)).toEqual(true);
-    expect(innerFieldParent.getChildNodes(aw.NodeType.Any, false).toArray().indexOf(innerField.end) <
-           innerFieldParent.getChildNodes(aw.NodeType.Any, false).toArray().indexOf(outerField.end)).toEqual(true);
+    expect(innerFieldParent.getChildNodes(aw.NodeType.Any, false).indexOf(innerField.start))
+      .toBeGreaterThan(innerFieldParent.getChildNodes(aw.NodeType.Any, false).indexOf(outerField.start));
+    expect(innerFieldParent.getChildNodes(aw.NodeType.Any, false).indexOf(innerField.end))
+      .toBeLessThan(innerFieldParent.getChildNodes(aw.NodeType.Any, false).indexOf(outerField.end));
   }
 
   /// <summary>

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -49,7 +49,9 @@ describe("ExDocumentBuilder", () => {
     builder.write("Hello world!");
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(builder.document);
+    const reopenedDocument1 = DocumentHelper.saveOpen(builder.document);
+    doc.close();
+    doc = reopenedDocument1;
     let firstRun = doc.firstSection.body.paragraphs.at(0).runs.at(0);
 
     expect(firstRun.getText().trim()).toEqual("Hello world!");
@@ -58,6 +60,7 @@ describe("ExDocumentBuilder", () => {
     expect(firstRun.font.name).toEqual("Courier New");
     expect(firstRun.font.color).toEqual("#0000FF");
     expect(firstRun.font.underline).toEqual(aw.Underline.Dash);
+    doc.close();
   });
 
   test('HeadersAndFooters', () => {
@@ -98,13 +101,16 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.HeadersAndFooters.docx");
     //ExEnd
 
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "DocumentBuilder.HeadersAndFooters.docx");
     let headersFooters = 
-      new aw.Document(base.artifactsDir + "DocumentBuilder.HeadersAndFooters.docx").firstSection.headersFooters;
+      loadedDocument1.firstSection.headersFooters;
 
     expect(headersFooters.count).toEqual(3);
     expect(headersFooters.getByHeaderFooterType(aw.HeaderFooterType.HeaderFirst).getText().trim()).toEqual("Header for the first page");
     expect(headersFooters.getByHeaderFooterType(aw.HeaderFooterType.HeaderEven).getText().trim()).toEqual("Header for even pages");
     expect(headersFooters.getByHeaderFooterType(aw.HeaderFooterType.HeaderPrimary).getText().trim()).toEqual("Header for all other pages");
+    loadedDocument1.close();
+    doc.close();
   });
 
   test('MergeFields', () => {
@@ -133,6 +139,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.MergeFields.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.MergeFields.docx");
 
     expect(doc.getText().trim()).toEqual("\u0013MERGEFIELD MyMergeField1 \* MERGEFORMAT\u0014«MyMergeField1»\u0015" +
@@ -143,6 +150,7 @@ describe("ExDocumentBuilder", () => {
       "«MyMergeField1»", doc.range.fields.at(0));
     TestUtil.verifyField(aw.Fields.FieldType.FieldMergeField, "MERGEFIELD MyMergeField2 \* MERGEFORMAT", 
       "«MyMergeField2»", doc.range.fields.at(1));
+    doc.close();
   });
 
   test('InsertHorizontalRule', () => {
@@ -173,13 +181,16 @@ describe("ExDocumentBuilder", () => {
     expect(shape.horizontalRuleFormat.noShade).toEqual(true);
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument2 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument2;
     shape = doc.getShape(0, true);
 
     expect(shape.horizontalRuleFormat.alignment).toEqual(aw.Drawing.HorizontalRuleAlignment.Center);
     expect(shape.horizontalRuleFormat.widthPercent).toEqual(70);
     expect(shape.horizontalRuleFormat.height).toEqual(3);
     expect(shape.horizontalRuleFormat.color).toEqual("#0000FF");
+    doc.close();
   });
 
   test('HorizontalRuleFormatExceptions', () => {
@@ -196,6 +207,7 @@ describe("ExDocumentBuilder", () => {
     horizontalRuleFormat.height = 1584;
     expect(() => horizontalRuleFormat.height = -1).toThrow("Specified argument was out of the range of valid values.");
     expect(() => horizontalRuleFormat.height = 1585).toThrow("Specified argument was out of the range of valid values.");
+    builder.document.close();
   });
 
   test('InsertHyperlink', () => {
@@ -223,6 +235,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.insertHyperlink.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.insertHyperlink.docx");
 
     let hyperlink = doc.range.fields.at(0).asFieldHyperlink();
@@ -237,6 +250,7 @@ describe("ExDocumentBuilder", () => {
     expect(fieldResult.font.color).toEqual("#0000FF");
     expect(fieldResult.font.underline).toEqual(aw.Underline.Single);
     expect(fieldResult.getText().trim()).toEqual("Google website");
+    doc.close();
   });
 
   test('PushPopFont', () => {
@@ -274,6 +288,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.PushPopFont.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.PushPopFont.docx");
     let runs = doc.firstSection.body.firstParagraph.runs;
 
@@ -291,6 +306,7 @@ describe("ExDocumentBuilder", () => {
     expect(runs.at(2).font.underline).not.toEqual(runs.at(0).font.underline);
 
     expect(doc.range.fields.at(0).asFieldHyperlink().address).toEqual("http://www.google.com");
+    doc.close();
   });
 
 
@@ -321,6 +337,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertWatermark.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertWatermark.docx");
     shape = doc.firstSection.headersFooters.getByHeaderFooterType(aw.HeaderFooterType.HeaderPrimary).getShape(0, true);
 
@@ -331,6 +348,7 @@ describe("ExDocumentBuilder", () => {
     expect(shape.relativeVerticalPosition).toEqual(aw.Drawing.RelativeVerticalPosition.Page);
     expect(shape.left).toEqual((doc.firstSection.pageSetup.pageWidth - shape.width) / 2);
     expect(shape.top).toEqual((doc.firstSection.pageSetup.pageHeight - shape.height) / 2);
+    doc.close();
   });
 
 
@@ -366,6 +384,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.insertOleObject.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.insertOleObject.docx");
     let shape = doc.getShape(0, true);
 
@@ -384,6 +403,7 @@ describe("ExDocumentBuilder", () => {
     expect(shape.shapeType).toEqual(aw.Drawing.ShapeType.OleObject);
     expect(shape.oleFormat.progId).toEqual("PowerPoint.Show.12");
     expect(shape.oleFormat.suggestedExtension).toEqual(".pptx");
+    doc.close();
   });
 
 
@@ -418,6 +438,7 @@ describe("ExDocumentBuilder", () => {
     expect(paragraphs.at(3).paragraphFormat.style.name).toEqual("Heading 1");
 
     doc.save(base.artifactsDir + "DocumentBuilder.insertHtml.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -449,6 +470,7 @@ describe("ExDocumentBuilder", () => {
       useBuilderFormatting ? aw.ParagraphAlignment.Distributed : aw.ParagraphAlignment.Left);
 
     doc.save(base.artifactsDir + "DocumentBuilder.InsertHtmlWithFormatting.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -465,6 +487,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.mathML.pdf");
 
     expect(DocumentHelper.compareDocs(base.goldsDir + "DocumentBuilder.mathML Gold.docx", base.artifactsDir + "DocumentBuilder.mathML.docx")).toEqual(true);
+    doc.close();
   });
 
   test('InsertTextAndBookmark', () => {
@@ -484,6 +507,7 @@ describe("ExDocumentBuilder", () => {
     expect(doc.range.bookmarks.count).toEqual(1);
     expect(doc.range.bookmarks.at(0).name).toEqual("MyBookmark");
     expect(doc.range.bookmarks.at(0).text.trim()).toEqual("Hello world!");
+    doc.close();
     //ExEnd
   });
 
@@ -530,6 +554,7 @@ describe("ExDocumentBuilder", () => {
     builder.endTable();
 
     doc.save(base.artifactsDir + "Bookmarks.CreateColumnBookmark.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -576,6 +601,8 @@ describe("ExDocumentBuilder", () => {
     [
       "-- Select your favorite footwear --", "Sneakers", "Oxfords", "Flip-flops", "Other"
     ]);
+    builder.document.close();
+    doc.close();
   });
 
   test('InsertCheckBox', () => {
@@ -605,6 +632,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.insertCheckBox.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.insertCheckBox.docx");
 
     let formFields = doc.range.formFields;
@@ -623,6 +651,7 @@ describe("ExDocumentBuilder", () => {
     expect(formFields.at(2).checked).toEqual(true);
     expect(formFields.at(2).default).toEqual(true);
     expect(formFields.at(2).checkBoxSize).toEqual(100);
+    doc.close();
   });
 
   test('InsertCheckBoxEmptyName', () => {
@@ -632,6 +661,7 @@ describe("ExDocumentBuilder", () => {
     // Checking that the checkbox insertion with an empty name working correctly
     builder.insertCheckBox("", true, false, 1);
     builder.insertCheckBox('', false, 1);
+    doc.close();
   });
 
   
@@ -690,6 +720,7 @@ describe("ExDocumentBuilder", () => {
     builder.moveToDocumentStart();
 
     expect(builder.isAtStartOfParagraph).toEqual(true);
+    doc.close();
     //ExEnd
   });
 
@@ -724,6 +755,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.FillMergeFields.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.FillMergeFields.docx");
     let paragraphs = doc.firstSection.body.paragraphs;
 
@@ -735,6 +767,7 @@ describe("ExDocumentBuilder", () => {
 
     expect(paragraphs.at(2).runs.at(0).font.italic).toEqual(true);
     expect(paragraphs.at(2).runs.at(0).getText().trim()).toEqual("John Bloggs");
+    doc.close();
   });
 
   test('InsertToc', () => {
@@ -790,6 +823,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertToc.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertToc.docx");
     let tableOfContents = doc.range.fields.at(0).asFieldToc();
 
@@ -797,6 +831,7 @@ describe("ExDocumentBuilder", () => {
     expect(tableOfContents.insertHyperlinks).toEqual(true);
     expect(tableOfContents.hideInWebLayout).toEqual(true);
     expect(tableOfContents.useParagraphOutlineLevel).toEqual(true);
+    doc.close();
   });
 
   test('InsertTable', () => {
@@ -879,6 +914,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertTable.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertTable.docx");
     let table = doc.firstSection.body.tables.at(0);
 
@@ -924,6 +960,7 @@ describe("ExDocumentBuilder", () => {
     expect(table.rows.at(2).cells.at(1).getText().trim()).toEqual("Row 3, Col 2\u0007");
     expect(table.rows.at(2).cells.at(1).cellFormat.orientation).toEqual(aw.TextOrientation.Downward);
     expect(table.rows.at(2).cells.at(1).firstParagraph.paragraphFormat.alignment).toEqual(aw.ParagraphAlignment.Center);
+    doc.close();
   });
 
 
@@ -978,6 +1015,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertTableWithStyle.docx");
     //ExEnd
 
+    const sourceDocument = doc;
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertTableWithStyle.docx");
 
     doc.expandTableStylesToDirectFormatting();
@@ -987,6 +1025,8 @@ describe("ExDocumentBuilder", () => {
     expect(table.firstRow.firstCell.cellFormat.shading.backgroundPatternColor).toEqual("#4F81BD");
     expect(table.firstRow.firstCell.firstParagraph.runs.at(0).font.color).toEqual("#FFFFFF");
     expect(table.lastRow.firstCell.cellFormat.shading.backgroundPatternColor).not.toEqual("#ADD8E6");
+    doc.close();
+    sourceDocument.close();
   });
 
   test('InsertTableSetHeadingRow', () => {
@@ -1027,11 +1067,13 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertTableSetHeadingRow.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertTableSetHeadingRow.docx");
     table = doc.firstSection.body.tables.at(0);
 
     for (let i = 0; i < table.rows.count; i++)
       expect(table.rows.at(i).rowFormat.headingFormat).toEqual(i < 2);
+    doc.close();
   });
 
   test('InsertTableWithPreferredWidth', () => {
@@ -1056,11 +1098,13 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertTableWithPreferredWidth.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertTableWithPreferredWidth.docx");
     table = doc.firstSection.body.tables.at(0);
 
     expect(table.preferredWidth.type).toEqual(aw.Tables.PreferredWidthType.Percent);
     expect(table.preferredWidth.value).toEqual(50);
+    doc.close();
   });
 
   test('InsertCellsWithPreferredWidths', () => {
@@ -1106,6 +1150,7 @@ describe("ExDocumentBuilder", () => {
     expect(aw.Tables.PreferredWidth.fromPercent(100).value).toEqual(100.0);
     expect(aw.Tables.PreferredWidth.fromPoints(100).value).toEqual(100.0);
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertCellsWithPreferredWidths.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -1120,6 +1165,7 @@ describe("ExDocumentBuilder", () => {
     expect(table.firstRow.cells.at(2).cellFormat.preferredWidth.type).toEqual(aw.Tables.PreferredWidthType.Auto);
     expect(table.firstRow.cells.at(2).cellFormat.preferredWidth.value).toEqual(0.0);
     expect(table.firstRow.cells.at(2).getText().trim()).toEqual("Automatically sized cell.\r\u0007");
+    doc.close();
   });
 
   test('InsertTableFromHtml', () => {
@@ -1133,11 +1179,13 @@ describe("ExDocumentBuilder", () => {
 
     doc.save(base.artifactsDir + "DocumentBuilder.InsertTableFromHtml.docx");
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertTableFromHtml.docx");
 
     expect(doc.getChildNodes(aw.NodeType.Table, true).count).toEqual(1);
     expect(doc.getChildNodes(aw.NodeType.Row, true).count).toEqual(2);
     expect(doc.getChildNodes(aw.NodeType.Cell, true).count).toEqual(4);
+    doc.close();
   });
 
   test('InsertNestedTable', () => {
@@ -1165,12 +1213,14 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertNestedTable.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertNestedTable.docx");
 
     expect(doc.getChildNodes(aw.NodeType.Table, true).count).toEqual(2);
     expect(doc.getChildNodes(aw.NodeType.Cell, true).count).toEqual(4);
     expect(cell.tables.at(0).count).toEqual(1);
     expect(cell.tables.at(0).firstRow.cells.count).toEqual(2);
+    doc.close();
   });
 
   test('CreateTable', () => {
@@ -1200,6 +1250,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.CreateTable.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.CreateTable.docx");
     let table = doc.firstSection.body.tables.at(0);
 
@@ -1209,6 +1260,7 @@ describe("ExDocumentBuilder", () => {
     expect(table.rows.at(0).cells.at(1).getText().trim()).toEqual("Row 1, Cell 2.\u0007");
     expect(table.rows.at(1).cells.at(0).getText().trim()).toEqual("Row 2, Cell 1.\u0007");
     expect(table.rows.at(1).cells.at(1).getText().trim()).toEqual("Row 2, Cell 2.\u0007");
+    doc.close();
   });
 
   test('BuildFormattedTable', () => {
@@ -1274,6 +1326,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.CreateFormattedTable.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.CreateFormattedTable.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -1303,6 +1356,7 @@ describe("ExDocumentBuilder", () => {
         }
       }
     }
+    doc.close();
   });
 
   test('TableBordersAndShading', () => {
@@ -1347,6 +1401,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.TableBordersAndShading.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.TableBordersAndShading.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -1375,6 +1430,7 @@ describe("ExDocumentBuilder", () => {
       expect(c.cellFormat.borders.left.lineStyle).toEqual(aw.LineStyle.Single);
       expect(c.cellFormat.shading.backgroundPatternColor).toEqual(base.emptyColor);
     }
+    doc.close();
   });
 
   test('SetPreferredTypeConvertUtil', () => {
@@ -1389,6 +1445,7 @@ describe("ExDocumentBuilder", () => {
     builder.insertCell();
 
     expect(table.firstRow.firstCell.cellFormat.preferredWidth.value).toEqual(216.0);
+    doc.close();
     //ExEnd
   });
 
@@ -1416,6 +1473,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertHyperlinkToLocalBookmark.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertHyperlinkToLocalBookmark.docx");
     hyperlink = doc.range.fields.at(0).asFieldHyperlink();
 
@@ -1423,6 +1481,7 @@ describe("ExDocumentBuilder", () => {
     expect(hyperlink.subAddress).toEqual("Bookmark1");
     expect(hyperlink.screenTip).toEqual("Hyperlink Tip");
     expect([...doc.range.bookmarks].some(b => b.name == "Bookmark1")).toEqual(true);
+    doc.close();
   });
 
   test('CursorPosition', () => {
@@ -1439,6 +1498,7 @@ describe("ExDocumentBuilder", () => {
     // Move to the beginning of the document and place the cursor at an existing node.
     builder.moveToDocumentStart();
     expect(builder.currentNode.nodeType).toEqual(aw.NodeType.Run);
+    doc.close();
   });
 
   test('MoveTo', () => {
@@ -1473,6 +1533,7 @@ describe("ExDocumentBuilder", () => {
     expect(doc.getText().trim()).toEqual("Run 2. \rRun 1. \rRun 3.");
     expect(builder.currentParagraph).toEqual(doc.firstSection.body.lastParagraph);
 
+    doc.close();
     //ExEnd
   });
 
@@ -1502,9 +1563,12 @@ describe("ExDocumentBuilder", () => {
 
     expect(paragraphs.indexOf(builder.currentParagraph)).toEqual(3);
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument3 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument3;
 
     expect(doc.firstSection.body.paragraphs.at(2).getText().trim()).toEqual("This is a new third paragraph.");
+    doc.close();
   });
 
   test('MoveToCell', () => {
@@ -1534,11 +1598,13 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.moveToCell.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.moveToCell.docx");
 
     let table = doc.firstSection.body.tables.at(0);
 
     expect(table.rows.at(1).cells.at(1).getText().trim()).toEqual("Column 2, cell 2.\u0007");
+    doc.close();
   });
 
   test('MoveToBookmark', () => {
@@ -1584,6 +1650,7 @@ describe("ExDocumentBuilder", () => {
 
     expect(doc.range.bookmarks.at("MyBookmark").text).toEqual("2. Hello world! 3. ");
     expect(doc.getText().trim()).toEqual("1. 2. Hello world! 3. 4.");
+    doc.close();
     //ExEnd
   });
 
@@ -1640,6 +1707,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.BuildTable.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.BuildTable.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -1662,6 +1730,7 @@ describe("ExDocumentBuilder", () => {
 
     expect(table.rows.at(1).cells.at(1).getText().trim()).toEqual("Row 2, cell 2.\u0007");
     expect(table.rows.at(1).cells.at(1).cellFormat.orientation).toEqual(aw.TextOrientation.Downward);
+    doc.close();
   });
 
   test('TableCellVerticalRotatedFarEastTextOrientation', () => {
@@ -1672,12 +1741,15 @@ describe("ExDocumentBuilder", () => {
 
     expect(cell.cellFormat.orientation).toEqual(aw.TextOrientation.VerticalRotatedFarEast);
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument4 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument4;
 
     table = doc.firstSection.body.tables.at(0);
     cell = table.firstRow.firstCell;
 
     expect(cell.cellFormat.orientation).toEqual(aw.TextOrientation.VerticalRotatedFarEast);
+    doc.close();
   });
 
   test('InsertFloatingImage', () => {
@@ -1699,6 +1771,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertFloatingImage.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertFloatingImage.docx");
     let image = doc.getShape(0, true);
 
@@ -1721,6 +1794,7 @@ describe("ExDocumentBuilder", () => {
     expect(image.wrapType).toEqual(aw.Drawing.WrapType.Square);
     expect(image.relativeHorizontalPosition).toEqual(aw.Drawing.RelativeHorizontalPosition.Margin);
     expect(image.relativeVerticalPosition).toEqual(aw.Drawing.RelativeVerticalPosition.Margin);
+    doc.close();
   });
 
   test('InsertImageOriginalSize', () => {
@@ -1743,6 +1817,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertImageOriginalSize.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertImageOriginalSize.docx");
     imageShape = doc.getShape(0, true);
 
@@ -1754,6 +1829,7 @@ describe("ExDocumentBuilder", () => {
     expect(imageShape.wrapType).toEqual(aw.Drawing.WrapType.Square);
     expect(imageShape.relativeHorizontalPosition).toEqual(aw.Drawing.RelativeHorizontalPosition.Margin);
     expect(imageShape.relativeVerticalPosition).toEqual(aw.Drawing.RelativeVerticalPosition.Margin);
+    doc.close();
   });
 
   test('InsertTextInput', () => {
@@ -1769,6 +1845,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.insertTextInput.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.insertTextInput.docx");
     let formField = doc.range.formFields.at(0);
 
@@ -1779,6 +1856,7 @@ describe("ExDocumentBuilder", () => {
     expect(formField.type).toEqual(aw.Fields.FieldType.FieldFormTextInput);
     expect(formField.textInputFormat).toEqual("");
     expect(formField.textInputType).toEqual(aw.Fields.TextFormFieldType.Regular);
+    doc.close();
   });
 
   test('InsertComboBox', () => {
@@ -1796,6 +1874,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.insertComboBox.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.insertComboBox.docx");
     let formField = doc.range.formFields.at(0);
 
@@ -1804,6 +1883,7 @@ describe("ExDocumentBuilder", () => {
     expect(formField.dropDownSelectedIndex).toEqual(0);
     expect([...formField.dropDownItems]).toEqual(items);
     expect(formField.type).toEqual(aw.Fields.FieldType.FieldFormDropDown);
+    doc.close();
   });
 
   /*
@@ -1913,6 +1993,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.SignatureLineInline.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.SignatureLineInline.docx");
 
     let shape = doc.getShape(0, true);
@@ -1927,6 +2008,7 @@ describe("ExDocumentBuilder", () => {
     expect(signatureLine.allowComments).toEqual(true);
     expect(signatureLine.isSigned).toEqual(false);
     expect(signatureLine.isValid).toEqual(false);
+    doc.close();
   });
 
   test('SetParagraphFormatting', () => {
@@ -1954,6 +2036,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.SetParagraphFormatting.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.SetParagraphFormatting.docx");
 
     for (let paragraph of doc.firstSection.body.paragraphs.toArray())
@@ -1963,6 +2046,7 @@ describe("ExDocumentBuilder", () => {
       expect(paragraph.paragraphFormat.rightIndent).toEqual(50.0);
       expect(paragraph.paragraphFormat.spaceAfter).toEqual(25.0);
     }
+    doc.close();
   });
 
   test('SetCellFormatting', () => {
@@ -2016,6 +2100,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.SetCellFormatting.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.SetCellFormatting.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -2033,6 +2118,7 @@ describe("ExDocumentBuilder", () => {
       expect(table.firstRow.cells.at(1).cellFormat.topPadding).toEqual(30.0);
       expect(table.firstRow.cells.at(1).cellFormat.bottomPadding).toEqual(30.0);
     }
+    doc.close();
   });
 
 
@@ -2072,6 +2158,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.SetRowFormatting.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.SetRowFormatting.docx");
     table = doc.firstSection.body.tables.at(0);
 
@@ -2080,6 +2167,7 @@ describe("ExDocumentBuilder", () => {
 
     expect(table.rows.at(1).rowFormat.height).toEqual(100.0);
     expect(table.rows.at(1).rowFormat.heightRule).toEqual(aw.HeightRule.Exactly);
+    doc.close();
   });
 
 
@@ -2112,12 +2200,14 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.insertFootnote.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.insertFootnote.docx");
 
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Footnote, true, '',
       "Footnote comment regarding referenced text.", doc.getFootnote(0, true));
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Endnote, false, "CustomMark",
       "CustomMark Endnote comment regarding referenced text.", doc.getFootnote(1, true));
+    doc.close();
   });
 
 
@@ -2150,6 +2240,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.ApplyBordersAndShading.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.ApplyBordersAndShading.docx");
     borders = doc.firstSection.body.firstParagraph.paragraphFormat.borders;
 
@@ -2162,6 +2253,7 @@ describe("ExDocumentBuilder", () => {
     expect(shading.texture).toEqual(aw.TextureIndex.TextureDiagonalCross);
     expect(shading.backgroundPatternColor).toEqual("#F08080");
     expect(shading.foregroundPatternColor).toEqual("#FFA07A");
+    doc.close();
   });
 
 
@@ -2191,6 +2283,7 @@ describe("ExDocumentBuilder", () => {
 
     expect(table.rows.count).toEqual(1);
     expect(table.getText().trim()).toEqual("Row 2, cell 1.\u0007Row 2, cell 2.\u0007\u0007");
+    doc.close();
     //ExEnd
   });
 
@@ -2222,6 +2315,8 @@ describe("ExDocumentBuilder", () => {
 
     dstDoc.save(base.artifactsDir + "DocumentBuilder.AppendDocumentAndResolveStyles.docx");
     //ExEnd
+    dstDoc.close();
+    srcDoc.close();
   });
 
 
@@ -2256,6 +2351,8 @@ describe("ExDocumentBuilder", () => {
 
     dstDoc.save(base.artifactsDir + "DocumentBuilder.InsertDocumentAndResolveStyles.docx");
     //ExEnd
+    attachDoc.close();
+    dstDoc.close();
   });
 
 
@@ -2281,6 +2378,8 @@ describe("ExDocumentBuilder", () => {
 
     dstDoc.updateListLabels();
     //ExEnd
+    dstDoc.close();
+    srcDoc.close();
   });
 
 
@@ -2329,6 +2428,8 @@ describe("ExDocumentBuilder", () => {
 
     dstDoc.save(base.artifactsDir + "DocumentBuilder.ignoreTextBoxes.docx");
     //ExEnd
+    srcDoc.close();
+    dstDoc.close();
   });
 
 
@@ -2367,6 +2468,7 @@ describe("ExDocumentBuilder", () => {
 
       expect(doc.getText().trim()).toEqual("Text immediately before the field. \u0013 AUTHOR \"John Doe\" \u0014John Doe\u0015");
     }
+    doc.close();
     //ExEnd
   });
 
@@ -2376,6 +2478,7 @@ describe("ExDocumentBuilder", () => {
     let builder = new aw.DocumentBuilder(doc);
 
     expect(() => builder.insertOleObject("", "checkbox", false, true, null)).toThrow("The value cannot be an empty string. (Parameter 'path')");
+    doc.close();
   });
 
 
@@ -2397,12 +2500,14 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertPieChart.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertPieChart.docx");
     let chartShape = doc.getShape(0, true);
 
     expect(chartShape.chart.title.text).toEqual("Chart Title");
     expect(chartShape.width).toEqual(225.0);
     expect(chartShape.height).toEqual(225.0);
+    doc.close();
   });
 
 
@@ -2419,6 +2524,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertedChartRelativePosition.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertedChartRelativePosition.docx");
     let chartShape = doc.getShape(0, true);
 
@@ -2429,6 +2535,7 @@ describe("ExDocumentBuilder", () => {
     expect(chartShape.wrapType).toEqual(aw.Drawing.WrapType.Square);
     expect(chartShape.relativeHorizontalPosition).toEqual(aw.Drawing.RelativeHorizontalPosition.Margin);
     expect(chartShape.relativeVerticalPosition).toEqual(aw.Drawing.RelativeVerticalPosition.Margin);
+    doc.close();
   });
 
 
@@ -2451,6 +2558,7 @@ describe("ExDocumentBuilder", () => {
 
     // This overload of the InsertField method automatically updates inserted fields.
     expect((Date.now() - Date.parse(field.result)) / 86400000).toBeLessThanOrEqual(1);
+    doc.close();
     //ExEnd
   });
 
@@ -2498,13 +2606,16 @@ describe("ExDocumentBuilder", () => {
     }
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument5 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument5;
 
     expect(doc.getText().trim()).toEqual("This document was written by \u0013 AUTHOR \u0014John Doe\u0015" +
                             "\r\rThis is page \u0013 PAGE \u00141\u0015");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldAuthor, " AUTHOR ", "John Doe", doc.range.fields.at(0));
     TestUtil.verifyField(aw.Fields.FieldType.FieldPage, " PAGE ", "1", doc.range.fields.at(1));
+    doc.close();
   });
 
 /* TODO IFieldResultFormatter not supported
@@ -2661,6 +2772,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertVideoWithUrl.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertVideoWithUrl.docx");
     let shape = doc.getShape(0, true);
 
@@ -2669,6 +2781,7 @@ describe("ExDocumentBuilder", () => {
 
     expect(shape.width).toEqual(360.0);
     expect(shape.height).toEqual(270.0);
+    doc.close();
   });
 
 
@@ -2689,6 +2802,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertUnderline.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertUnderline.docx");
     let firstRun = doc.firstSection.body.firstParagraph.runs.at(0);
 
@@ -2696,6 +2810,7 @@ describe("ExDocumentBuilder", () => {
     expect(firstRun.font.underline).toEqual(aw.Underline.Dash);
     expect(firstRun.font.color).toEqual("#0000FF");
     expect(firstRun.font.size).toEqual(32.0);
+    doc.close();
   });
 
 
@@ -2724,9 +2839,12 @@ describe("ExDocumentBuilder", () => {
     expect(builder.currentStory.tables.contains(table)).toEqual(true);
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument6 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument6;
     expect(doc.firstSection.body.tables.count).toEqual(1);
     expect(doc.firstSection.body.getText().trim()).toEqual("Row 1, cell 1\u0007Row 1, cell 2\u0007\u0007\rText added to current Story.");
+    doc.close();
   });
 
 
@@ -2759,6 +2877,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertOleObjects.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertOleObjects.docx");
 
     expect(doc.getChildNodes(aw.NodeType.Shape, true).count).toEqual(2);
@@ -2770,6 +2889,7 @@ describe("ExDocumentBuilder", () => {
     shape = doc.getShape(1, true);
     expect(shape.oleFormat.iconCaption).toEqual("Unknown");
     expect(shape.oleFormat.oleIcon).toEqual(true);
+    doc.close();
   });
 
 
@@ -2804,6 +2924,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.insertStyleSeparator.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.insertStyleSeparator.docx");
 
     expect(doc.firstSection.body.paragraphs.count).toEqual(2);
@@ -2815,6 +2936,7 @@ describe("ExDocumentBuilder", () => {
       base.artifactsDir + "DocumentBuilder.insertStyleSeparator.docx", "document.xml");
     TestUtil.docPackageFileContainsString("<w:t xml:space=\"preserve\"> </w:t>", 
       base.artifactsDir + "DocumentBuilder.insertStyleSeparator.docx", "document.xml");
+    doc.close();
   });
 
 
@@ -2837,6 +2959,8 @@ describe("ExDocumentBuilder", () => {
 
     expect(doc.styles.count).toEqual(29);
     expect(DocumentHelper.compareDocs(base.artifactsDir + "DocumentBuilder.insertDocument.docx", base.goldsDir + "DocumentBuilder.insertDocument Gold.docx")).toEqual(true);
+    docToInsert.close();
+    doc.close();
   });
 
 
@@ -2873,6 +2997,7 @@ describe("ExDocumentBuilder", () => {
     dstDoc.save(base.artifactsDir + "DocumentBuilder.smartStyleBehavior.docx");
     //ExEnd
 
+    dstDoc.close();
     dstDoc = new aw.Document(base.artifactsDir + "DocumentBuilder.smartStyleBehavior.docx");
 
     expect(dstDoc.styles.at("MyStyle").font.color).toEqual("#0000FF");
@@ -2882,6 +3007,8 @@ describe("ExDocumentBuilder", () => {
     expect(dstDoc.firstSection.body.paragraphs.at(1).runs.at(0).font.size).toEqual(14);
     expect(dstDoc.firstSection.body.paragraphs.at(1).runs.at(0).font.name).toEqual("Courier New");
     expect(dstDoc.firstSection.body.paragraphs.at(1).runs.at(0).font.color).toEqual("#FF0000");
+    srcDoc.close();
+    dstDoc.close();
   });
 
 
@@ -2897,6 +3024,7 @@ describe("ExDocumentBuilder", () => {
       if (warningInfo.source == aw.WarningSource.Markdown)
         expect(warningInfo.description).toEqual("The (*, 0:11) cannot be properly written into Markdown.");
     }
+    doc.close();
   });
 
 
@@ -2918,6 +3046,8 @@ describe("ExDocumentBuilder", () => {
 
     dstDoc.save(base.artifactsDir + "DocumentBuilder.DoNotIgnoreHeaderFooter.docx");
     //ExEnd
+    srcDoc.close();
+    dstDoc.close();
   });
 
 
@@ -2951,6 +3081,7 @@ describe("ExDocumentBuilder", () => {
 
       // Markdown treats asterisks (*), underscores (_) and tilde (~) as indicators of emphasis.
     builder.document.save(base.artifactsDir + "DocumentBuilder.MarkdownDocument.md");
+    builder.document.close();
   }
 
   function markdownDocumentInlineCode()
@@ -2977,6 +3108,7 @@ describe("ExDocumentBuilder", () => {
     builder.writeln("Text with InlineCode style with 3 backticks");
 
     builder.document.save(base.artifactsDir + "DocumentBuilder.MarkdownDocument.md");
+    doc.close();
   }
 
   function markdownDocumentHeadings()
@@ -3047,6 +3179,7 @@ describe("ExDocumentBuilder", () => {
     builder.writeln("This is an H6 tag");
 
     doc.save(base.artifactsDir + "DocumentBuilder.MarkdownDocument.md");
+    doc.close();
   }
 
   function markdownDocumentBlockquotes()
@@ -3102,6 +3235,7 @@ describe("ExDocumentBuilder", () => {
     builder.writeln("6. Nested italic bold blockquote");
 
     doc.save(base.artifactsDir + "DocumentBuilder.MarkdownDocument.md");
+    doc.close();
   }
 
   function markdownDocumentIndentedCode()
@@ -3121,6 +3255,7 @@ describe("ExDocumentBuilder", () => {
     builder.writeln("This is an indented code");
 
     doc.save(base.artifactsDir + "DocumentBuilder.MarkdownDocument.md");
+    doc.close();
   }
 
   function markdownDocumentFencedCode()
@@ -3144,6 +3279,7 @@ describe("ExDocumentBuilder", () => {
     builder.writeln("This is a fenced code with info string");
 
     doc.save(base.artifactsDir + "DocumentBuilder.MarkdownDocument.md");
+    doc.close();
   }
 
   function markdownDocumentHorizontalRule()
@@ -3161,6 +3297,7 @@ describe("ExDocumentBuilder", () => {
     builder.insertHorizontalRule();
 
     builder.document.save(base.artifactsDir + "DocumentBuilder.MarkdownDocument.md");
+    doc.close();
   }
 
   function markdownDocumentBulletedList()
@@ -3187,6 +3324,7 @@ describe("ExDocumentBuilder", () => {
     builder.writeln("Item 2b");
 
     builder.document.save(base.artifactsDir + "DocumentBuilder.MarkdownDocument.md");
+    doc.close();
   }
 
   test.each([["Italic", "Normal", true, false],
@@ -3251,6 +3389,7 @@ describe("ExDocumentBuilder", () => {
       expect(shapesCollection.count == 1).toEqual(true);
       expect(horizontalRuleShape.isHorizontalRule).toEqual(true);
     }
+    doc.close();
   });
 
 
@@ -3273,6 +3412,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.insertOnlineVideo.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.insertOnlineVideo.docx");
     let shape = doc.getShape(0, true);
 
@@ -3287,6 +3427,7 @@ describe("ExDocumentBuilder", () => {
     expect(shape.relativeHorizontalPosition).toEqual(aw.Drawing.RelativeHorizontalPosition.LeftMargin);
 
     expect(shape.href).toEqual("https://vimeo.com/52477838");
+    doc.close();
   });
 
 
@@ -3327,6 +3468,7 @@ describe("ExDocumentBuilder", () => {
     doc.save(base.artifactsDir + "DocumentBuilder.InsertOnlineVideoCustomThumbnail.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "DocumentBuilder.InsertOnlineVideoCustomThumbnail.docx");
     let shape = doc.getShape(0, true);
 
@@ -3359,6 +3501,7 @@ describe("ExDocumentBuilder", () => {
     expect(shape.relativeHorizontalPosition).toEqual(aw.Drawing.RelativeHorizontalPosition.RightMargin);
 
     expect(shape.href).toEqual("https://vimeo.com/52477838");
+    doc.close();
   });
 
 
@@ -3387,6 +3530,7 @@ describe("ExDocumentBuilder", () => {
     setOlePackage.displayName = "Presentation.pptx";
 
     doc.save(base.artifactsDir + "DocumentBuilder.insertOleObjectAsIcon.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -3412,6 +3556,7 @@ describe("ExDocumentBuilder", () => {
     builder.insertHtml(html, insertOptions);
     builder.document.save(base.artifactsDir + "DocumentBuilder.preserveBlocks.docx");
     //ExEnd
+    builder.document.close();
   });
 
 
@@ -3429,6 +3574,7 @@ describe("ExDocumentBuilder", () => {
     expect(runs.at(0).isPhoneticGuide).toEqual(true);
     expect(runs.at(0).phoneticGuide.baseText).toEqual("base");
     expect(runs.at(0).phoneticGuide.rubyText).toEqual("ruby");
+    doc.close();
     //ExEnd
   });
 

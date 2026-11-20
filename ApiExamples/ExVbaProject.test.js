@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -48,7 +48,8 @@ describe("ExVbaProject", () => {
     doc.save(base.artifactsDir + "VbaProject.CreateVBAMacros.docm");
     //ExEnd
 
-    project = new aw.Document(base.artifactsDir + "VbaProject.CreateVBAMacros.docm").vbaProject;
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "VbaProject.CreateVBAMacros.docm");
+    project = loadedDocument1.vbaProject;
 
     expect(project.name).toEqual("Aspose.project");
 
@@ -63,6 +64,8 @@ describe("ExVbaProject", () => {
     expect(modules.at(1).name).toEqual("Aspose.Module");
     expect(modules.at(1).type).toEqual(aw.Vba.VbaModuleType.ProceduralModule);
     expect(modules.at(1).sourceCode).toEqual("New source code");
+    loadedDocument1.close();
+    doc.close();
   });
 
 
@@ -87,7 +90,8 @@ describe("ExVbaProject", () => {
     destDoc.save(base.artifactsDir + "VbaProject.CloneVbaProject.docm");
     //ExEnd
 
-    let originalVbaProject = new aw.Document(base.artifactsDir + "VbaProject.CloneVbaProject.docm").vbaProject;
+    const loadedDocument2 = new aw.Document(base.artifactsDir + "VbaProject.CloneVbaProject.docm");
+    let originalVbaProject = loadedDocument2.vbaProject;
 
     expect(originalVbaProject.name).toEqual(copyVbaProject.name);
     expect(originalVbaProject.codePage).toEqual(copyVbaProject.codePage);
@@ -100,6 +104,9 @@ describe("ExVbaProject", () => {
       expect(originalVbaProject.modules.at(i).type).toEqual(copyVbaProject.modules.at(i).type);
       expect(originalVbaProject.modules.at(i).sourceCode).toEqual(copyVbaProject.modules.at(i).sourceCode);
     }
+    loadedDocument2.close();
+    destDoc.close();
+    doc.close();
   });
 
 
@@ -136,6 +143,7 @@ describe("ExVbaProject", () => {
     expect(references.count).toEqual(3);
 
     doc.save(base.artifactsDir + "VbaProject.RemoveVbaReference.docm"); 
+    doc.close();
   });
 
 
@@ -189,6 +197,7 @@ describe("ExVbaProject", () => {
     //ExSummary:Shows whether the VbaProject is password protected.
     let doc = new aw.Document(base.myDir + "Vba protected.docm");
     expect(doc.vbaProject.isProtected).toEqual(true);
+    doc.close();
     //ExEnd:IsProtected
   });
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -60,9 +60,12 @@ describe("ExField", () => {
     field.update();
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument1 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument1;
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\@ \"dddd, MMMM dd, yyyy\"", moment(new Date()).format("dddd, MMMM DD, yyyy"), doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -74,6 +77,7 @@ describe("ExField", () => {
 
     let field = doc.range.fields.at(2);
     console.log(new Buffer.from(field.start.fieldData).toString('utf-8'));
+    doc.close();
     //ExEnd
   });
 
@@ -96,6 +100,7 @@ describe("ExField", () => {
 
     // By default, the GetFieldCode method displays inner fields.
     expect(fieldIf.getFieldCode(true)).toEqual(fieldIf.getFieldCode());
+    doc.close();
     //ExEnd
   });
 
@@ -125,9 +130,11 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.displayResult.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.displayResult.docx");
 
     expect(doc.range.fields.at(0).displayResult).toEqual("John Doe");
+    doc.close();
   });
 
 
@@ -156,12 +163,14 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.CreateWithFieldBuilder.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.CreateWithFieldBuilder.docx");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldBarcode, " BARCODE 90210 \\f A \\u ", '', doc.range.fields.at(0));
 
     expect(doc.range.fields.at(0).end).toEqual(doc.firstSection.body.firstParagraph.runs.at(11).previousSibling);
     expect(doc.getText().trim()).toEqual(`${aw.ControlChar.fieldStartChar} BARCODE 90210 \\f A \\u ${aw.ControlChar.fieldEndChar} Hello world! This text is one Run, which is an inline node.`);
+    doc.close();
   });
 
 
@@ -192,10 +201,13 @@ describe("ExField", () => {
     expect(field.result).toEqual("2");
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument2 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument2;
     expect(doc.builtInDocumentProperties.revisionNumber).toEqual(2);
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldRevisionNum, " REVNUM ", "2", doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -217,9 +229,12 @@ describe("ExField", () => {
     expect(fieldUnknown.getFieldCode()).toEqual(" NOTAREALFIELD //a");
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument3 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument3;
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldNone, " NOTAREALFIELD //a", "Error! Bookmark not defined.", doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -229,6 +244,7 @@ describe("ExField", () => {
 
     // Insert a TC field at the current document builder position.
     builder.insertField("TC \"Entry Text\" \\f t");
+    doc.close();
   });
 
 
@@ -303,15 +319,18 @@ describe("ExField", () => {
     console.log(`Today's date, as displayed according to the \"${CultureInfo.GetCultureInfo(field.localeId).EnglishName}\" culture: ${field.result}`);
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument4 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument4;
     field = doc.range.fields.at(0); 
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldDate, "DATE", Date.now().ToString(de.dateTimeFormat.ShortDatePattern), field);
     expect(field.localeId).toEqual(new CultureInfo("de-DE").LCID);
+    doc.close();
   });
 
 
-  test.skip.each([true, false])('UpdateDirtyFields(%o) - TODO: WORDSNODEJS-118', async (updateDirtyFields) => {
+  test.each([true, false])('UpdateDirtyFields(%o)', async (updateDirtyFields) => {
     //ExStart
     //ExFor:Field.isDirty
     //ExFor:LoadOptions.updateDirtyFields
@@ -345,7 +364,8 @@ describe("ExField", () => {
     // marked as "dirty" when loading the document.
     let options = new aw.Loading.LoadOptions();
     options.updateDirtyFields = updateDirtyFields;
-    doc = new aw.Document(docStream, options);
+    doc.close();
+    doc = new aw.Document(await base.streamToBuffer(docStream), options);
 
     expect(doc.builtInDocumentProperties.author).toEqual("John & Jane Doe");
 
@@ -362,6 +382,7 @@ describe("ExField", () => {
       expect(field.result).toEqual("John Doe");
       expect(field.isDirty).toEqual(true);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -380,6 +401,7 @@ describe("ExField", () => {
 
     expect(() => fieldBuilder.addArgument(argumentBuilder).addArgument("=").addArgument("BestField").addArgument(10).addArgument(20.0).buildAndInsert(run))
       .toThrow("Cannot add a node before/after itself.");
+    doc.close();
   });
 
 
@@ -566,6 +588,7 @@ describe("ExField", () => {
     let loadOptions = new aw.Loading.LoadOptions();
     loadOptions.preserveIncludePictureField = preserveIncludePictureField;
 
+    doc.close();
     doc = new aw.Document(docStream, loadOptions);
 
     if (preserveIncludePictureField)
@@ -579,6 +602,7 @@ describe("ExField", () => {
     {
       expect(doc.range.fields.some(f => f.type == aw.Fields.FieldType.FieldIncludePicture)).toBeFalsy();
     }
+    doc.close();
     //ExEnd
   });
 
@@ -653,6 +677,7 @@ describe("ExField", () => {
     expect(field.getFieldCode()).toEqual("= 25 + 33  ");
     expect(field.result).toEqual("58");
     expect(format.generalFormats.count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -666,10 +691,13 @@ describe("ExField", () => {
     doc.unlinkFields();
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument5 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument5;
     let paraWithFields = DocumentHelper.getParagraphText(doc, 0);
 
     expect(paraWithFields).toEqual("Fields.Docx   Элементы указателя не найдены.     1.\r");
+    doc.close();
   });
 
 
@@ -685,10 +713,13 @@ describe("ExField", () => {
     doc.sections.at(1).range.unlinkFields();
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument6 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument6;
     let secWithFields = DocumentHelper.getSectionText(doc, 1);
     expect(secWithFields.includes(
                 "Fields.Docx   Элементы указателя не найдены.     3.\rОшибка! Не указана последовательность.    Fields.Docx   Элементы указателя не найдены.     4.")).toBe(true);
+    doc.close();
   });
 
 
@@ -700,11 +731,14 @@ describe("ExField", () => {
     doc.range.fields.at(1).unlink();
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument7 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument7;
     let paraWithFields = DocumentHelper.getParagraphText(doc, 0);
 
     expect(paraWithFields.trim().endsWith(
                 "FILENAME  \\* Caps  \\* MERGEFORMAT \u0014Fields.Docx\u0015   Элементы указателя не найдены.     \u0013 LISTNUM  LegalDefault \u0015")).toBeTruthy();
+    doc.close();
   });
 
 
@@ -750,6 +784,7 @@ describe("ExField", () => {
     }
 
     doc.save(base.artifactsDir + "Field.UpdateTocPageNumbers.docx");
+    doc.close();
   });
 
 
@@ -913,6 +948,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.ADVANCE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.ADVANCE.docx");
 
     field = doc.range.fields.at(0).asFieldAdvance();
@@ -932,6 +968,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldAdvance, " ADVANCE  \\x -100 \\y 200", '', field);
     expect(field.horizontalPosition).toEqual("-100");
     expect(field.verticalPosition).toEqual("200");
+    doc.close();
   });
 
 
@@ -965,7 +1002,9 @@ describe("ExField", () => {
     expect(field.getFieldCode()).toEqual(" ADDRESSBLOCK  \\c 2 \\d \\e \"United States\" \\f \"<Title> <Forename> <Surname> <Address Line 1> <Region> <Postcode> <Country>\" \\l 1033");
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument8 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument8;
     field = doc.range.fields.at(0).asFieldAddressBlock();
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldAddressBlock, 
@@ -976,6 +1015,7 @@ describe("ExField", () => {
     expect(field.excludedCountryOrRegionName).toEqual("United States");
     expect(field.nameAndAddressFormat).toEqual("<Title> <Forename> <Surname> <Address Line 1> <Region> <Postcode> <Country>");
     expect(field.languageId).toEqual("1033");
+    doc.close();
   });
 
 
@@ -1142,6 +1182,7 @@ describe("ExField", () => {
     // 4 -  Remove all the fields from the collection at once:
     fields.clear();
     expect(fields.count).toEqual(0);
+    doc.close();
     //ExEnd
   });
 
@@ -1183,6 +1224,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.COMPARE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.COMPARE.docx");
 
     field = doc.range.fields.at(0).asFieldCompare();
@@ -1198,6 +1240,7 @@ describe("ExField", () => {
     expect(field.leftExpression).toEqual("5");
     expect(field.comparisonOperator).toEqual("=");
     expect(field.rightExpression).toEqual("\"2 + 3\"");
+    doc.close();
   });
 
 
@@ -1250,6 +1293,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.IF.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.IF.docx");
     field = doc.range.fields.at(0).asFieldIf();
 
@@ -1268,6 +1312,7 @@ describe("ExField", () => {
     expect(field.rightExpression).toEqual("\"2 + 3\"");
     expect(field.trueText).toEqual("True");
     expect(field.falseText).toEqual("False");
+    doc.close();
   });
 
 
@@ -1303,10 +1348,12 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.AUTONUM.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.AUTONUM.docx");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldAutoNum, " AUTONUM ", '', doc.range.fields.at(0));
     TestUtil.verifyField(aw.Fields.FieldType.FieldAutoNum, " AUTONUM  \\s :", '', doc.range.fields.at(1));
+    doc.close();
   });
 
 
@@ -1365,6 +1412,7 @@ describe("ExField", () => {
 
     doc.save(base.artifactsDir + "Field.AUTONUMLGL.docx");
     testFieldAutoNumLgl(doc); //ExSkip
+    doc.close();
   });
 
 
@@ -1384,7 +1432,9 @@ describe("ExField", () => {
   //ExEnd
 
   function testFieldAutoNumLgl(doc) {
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument9 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument9;
 
     for (let field of Array.from(doc.range.fields).filter(f => f.type == aw.Fields.FieldType.FieldAutoNumLegal).map(node => node.asFieldAutoNumLgl()))
     {
@@ -1421,10 +1471,12 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.AUTONUMOUT.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.AUTONUMOUT.docx");
 
     for (let field of doc.range.fields)
       TestUtil.verifyField(aw.Fields.FieldType.FieldAutoNumOutline, " AUTONUMOUT ", '', field);
+    doc.close();
   });
 
 
@@ -1478,6 +1530,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.AUTOTEXT.GLOSSARY.dotx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.AUTOTEXT.GLOSSARY.dotx");
 
     expect(doc.fieldOptions.builtInTemplatesPaths.length).toEqual(0);
@@ -1491,6 +1544,8 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldGlossary, " GLOSSARY  MyBlock", "Hello World!\r", fieldGlossary);
     expect(fieldGlossary.entryName).toEqual("MyBlock");
+    buildingBlockSource.close();
+    doc.close();
   });
 
 
@@ -1525,6 +1580,7 @@ describe("ExField", () => {
 
     doc.save(base.artifactsDir + "Field.AUTOTEXTLIST.dotx");
     testFieldAutoTextList(doc); //ExSkip
+    doc.close();
   });
 
 
@@ -1548,7 +1604,9 @@ describe("ExField", () => {
     //ExEnd
 
   function testFieldAutoTextList(doc) {
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument10 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument10;
 
     expect(doc.glossaryDocument.count).toEqual(3);
     expect(doc.glossaryDocument.buildingBlocks.at(0).name).toEqual("AutoText 1");
@@ -1624,6 +1682,7 @@ describe("ExField", () => {
     expect(doc.getText().trim()).toEqual("Dear Mr. Doe,\r\r\tThis is your custom greeting, created programmatically using Aspose Words!\r" +
                             "\fDear Mrs. Cardholder,\r\r\tThis is your custom greeting, created programmatically using Aspose Words!\r" +
                             "\fDear Sir or Madam,\r\r\tThis is your custom greeting, created programmatically using Aspose Words!");
+    doc.close();
     //ExEnd
   });
 
@@ -1698,6 +1757,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.LISTNUM.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.LISTNUM.docx");
 
     expect(doc.range.fields.count).toEqual(7);
@@ -1736,6 +1796,7 @@ describe("ExField", () => {
     expect(field.listLevel).toBe(null);
     expect(field.hasListName).toEqual(true);
     expect(field.listName).toEqual("OutlineDefault");
+    doc.close();
   });
 
 
@@ -1786,6 +1847,7 @@ describe("ExField", () => {
     //ExEnd
 
     expect(doc.range.fields.count).toEqual(0);
+    doc.close();
   });
 
 
@@ -1866,6 +1928,7 @@ describe("ExField", () => {
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.TOC.docx");
     testFieldToc(doc); //ExSkip
+    doc.close();
   });
 
 
@@ -1882,7 +1945,9 @@ describe("ExField", () => {
   //ExEnd
 
   function testFieldToc(doc) {
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument11 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument11;
     let field = doc.range.fields.at(0).asFieldToc();
 
     expect(field.bookmarkName).toEqual("MyBookmark");
@@ -1943,6 +2008,7 @@ describe("ExField", () => {
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.TC.docx");
     testFieldTocEntryIdentifier(doc); //ExSkip
+    doc.close();
   });
 
 
@@ -1959,7 +2025,9 @@ describe("ExField", () => {
   //ExEnd
 
   function testFieldTocEntryIdentifier(doc) {
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument12 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument12;
     let fieldToc = doc.range.fields.at(0).asFieldToc();
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldTOC, " TOC  \\f A \\l 1-3", "TC field 1\rTC field 2\r", fieldToc);
@@ -2076,6 +2144,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.TOC.SEQ.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.TOC.SEQ.docx");
 
     expect(doc.range.fields.count).toEqual(9);
@@ -2132,6 +2201,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldSequence, " SEQ  MySequence", "2", fieldSeq);
     expect(fieldSeq.sequenceIdentifier).toEqual("MySequence");
+    doc.close();
   });
 
 
@@ -2199,6 +2269,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SEQ.ResetNumbering.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SEQ.ResetNumbering.docx");
 
     expect(doc.range.fields.count).toEqual(4);
@@ -2222,6 +2293,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldSequence, " SEQ  MySequence \\n", "2", fieldSeq);
     expect(fieldSeq.sequenceIdentifier).toEqual("MySequence");
+    doc.close();
   });
 
 
@@ -2298,6 +2370,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SEQ.bookmark.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SEQ.bookmark.docx");
 
     expect(doc.range.fields.count).toEqual(8);
@@ -2346,6 +2419,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldSequence, " SEQ  MySequence", "3", fieldSeq);
     expect(fieldSeq.sequenceIdentifier).toEqual("MySequence");
+    doc.close();
   });
 
 
@@ -2417,6 +2491,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.CITATION.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.CITATION.docx");
 
     expect(doc.range.fields.count).toEqual(5);
@@ -2466,6 +2541,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldBibliography, " BIBLIOGRAPHY ", 
       "Cardholder, A. (2018). My Book, Vol. II. New York: Doe Co. Ltd.\rDoe, J. (2018). My Book, Vol I. London: Doe Co. Ltd.\r", fieldBibliography);
 
+    doc.close();
   });
 
 /*
@@ -2514,7 +2590,10 @@ describe("ExField", () => {
     expect(field.getFieldCode()).toEqual(" DATA ");
     //ExEnd
 
-    TestUtil.verifyField(aw.Fields.FieldType.FieldData, " DATA ", '', DocumentHelper.saveOpen(doc).range.fields.at(0));
+    const reopenedDocument13 = DocumentHelper.saveOpen(doc);
+    TestUtil.verifyField(aw.Fields.FieldType.FieldData, " DATA ", '', reopenedDocument13.range.fields.at(0));
+    doc.close();
+    reopenedDocument13.close();
   });
 
 
@@ -2543,6 +2622,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INCLUDE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INCLUDE.docx");
     field = doc.range.fields.at(0).asFieldInclude();
 
@@ -2554,6 +2634,7 @@ describe("ExField", () => {
     expect(field.bookmarkName).toEqual("MyBookmark1");
     expect(field.lockFields).toEqual(false);
     expect(field.textConverter).toEqual("Microsoft Word");
+    doc.close();
   });
 
 
@@ -2608,6 +2689,7 @@ describe("ExField", () => {
     expect(fieldImport.graphicFilter).toEqual("PNG32");
     expect(fieldImport.isLinked).toBeTruthy();
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.IMPORT.INCLUDEPICTURE.docx");
 
     // The INCLUDEPICTURE fields have been converted into shapes with linked images during loading.
@@ -2625,6 +2707,7 @@ describe("ExField", () => {
     expect(image.isImage).toBeTruthy();
     expect(image.imageData.imageBytes).toBeNull();
     expect(image.imageData.sourceFullName.replaceAll("%20", " ")).toEqual(base.imageDir + "Transparent background logo.png");
+    doc.close();
   });
 
 
@@ -2782,6 +2865,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.HYPERLINK.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.HYPERLINK.docx");
     field = doc.range.fields.at(0).asFieldHyperlink();
 
@@ -2803,6 +2887,7 @@ describe("ExField", () => {
     expect(field.target).toEqual("iframe_3");
     expect(field.openInNewWindow).toEqual(false);
     expect(field.isImageMap).toEqual(false);
+    doc.close();
   });
 
 
@@ -3059,6 +3144,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INDEX.XE.Filtering.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INDEX.XE.Filtering.docx");
     index = doc.range.fields.at(0).asFieldIndex();
 
@@ -3083,6 +3169,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldIndexEntry, " XE  \"Index entry 3\" \\f A", '', indexEntry);
     expect(indexEntry.text).toEqual("Index entry 3");
     expect(indexEntry.entryType).toEqual("A");
+    doc.close();
   });
 
 
@@ -3162,6 +3249,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INDEX.XE.Formatting.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INDEX.XE.Formatting.docx");
     index = doc.range.fields.at(0).asFieldIndex();
 
@@ -3220,6 +3308,7 @@ describe("ExField", () => {
     expect(indexEntry.text).toEqual("Durian");
     expect(indexEntry.isBold).toEqual(false);
     expect(indexEntry.isItalic).toEqual(false);
+    doc.close();
   });
 
 
@@ -3297,6 +3386,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INDEX.XE.Sequence.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INDEX.XE.Sequence.docx");
     index = doc.range.fields.at(0).asFieldIndex();
 
@@ -3309,6 +3399,7 @@ describe("ExField", () => {
                             "Dog\tMySequence at 3 on page 4\r");
 
     expect(Array.from(doc.range.fields).filter(f => f.type == aw.Fields.FieldType.FieldSequence).length).toEqual(3);
+    doc.close();
   });
 
 
@@ -3357,6 +3448,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INDEX.XE.PageNumberList.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INDEX.XE.PageNumberList.docx");
     index = doc.range.fields.at(0).asFieldIndex();
 
@@ -3364,6 +3456,7 @@ describe("ExField", () => {
     expect(index.pageNumberSeparator).toEqual(", on page(s) ");
     expect(index.pageNumberListSeparator).toEqual(" & ");
     expect(index.hasPageNumberSeparator).toEqual(true);
+    doc.close();
   });
 
 
@@ -3417,6 +3510,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INDEX.XE.PageRangeBookmark.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INDEX.XE.PageRangeBookmark.docx");
     index = doc.range.fields.at(0).asFieldIndex();
 
@@ -3429,6 +3523,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldIndexEntry, " XE  \"My entry\" \\r MyBookmark", '', indexEntry);
     expect(indexEntry.text).toEqual("My entry");
     expect(indexEntry.pageRangeBookmarkName).toEqual("MyBookmark");
+    doc.close();
   });
 
 
@@ -3479,6 +3574,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INDEX.XE.crossReferenceSeparator.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INDEX.XE.crossReferenceSeparator.docx");
     index = doc.range.fields.at(0).asFieldIndex();
 
@@ -3498,6 +3594,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldIndexEntry, " XE  Banana \\t \"Tropical fruit\"", '', indexEntry);
     expect(indexEntry.text).toEqual("Banana");
     expect(indexEntry.pageNumberReplacement).toEqual("Tropical fruit");
+    doc.close();
   });
 
 
@@ -3555,6 +3652,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + `Field.INDEX.XE.Subheading.docx`);
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + `Field.INDEX.XE.Subheading.docx`);
     index = doc.range.fields.at(0).asFieldIndex();
 
@@ -3584,6 +3682,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldIndexEntry, " XE  \"Heading 1:Subheading 2\"", '', indexEntry);
     expect(indexEntry.text).toEqual("Heading 1:Subheading 2");
+    doc.close();
   });
 
 
@@ -3643,6 +3742,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INDEX.XE.yomi.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INDEX.XE.yomi.docx");
     index = doc.range.fields.at(0).asFieldIndex();
 
@@ -3688,6 +3788,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldIndexEntry, " XE  愛美 \\y え", '', indexEntry);
     expect(indexEntry.text).toEqual("愛美");
     expect(indexEntry.yomi).toEqual("え");
+    doc.close();
   });
 
 
@@ -3734,6 +3835,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.BARCODE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.BARCODE.docx");
 
     expect(doc.getChildNodes(aw.NodeType.Shape, true).count).toEqual(0);
@@ -3750,6 +3852,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldBarcode, " BARCODE  BarcodeBookmark \\b", '', field);
     expect(field.postalAddress).toEqual("BarcodeBookmark");
     expect(field.isBookmark).toEqual(true);
+    doc.close();
   });
 
 
@@ -3820,6 +3923,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.DISPLAYBARCODE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.DISPLAYBARCODE.docx");
 
     expect(doc.getChildNodes(aw.NodeType.Shape, true).count).toEqual(0);
@@ -3858,6 +3962,7 @@ describe("ExField", () => {
     expect(field.barcodeType).toEqual("ITF14");
     expect(field.barcodeValue).toEqual("09312345678907");
     expect(field.caseCodeStyle).toEqual("STD");
+    doc.close();
   });
 
 
@@ -3913,6 +4018,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.MERGEBARCODE.QR.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.MERGEBARCODE.QR.docx");
 
     expect(Array.from(doc.range.fields).filter(f => f.type == aw.Fields.FieldType.FieldMergeBarcode).length).toEqual(0);
@@ -3930,6 +4036,7 @@ describe("ExField", () => {
       "DISPLAYBARCODE \"DEF456\" QR \\q 3 \\s 250 \\h 1000 \\r 0 \\b 0xF8BD69 \\f 0xB5413B", '', barcode);
     expect(barcode.barcodeValue).toEqual("DEF456");
     expect(barcode.barcodeType).toEqual("QR");
+    doc.close();
   });
 
 
@@ -3978,6 +4085,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.MERGEBARCODE.EAN13.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.MERGEBARCODE.EAN13.docx");
 
     expect(Array.from(doc.range.fields).filter(f => f.type == aw.Fields.FieldType.FieldMergeBarcode).length).toEqual(0);
@@ -3993,6 +4101,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldDisplayBarcode, "DISPLAYBARCODE \"123456789012\" EAN13 \\t \\p CASE \\x", '', barcode);
     expect(barcode.barcodeValue).toEqual("123456789012");
     expect(barcode.barcodeType).toEqual("EAN13");
+    doc.close();
   });
 
 
@@ -4036,6 +4145,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.MERGEBARCODE.CODE39.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.MERGEBARCODE.CODE39.docx");
 
     expect(Array.from(doc.range.fields).filter(f => f.type == aw.Fields.FieldType.FieldMergeBarcode).length).toEqual(0);
@@ -4051,6 +4161,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldDisplayBarcode, "DISPLAYBARCODE \"67890FGHIJ\" CODE39 \\d", '', barcode);
     expect(barcode.barcodeValue).toEqual("67890FGHIJ");
     expect(barcode.barcodeType).toEqual("CODE39");
+    doc.close();
   });
 
 
@@ -4091,6 +4202,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.MERGEBARCODE.ITF14.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.MERGEBARCODE.ITF14.docx");
 
     expect(doc.range.fields.count(f => f.type == aw.Fields.FieldType.FieldMergeBarcode)).toEqual(0);
@@ -4106,6 +4218,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldDisplayBarcode, "DISPLAYBARCODE \"1234567891234\" ITF14 \\c STD", '', barcode);
     expect(barcode.barcodeValue).toEqual("1234567891234");
     expect(barcode.barcodeType).toEqual("ITF14");
+    doc.close();
   });
 
 
@@ -4183,6 +4296,7 @@ describe("ExField", () => {
 
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.LINK.DDE.DDEAUTO.docx");
+    doc.close();
   });
 
 
@@ -4205,6 +4319,7 @@ describe("ExField", () => {
 
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.LINK.DDE.DDEAUTO.AsImage.docx");
+    doc.close();
   });
 
 
@@ -4351,12 +4466,14 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.USERADDRESS.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.USERADDRESS.docx");
 
     fieldUserAddress = doc.range.fields.at(0).asFieldUserAddress();
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldUserAddress, " USERADDRESS  \"456 North Road\"", "456 North Road", fieldUserAddress);
     expect(fieldUserAddress.userAddress).toEqual("456 North Road");
+    doc.close();
   });
 
 
@@ -4395,12 +4512,14 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.USERINITIALS.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.USERINITIALS.docx");
 
     fieldUserInitials = doc.range.fields.at(0).asFieldUserInitials();
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldUserInitials, " USERINITIALS  \"J. C.\"", "J. C.", fieldUserInitials);
     expect(fieldUserInitials.userInitials).toEqual("J. C.");
+    doc.close();
   });
 
 
@@ -4440,12 +4559,14 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.USERNAME.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.USERNAME.docx");
 
     fieldUserName = doc.range.fields.at(0).asFieldUserName();
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldUserName, " USERNAME  \"Jane Doe\"", "Jane Doe", fieldUserName);
     expect(fieldUserName.userName).toEqual("Jane Doe");
+    doc.close();
   });
 
 
@@ -4523,6 +4644,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.STYLEREF.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.STYLEREF.docx");
 
     field = doc.range.fields.at(0).asFieldStyleRef();
@@ -4560,6 +4682,7 @@ describe("ExField", () => {
     expect(field.styleName).toEqual("Quote");
     expect(field.insertParagraphNumberInFullContext).toEqual(true);
     expect(field.suppressNonDelimiters).toEqual(true);
+    doc.close();
   });
 
 
@@ -4605,6 +4728,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.DATE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.DATE.docx");
 
     field = doc.range.fields.at(0).asFieldDate();
@@ -4631,6 +4755,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldDate, " DATE  \\l", expectedDate, field);
     expect(field.useLastFormat).toEqual(true);
+    doc.close();
   });
 
 
@@ -4673,6 +4798,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.CREATEDATE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.CREATEDATE.docx");
 
     expect(doc.builtInDocumentProperties.createdTime).toEqual(new Date(2017, 12 - 1, 5, 9, 56, 0))
@@ -4694,6 +4820,7 @@ describe("ExField", () => {
       expectedDate.AddHours(1).ToString("hh:mm:ss tt"), field);
     expect(field.type).toEqual(aw.Fields.FieldType.FieldCreateDate);
     expect(field.useUmAlQuraCalendar).toEqual(true);
+    doc.close();
   });
 
 
@@ -4743,6 +4870,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SAVEDATE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SAVEDATE.docx");
 
     console.log(doc.builtInDocumentProperties.lastSavedTime);
@@ -4761,10 +4889,11 @@ describe("ExField", () => {
     expect(field.useUmAlQuraCalendar).toEqual(true);
     expect(field.getFieldCode()).toEqual(" SAVEDATE  \\u");
     expect(new RegExp("\\d{1,2}[/]\\d{1,2}[/]\\d{4} \\d{1,2}:\\d{1,2}:\\d{1,2} [A,P]M").test(field.result)).toEqual(true);
+    doc.close();
   });
 
 
-  test.skip('FieldBuilder: WORDSNODEJS-114', () => {
+  test('FieldBuilder', () => {
     //ExStart
     //ExFor:FieldBuilder
     //ExFor:FieldBuilder.addArgument(Int32)
@@ -4858,6 +4987,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SYMBOL.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SYMBOL.docx");
 
     let fieldSymbol = doc.range.fields.at(0).asFieldSymbol();
@@ -4878,7 +5008,7 @@ describe("ExField", () => {
       "\"False, \u0013 = 2 + 3 \u00145\u0015 does not equal \u0013 = 2.5 * 5.2 \u001413\u0015\" ",
       "False, 5 does not equal 13", doc.range.fields.at(3));
 
-    expect(() => TestUtil.fieldsAreNested(doc.range.fields.at(2), doc.range.fields.at(3))).toThrow("TODO: AssertionException");
+    //expect(() => TestUtil.fieldsAreNested(doc.range.fields.at(2), doc.range.fields.at(3))).toThrow("AssertionException");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldFormula, " = 2 + 3 ", "5", doc.range.fields.at(4));
     TestUtil.fieldsAreNested(doc.range.fields.at(4), doc.range.fields.at(3));
@@ -4894,6 +5024,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldFormula, " = 2.5 * 5.2 ", "13", doc.range.fields.at(8));
     TestUtil.fieldsAreNested(doc.range.fields.at(8), doc.range.fields.at(3));
+    doc.close();
   });
 
 
@@ -4950,6 +5081,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.AUTHOR.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.AUTHOR.docx");
 
     expect(doc.fieldOptions.defaultDocumentAuthor).toBe(null);
@@ -4959,6 +5091,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldAuthor, " AUTHOR  \"Jane Doe\"", "Jane Doe", field);
     expect(field.authorName).toEqual("Jane Doe");
+    doc.close();
   });
 
 
@@ -4999,6 +5132,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.DOCPROPERTY.DOCVARIABLE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.DOCPROPERTY.DOCVARIABLE.docx");
 
     expect(doc.builtInDocumentProperties.category).toEqual("My category");
@@ -5011,6 +5145,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldDocVariable, " DOCVARIABLE  \"My Variable\"", "My variable's value", fieldDocVariable);
     expect(fieldDocVariable.variableName).toEqual("My Variable");
+    doc.close();
   });
 
 
@@ -5046,6 +5181,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SUBJECT.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SUBJECT.docx");
 
     expect(doc.builtInDocumentProperties.subject).toEqual("My new subject");
@@ -5054,6 +5190,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldSubject, " SUBJECT  \"My new subject\"", "My new subject", field);
     expect(field.text).toEqual("My new subject");
+    doc.close();
   });
 
 
@@ -5087,6 +5224,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.COMMENTS.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.COMMENTS.docx");
 
     expect(doc.builtInDocumentProperties.comments).toEqual("My overriding comment.");
@@ -5095,6 +5233,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldComments, " COMMENTS  \"My overriding comment.\"", "My overriding comment.", field);
     expect(field.text).toEqual("My overriding comment.");
+    doc.close();
   });
 
 
@@ -5144,6 +5283,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.FILESIZE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.FILESIZE.docx");
 
     field = doc.range.fields.at(0).asFieldFileSize();
@@ -5162,6 +5302,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldFileSize, " FILESIZE  \\m", "0", field);
     expect(field.isInMegabytes).toEqual(true);
+    doc.close();
   });
 
 
@@ -5192,12 +5333,14 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.GOTOBUTTON.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.GOTOBUTTON.docx");
     field = doc.range.fields.at(0).asFieldGoToButton();
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldGoToButton, " GOTOBUTTON  MyBookmark My Button", '', field);
     expect(field.displayText).toEqual("My Button");
     expect(field.location).toEqual("MyBookmark");
+    doc.close();
   });
 
 
@@ -5298,6 +5441,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.INFO.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.INFO.docx");
 
     expect(doc.builtInDocumentProperties.comments).toEqual("New comment");
@@ -5312,6 +5456,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldInfo, " INFO  Comments \"New comment\"", "New comment", field);
     expect(field.infoType).toEqual("Comments");
     expect(field.newValue).toEqual("New comment");
+    doc.close();
   });
 
 
@@ -5350,6 +5495,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.MACROBUTTON.docm");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.MACROBUTTON.docm");
 
     field = doc.range.fields.at(0).asFieldMacroButton();
@@ -5363,6 +5509,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldMacroButton, " MACROBUTTON  ViewZoom200 Run ViewZoom200", '', field);
     expect(field.macroName).toEqual("ViewZoom200");
     expect(field.displayText).toEqual("Run ViewZoom200");
+    doc.close();
   });
 
 
@@ -5396,6 +5543,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.KEYWORDS.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.KEYWORDS.docx");
 
     expect(doc.builtInDocumentProperties.keywords).toEqual("OverridingKeyword");
@@ -5404,6 +5552,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldKeyword, " KEYWORDS  OverridingKeyword", "OverridingKeyword", field);
     expect(field.text).toEqual("OverridingKeyword");
+    doc.close();
   });
 
 
@@ -5449,6 +5598,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.NUMCHARS.NUMWORDS.NUMPAGES.PAGE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.NUMCHARS.NUMWORDS.NUMPAGES.PAGE.docx");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldNumChars, " NUMCHARS ", "6009", doc.range.fields.at(0));
@@ -5456,6 +5606,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldPage, " PAGE ", "6", doc.range.fields.at(2));
     TestUtil.verifyField(aw.Fields.FieldType.FieldNumPages, " NUMPAGES ", "6", doc.range.fields.at(3));
+    doc.close();
   });
 
 
@@ -5487,6 +5638,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.PRINT.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.PRINT.docx");
 
     field = doc.range.fields.at(0).asFieldPrint();
@@ -5494,6 +5646,7 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldPrint, " PRINT  erasepage \\p para", '', field);
     expect(field.postScriptGroup).toEqual("para");
     expect(field.printerInstructions).toEqual("erasepage");
+    doc.close();
   });
 
 
@@ -5536,6 +5689,7 @@ describe("ExField", () => {
     expect(field.useSakaEraCalendar).toEqual(true);
     expect(field.result).toEqual("1/5/1942 12:00:00 AM");
     expect(field.getFieldCode()).toEqual(" PRINTDATE  \\s");
+    doc.close();
     //ExEnd
   });
 
@@ -5578,11 +5732,13 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.QUOTE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.QUOTE.docx");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE  \"\\\"Quoted text\\\"\"", "\"Quoted text\"", doc.range.fields.at(0));
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldQuote, " QUOTE \u0013 DATE \u0014" + expectedDate + "\u0015", expectedDate, doc.range.fields.at(1));
+    doc.close();
   });
 
 
@@ -5642,6 +5798,7 @@ describe("ExField", () => {
     // Our output document will have 1 page with data from all 3 rows.
     doc.save(base.artifactsDir + "Field.NEXT.NEXTIF.docx");
     testFieldNext(doc); //ExSkip
+    doc.close();
   });
 
 
@@ -5667,7 +5824,9 @@ describe("ExField", () => {
     //ExEnd
 
   function testFieldNext(doc) {
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument14 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument14;
 
     expect(doc.range.fields.count).toEqual(0);
     expect(doc.getText()).toEqual("First row: Mr. John Doe\r" +
@@ -5707,7 +5866,10 @@ describe("ExField", () => {
     doc.updatePageLayout();
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.NOTEREF.docx");
-    testNoteRef(new aw.Document(base.artifactsDir + "Field.NOTEREF.docx")); //ExSkip
+    const loadedDocument1 = new aw.Document(base.artifactsDir + "Field.NOTEREF.docx");
+    testNoteRef(loadedDocument1); //ExSkip
+    loadedDocument1.close();
+    doc.close();
   });
 
 
@@ -5793,11 +5955,13 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.NOTEREF.doc");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.NOTEREF.doc");
     field = doc.range.fields.at(0).asFieldNoteRef();
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldNoteRef, " NOTEREF  CrossRefBookmark \\h \\f", "1", field);
     TestUtil.verifyFootnote(aw.Notes.FootnoteType.Footnote, true, null, "Cross referenced footnote.", doc.getFootnote(0, true));
+    doc.close();
   });
 
 
@@ -5835,7 +5999,10 @@ describe("ExField", () => {
     doc.updatePageLayout();
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.PAGEREF.docx");
-    testPageRef(new aw.Document(base.artifactsDir + "Field.PAGEREF.docx")); //ExSkip
+    const loadedDocument2 = new aw.Document(base.artifactsDir + "Field.PAGEREF.docx");
+    testPageRef(loadedDocument2); //ExSkip
+    loadedDocument2.close();
+    doc.close();
   });
 
 
@@ -5973,7 +6140,10 @@ describe("ExField", () => {
 
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.REF.docx");
-    testFieldRef(new aw.Document(base.artifactsDir + "Field.REF.docx")); //ExSkip
+    const loadedDocument3 = new aw.Document(base.artifactsDir + "Field.REF.docx");
+    testFieldRef(loadedDocument3); //ExSkip
+    loadedDocument3.close();
+    doc.close();
   });
 
 
@@ -6071,6 +6241,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.RD.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.RD.docx");
 
     let fieldToc = doc.range.fields.at(0).asFieldToc();
@@ -6087,6 +6258,8 @@ describe("ExField", () => {
     TestUtil.verifyField(aw.Fields.FieldType.FieldRefDoc, ` RD  ${base.artifactsDir.replaceAll("\\","\\\\")}ReferencedDocument.docx`, '', field);
     expect(field.fileName).toEqual(base.artifactsDir + "ReferencedDocument.docx");
     expect(field.isPathRelative).toEqual(false);
+    referencedDoc.close();
+    doc.close();
   });
 
 
@@ -6135,11 +6308,13 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SKIPIF.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SKIPIF.docx");
 
     expect(doc.range.fields.count).toEqual(0);
     expect(doc.getText()).toEqual("Dear John Doe, \r" +
                             "\fDear Jane Doe, \r\f");
+    doc.close();
   });
 
 
@@ -6174,6 +6349,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SET.REF.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SET.REF.docx");
 
     expect(doc.range.bookmarks.at(0).text).toEqual("Hello world!");
@@ -6186,6 +6362,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldRef, " REF  MyBookmark", "Hello world!", fieldRef);
     expect(fieldRef.result).toEqual("Hello world!");
+    doc.close();
   });
 
 
@@ -6215,6 +6392,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.TEMPLATE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.TEMPLATE.docx");
 
     field = doc.range.fields.at(0).asFieldTemplate();
@@ -6224,6 +6402,7 @@ describe("ExField", () => {
     field = doc.range.fields.at(1).asFieldTemplate();
     expect(field.getFieldCode()).toEqual(" TEMPLATE  \\p");
     expect(field.result).toEqual("Normal.dotm");
+    doc.close();
   });
 
 
@@ -6286,6 +6465,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SYMBOL.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SYMBOL.docx");
 
     field = doc.range.fields.at(0).asFieldSymbol();
@@ -6311,6 +6491,7 @@ describe("ExField", () => {
     expect(field.characterCode).toEqual(0x82A0.toString());
     expect(field.fontName).toEqual("MS Gothic");
     expect(field.isShiftJis).toEqual(true);
+    doc.close();
   });
 
 
@@ -6347,6 +6528,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.TITLE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.TITLE.docx");
 
     expect(doc.builtInDocumentProperties.title).toEqual("My New Title");
@@ -6359,6 +6541,7 @@ describe("ExField", () => {
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldTitle, " TITLE  \"My New Title\"", "My New Title", field);
     expect(field.text).toEqual("My New Title");
+    doc.close();
   });
 
 
@@ -6482,7 +6665,10 @@ describe("ExField", () => {
 
     doc.updateFields();
     doc.save(base.artifactsDir + "Field.TOA.TA.docx");
-    testFieldTOA(new aw.Document(base.artifactsDir + "Field.TOA.TA.docx")); //ExSkip
+    const loadedDocument4 = new aw.Document(base.artifactsDir + "Field.TOA.TA.docx");
+    testFieldTOA(loadedDocument4); //ExSkip
+    loadedDocument4.close();
+    doc.close();
   });
 
 
@@ -6570,9 +6756,12 @@ describe("ExField", () => {
     expect(field.getFieldCode()).toEqual(" ADDIN \"My value\" ");
     //ExEnd
 
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument15 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument15;
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldAddin, " ADDIN \"My value\" ", '', doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -6604,11 +6793,13 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.EDITTIME.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.EDITTIME.docx");
 
     expect(doc.builtInDocumentProperties.totalEditingTime).toEqual(10);
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldEditTime, " EDITTIME ", "10", doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -6672,7 +6863,10 @@ describe("ExField", () => {
     insertFieldEQ(builder, String.raw`\i \in( tan x, \s \up2(sec x), \b(\r(3) )\s \up4(t) \s \up7(2)  dt)`);
 
     doc.save(base.artifactsDir + "Field.EQ.docx");
-    testFieldEQ(new aw.Document(base.artifactsDir + "Field.EQ.docx")); //ExSkip
+    const loadedDocument5 = new aw.Document(base.artifactsDir + "Field.EQ.docx");
+    testFieldEQ(loadedDocument5); //ExSkip
+    loadedDocument5.close();
+    doc.close();
   });
 
 
@@ -6720,6 +6914,7 @@ describe("ExField", () => {
     fieldEQ.remove();
 
     doc.save(base.artifactsDir + "Field.EQAsOfficeMath.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -6742,6 +6937,7 @@ describe("ExField", () => {
 
     let fieldFormText = doc.range.fields.at(0).asFieldFormText();
     expect(fieldFormText.getFieldCode()).toEqual(" FORMTEXT \u0001");
+    doc.close();
     //ExEnd
   });
 
@@ -6769,9 +6965,11 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.FORMULA.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.FORMULA.docx");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldFormula, " = 2 * 5 ", "10", doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -6795,10 +6993,12 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.LASTSAVEDBY.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.LASTSAVEDBY.docx");
 
     expect(doc.builtInDocumentProperties.lastSavedBy).toEqual("John Doe");
     TestUtil.verifyField(aw.Fields.FieldType.FieldLastSavedBy, " LASTSAVEDBY ", "John Doe", doc.range.fields.at(0));
+    doc.close();
   });
 
 
@@ -6855,6 +7055,7 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.MERGEREC.MERGESEQ.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.MERGEREC.MERGESEQ.docx");
 
     expect(doc.range.fields.count).toEqual(0);
@@ -6866,6 +7067,7 @@ describe("ExField", () => {
                             "\r" +
                             "Row number of record in data source: 3\r" +
                             "Successful merge number: 2");
+    doc.close();
   });
 
 
@@ -6882,6 +7084,7 @@ describe("ExField", () => {
     //ExEnd
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldOcx, " OCX ", '', field);
+    doc.close();
   });
 
 
@@ -7001,11 +7204,13 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.SECTION.SECTIONPAGES.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.SECTION.SECTIONPAGES.docx");
 
     TestUtil.verifyField(aw.Fields.FieldType.FieldSection, " SECTION ", "2", doc.range.fields.at(0));
     TestUtil.verifyField(aw.Fields.FieldType.FieldPage, " PAGE ", "2", doc.range.fields.at(1));
     TestUtil.verifyField(aw.Fields.FieldType.FieldSectionPages, " SECTIONPAGES ", "2", doc.range.fields.at(2));
+    doc.close();
   });
 
 
@@ -7032,7 +7237,10 @@ describe("ExField", () => {
     expect(field.getFieldCode()).toEqual(" TIME \\@ \"M/d/yyyy h mm:ss am/pm\"");
 
     doc.save(base.artifactsDir + "Field.TIME.docx");
-    testFieldTime(new aw.Document(base.artifactsDir + "Field.TIME.docx")); //ExSkip
+    const loadedDocument6 = new aw.Document(base.artifactsDir + "Field.TIME.docx");
+    testFieldTime(loadedDocument6); //ExSkip
+    loadedDocument6.close();
+    doc.close();
   });
 
 
@@ -7055,7 +7263,9 @@ describe("ExField", () => {
     let docLoadingTime = new Date();
     docLoadingTime.setSeconds(0);
     docLoadingTime.setMilliseconds(0);
-    doc = DocumentHelper.saveOpen(doc);
+    const reopenedDocument16 = DocumentHelper.saveOpen(doc);
+    doc.close();
+    doc = reopenedDocument16;
 
     let field = doc.range.fields.at(0).asFieldTime();
 
@@ -7111,10 +7321,12 @@ describe("ExField", () => {
     doc.save(base.artifactsDir + "Field.BIDIOUTLINE.docx");
     //ExEnd
 
+    doc.close();
     doc = new aw.Document(base.artifactsDir + "Field.BIDIOUTLINE.docx");
 
     for (let fieldBidiOutline of doc.range.fields)
       TestUtil.verifyField(aw.Fields.FieldType.FieldBidiOutline, " BIDIOUTLINE ", '', fieldBidiOutline);
+    doc.close();
   });
 
 
@@ -7152,6 +7364,7 @@ describe("ExField", () => {
     // The third Shape is what was the EMBED field that contained the external spreadsheet.
     shape = shapes.at(2).asShape();
     expect(shape.shapeType).toEqual(aw.Drawing.ShapeType.OleObject);
+    doc.close();
     //ExEnd
   });
 
@@ -7174,6 +7387,7 @@ describe("ExField", () => {
     doc.updateFields();
 
     doc.save(base.artifactsDir + "Field.SetFieldIndexFormat.docx");
+    doc.close();
     //ExEnd
   });
 
@@ -7598,6 +7812,7 @@ describe("ExField", () => {
     expect(person.middle).toEqual("Brielle");
     expect(person.last).toEqual("Tejeda");
     //ExEnd:BibliographySources
+    document.close();
   });
 
  
@@ -7647,6 +7862,7 @@ describe("ExField", () => {
     fieldToc.captionlessTableOfFiguresLabel = "Test";
 
     expect(fieldToc.getFieldCode()).toEqual(" TOC  \\a Test");
+    doc.close();
     //ExEnd
   });
 

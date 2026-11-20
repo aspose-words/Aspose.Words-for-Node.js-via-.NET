@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -27,6 +27,8 @@ describe("JoinAndAppendDocuments", () => {
         dstDoc.appendDocument(srcDoc, aw.ImportFormatMode.KeepSourceFormatting);
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.SimpleAppendDocument.docx");
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('AppendDocument', () => {
@@ -51,6 +53,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.AppendDocument.docx");
         //ExEnd:AppendDocumentManually
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('AppendDocumentToBlank', () => {
@@ -66,6 +70,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.AppendDocumentToBlank.docx");
         //ExEnd:AppendDocumentToBlank
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('AppendWithImportFormatOptions', () => {
@@ -80,6 +86,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.appendDocument(srcDoc, aw.ImportFormatMode.UseDestinationStyles, options);
         //ExEnd:AppendWithImportFormatOptions
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('ConvertNumPageFields', () => {
@@ -103,6 +111,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.ConvertNumPageFields.docx");
         //ExEnd:ConvertNumPageFields
+        dstDoc.close();
+        srcDoc.close();
     });
 
     //ExStart:ConvertNumPageFieldsToPageRef
@@ -255,6 +265,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.DifferentPageSetup.docx");
         //ExEnd:DifferentPageSetup
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('JoinContinuous', () => {
@@ -269,6 +281,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.JoinContinuous.docx");
         //ExEnd:JoinContinuous
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('JoinNewPage', () => {
@@ -283,6 +297,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.JoinNewPage.docx");
         //ExEnd:JoinNewPage
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('KeepSourceFormatting', () => {
@@ -300,6 +316,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.KeepSourceFormatting.docx");
         //ExEnd:KeepSourceFormatting
+        srcDoc.close();
+        dstDoc.close();
     });
 
     test('KeepSourceTogether', () => {
@@ -320,6 +338,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.KeepSourceTogether.docx");
         //ExEnd:KeepSourceTogether
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('ListKeepSourceFormatting', () => {
@@ -334,6 +354,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.ListKeepSourceFormatting.docx");
         //ExEnd:ListKeepSourceFormatting
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('ListUseDestinationStyles', () => {
@@ -378,6 +400,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.ListUseDestinationStyles.docx");
         //ExEnd:ListUseDestinationStyles
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('RestartPageNumbering', () => {
@@ -392,6 +416,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.RestartPageNumbering.docx");
         //ExEnd:RestartPageNumbering
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('UpdatePageLayout', () => {
@@ -412,6 +438,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.UpdatePageLayout.docx");
         //ExEnd:UpdatePageLayout
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('UseDestinationStyles', () => {
@@ -424,6 +452,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.UseDestinationStyles.docx");
         //ExEnd:UseDestinationStyles
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('SmartStyleBehavior', () => {
@@ -454,6 +484,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.SmartStyleBehavior.docx");
         //ExEnd:SmartStyleBehavior
+        srcDoc.close();
+        dstDoc.close();
     });
 
     test('InsertDocument', () => {
@@ -469,6 +501,8 @@ describe("JoinAndAppendDocuments", () => {
         builder.insertDocument(srcDoc, aw.ImportFormatMode.KeepSourceFormatting);
         builder.document.save(base.artifactsDir + "JoinAndAppendDocuments.InsertDocument.docx");
         //ExEnd:InsertDocumentWithBuilder
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('InsertDocumentInline', () => {
@@ -492,6 +526,8 @@ describe("JoinAndAppendDocuments", () => {
 
         console.log(dstDoc.document.getText().trimEnd());
         // ExEnd:InsertDocumentInlineWithBuilder
+        dstDoc.document.close();
+        srcDoc.document.close();
     });
 
     test('KeepSourceNumbering', () => {
@@ -511,6 +547,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.KeepSourceNumbering.docx");
         //ExEnd:KeepSourceNumbering
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('IgnoreTextBoxes', () => {
@@ -533,6 +571,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.IgnoreTextBoxes.docx");
         //ExEnd:IgnoreTextBoxes
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('IgnoreHeaderFooter', () => {
@@ -547,6 +587,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDocument.save(base.artifactsDir + "JoinAndAppendDocuments.IgnoreHeaderFooter.docx");
         //ExEnd:IgnoreHeaderFooter
+        dstDocument.close();
+        srcDocument.close();
     });
 
     test('LinkHeadersFooters', () => {
@@ -564,6 +606,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.LinkHeadersFooters.docx");
         //ExEnd:LinkHeadersFooters
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('RemoveSourceHeadersFooters', () => {
@@ -586,6 +630,8 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.RemoveSourceHeadersFooters.docx");
         //ExEnd:RemoveSourceHeadersFooters
+        dstDoc.close();
+        srcDoc.close();
     });
 
     test('UnlinkHeadersFooters', () => {
@@ -601,5 +647,7 @@ describe("JoinAndAppendDocuments", () => {
 
         dstDoc.save(base.artifactsDir + "JoinAndAppendDocuments.UnlinkHeadersFooters.docx");
         //ExEnd:UnlinkHeadersFooters
+        dstDoc.close();
+        srcDoc.close();
     });
 });

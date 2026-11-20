@@ -1,4 +1,4 @@
-// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -44,6 +44,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     //ExEnd
 
     expect(fs.readFileSync(base.artifactsDir + "HtmlFixedSaveOptions.UseEncoding.html", {"encoding": "ascii"}).includes("content=\"text/html; charset=us-ascii\"")).toBeTruthy()
+    doc.close();
   });
 
 
@@ -54,6 +55,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     htmlFixedSaveOptions.encoding = "utf-16";
 
     doc.save(base.artifactsDir + "HtmlFixedSaveOptions.GetEncoding.html", htmlFixedSaveOptions);
+    doc.close();
   });
 
 
@@ -88,6 +90,7 @@ describe("ExHtmlFixedSaveOptions", () => {
       expect(outDocContents.includes("<link rel=\"stylesheet\" type=\"text/css\" href=\"HtmlFixedSaveOptions.exportEmbeddedCss/styles.css\" media=\"all\" />")).toBeTruthy();
       expect(fs.existsSync(path.join(outPath, "styles.css"))).toBeTruthy();
     }
+    doc.close();
     //ExEnd
   });
 
@@ -126,6 +129,7 @@ describe("ExHtmlFixedSaveOptions", () => {
       expect(outDocContents.includes("@font-face { font-family:'Arial'; font-style:normal; font-weight:normal; src:local('☺'), url('font001.woff') format('woff'); }")).toBeTruthy();
       expect(fs.readdirSync(outPath).filter(f => f.endsWith(".woff")).length).toEqual(2);
     }
+    doc.close();
     //ExEnd
   });
 
@@ -163,6 +167,7 @@ describe("ExHtmlFixedSaveOptions", () => {
       expect(outDocContents.includes("<img class=\"awimg\" style=\"left:0pt; top:0pt; width:493.1pt; height:300.55pt;\" " +
         "src=\"HtmlFixedSaveOptions.exportEmbeddedImages/image001.jpeg\" />")).toBeTruthy();
     }
+    doc.close();
     //ExEnd
   });
 
@@ -201,6 +206,7 @@ describe("ExHtmlFixedSaveOptions", () => {
       const pattern = /<object type="image\/svg\+xml" data="HtmlFixedSaveOptions.ExportEmbeddedSvgs\/svg001\.svg"><\/object>/;
       expect(pattern.test(outDocContents)).toBeTruthy();
     }
+    doc.close();
     //ExEnd
   });
 
@@ -237,6 +243,7 @@ describe("ExHtmlFixedSaveOptions", () => {
       expect(outDocContents.includes("<a name=\"CheckBox\" style=\"left:0pt; top:0pt;\"></a>" +
         "<div class=\"awdiv\" style=\"left:0.8pt; top:0.8pt; width:14.25pt; height:14.25pt; border:solid 0.75pt #000000;\"")).toBeTruthy();
     }
+    doc.close();
     //ExEnd
   });
 
@@ -264,6 +271,7 @@ describe("ExHtmlFixedSaveOptions", () => {
 
     expect(outDocContents.includes(".myprefixdiv { position:absolute; } " +
       ".myprefixspan { position:absolute; white-space:pre; color:#000000; font-size:12pt; }")).toBeTruthy();
+    doc.close();
     //ExEnd
   });
 
@@ -296,6 +304,7 @@ describe("ExHtmlFixedSaveOptions", () => {
         expect(outDocContents.includes(".awpage { position:relative; border:solid 1pt black; margin:10pt 10pt 10pt auto; overflow:hidden; }")).toBeTruthy();
         break;
     }
+    doc.close();
     //ExEnd
   });
 
@@ -314,6 +323,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     let outDocContents = fs.readFileSync(base.artifactsDir + "HtmlFixedSaveOptions.pageMargins/styles.css").toString();
 
     expect(outDocContents.includes(".awpage { position:relative; border:solid 1pt black; margin:15pt auto 15pt auto; overflow:hidden; }")).toBeTruthy();
+    doc.close();
     //ExEnd
   });
 
@@ -338,6 +348,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     // The size of the optimized version of the document is almost a third of the size of the unoptimized document.
     expect(Math.abs(fs.statSync(base.artifactsDir + "HtmlFixedSaveOptions.OptimizeGraphicsOutput.html").size))
       .toBe(optimizeOutput ? 60398 : 190940);
+    doc.close();
     //ExEnd
   });
 
@@ -365,6 +376,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     else
       expect(outDocContents.includes("@font-face { font-family:'Arial'; font-style:normal; font-weight:normal; src:local('☺'), " +
     "url('HtmlFixedSaveOptions.UsingMachineFonts/font001.ttf') format('truetype'); }")).toBeTruthy();
+    doc.close();
     //ExEnd
   });
 
@@ -523,6 +535,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     saveOptions.idPrefix = "pfx1_";
 
     doc.save(base.artifactsDir + "HtmlFixedSaveOptions.idPrefix.html", saveOptions);
+    doc.close();
     //ExEnd:IdPrefix
   });
 
@@ -538,6 +551,7 @@ describe("ExHtmlFixedSaveOptions", () => {
     saveOptions.removeJavaScriptFromLinks = true;
 
     doc.save(base.artifactsDir + "HtmlFixedSaveOptions.removeJavaScriptFromLinks.html", saveOptions);
+    doc.close();
     //ExEnd:RemoveJavaScriptFromLinks
   });
 

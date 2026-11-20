@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2001-2025 Aspose Pty Ltd. All Rights Reserved.
+// Copyright (c) 2001-2026 Aspose Pty Ltd. All Rights Reserved.
 //
 // This file is part of Aspose.Words. The source code in this file
 // is only intended as a supplement to the documentation, and is provided
@@ -47,6 +47,8 @@ describe("WorkingWithRevisions", () => {
     console.log("Document text after changes:", clone.getText().trim());
     clone.save(base.artifactsDir + "CloneAndCombineDocuments.CloningDocument.docx");
     //ExEnd:CloneDocument
+    clone.close();
+    doc.close();
   });
 
   test('InsertDocumentAtBookmark', () => {
@@ -60,6 +62,8 @@ describe("WorkingWithRevisions", () => {
 
     mainDoc.save(base.artifactsDir + "CloneAndCombineDocuments.InsertDocumentAtBookmark.docx");
     //ExEnd:InsertDocumentAtBookmark
+    subDoc.close();
+    mainDoc.close();
   });
 
   //ExStart:InsertDocumentAsNodes
